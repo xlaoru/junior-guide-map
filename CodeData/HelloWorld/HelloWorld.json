@@ -1,0 +1,13 @@
+[
+    {
+        "type" : "html", "code" : "<button>Hello World<button>"
+    },
+
+    {
+        "type" : "css", "code" : "button {font-size: 25px;}"
+    },
+
+    {
+        "type" : "js", "code" : "document.querySelector('button').onclick = alert('Hello World)"
+    }
+]

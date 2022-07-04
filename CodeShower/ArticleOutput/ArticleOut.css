@@ -1,0 +1,4 @@
+.ArticleOut {
+    display: flex;
+    flex-direction: column;
+}

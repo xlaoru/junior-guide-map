@@ -1,0 +1,5 @@
+[
+    {"type" : "html", "code" : "<!-- TEST -->"},
+    {"type" : "css", "code" : "/* TEST */"},
+    {"type" : "js", "code" : "// TEST"}
+]

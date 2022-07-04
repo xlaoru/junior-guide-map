@@ -1,0 +1,20 @@
+.HTMLshower {
+    margin-top: 15px;
+    display: inline-block;
+    border: 5px solid rgb(203, 68, 0);
+    border-radius: 20px;
+    padding: 25px;
+    color:white;
+    background-color:rgb(255, 115, 0);
+}
+
+.HTMLshower code {
+    font-size: 15px;
+    font-family: monospace, bold;
+}
+
+/*
+CSS:
+rgb(61, 0, 228)
+rgb(11, 3, 52)
+*/

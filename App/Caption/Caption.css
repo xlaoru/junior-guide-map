@@ -1,0 +1,11 @@
+.Caption {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 15px;
+    padding: 25px;
+    color: rgb(103, 98, 98);
+    font-size: 35px;
+    font-family: fantasy;
+    background-color: rgb(221, 213, 213);
+}
