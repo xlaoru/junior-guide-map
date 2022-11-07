@@ -11,7 +11,7 @@ const ContentItem = ({image, caption, text, link}) => {
                     <Card.Text>
                     {text}
                     </Card.Text>
-                    <Button variant="primary"><a style={{'color': 'white', 'textDecoration': 'none'}} href={link}>DOCUMENTAION</a></Button>
+                    <Button variant="primary"><a style={{'color': 'white', 'textDecoration': 'none'}} href={link} target='_blank'>DOCUMENTAION</a></Button>
                 </Card.Body>
             </Card>
         </div>

@@ -47,7 +47,6 @@ function App() {
           <Route path="/aboutus" element={<AboutUs/>}/>
         </Routes>
       </Router>
-      {/* <Main content={content}/> */}
     </div>
   );
 }

@@ -1,12 +1,10 @@
 import React from 'react';
-import List from './List';
+import Filter from './Filter';
 
 const Main = ({content}) => {
     return (
         <div>
-            {/* Search */}
-            {/* Filter */}
-            <List content={content}/>
+            <Filter content={content}/>
         </div>
     );
 };
