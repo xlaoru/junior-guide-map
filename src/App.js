@@ -23,6 +23,9 @@ import ternaryExpressions from './images/ternary-expressions.png'
 import isEqualLength from './images/is-equal-length.png'
 import fetchRequest from './images/fetch.png'
 import randomNumber from './images/random-number.png'
+import arrayWithoutEmptyStrings from './images/array-without-empty-strings.png'
+import arrayWithUniqueValues from './images/array-with-unique-values.png'
+import shuffledArray from './images/shuffled-array.png'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: 'Filter - создание нового массива + выбор / фильтрация элемента и удаление его (с разной длинной)', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method'},
@@ -39,10 +42,13 @@ const content = [
   {image: doWhileCycle, caption: 'do while', text: 'Do... While - почти тот же самый цикл While, но с другим синтаксисом', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/do...while', type: 'cycle'},
   {image: forInForOfCycle, caption: 'for in / for of', text: 'Разница между "for in" и "for of". for in => индексы. for of => значения', link: '#', type: 'cycle'},
   {image: whileCycle, caption: 'while', text: 'While - цикл, который делает действие до того момента, пока условие остаётся FALSE', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/while', type: 'cycle'},
-  {image: ternaryExpressions, caption: 'Тернарые выражения', text: 'Условный (тернарный) оператор - краткая замена if/else, которая часта встречаеться в React .Пример: условие ? выражение1 : выражение2', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator', type: 'operator'},
+  {image: ternaryExpressions, caption: 'Тернарые выражения', text: 'Условный (тернарный) оператор - краткая замена if/else, которая часто встречается в React. Пример: условие ? выражение1 : выражение2', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator', type: 'operator'},
   {image: isEqualLength, caption: 'length', text: 'Length - метод, который показывает длину массива', link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length', type: 'method'},
   {image: fetchRequest, caption: 'fetch', text: 'Fetch - это запрос на сервер', link: 'https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch', type: 'request'},
   {image: randomNumber, caption: 'Math.floor + Math.random', text: 'Math.floor - это метод, который округляет число до ближайшего меньшего целого числа. Math.random - это метод, который позволяет легко найти случайное число в определенном диапазоне', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random', type: 'request'},
+  {image: arrayWithoutEmptyStrings, caption: 'Фильтрация пустых строк из массива', text: '', link: '#', type: 'lifehack'},
+  {image: arrayWithUniqueValues, caption: 'Фильтрация уникальных значений в массиве', text: '', link: '#', type: 'lifehack'},
+  {image: shuffledArray, caption: 'Перемешивание элементов в массиве', text: '', link: '#', type: 'lifehack'},
 ]
 
 function App() {
