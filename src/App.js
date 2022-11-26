@@ -53,7 +53,7 @@ const content = [
   {image: arrayWithUniqueValues, caption: 'Фильтрация уникальных значений в массиве', text: '', link: '#', type: 'lifehack'},
   {image: shuffledArray, caption: 'Перемешивание элементов в массиве', text: '', link: '#', type: 'lifehack'},
   {image: falsyValues, caption: 'Ложноподобное значение', text: 'Ложноподобное (falsy) значение — значение, которое становится false в булевом контексте', link: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy', type: 'lifehack'},
-  {image: fibonacciCycle, caption: 'Цикл Фибоначчи', text: 'Цикл Фибоначчи - это цикл, где два последних числа создают следующее число', link: 'https://www.programiz.com/javascript/examples/fibonacci-seriess', type: 'lifehack'},
+  {image: fibonacciCycle, caption: 'Цикл Фибоначчи', text: 'Цикл Фибоначчи - это цикл, где два последних числа создают следующее число', link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'lifehack'},
   {image: findMaxValue, caption: 'Нахождение самого большого числа в массиве', text: '', link: '#', type: 'lifehack'},
 ]
 
