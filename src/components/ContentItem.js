@@ -1,17 +1,18 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap'
+import './ContentItem.css'
 
 const ContentItem = ({image, caption, text, link}) => {
     return (
         <div>
-            <Card style={{ width: '18rem', 'height': '550px'}}>
-                <Card.Img variant="top" src={image} />
-                <Card.Body>
-                    <Card.Title>{caption}</Card.Title>
-                    <Card.Text>
+            <Card className="card-item">
+                <Card.Img variant="top" src={image} className="card-img" />
+                <Card.Body className='card-body'>
+                    <Card.Title className='card-title'>{caption}</Card.Title>
+                    <Card.Text className='card-text'>
                     {text}
                     </Card.Text>
-                    <Button variant="primary"><a style={{'color': 'white', 'textDecoration': 'none'}} href={link} target='_blank'>DOCUMENTAION</a></Button>
+                    <Button variant="primary" style={{'padding': '0', 'background': 'rgb(140, 149, 156)', 'border': 'none'}} className='card-button'><a href={link} target='_blank' className='doc-link'>DOCUMENTAION</a></Button>
                 </Card.Body>
             </Card>
         </div>

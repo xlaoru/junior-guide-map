@@ -6,7 +6,7 @@ const List = ({content}) => {
     return (
         <Container className='mt-5 mb-5'>
             <Row className='mt-5 mb-5'>
-                {content.map((item, index) => <Col key={index} className='mt-2 mb-2'><ContentItem image={item.image} caption={item.caption} text={item.text} link={item.link}/></Col>)}
+                {content.map((item, index) => <Col style={{'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center'}}  key={index} className='mt-2 mb-2'><ContentItem image={item.image} caption={item.caption} text={item.text} link={item.link}/></Col>)}
             </Row>
         </Container>
     );

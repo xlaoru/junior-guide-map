@@ -1,0 +1,34 @@
+.card-item {
+    width: 350px;
+    height: 150px;
+}
+
+.card-img {
+    height: 350px;
+}
+
+.card-body {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    height: 75px;
+}
+
+.card-text {
+    height: 150px;
+}
+
+.doc-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.doc-link:hover {
+    color: white;
+}

@@ -49,12 +49,12 @@ const content = [
   {image: isEqualLength, caption: 'length', text: 'Length - метод, который показывает длину массива', link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length', type: 'method'},
   {image: fetchRequest, caption: 'fetch', text: 'Fetch - это запрос на сервер', link: 'https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch', type: 'request'},
   {image: randomNumber, caption: 'Math.floor + Math.random', text: 'Math.floor - это метод, который округляет число до ближайшего меньшего целого числа. Math.random - это метод, который позволяет легко найти случайное число в определенном диапазоне', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random', type: 'request'},
-  {image: arrayWithoutEmptyStrings, caption: 'Фильтрация пустых строк из массива', text: '', link: '#', type: 'lifehack'},
-  {image: arrayWithUniqueValues, caption: 'Фильтрация уникальных значений в массиве', text: '', link: '#', type: 'lifehack'},
-  {image: shuffledArray, caption: 'Перемешивание элементов в массиве', text: '', link: '#', type: 'lifehack'},
-  {image: falsyValues, caption: 'Ложноподобное значение', text: 'Ложноподобное (falsy) значение — значение, которое становится false в булевом контексте', link: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy', type: 'lifehack'},
+  {image: arrayWithoutEmptyStrings, caption: 'Фильтрация пустых строк из массива', text: 'Это функция, которая находит все ложно подобное (пустые в это случаи) значения и не пропускает их', link: '#', type: 'lifehack'},
+  {image: arrayWithUniqueValues, caption: 'Фильтрация уникальных значений в массиве', text: 'Это функция, которая фильтрует уникальные значения через Set', link: '#', type: 'lifehack'},
+  {image: shuffledArray, caption: 'Перемешивание элементов в массиве', text: 'Это функция, которая перемешивает все значения в массиве через метод sort', link: '#', type: 'lifehack'},
+  {image: falsyValues, caption: 'Ложно подобные значение', text: 'Ложно подобные (falsy) значение — значение, которое становится false в булевом контексте', link: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy', type: 'lifehack'},
   {image: fibonaccioCycle, caption: 'Цикл Фибоначчи', text: 'Цикл Фибоначчи - это цикл, где два последних числа создают следующее число', link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'lifehack'},
-  {image: findMaxValue, caption: 'Нахождение самого большого числа в массиве', text: '', link: '#', type: 'lifehack'},
+  {image: findMaxValue, caption: 'Нахождение самого большого числа в массиве', text: 'Это функция, которая находит самое большое значение в массиве через цикличный перебор', link: '#', type: 'lifehack'},
 ]
 
 function App() {
