@@ -1,10 +1,18 @@
 .card-item {
     width: 350px;
-    height: 150px;
+}
+
+.img-wrapper {
+    background-color: rgb(140, 149, 156);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
 }
 
 .card-img {
-    height: 350px;
+    max-width: 300px;
+    max-height: auto;
 }
 
 .card-body {

@@ -6,7 +6,9 @@ const ContentItem = ({image, caption, text, link}) => {
     return (
         <div>
             <Card className="card-item">
-                <Card.Img variant="top" src={image} className="card-img" />
+                <div className="img-wrapper">
+                    <Card.Img variant="top" src={image} className="card-img" />
+                </div>
                 <Card.Body className='card-body'>
                     <Card.Title className='card-title'>{caption}</Card.Title>
                     <Card.Text className='card-text'>
