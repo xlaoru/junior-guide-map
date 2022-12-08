@@ -29,6 +29,9 @@ import shuffledArray from './images/shuffled-array.png'
 import falsyValues from './images/falsy-values.png'
 import fibonaccioCycle from './images/fibonaccio-cycle.png'
 import findMaxValue from './images/find-max-number.png'
+import fizzBuzzTask from './images/fizz-buzz-task.png'
+import letterFinder from './images/letter-finder.png'
+import isEmptyObject from './images/is-empty-object.png'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: 'Filter - создание нового массива + выбор / фильтрация элемента и удаление его (с разной длинной)', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method'},
@@ -55,6 +58,9 @@ const content = [
   {image: falsyValues, caption: 'Ложно подобные значение', text: 'Ложно подобные (falsy) значение — значение, которое становится false в булевом контексте', link: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy', type: 'lifehack'},
   {image: fibonaccioCycle, caption: 'Цикл Фибоначчи', text: 'Цикл Фибоначчи - это цикл, где два последних числа создают следующее число', link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'lifehack'},
   {image: findMaxValue, caption: 'Нахождение самого большого числа в массиве', text: 'Это функция, которая находит самое большое значение в массиве через цикличный перебор', link: '#', type: 'lifehack'},
+  {image: fizzBuzzTask, caption: 'Нахождение кратных чисел', text: 'Нахождение кратных чисел для 3 и 5', link: '#'}, 
+  {image: letterFinder, caption: 'Поиск буквы в слове', text: 'Поиск одной буквы в определенном слове', link: '#'}, 
+  {image: isEmptyObject, caption: 'Проверка объекта на пустоту', text: 'Проверка объекта на пустоту через Object.kase() + .length', link: '#'}, 
 ]
 
 function App() {
