@@ -58,9 +58,9 @@ const content = [
   {image: falsyValues, caption: 'Ложно подобные значение', text: 'Ложно подобные (falsy) значение — значение, которое становится false в булевом контексте', link: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy', type: 'lifehack'},
   {image: fibonaccioCycle, caption: 'Цикл Фибоначчи', text: 'Цикл Фибоначчи - это цикл, где два последних числа создают следующее число', link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'lifehack'},
   {image: findMaxValue, caption: 'Нахождение самого большого числа в массиве', text: 'Это функция, которая находит самое большое значение в массиве через цикличный перебор', link: '#', type: 'lifehack'},
-  {image: fizzBuzzTask, caption: 'Нахождение кратных чисел', text: 'Нахождение кратных чисел для 3 и 5', link: '#'}, 
-  {image: letterFinder, caption: 'Поиск буквы в слове', text: 'Поиск одной буквы в определенном слове', link: '#'}, 
-  {image: isEmptyObject, caption: 'Проверка объекта на пустоту', text: 'Проверка объекта на пустоту через Object.kase() + .length', link: '#'}, 
+  {image: fizzBuzzTask, caption: 'Нахождение кратных чисел', text: 'Нахождение кратных чисел для 3 и 5', link: '#', type: 'lifehack'}, 
+  {image: letterFinder, caption: 'Поиск буквы в слове', text: 'Поиск одной буквы в определенном слове', link: '#', type: 'lifehack'}, 
+  {image: isEmptyObject, caption: 'Проверка объекта на пустоту', text: 'Проверка объекта на пустоту через Object.kase() + .length', link: '#', type: 'lifehack'}, 
 ]
 
 function App() {
