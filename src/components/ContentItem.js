@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, Button} from 'react-bootstrap'
 import './ContentItem.css'
 
-const ContentItem = ({image, caption, text, link}) => {
+const ContentItem = ({image, caption, text, link, onCopy, classOfCard}) => {
     return (
         <div>
             <Card className="card-item">
@@ -15,6 +15,7 @@ const ContentItem = ({image, caption, text, link}) => {
                     {text}
                     </Card.Text>
                     <Button variant="primary" style={{'padding': '0', 'background': 'rgb(140, 149, 156)', 'border': 'none'}} className='card-button'><a href={link} target='_blank' className='doc-link'>DOCUMENTAION</a></Button>
+                    <Button variant="primary" style={{'padding': '10px', 'background': 'rgb(120, 120, 120)', 'border': 'none', 'marginTop' : '10px'}} className='card-button' onClick={() => onCopy(classOfCard)}>Copy Code</Button>
                 </Card.Body>
             </Card>
         </div>
