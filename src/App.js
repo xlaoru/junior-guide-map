@@ -32,6 +32,7 @@ import findMaxValue from './images/find-max-number.png'
 import fizzBuzzTask from './images/fizz-buzz-task.png'
 import letterFinder from './images/letter-finder.png'
 import isEmptyObject from './images/is-empty-object.png'
+import Classes from './images/classes.png'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: 'Filter - создание нового массива + выбор / фильтрация элемента и удаление его (с разной длинной)', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', classOfCard: 'filter'},
@@ -60,7 +61,8 @@ const content = [
   {image: findMaxValue, caption: 'Нахождение самого большого числа в массиве', text: 'Это функция, которая находит самое большое значение в массиве через цикличный перебор', link: '#', type: 'lifehack', classOfCard: 'maxvalue'},
   {image: fizzBuzzTask, caption: 'Нахождение кратных чисел', text: 'Нахождение кратных чисел для 3 и 5', link: '#', type: 'lifehack', classOfCard: 'fizzbuzz'}, 
   {image: letterFinder, caption: 'Поиск буквы в слове', text: 'Поиск одной буквы в определенном слове', link: '#', type: 'lifehack', classOfCard: 'letterfinder'}, 
-  {image: isEmptyObject, caption: 'Проверка объекта на пустоту', text: 'Проверка объекта на пустоту через Object.kase() + .length', link: '#', type: 'lifehack', classOfCard: 'isemptyobject'}, 
+  {image: isEmptyObject, caption: 'Проверка объекта на пустоту', text: 'Проверка объекта на пустоту через Object.keys() + .length', link: '#', type: 'lifehack', classOfCard: 'isemptyobject'}, 
+  {image: Classes, caption: 'Class', text: 'синтаксический сахар над существующим в JavaScript механизмом прототипного наследования', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes', type: 'classes', classOfCard: 'classes'}
 ]
 
 function App() {
