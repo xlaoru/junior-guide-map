@@ -27,3 +27,9 @@ Copy Code function
 ### `v4.1`
 
 Some addictions for posts
+
+Copy Code function
+
+### `v4.2`
+
+Some addictions for posts

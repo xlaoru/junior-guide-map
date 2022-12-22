@@ -33,6 +33,11 @@ import fizzBuzzTask from './images/fizz-buzz-task.png'
 import letterFinder from './images/letter-finder.png'
 import isEmptyObject from './images/is-empty-object.png'
 import Classes from './images/classes.png'
+import banWordsFilter from './images/ban-words-filter.png'
+import promise from './images/promise.png'
+import arrayWithUniqueValuesV2 from './images/array-with-unique-values_v2.0.png'
+import fibonaccioCycleV2 from './images/fibonaccio-cycle_v2.0.png'
+import arrayWithUniqueValuesV3 from './images/array-with-unique-values_v3.0.png'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: 'Filter - создание нового массива + выбор / фильтрация элемента и удаление его (с разной длинной)', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', classOfCard: 'filter'},
@@ -62,7 +67,13 @@ const content = [
   {image: fizzBuzzTask, caption: 'Нахождение кратных чисел', text: 'Нахождение кратных чисел для 3 и 5', link: '#', type: 'lifehack', classOfCard: 'fizzbuzz'}, 
   {image: letterFinder, caption: 'Поиск буквы в слове', text: 'Поиск одной буквы в определенном слове', link: '#', type: 'lifehack', classOfCard: 'letterfinder'}, 
   {image: isEmptyObject, caption: 'Проверка объекта на пустоту', text: 'Проверка объекта на пустоту через Object.keys() + .length', link: '#', type: 'lifehack', classOfCard: 'isemptyobject'}, 
-  {image: Classes, caption: 'Class', text: 'синтаксический сахар над существующим в JavaScript механизмом прототипного наследования', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes', type: 'classes', classOfCard: 'classes'}
+  {image: Classes, caption: 'Class', text: 'синтаксический сахар над существующим в JavaScript механизмом прототипного наследования', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes', type: 'classes', classOfCard: 'classes'},
+  {image: banWordsFilter, caption: 'Фильтрация бан-слов', text: '', link: '#', type: 'lifehack', classOfCard: 'banWordsFilter'},
+  {image: promise, caption: 'Promise', text: 'Объект Promise используется для отложенных и асинхронных вычислений', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise', type: 'Global_Objects', classOfCard: 'promise'},
+  {image: fibonaccioCycleV2, caption: 'Цикл Фибоначчи v2.0', text: 'Цикл Фибоначчи - это цикл, где два последних числа создают следующее число', link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'lifehack', classOfCard: 'fibonaccioV2'},
+  {image: arrayWithUniqueValuesV2, caption: 'Фильтрация уникальных значений в массиве v2.0', text: 'Это функция, которая фильтрует уникальные значения через filter', link: '#', type: 'lifehack', classOfCard: 'arrayWithUniqueValuesV2'},
+  {image: arrayWithUniqueValuesV3, caption: 'Фильтрация уникальных значений в массиве v3.0', text: 'Это функция, которая фильтрует уникальные значения через includes', link: '#', type: 'lifehack', classOfCard: 'arrayWithUniqueValuesV3'},
+  
 ]
 
 function App() {
