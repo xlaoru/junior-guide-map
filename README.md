@@ -33,3 +33,7 @@ Copy Code function
 ### `v4.2`
 
 Some addictions for posts
+
+### `v4.2.1`
+
+Little addictions for design
