@@ -12,8 +12,8 @@ const Filter = ({content}) => {
         {name: 'function'},
         {name: 'cycle'},
         {name: 'request'},
-        {name: 'lifehack'},
-        {name: 'classes'},
+        {name: 'exercise'},
+        {name: 'OOP'},
     ]
 
     const typeSearcherButtons = types.map(
