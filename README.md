@@ -37,3 +37,8 @@ Some addictions for posts
 ### `v4.2.1`
 
 Little addictions for design
+
+### `v5.0`
+
+Addictions to Copy Code function
+New function in app is categories

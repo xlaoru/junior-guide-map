@@ -1,8 +1,11 @@
 .Form {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-top: 3rem;
 }
+
 
 .searcher {
   padding: 5px;
@@ -18,6 +21,33 @@
 nav.navbar {
   padding: 0;
   margin: 0;
+}
+
+.Types-bar {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  margin-top: 2rem;
+}
+
+.type-bar {
+  background-color: white;
+  border: 5px solid rgb(140, 149, 156);
+  border-radius: 20px;
+  margin: 5px;
+  padding: 10px;
+  transition: all 0.5s;
+}
+
+.type-bar:hover {
+  background-color:rgb(140, 149, 156);
+  border: 5px solid white;
+  color: white;
+}
+
+.clicked {
+  background-color:rgb(140, 149, 156);
+  border: 5px solid white;
+  color: white;
 }
 
 .main-links {
