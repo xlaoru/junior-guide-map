@@ -46,3 +46,10 @@ New function in app is categories
 ### `v5.1`
 
 Some addictions for posts
+
+### `v5.2`
+
+Some addictions for posts
+
+### `v5.3`
+Some addictions for posts
