@@ -40,6 +40,7 @@ import fibonaccioCycleV2 from './images/fibonaccio-cycle_v2.0.png'
 import arrayWithUniqueValuesV3 from './images/array-with-unique-values_v3.0.png'
 import euclideanAlgorithm from './images/euclidean-algorithm.png'
 import isIsogram from './images/is-isogram.jpg'
+import digitalClock from './images/digital-clock.jpg'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: 'Filter - создание нового массива + выбор / фильтрация элемента и удаление его (с разной длинной)', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', code: "const array = ['JS', 'TS', 'C#', 'Java'] let filteredArray = array.filter(language => {if (language.length === 2) return true}) console.log(filteredArray)"},
@@ -77,6 +78,7 @@ const content = [
   {image: arrayWithUniqueValuesV3, caption: 'Фильтрация уникальных значений в массиве v3.0', text: 'Это функция, которая фильтрует уникальные значения через includes', link: '#', type: 'exercise', code: "const userArray = [ 'Alex', 'Mike', 'Jane', 'Mike', 'Alex' ] let uniqueArray = userArray.reduce((uniqueUser, user) => { return uniqueUser.includes(user) ? uniqueUser : [...uniqueUser, user] }, []) console.log(uniqueArray) // > ['Alex', 'Mike', 'Jane']"},
   {image: euclideanAlgorithm, caption: 'Алгоритм Евклида', text: 'Это эффективный алгоритм для нахождения наибольшего общего делителя двух целых чисел', link: '', type: 'exercise', code: "function euclideanAlgorithm(numberOne, numberTwo) { let out = [] if (numberOne > numberTwo) { while (numberOne > numberTwo) { numberOne -= numberTwo out.push(numberOne + ' ') while (numberOne < numberTwo) { numberTwo -= numberOne out.push(numberOne + ' ') } } } else if (numberOne < numberTwo) { while (numberOne < numberTwo) { numberTwo -= numberOne out.push(numberOne + ' ') while (numberOne > numberTwo) { numberOne -= numberTwo out.push(numberOne + ' ') } } } else { out = 'Numbers are equal' } return out.pop() } console.log(euclideanAlgorithm(124, 28)) // > 4 console.log(euclideanAlgorithm(18, 24)) // > 6"},  
   {image: isIsogram, caption: 'Проверка на Изограму', text: 'Функция на проверку слова на Изограму', link: '#', type: 'exercise', code: "function isIsogram(word) { let separatedWord = word.split('') let settedWord = [...new Set(separatedWord)] return separatedWord.length === settedWord.length } console.log(isIsogram('Dermatoglyphics')) // > true console.log(isIsogram('moose')) // > false console.log(isIsogram('aba')) // > false"},  
+  {image: digitalClock, caption: 'Digital clock', text: 'Интерактивные часы сделанные с помощью setInterval()', link: '#', type: 'exercise', code: '<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Document</title> </head> <body> <div class="clock"></div> <script> setInterval(() => { let date = new Date() const clock = document.querySelector(".clock") clock.innerHTML = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() }) </script> </body> </html>'},  
 ]
  
 function App() {

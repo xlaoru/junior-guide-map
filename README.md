@@ -53,3 +53,6 @@ Some addictions for posts
 
 ### `v5.3`
 Some addictions for posts
+
+### `v5.4`
+Some addictions for posts
