@@ -39,6 +39,7 @@ import arrayWithUniqueValuesV2 from './images/array-with-unique-values_v2.0.png'
 import fibonaccioCycleV2 from './images/fibonaccio-cycle_v2.0.png'
 import arrayWithUniqueValuesV3 from './images/array-with-unique-values_v3.0.png'
 import euclideanAlgorithm from './images/euclidean-algorithm.png'
+import isIsogram from './images/is-isogram.jpg'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: 'Filter - создание нового массива + выбор / фильтрация элемента и удаление его (с разной длинной)', link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', code: "const array = ['JS', 'TS', 'C#', 'Java'] let filteredArray = array.filter(language => {if (language.length === 2) return true}) console.log(filteredArray)"},
@@ -74,7 +75,7 @@ const content = [
   {image: fibonaccioCycleV2, caption: 'Цикл Фибоначчи v2.0', text: 'Цикл Фибоначчи - это цикл, где два последних числа создают следующее число', link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'exercise', code: "function fibonaccioCycle(amount) { return new Array(amount).fill(0).reduce( (accumulator, zero, index) => [...accumulator, index < 2 ? 1 : accumulator[index - 1] + accumulator[index -2]], []).join(' ') } console.log(fibonaccioCycle(10)) // > 1 1 2 3 5 8 13 21 34 55"},
   {image: arrayWithUniqueValuesV2, caption: 'Фильтрация уникальных значений в массиве v2.0', text: 'Это функция, которая фильтрует уникальные значения через filter', link: '#', type: 'exercise', code: "const userArray = [ 'Alex', 'Mike', 'Jane', 'Mike', 'Alex' ] let uniqueArray = userArray.filter((user, index) => { return index === userArray.indexOf(user) }) console.log(uniqueArray) // > ['Alex', 'Mike', 'Jane']"},
   {image: arrayWithUniqueValuesV3, caption: 'Фильтрация уникальных значений в массиве v3.0', text: 'Это функция, которая фильтрует уникальные значения через includes', link: '#', type: 'exercise', code: "const userArray = [ 'Alex', 'Mike', 'Jane', 'Mike', 'Alex' ] let uniqueArray = userArray.reduce((uniqueUser, user) => { return uniqueUser.includes(user) ? uniqueUser : [...uniqueUser, user] }, []) console.log(uniqueArray) // > ['Alex', 'Mike', 'Jane']"},
-  {image: euclideanAlgorithm, caption: 'Алгоритм Евклида', text: 'Это эффективный алгоритм для нахождения наибольшего общего делителя двух целых чисел', link: '', type: 'exercise', code: "function euclideanAlgorithm(numberOne, numberTwo) { let out = [] if (numberOne > numberTwo) { while (numberOne > numberTwo) { numberOne -= numberTwo out.push(numberOne + ' ') while (numberOne < numberTwo) { numberTwo -= numberOne out.push(numberOne + ' ') } } } else if (numberOne < numberTwo) { while (numberOne < numberTwo) { numberTwo -= numberOne out.push(numberOne + ' ') while (numberOne > numberTwo) { numberOne -= numberTwo out.push(numberOne + ' ') } } } else { out = 'Numbers are equal' } return out.pop() } console.log(euclideanAlgorithm(124, 28)) // > 4 console.log(euclideanAlgorithm(18, 24)) // > 6"},  
+  {image: isIsogram, caption: 'Проверка на Изограму', text: 'Функция на проверку слова на Изограму', link: '#', type: 'exercise', code: ""},  
 ]
 
 function App() {
