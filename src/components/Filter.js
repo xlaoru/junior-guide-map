@@ -6,19 +6,34 @@ const Filter = ({content}) => {
     const [value, setValue] = useState('')
 
     const types = [
-        {name: 'all'},
-        {name: 'method'},
-        {name: 'operator'},
-        {name: 'function'},
-        {name: 'cycle'},
-        {name: 'request'},
-        {name: 'exercise'},
-        {name: 'OOP'},
+        {name: 'all', classname: 'clicked'},
+        {name: 'method', classname: ''},
+        {name: 'operator', classname: ''},
+        {name: 'function', classname: ''},
+        {name: 'cycle', classname: ''},
+        {name: 'request', classname: ''},
+        {name: 'exercise', classname: ''},
+        {name: 'OOP', classname: ''},
     ]
 
-    const typeSearcherButtons = types.map(
-        type => <button className='type-bar' key={type.name} onClick={() => setTypeOfItem(type.name)}>{type.name}</button> 
+    const [dataTypes] = useState([...types])
+
+    const typeSearcherButtons = dataTypes.map(
+        type => <button className={`type-bar ${type.classname}`} key={type.name} onClick={() => onTypeOfItem(type.name)}>{type.name}</button>
     )
+
+    function onTypeOfItem(name) {
+        setTypeOfItem(name)
+        
+        for (const type of dataTypes) {
+            type.classname = ''
+        }
+
+        for (const type of dataTypes) {
+            if (type.name === name) type.classname = 'clicked'
+        }
+       
+    }
 
     const typeSearchedContent = content.filter(
         content => { 

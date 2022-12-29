@@ -1,5 +1,5 @@
 import './App.css';
-import Main from './components/Main';
+import Filter from './components/Filter';
 import AboutUs from './components/AboutUs';
 import Header from './components/Header';
 
@@ -89,7 +89,7 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route exact path="/" element={<Main content={content}/>}/>
+          <Route exact path="/" element={<Filter content={content}/>}/>
           <Route path="/aboutus" element={<AboutUs/>}/>
         </Routes>
       </Router>

@@ -52,10 +52,17 @@ Some addictions for posts
 Some addictions for posts
 
 ### `v5.3`
+
 Some addictions for posts
 
 ### `v5.4`
+
 Some addictions for posts
 
 ### `v5.5`
+
 Some addictions for posts
+
+### `v5.6`
+
+Setted special styles to the section buttons. Removed Main.js
