@@ -43,6 +43,12 @@ nav.navbar {
   color: white;
 }
 
+.clicked {
+  background-color:rgb(140, 149, 156);
+  border: 5px solid white;
+  color: white;
+}
+
 .main-links {
   display: flex;
 }
@@ -71,23 +77,18 @@ nav.navbar {
   margin: 0 1.5px;
   color: black;
   background-color: white;
-  border: 5px solid rgb(140, 149, 156);
-  border-radius: 20px;
+  border: 5px solid #535362;
+  border-radius: 10px;
   transition: all 0.3s;
 }
 
 .language-button:hover {
-  background-color:rgb(169, 180, 188);
-  border: 5px solid rgb(215, 214, 214);
+  background-color:rgb(203, 202, 202);
+  border: 5px solid rgb(181, 180, 180);
   color: white;
 }
 
-.activeLang {
-  height: 200px;
-}
-
-.clicked {
-  background-color:rgb(140, 149, 156);
-  border: 5px solid white;
+.selected {
+  background-color: #535362;
   color: white;
 }

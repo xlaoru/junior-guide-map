@@ -40,7 +40,7 @@ Little addictions for design
 
 ### `v5.0`
 
-Addictions to Copy Code function
+Addictions to Copy Code function.
 New function in app is categories
 
 ### `v5.1`
@@ -74,3 +74,7 @@ New arrow up button
 ### `v7.0`
 
 New language changing buttons. New translation for cards items
+
+### `v7.0.1`
+
+Some new styles to language changing buttons

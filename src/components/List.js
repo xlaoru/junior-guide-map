@@ -6,7 +6,7 @@ const List = ({content}) => {
     const [language, setLanguage] = useState('ua')
 
     const languages = [
-        {name: 'ua',classname: 'clicked'},
+        {name: 'ua',classname: 'selected'},
         {name: 'en', classname: ''}
     ]
 
@@ -24,7 +24,7 @@ const List = ({content}) => {
         }
 
         for (const language of dataLanguages) {
-            if (language.name === name) language.classname = 'clicked'
+            if (language.name === name) language.classname = 'selected'
         }
     }
 
