@@ -43,12 +43,6 @@ nav.navbar {
   color: white;
 }
 
-.clicked {
-  background-color:rgb(140, 149, 156);
-  border: 5px solid white;
-  color: white;
-}
-
 .main-links {
   display: flex;
 }
@@ -62,4 +56,38 @@ nav.navbar {
 
 .nav-item .active {
   background-color: white;
+}
+
+.languageOption {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-button {
+  padding: 5px 10px;
+  margin: 0 1.5px;
+  color: black;
+  background-color: white;
+  border: 5px solid rgb(140, 149, 156);
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.language-button:hover {
+  background-color:rgb(169, 180, 188);
+  border: 5px solid rgb(215, 214, 214);
+  color: white;
+}
+
+.activeLang {
+  height: 200px;
+}
+
+.clicked {
+  background-color:rgb(140, 149, 156);
+  border: 5px solid white;
+  color: white;
 }

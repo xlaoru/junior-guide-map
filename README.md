@@ -70,3 +70,7 @@ Setted special styles to the section buttons. Removed Main.js
 ### `v6.0`
 
 New arrow up button
+
+### `v7.0`
+
+New language changing buttons. New translation for cards items

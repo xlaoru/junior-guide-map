@@ -32,7 +32,6 @@ const Filter = ({content}) => {
         for (const type of dataTypes) {
             if (type.name === name) type.classname = 'clicked'
         }
-       
     }
 
     const typeSearchedContent = content.filter(
