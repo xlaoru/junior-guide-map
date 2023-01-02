@@ -1,6 +1,5 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap'
-import './ContentItem.css'
 
 const ContentItem = ({image, caption, text, link, code}) => {
     function onCopy(item) {

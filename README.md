@@ -78,3 +78,7 @@ New language changing buttons. New translation for cards items
 ### `v7.0.1`
 
 Some new styles to language changing buttons
+
+### `v8.0`
+
+Caption 'Nothing has found' was added

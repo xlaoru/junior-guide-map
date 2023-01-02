@@ -34,7 +34,7 @@ const List = ({content}) => {
                     {languageChooserButtons}
                 </div>
             <Row className='mt-5 mb-5'>
-                {content.map((item, index) => <Col style={{'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center'}}  key={index} className='mt-2 mb-2'><ContentItem image={item.image} caption={item.caption} text={language === 'ua' ? item.text.ua : item.text.en} link={item.link} code={item.code}/></Col>)}
+                {content.length === 0 ? <h2 className='error-caption'>Nothing has found</h2> : content.map((item, index) => <Col style={{'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center'}}  key={index} className='mt-2 mb-2'><ContentItem image={item.image} caption={item.caption} text={language === 'ua' ? item.text.ua : item.text.en} link={item.link} code={item.code}/></Col>)}
             </Row>
         </Container>
     );
