@@ -15,17 +15,12 @@ const List = ({content}) => {
             <button 
                 className={activeLanguage === index ? `language-button selected` : 'language-button'} 
                 key={language} 
-                onClick={() => onLanguageChoose(index)}
+                onClick={() => setActiveLanguage(index)}
             >
                 {language}
             </button>
     )
     
-    function onLanguageChoose(index) {
-        setActiveLanguage(index)
-
-    }
-
     return (
         <Container className='mt-5 mb-5'>
                 <div className='languageOption'>

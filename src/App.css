@@ -24,7 +24,7 @@ nav.navbar {
 
 .Types-bar {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
   margin-top: 2rem;
 }
 
@@ -117,18 +117,18 @@ nav.navbar {
 }
 
 .card-body {
-  height: 300px;
+  height: 330px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .card-title {
-  height: 75px;
+  height: 95px;
 }
 
 .card-text {
-  height: 150px;
+  height: 170px;
 }
 
 .doc-link {

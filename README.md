@@ -90,3 +90,7 @@ Changing in the construction of categories
 ### `v9.0.1`
 
 Some addictions to code
+
+### `v9.1`
+
+New posts. New category item is 'React Pattern'

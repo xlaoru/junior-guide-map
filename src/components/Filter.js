@@ -9,7 +9,8 @@ const types = [
     'cycle',
     'request',
     'exercise',
-    'OOP'
+    'OOP',
+    'React Pattern'
 ]
 
 const Filter = ({content}) => {
@@ -21,15 +22,11 @@ const Filter = ({content}) => {
             <button 
                 className={activeType === index ? `type-bar clicked` : 'type-bar'} 
                 key={type} 
-                onClick={() => setType(index)}
+                onClick={() => setActiveType(index)}
             >
                 {type}
             </button>
     )
-
-    function setType(index) {
-        setActiveType(index)
-    }
 
     const typeSearchedContent = content.filter(
         content => { 
@@ -53,7 +50,7 @@ const Filter = ({content}) => {
                     placeholder='Search...'
                     onChange={(event) => setValue(event.target.value)} 
                 />
-                <div className='Types-bar'>
+                <div className="Types-bar">
                     {typeSearcherButtons}
                 </div>
             </div>
