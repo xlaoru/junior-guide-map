@@ -1,43 +1,41 @@
 import React, { useState } from 'react';
 import List from './List';
 
+const types = [
+    'all',
+    'method',
+    'operator',
+    'function',
+    'cycle',
+    'request',
+    'exercise',
+    'OOP'
+]
+
 const Filter = ({content}) => {
-    const [typeOfItem, setTypeOfItem] = useState('all')
+    const [activeType, setActiveType] = useState(0)
     const [value, setValue] = useState('')
 
-    const types = [
-        {name: 'all', classname: 'clicked'},
-        {name: 'method', classname: ''},
-        {name: 'operator', classname: ''},
-        {name: 'function', classname: ''},
-        {name: 'cycle', classname: ''},
-        {name: 'request', classname: ''},
-        {name: 'exercise', classname: ''},
-        {name: 'OOP', classname: ''},
-    ]
-
-    const [dataTypes] = useState([...types])
-
-    const typeSearcherButtons = dataTypes.map(
-        type => <button className={`type-bar ${type.classname}`} key={type.name} onClick={() => onTypeOfItem(type.name)}>{type.name}</button>
+    const typeSearcherButtons = types.map(
+        (type, index) => 
+            <button 
+                className={activeType === index ? `type-bar clicked` : 'type-bar'} 
+                key={type} 
+                onClick={() => setType(index)}
+            >
+                {type}
+            </button>
     )
 
-    function onTypeOfItem(name) {
-        setTypeOfItem(name)
-        
-        for (const type of dataTypes) {
-            type.classname = ''
-        }
-
-        for (const type of dataTypes) {
-            if (type.name === name) type.classname = 'clicked'
-        }
+    function setType(index) {
+        setActiveType(index)
     }
 
     const typeSearchedContent = content.filter(
         content => { 
-            if (typeOfItem === 'all') return content
-            if (typeOfItem === content.type) return true
+            if (activeType === 0) return content
+            console.log(content.type)
+            if (types[activeType] === content.type) return true
         }
     )
 
@@ -50,14 +48,12 @@ const Filter = ({content}) => {
     return (
         <div className='Filter'>
             <div className='Form'>
-                <form action="">
-                    <input 
+                <input 
                         className='searcher'
-                        type="text" 
-                        placeholder='Search...'
-                        onChange={(event) => setValue(event.target.value)} 
-                    />
-                </form>
+                    type="text" 
+                    placeholder='Search...'
+                    onChange={(event) => setValue(event.target.value)} 
+                />
                 <div className='Types-bar'>
                     {typeSearcherButtons}
                 </div>

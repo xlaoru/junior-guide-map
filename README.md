@@ -82,3 +82,7 @@ Some new styles to language changing buttons
 ### `v8.0`
 
 Caption 'Nothing has found' was added
+
+### `v9.0`
+
+Changing in the construction of categories
