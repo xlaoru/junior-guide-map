@@ -86,3 +86,7 @@ Caption 'Nothing has found' was added
 ### `v9.0`
 
 Changing in the construction of categories
+
+### `v9.0.1`
+
+Some addictions to code

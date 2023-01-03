@@ -34,7 +34,6 @@ const Filter = ({content}) => {
     const typeSearchedContent = content.filter(
         content => { 
             if (activeType === 0) return content
-            console.log(content.type)
             if (types[activeType] === content.type) return true
         }
     )
