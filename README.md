@@ -28,8 +28,6 @@ Copy Code function
 
 Some addictions for posts
 
-Copy Code function
-
 ### `v4.2`
 
 Some addictions for posts
@@ -98,3 +96,7 @@ New posts. New category item is 'React Pattern'
 ### `v9.2`
 
 Some addictions to post
+
+### `v9.2.1`
+
+Some addictions to README file
