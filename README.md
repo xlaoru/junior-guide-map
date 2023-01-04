@@ -94,3 +94,7 @@ Some addictions to code
 ### `v9.1`
 
 New posts. New category item is 'React Pattern'
+
+### `v9.2`
+
+Some addictions to post
