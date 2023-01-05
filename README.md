@@ -112,3 +112,7 @@ New alert item. You can see it when you copied code. Big window with image went 
 ### `v11.1`
 
 Text of Copy Code indicatore aligned tocenter position
+
+### `v12.0`
+
+Copy Code content rewrote
