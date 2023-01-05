@@ -104,3 +104,7 @@ Some addictions to README file
 ### `v10.0`
 
 New function. You can click on code image and open it on big window
+
+### `v11.0`
+
+New alert item. You can see it when you copied code. Big window with image went to another file

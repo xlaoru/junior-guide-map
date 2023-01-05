@@ -1,12 +1,19 @@
 import {useState} from 'react';
-import {Card, Button, Modal, ModalHeader} from 'react-bootstrap'
+import {Card, Button} from 'react-bootstrap'
+import AlertMessage from './AlertMessage';
+import ModalWindow from './ModalWindow';
 
 const ContentItem = ({image, caption, text, link, code}) => {
+    const [show, setShow] = useState(false)
+    const [copied, showCopied] = useState(false)
+
     function onCopy(item) {
         navigator.clipboard.writeText(item.code)
+        showCopied(true)
+        setTimeout(() => {
+            showCopied(false)
+        }, 3000);
     }
-
-    const [show, setShow] = useState(false)
 
     return (
         <div className='ContentItem'>
@@ -24,15 +31,9 @@ const ContentItem = ({image, caption, text, link, code}) => {
                 </Card.Body>
             </Card>
             <div className="ModalWindow">
-                <Modal
-                    show={show}
-                    onHide={() => setShow(false)}
-                >
-                    <ModalHeader closeButton/>
-                    <Modal.Title style={{'textAlign': 'center', 'padding': '10px'}}>{caption}</Modal.Title>
-                    <img style={{'padding': '10px'}} src={image}/>
-                </Modal>
+                <ModalWindow caption={caption} image={image} isShowed={show} setShow={setShow} />
             </div>
+            <AlertMessage isCopied={copied} />
         </div>
     );
 };
