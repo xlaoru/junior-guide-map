@@ -45,7 +45,7 @@ const Filter = ({content}) => {
         <div className='Filter'>
             <div className='Form'>
                 <input 
-                        className='searcher'
+                    className='searcher'
                     type="text" 
                     placeholder='Search...'
                     onChange={(event) => setValue(event.target.value)} 

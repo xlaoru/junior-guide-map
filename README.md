@@ -100,3 +100,7 @@ Some addictions to post
 ### `v9.2.1`
 
 Some addictions to README file
+
+### `v10.0`
+
+New function. You can click on code image and open it on big window

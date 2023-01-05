@@ -22,7 +22,7 @@ const List = ({content}) => {
     )
     
     return (
-        <Container className='mt-5 mb-5'>
+        <Container className='List mt-5 mb-5'>
                 <div className='languageOption'>
                     {languageChooserButtons}
                 </div>
