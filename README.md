@@ -108,3 +108,7 @@ New function. You can click on code image and open it on big window
 ### `v11.0`
 
 New alert item. You can see it when you copied code. Big window with image went to another file
+
+### `v11.1`
+
+Text of Copy Code indicatore aligned tocenter position

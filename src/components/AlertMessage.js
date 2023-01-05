@@ -6,6 +6,7 @@ const AlertMessage = ({isCopied}) => {
             <Alert
                 show={isCopied}
                 variant="info"
+                style={{'textAlign' : 'center'}}
             >
                 Text Copied !
             </Alert>
