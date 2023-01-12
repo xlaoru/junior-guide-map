@@ -116,3 +116,7 @@ Text of Copy Code indicatore aligned tocenter position
 ### `v12.0`
 
 Copy Code content rewrote
+
+### `v12.1`
+
+New Post

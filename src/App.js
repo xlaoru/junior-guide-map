@@ -45,6 +45,7 @@ import digitalClock from './images/digital-clock.jpg'
 import switchCase from './images/switch-case.png'
 import reactSearchPattern from './images/search-pattern_react.png'
 import categoryReactPattern from './images/categories-pattern_react.png'
+import useEffectWithAllArgs from './images/useEffectWithAllArgs.png'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: {ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву', en: 'filter is a method that creates a new unique array with specific criteria based on the selected array'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', code: 
@@ -595,7 +596,32 @@ const Categories = ({content = []}) => {
   ); 
 }; 
 
-export default Categories;`}
+export default Categories;`},
+
+  {image: useEffectWithAllArgs, caption: 'All about useEffect', text: {ua: 'Хук ефекту дозволяє вам виконувати побічні ефекти в функціональному компоненті', en: 'An effect hook allows you to perform side effects in a functional component'}, link: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', type: 'React Pattern', code: 
+`
+// componentDidMount
+useEffect(() => {
+  console.log('components did mount')
+}, [])
+
+// componentDidUpdate (only for currentVariable)
+useEffect(() => {
+  console.log('currentVariable did update')
+}, [currentVariable])
+
+// componentDidUpdate (for all components)
+useEffect(() => {
+  console.log('components did update')
+})
+
+// componentDidMount + componentWillUnmount
+useEffect(() => {
+  console.log('component did mount')
+  return () => {
+    console.log('component will unmount')
+  }
+}, [])`}
 ]
 
 function App() {
