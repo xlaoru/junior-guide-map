@@ -46,6 +46,7 @@ import switchCase from './images/switch-case.png'
 import reactSearchPattern from './images/search-pattern_react.png'
 import categoryReactPattern from './images/categories-pattern_react.png'
 import useEffectWithAllArgs from './images/useEffectWithAllArgs.png'
+import gettingInfoFromApi from './images/gettingInfoFromApi.png'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: {ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву', en: 'filter is a method that creates a new unique array with specific criteria based on the selected array'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', code: 
@@ -621,7 +622,37 @@ useEffect(() => {
   return () => {
     console.log('component will unmount')
   }
-}, [])`}
+}, [])`},
+
+{image: gettingInfoFromApi, caption: 'Getting info from API', text: {ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування', en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use'}, link: '#', type: 'React Pattern', code: 
+`
+import {useState, useEffect} from 'react';
+
+const GettingInfoFromApi = () => {
+  let [users, setUsers] = useState([])
+
+  useEffect (() => getUsers, [])
+
+  const getUsers = () => {
+    let link = 'https://jsonplaceholder.typicode.com/users'
+    fetch(link)
+      .then((response) => { 
+        return response.json() 
+      })
+      .then((response) => setUsers(response))
+  }
+
+  return (
+    <div>
+      <button onClick={getUsers}>users</button>
+      <ul>
+        {users.map(item => <li key={item.id}>{item.name}</li>)}
+      </ul>
+    </div>
+  );
+};
+
+export default GettingInfoFromApi;`},
 ]
 
 function App() {
