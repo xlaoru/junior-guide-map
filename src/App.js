@@ -632,22 +632,21 @@ const GettingInfoFromApi = () => {
   let [users, setUsers] = useState([])
 
   useEffect (() => getUsers, [])
-
-  const getUsers = () => {
+    const getUsers = () => {
     let link = 'https://jsonplaceholder.typicode.com/users'
     fetch(link)
       .then((response) => { 
         return response.json() 
       })
-      .then((response) => setUsers(response))
+    .then((response) => setUsers(response))
   }
 
   return (
     <div>
       <button onClick={getUsers}>users</button>
-      <ul>
-        {users.map(item => <li key={item.id}>{item.name}</li>)}
-      </ul>
+        <ul>
+          {users.map(item => <li key={item.id}>{item.name}</li>)}
+        </ul>
     </div>
   );
 };
