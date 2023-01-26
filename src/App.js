@@ -47,6 +47,7 @@ import reactSearchPattern from './images/search-pattern_react.png'
 import categoryReactPattern from './images/categories-pattern_react.png'
 import useEffectWithAllArgs from './images/useEffectWithAllArgs.png'
 import gettingInfoFromApi from './images/gettingInfoFromApi.png'
+import gettingInfoFromApiKY from './images/gettingInfoFromApiKY.png'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: {ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву', en: 'filter is a method that creates a new unique array with specific criteria based on the selected array'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', code: 
@@ -521,7 +522,7 @@ console.log(isIsogram('aba'))`},
 console.log(getDirection('JS')) 
 console.log(getDirection('Python')) 
 console.log(getDirection('Dart'))`},
-  {image: reactSearchPattern, caption: 'React Search Pattern', text: {ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту', en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query'}, link: '#', type: 'React Pattern', code: 
+  {image: reactSearchPattern, caption: 'React Search Pattern', text: {ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту', en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query'}, link: '#', type: 'React', code: 
 `import {useState} from 'react' 
 
 const Filter = ({content = []}) => { 
@@ -552,7 +553,7 @@ const Filter = ({content = []}) => {
 } 
 
 export default Filter`},
-  {image: categoryReactPattern, caption: 'React Categories Pattern', text: {ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії', en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written'}, link: '#', type: 'React Pattern', code: 
+  {image: categoryReactPattern, caption: 'React Categories Pattern', text: {ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії', en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written'}, link: '#', type: 'React', code: 
 `import {useState} from 'react' 
 import './Categories.css' 
 
@@ -594,12 +595,12 @@ const Categories = ({content = []}) => {
         )} 
       </div> 
     </div> 
-  ); 
-}; 
+  )
+}
 
-export default Categories;`},
+export default Categories`},
 
-  {image: useEffectWithAllArgs, caption: 'All about useEffect', text: {ua: 'Хук ефекту дозволяє вам виконувати побічні ефекти в функціональному компоненті', en: 'An effect hook allows you to perform side effects in a functional component'}, link: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', type: 'React Pattern', code: 
+  {image: useEffectWithAllArgs, caption: 'All about useEffect', text: {ua: 'Хук ефекту дозволяє вам виконувати побічні ефекти в функціональному компоненті', en: 'An effect hook allows you to perform side effects in a functional component'}, link: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', type: 'React', code: 
 `
 // componentDidMount
 useEffect(() => {
@@ -624,34 +625,68 @@ useEffect(() => {
   }
 }, [])`},
 
-{image: gettingInfoFromApi, caption: 'Getting info from API', text: {ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування', en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use'}, link: '#', type: 'React Pattern', code: 
+{image: gettingInfoFromApi, caption: 'Getting info from API', text: {ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування', en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use'}, link: '#', type: 'React', code: 
 `
-import {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react'
 
-const GettingInfoFromApi = () => {
-  let [users, setUsers] = useState([])
+const UserList = () => {
+    let [users, setUsers] = useState([])
+    useEffect(() => getUsers, [])
 
-  useEffect (() => getUsers, [])
     const getUsers = () => {
-    let link = 'https://jsonplaceholder.typicode.com/users'
-    fetch(link)
-      .then((response) => { 
-        return response.json() 
-      })
-    .then((response) => setUsers(response))
-  }
+        let link = 'https://jsonplaceholder.typicode.com/users'
+        fetch(link)
+        .then((response) => {
+            return response.json()
+        })
+        .then((response) => setUsers(response))
+    }
 
-  return (
-    <div>
-      <button onClick={getUsers}>users</button>
-        <ul>
-          {users.map(item => <li key={item.id}>{item.name}</li>)}
-        </ul>
-    </div>
-  );
-};
+    return (
+        <div>
+            <button onClick={getUsers}>Get Users</button>
+            <ul>
+                {users.map(user => <li key={user.id}>{user.name}</li>)}
+            </ul>
+        </div>
+    )
+}
 
-export default GettingInfoFromApi;`},
+export default UserList`},
+
+{image: gettingInfoFromApi, caption: 'Getting info from API by KY', text: {ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування. А саму інформацію можно взяти за допомогою бібліотеки KY.js', en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use. And the information itself can be taken using the KY.js library'}, link: 'https://github.com/sindresorhus/ky', type: 'React', code: 
+`
+import {useState, useEffect} from 'react'
+import ky from 'ky'
+
+const api = ky.create({
+    prefixUrl: "https://jsonplaceholder.typicode.com/"
+})
+
+const UserListKY = () => {
+    const [users, setUsers] = useState([])
+    useEffect(() => getUsers, [])
+
+    async function getUsers () {
+        try {
+            const arrayOfUsers = await api.get('users').json()
+            setUsers(arrayOfUsers)
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    return (
+        <div>
+            <button onClick={getUsers}>Get Users by KY</button>
+            <ul>
+                {users.map(user => <li key={user.id}>{user.name}</li>)}
+            </ul>
+        </div>
+    )
+}
+
+export default UserListKY`}
 ]
 
 function App() {

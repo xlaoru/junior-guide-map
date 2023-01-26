@@ -10,7 +10,7 @@ const types = [
     'request',
     'exercise',
     'OOP',
-    'React Pattern'
+    'React'
 ]
 
 const Filter = ({content}) => {
