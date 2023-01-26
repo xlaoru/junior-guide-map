@@ -48,6 +48,12 @@ import categoryReactPattern from './images/categories-pattern_react.png'
 import useEffectWithAllArgs from './images/useEffectWithAllArgs.png'
 import gettingInfoFromApi from './images/gettingInfoFromApi.png'
 import gettingInfoFromApiKY from './images/gettingInfoFromApiKY.png'
+import rrt_input_1 from './images/rrt_input_1.png'
+import rrt_input_2 from './images/rrt_input_2.png'
+import rrt_input_3 from './images/rrt_input_3.png'
+import rrt_input_4 from './images/rrt_input_4.png'
+import rrt_input_5 from './images/rrt_input_5.png'
+import rrt_input_6 from './images/rrt_input_6.png'
 
 const content = [
   {image: filterMethod, caption: 'filter', text: {ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву', en: 'filter is a method that creates a new unique array with specific criteria based on the selected array'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', code: 
@@ -654,7 +660,7 @@ const UserList = () => {
 
 export default UserList`},
 
-{image: gettingInfoFromApi, caption: 'Getting info from API by KY', text: {ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування. А саму інформацію можно взяти за допомогою бібліотеки KY.js', en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use. And the information itself can be taken using the KY.js library'}, link: 'https://github.com/sindresorhus/ky', type: 'React', code: 
+{image: gettingInfoFromApiKY, caption: 'Getting info from API by KY', text: {ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування. А саму інформацію можно взяти за допомогою бібліотеки KY.js', en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use. And the information itself can be taken using the KY.js library'}, link: 'https://github.com/sindresorhus/ky', type: 'React', code: 
 `
 import {useState, useEffect} from 'react'
 import ky from 'ky'
@@ -686,7 +692,106 @@ const UserListKY = () => {
     )
 }
 
-export default UserListKY`}
+export default UserListKY`},
+
+{image: [rrt_input_1, rrt_input_2, rrt_input_3, rrt_input_4, rrt_input_5, rrt_input_6], caption: 'React Redux-Toolkit mini form app', text: {ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось)', en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is output)'}, link: 'https://redux.js.org/', type: 'React', code: [
+`
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import {Provider} from 'react-redux'
+
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import './index.css'
+import store from './store'
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+)
+
+reportWebVitals()
+`,
+`
+import Input from './components/Input'
+import Output from './components/Output'
+
+const App = () => {
+  return (
+    <div>
+      <Input />
+      <Output />
+    </div>
+  )
+}
+
+export default App`,
+`
+import {configureStore} from '@reduxjs/toolkit'
+import TextReducer from './TextSlice'
+
+export default configureStore({
+    reducer: {
+        text: TextReducer
+    }
+})`,
+`
+import {createSlice} from '@reduxjs/toolkit'
+export const TextSlice = createSlice({
+    name: 'text',
+    initialState: {
+        value: ''
+    },
+    reducers: {
+        textAdditor: (state, action) => {
+            return {...state, value: action.payload}
+        }
+    }
+})
+
+export const {textAdditor} = TextSlice.actions
+export const selectText = state => state.text.value
+export default TextSlice.reducer`,
+`
+import {createRef} from 'react'
+import {useDispatch} from 'react-redux'
+import {textAdditor} from '../store/TextSlice'
+
+const Input = () => {
+    const textInput = createRef()
+    const dispatch = useDispatch()
+
+    function addText() {
+        dispatch(textAdditor(textInput.current.value))
+    }
+
+    return (
+        <div>
+            <input type="text" ref={textInput} />        
+            <button onClick={addText}>Push</button>
+        </div>
+    )
+}
+
+export default Input`,
+`
+import {useSelector} from "react-redux"
+
+const Output = () => {
+    const value = useSelector(state => state.text.value)
+    return (
+        <div>
+            {value}
+        </div>
+    )
+}
+
+export default Output`,
+]}
 ]
 
 function App() {

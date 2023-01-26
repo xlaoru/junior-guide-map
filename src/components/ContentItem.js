@@ -1,14 +1,16 @@
 import {useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
 import AlertMessage from './AlertMessage';
+import CarouselItem from './CarouselItem';
 import ModalWindow from './ModalWindow';
 
 const ContentItem = ({image, caption, text, link, code}) => {
     const [show, setShow] = useState(false)
     const [copied, showCopied] = useState(false)
+    const [activeIndex, setActiveIndex] = useState(0)
 
     function onCopy(item) {
-        navigator.clipboard.writeText(item.code)
+        Array.isArray(image) ? navigator.clipboard.writeText(item.code[activeIndex]) : navigator.clipboard.writeText(item.code)
         showCopied(true)
         setTimeout(() => {
             showCopied(false)
@@ -19,7 +21,10 @@ const ContentItem = ({image, caption, text, link, code}) => {
         <div className='ContentItem'>
             <Card className="card-item">
                 <div className="img-wrapper">
-                    <Card.Img variant="top" src={image} className="card-img" onClick={() => setShow(true)} style={{'cursor': 'pointer'}}/>
+                    {Array.isArray(image) 
+                        ? <CarouselItem imgs={image} setShow={setShow} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
+                        : <Card.Img variant="top" src={image} className="card-img" onClick={() => setShow(true)} style={{'cursor': 'pointer'}}/>
+                    }
                 </div>
                 <Card.Body className='card-body'>
                     <Card.Title className='card-title'>{caption}</Card.Title>
@@ -31,7 +36,10 @@ const ContentItem = ({image, caption, text, link, code}) => {
                 </Card.Body>
             </Card>
             <div className="ModalWindow">
-                <ModalWindow caption={caption} image={image} isShowed={show} setShow={setShow} />
+                {Array.isArray(image) 
+                    ? <ModalWindow caption={caption} image={image[activeIndex]} isShowed={show} setShow={setShow} /> 
+                    : <ModalWindow caption={caption} image={image} isShowed={show} setShow={setShow} />
+                }
             </div>
             <AlertMessage isCopied={copied} />
         </div>
