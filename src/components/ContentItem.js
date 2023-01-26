@@ -36,10 +36,7 @@ const ContentItem = ({image, caption, text, link, code}) => {
                 </Card.Body>
             </Card>
             <div className="ModalWindow">
-                {Array.isArray(image) 
-                    ? <ModalWindow caption={caption} image={image[activeIndex]} isShowed={show} setShow={setShow} /> 
-                    : <ModalWindow caption={caption} image={image} isShowed={show} setShow={setShow} />
-                }
+                <ModalWindow caption={caption} image={Array.isArray(image) ? image[activeIndex] : image} isShowed={show} setShow={setShow} /> 
             </div>
             <AlertMessage isCopied={copied} />
         </div>
