@@ -56,7 +56,7 @@ import rrt_input_5 from './images/rrt_input_5.png'
 import rrt_input_6 from './images/rrt_input_6.png'
 
 const content = [
-  {image: filterMethod, caption: 'filter', text: {ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву', en: 'filter is a method that creates a new unique array with specific criteria based on the selected array'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', code: 
+  {image: filterMethod, caption: 'filter', text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', type: 'method', code: 
 `const array = ['JS', 'TS', 'C#', 'Java'] 
 let filteredArray = array.filter(
   language => {
@@ -65,7 +65,7 @@ let filteredArray = array.filter(
 ) 
 
 console.log(filteredArray)`},
-  {image: mapMethod, caption: 'map', text: {ua: 'map - це метод, що створює новий унікальний массиву з якимись чіткими змінами у ньому', en: 'map is a method that creates a new unique array with some distinct changes in it'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/map', type: 'method', code: 
+  {image: mapMethod, caption: 'map', text: {en: 'map is a method that creates a new unique array with some distinct changes in it', ua: 'map - це метод, що створює новий унікальний массиву з якимись чіткими змінами у ньому'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/map', type: 'method', code: 
 `const array = ['JS', 'TS', 'C#', 'Java'] 
 let mappedArray = array.map( 
   language => { 
@@ -74,7 +74,7 @@ let mappedArray = array.map(
 ) 
 
 console.log(mappedArray)`},
-  {image: reduceMethod, caption: 'reduce', text: {ua: 'reduce - це метод, що застосовує чіткий критерій (reducer) до кожного елементу масиву та повертає одне резултативне кінцеве значення', en: 'reduce is a method that applies an explicit criterion (reducer) to each array element and returns a single resulting final value'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce', type: 'method', code: 
+  {image: reduceMethod, caption: 'reduce', text: {en: 'reduce is a method that applies an explicit criterion (reducer) to each array element and returns a single resulting final value', ua: 'reduce - це метод, що застосовує чіткий критерій (reducer) до кожного елементу масиву та повертає одне резултативне кінцеве значення'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce', type: 'method', code: 
 `const array = [1, 2, 3, 4, 5] 
 const total = array.reduce( 
   (accumulator, element) => { 
@@ -83,17 +83,17 @@ const total = array.reduce(
 ) 
 
 console.log(total)`},
-  {image: forEachMethod, caption: 'forEach', text: {ua: 'forEach - це метод, що виповнює чітку змінну для кожного елементу масиву', en: 'forEach is a method that populates a distinct variable for each array element'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/foreach', type: 'method', code: 
+  {image: forEachMethod, caption: 'forEach', text: {en: 'forEach is a method that populates a distinct variable for each array element', ua: 'forEach - це метод, що виповнює чітку змінну для кожного елементу масиву'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/foreach', type: 'method', code: 
 `const array = ['JS', 'TS', 'C#', 'Java'] 
 let forEachedArray = array.forEach( 
   language => console.log(language + ' :)') 
 ) 
 
 console.log(forEachedArray)`},
-  {image: indexOfMethod, caption: 'indexOf', text: {ua: 'indexOf - це метод, що шукає найблищий індекс item`а, котрий ви шукаєте', en: 'indexOf is a method that finds the closest index of the item you are looking for'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf', type: 'method', code: 
+  {image: indexOfMethod, caption: 'indexOf', text: {en: 'indexOf is a method that finds the closest index of the item you are looking for', ua: 'indexOf - це метод, що шукає найблищий індекс item`а, котрий ви шукаєте'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf', type: 'method', code: 
 `const array = [1, 2, 3, 4, 5] 
 console.log(array.indexOf(2, 0))`},
-  {image: keysMethod, caption: 'keys', text: {ua: 'keys - це метод, що показую усі ключі об`єкта чи массива', en: 'keys is a method that shows all the keys of an object or array'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/keys', type: 'method', code: 
+  {image: keysMethod, caption: 'keys', text: {en: 'keys is a method that shows all the keys of an object or array', ua: 'keys - це метод, що показую усі ключі об`єкта чи массива'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/keys', type: 'method', code: 
 `const array = ['JS', 'TS', 'C#', 'Java'] 
 const object = { 
   1: 'JS', 
@@ -104,12 +104,12 @@ const object = {
 
 console.log(Object.keys(array)) 
 console.log(Object.keys(object))`},
-  {image: splitMethod, caption: 'split', text: {ua: 'split - це метод, що перетворює строку у масив', en: 'split is a method that converts a string into an array'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/split', type: 'method', code: 
+  {image: splitMethod, caption: 'split', text: { en: 'split is a method that converts a string into an array', ua: 'split - це метод, що перетворює строку у масив'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/split', type: 'method', code: 
 `let string = 'Hello World' 
 let splitedString = string.split(' ') 
 
 console.log(splitedString)`},
-  {image: spreadOperator, caption: 'spread', text: {ua: 'spread (...) - це оператор, що дозволяє розширити доступні для ітерації елементи', en: 'spread (...) is an operator that allows you to expand the elements available for iteration'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Spread_syntax', type: 'operator', code: 
+  {image: spreadOperator, caption: 'spread', text: {en: 'spread (...) is an operator that allows you to expand the elements available for iteration', ua: 'spread (...) - це оператор, що дозволяє розширити доступні для ітерації елементи'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Spread_syntax', type: 'operator', code: 
 `const array = [1, 1, 2, 3, 5, 8] 
 const object = {name: 'Alex', age: '20'} 
 const string = 'Hello World' 
@@ -127,7 +127,7 @@ console.log(newArray)
 console.log(newObject) 
 console.log(newStringArray) 
 console.log(multiply(...numbers))`},
-  {image: callbackFunction, caption: 'callback', text: {ua: 'callback - це функція, котру передають у якості аргументу до (наприклад) іншої функції. Далі цю callback функцію використовують (наприклад), як вивиодження якоїсь інформації у консоль', en: 'callback is a function that is passed as an argument to (for example) another function. Further, this callback function is used (for example) as outputting some information to the console'}, link: 'https://developer.mozilla.org/ru/docs/Glossary/Callback_function', type: 'function', code: 
+  {image: callbackFunction, caption: 'callback', text: {en: 'callback is a function that is passed as an argument to (for example) another function. Further, this callback function is used (for example) as outputting some information to the console', ua: 'callback - це функція, котру передають у якості аргументу до (наприклад) іншої функції. Далі цю callback функцію використовують (наприклад), як вивиодження якоїсь інформації у консоль'}, link: 'https://developer.mozilla.org/ru/docs/Glossary/Callback_function', type: 'function', code: 
 `function getUsers(callback) {
   fetch('https://jsonplaceholder.typicode.com/users')  
   .then((response) => { 
@@ -145,7 +145,7 @@ function showUsers(data) {
 } 
 
 getUsers(showUsers)`},
-  {image: closureFunction, caption: 'closure', text: {ua: 'Замикання - це створення локальної функції в інщій функції для подалих використовувань її з даними', en: 'Closure is the creation of a local function in another function for later use of it with data'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.', type: 'function', code: 
+  {image: closureFunction, caption: 'closure', text: {en: 'Closure is the creation of a local function in another function for later use of it with data', ua: 'Замикання - це створення локальної функції в інщій функції для подалих використовувань її з даними'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.', type: 'function', code: 
 `function init() {
   let name = 'Name' 
   function showName() { 
@@ -156,7 +156,7 @@ getUsers(showUsers)`},
 } 
 
 init()`},
-  {image: recursionFunction, caption: 'recursion', text: {ua: 'Рекурсія - це виклик функції у собі', en: 'Recursion is a function call to itself'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Too_much_recursion', type: 'function', code: 
+  {image: recursionFunction, caption: 'recursion', text: {en: 'Recursion is a function call to itself', ua: 'Рекурсія - це виклик функції у собі'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Too_much_recursion', type: 'function', code: 
 `let num = 0 
 function init() { 
   num ++  
@@ -166,7 +166,7 @@ function init() {
 } 
 
 init()`},
-  {image: doWhileCycle, caption: 'do while', text: {ua: 'do... while - це цикл, дуже схожий на цикл while, але з іншим синстаксисом. Ідея полягає в тому, що цикл буде повторюватися поки умова не буде значенням true', en: 'do... while is a loop very similar to the while loop, but with a different syntax. The idea is that the loop will repeat until the condition is not true'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/do...while', type: 'cycle', code: 
+  {image: doWhileCycle, caption: 'do while', text: {en: 'do... while is a loop very similar to the while loop, but with a different syntax. The idea is that the loop will repeat until the condition is not true', ua: 'do... while - це цикл, дуже схожий на цикл while, але з іншим синстаксисом. Ідея полягає в тому, що цикл буде повторюватися поки умова не буде значенням true'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/do...while', type: 'cycle', code: 
 `let result = '' 
 let i = 0 
 do { 
@@ -175,7 +175,7 @@ do {
 } while (i < 5) 
 
 console.log(result)`},
-  {image: forInForOfCycle, caption: 'for in / for of', text: {ua: 'Різниця між `for in` і `for of` полягая в тому, що for in відповідає за індекси, а for of відповідає за значення', en: 'The difference between `for in` and `for of` is that for in is responsible for indexes and for of is responsible for values'}, link: '#', type: 'cycle', code: 
+  {image: forInForOfCycle, caption: 'for in / for of', text: {en: 'The difference between `for in` and `for of` is that for in is responsible for indexes and for of is responsible for values', ua: 'Різниця між `for in` і `for of` полягая в тому, що for in відповідає за індекси, а for of відповідає за значення'}, link: '#', type: 'cycle', code: 
 `const array = ['JS', 'TS', 'C#', 'Java'] 
 for (const index in array) { 
   console.log(index) 
@@ -184,13 +184,13 @@ for (const index in array) {
 for (const value of array) { 
   console.log(value) 
 }`},
-  {image: whileCycle, caption: 'while', text: {ua: 'while - це цикл, буде повторюватися поки умова не буде значенням true', en: 'while is a loop that will repeat until the condition is not true'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/while', type: 'cycle', code: 
+  {image: whileCycle, caption: 'while', text: { en: 'while is a loop that will repeat until the condition is not true', ua: 'while - це цикл, буде повторюватися поки умова не буде значенням true'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/while', type: 'cycle', code: 
 `let i = 0 
 while (i <= 3) { 
   console.log(i) 
   i++ 
 }`},
-  {image: ternaryExpressions, caption: 'Ternary expressions', text: {ua: 'Тернарні вирази - це лаконічна заміна умови if/else', en: 'Ternary expressions are a concise replacement of the if/else condition'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator', type: 'operator', code: 
+  {image: ternaryExpressions, caption: 'Ternary expressions', text: {en: 'Ternary expressions are a concise replacement of the if/else condition', ua: 'Тернарні вирази - це лаконічна заміна умови if/else'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator', type: 'operator', code: 
 `function isEqual(string1, string2) { 
   let out = '' 
 
@@ -203,14 +203,14 @@ while (i <= 3) {
 
 console.log(isEqual('hello', 'world')) 
 console.log(isEqual('bye', 'world'))`},
-  {image: isEqualLength, caption: 'length', text: {ua: 'length - це метод, що показую довжину масиву', en: 'length is a method that displays the length of the array'}, link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length', type: 'method', code: 
+  {image: isEqualLength, caption: 'length', text: {en: 'length is a method that displays the length of the array', ua: 'length - це метод, що показую довжину масиву'}, link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length', type: 'method', code: 
 `function isBigger(string1, string2) { 
   return string1.length === string2.length 
 } 
 
 console.log(isBigger('hello', 'world')) 
 console.log(isBigger('bye', 'world'))`},
-  {image: fetchRequest, caption: 'fetch', text: {ua: 'fetch - це запит на сервер', en: 'fetch is a request to the server'}, link: 'https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch', type: 'request', code: 
+  {image: fetchRequest, caption: 'fetch', text: {en: 'fetch is a request to the server', ua: 'fetch - це запит на сервер'}, link: 'https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch', type: 'request', code: 
 `function getUsers() { 
   fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => { 
@@ -220,35 +220,35 @@ console.log(isBigger('bye', 'world'))`},
 } 
   
 getUsers()`},
-  {image: randomNumber, caption: 'Math.floor + Math.random', text: {ua: 'floor - це метод Math, котрий округлює число до найблищого меньшого цілого числа. random - це метод Math, котрий допомагає знайти випадкове число в конкретному діапазоні', en: 'floor is a Math method that rounds a number to the nearest smaller integer. random is a Math method that helps find a random number in a specific range'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random', type: 'exercise', code: 
+  {image: randomNumber, caption: 'Math.floor + Math.random', text: {en: 'floor is a Math method that rounds a number to the nearest smaller integer. random is a Math method that helps find a random number in a specific range', ua: 'floor - це метод Math, котрий округлює число до найблищого меньшого цілого числа. random - це метод Math, котрий допомагає знайти випадкове число в конкретному діапазоні'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random', type: 'exercise', code: 
 `function randomNumber(min, max) { 
   return Math.floor(Math.random() * (max - min) + min) 
 } 
 
 console.log(randomNumber(0, 10)) 
 console.log(randomNumber(12, 99))`},
-  {image: arrayWithoutEmptyStrings, caption: 'Filtering empty strings from the array', text: {ua: 'Це функція, що знаходить усі неправильні (false) значення за допомогою методу filter та значення Boolean', en: 'This is a function that finds all false values ​​using the filter method and a Boolean value'}, link: '#', type: 'exercise', code: 
+  {image: arrayWithoutEmptyStrings, caption: 'Filtering empty strings from the array', text: {en: 'This is a function that finds all false values ​​using the filter method and a Boolean value', ua: 'Це функція, що знаходить усі неправильні (false) значення за допомогою методу filter та значення Boolean'}, link: '#', type: 'exercise', code: 
 `const dirtyArray = ['JS', '', 'TS', '', '', 'PHP'] 
 const clearArray = dirtyArray.filter(Boolean) 
 
 console.log(clearArray)`},
-  {image: arrayWithUniqueValues, caption: 'Filtering of unique values ​​in the array', text:{ua: 'Це функція, що фільтрує значення за допомогою метода filter та Set', en: 'This is a function that filters values ​​using the filter and Set methods'} , link: '#', type: 'exercise', code: 
+  {image: arrayWithUniqueValues, caption: 'Filtering of unique values ​​in the array', text:{en: 'This is a function that filters values ​​using the filter and Set methods', ua: 'Це функція, що фільтрує значення за допомогою метода filter та Set'} , link: '#', type: 'exercise', code: 
 `const dirtyArray = ['JS', 'TS', 'TS', 'PHP', 'PYTHON', 'TS'] 
 let arrayWithUniqueValues = [... new Set(dirtyArray)] 
 
 console.log(arrayWithUniqueValues)`},
-  {image: shuffledArray, caption: 'Shuffling elements in an array', text: {ua: 'Це функція, що перемішує усі значення у масиві через метод sort', en: 'This is a function that shuffles all the values ​​in an array through the sort method'}, link: '#', type: 'exercise', code: 
+  {image: shuffledArray, caption: 'Shuffling elements in an array', text: {en: 'This is a function that shuffles all the values ​​in an array through the sort method', ua: 'Це функція, що перемішує усі значення у масиві через метод sort'}, link: '#', type: 'exercise', code: 
 `const array = ['JS', 'TS', 'PHP', 'PYTHON', 'Java'] 
 const shuffledArray = array.sort( 
   () => Math.random() - 0.5 
 ) 
 
 console.log(shuffledArray)`},
-  {image: falsyValues, caption: 'Falsy values', text: {ua: 'Невірні значення, що у Boolean форматі відповідають false', en: 'Invalid values ​​that correspond to false in Boolean format'}, link: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy', type: 'exercise', code: 
+  {image: falsyValues, caption: 'Falsy values', text: {en: 'Invalid values ​​that correspond to false in Boolean format', ua: 'Невірні значення, що у Boolean форматі відповідають false'}, link: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy', type: 'exercise', code: 
 `const falsyValues = [
   '', 0, null, undefined, NaN, false
 ]`},
-  {image: fibonaccioCycle, caption: 'Fibonaccio cycle', text: {ua: 'Це цикл у якому два попередніх числа утворюють наступне', en: 'This is a cycle in which two previous numbers form the next'}, link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'exercise', code: 
+  {image: fibonaccioCycle, caption: 'Fibonaccio cycle', text: {en: 'This is a cycle in which two previous numbers form the next', ua: 'Це цикл у якому два попередніх числа утворюють наступне'}, link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'exercise', code: 
 `function fibonaccioCycle(limit) { 
   let a = 0 
   let b = 1 
@@ -266,7 +266,7 @@ console.log(shuffledArray)`},
 } 
 
 console.log(fibonaccioCycle(100))`},
-  {image: findMaxValue, caption: 'Finding the largest number in an array', text: {ua: 'Це функція, що знаходить найбільше число у масиві за допомогою цикла', en: 'This is a function that finds the largest number in an array using a loop'}, link: '#', type: 'exercise', code: 
+  {image: findMaxValue, caption: 'Finding the largest number in an array', text: {en: 'This is a function that finds the largest number in an array using a loop', ua: 'Це функція, що знаходить найбільше число у масиві за допомогою цикла'}, link: '#', type: 'exercise', code: 
 `const numberArray = [1, 7, 26, 4, 82, 19] 
 function findMaxNumber(array) { 
   let maxNumber = array[0] 
@@ -278,7 +278,7 @@ function findMaxNumber(array) {
 } 
 
 console.log(findMaxNumber(numberArray))`},
-  {image: fizzBuzzTask, caption: 'Finding multiples', text: {ua: 'Це функціі, що знаходиь числа кратним 3, 5 та 3 і 5 одразу', en: 'This is a function that finds numbers that are multiples of 3, 5 and 3 and 5 at once'}, link: '#', type: 'exercise', code: 
+  {image: fizzBuzzTask, caption: 'Finding multiples', text: {en: 'This is a function that finds numbers that are multiples of 3, 5 and 3 and 5 at once', ua: 'Це функціі, що знаходиь числа кратним 3, 5 та 3 і 5 одразу'}, link: '#', type: 'exercise', code: 
 `const fizzBuzz = (limit) => { 
   let out = '' 
   
@@ -295,7 +295,7 @@ console.log(findMaxNumber(numberArray))`},
 
 console.log(fizzBuzz(11)) 
 console.log(fizzBuzz(22))`}, 
-  {image: letterFinder, caption: 'Search for a letter in a word', text: {ua: 'Ця функція шукає букви у слові', en: 'This function searches for letters in a word'}, link: '#', type: 'exercise', code: 
+  {image: letterFinder, caption: 'Search for a letter in a word', text: {en: 'This function searches for letters in a word', ua: 'Ця функція шукає букви у слові'}, link: '#', type: 'exercise', code: 
 `function letterFinder(word, letter) { 
   let firstCondition = typeof word === 'string' && word.length >= 2 
   let secondCondition = typeof word === 'string' && letter.length === 1
@@ -311,7 +311,7 @@ console.log(fizzBuzz(22))`},
 console.log(letterFinder([], []))
 console.log(letterFinder('cat', 'c'))
 console.log(letterFinder('cat', 'd'))`}, 
-  {image: isEmptyObject, caption: 'Checking the object for emptiness', text: {ua: 'Ця функція перевіряє об`єкт на порожнечу через Object.keys() + .length', en: 'This function checks the object for void via Object.keys() + .length'}, link: '#', type: 'lifehack', code: 
+  {image: isEmptyObject, caption: 'Checking the object for emptiness', text: {en: 'This function checks the object for void via Object.keys() + .length', ua: 'Ця функція перевіряє об`єкт на порожнечу через Object.keys() + .length'}, link: '#', type: 'lifehack', code: 
 `function isEmptyObject(object) { 
   return Object.keys(object).length === 0 
 } 
@@ -321,7 +321,7 @@ console.log(isEmptyObject(schedule))
 
 schedule['8:30'] = 'get up' 
 console.log(isEmptyObject(schedule))`}, 
-  {image: Classes, caption: 'Class', text: {ua: 'Клас - це синтаксичний цукор над існуючим у JavaScript механізмом прототипного наслідування', en: 'A class is syntactic sugar over JavaScript`s existing prototype inheritance mechanism'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes', type: 'OOP', code: 
+  {image: Classes, caption: 'Class', text: {en: 'A class is syntactic sugar over JavaScript`s existing prototype inheritance mechanism', ua: 'Клас - це синтаксичний цукор над існуючим у JavaScript механізмом прототипного наслідування'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes', type: 'OOP', code: 
 `class Vacation { 
   constructor(destination, length) { 
     this.destination = destination
@@ -352,7 +352,7 @@ class Expeditions extends Vacation {
 
 const africanExpedition = new Expeditions('Mali', 14, ['special suite', 'backpack', 'road map']) 
 africanExpedition.print()`},
-  {image: banWordsFilter, caption: 'Filtering ban words', text: {ua: 'Ця функція фільтрує бан-слова за допомогою метода includes', en: 'This function filters out ban words using the includes method'}, link: '#', type: 'lifehack', code: 
+  {image: banWordsFilter, caption: 'Filtering ban words', text: {en: 'This function filters out ban words using the includes method', ua: 'Ця функція фільтрує бан-слова за допомогою метода includes'}, link: '#', type: 'lifehack', code: 
 `const banWordsArray = [ 
   'JS', 
   'TS', 
@@ -377,7 +377,7 @@ function banWordsFilter(sentence) {
   
 console.log(banWordsFilter('Pascal is a dead language'))
 console.log(banWordsFilter('The best functional language is Java'))`},
-  {image: promise, caption: 'Promise', text: {ua: 'Об`єкт Promise використовується для відкладених і ансинхронних запитів', en: 'The Promise object is used for deferred and asynchronous requests'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise', type: 'request', code: 
+  {image: promise, caption: 'Promise', text: {en: 'The Promise object is used for deferred and asynchronous requests', ua: 'Об`єкт Promise використовується для відкладених і ансинхронних запитів'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise', type: 'request', code: 
 `let usersPromise = new Promise((resolve, reject) => { 
   fetch('https://jsonplaceholder.typicode.com/users') 
     .then(data => { 
@@ -403,7 +403,7 @@ Promise.all([usersPromise, postsPromise])
     console.log(data) 
   }
 )`},
-  {image: fibonaccioCycleV2, caption: 'Fibonaccio cycle v2.0', text: {ua: 'Це цикл у якому два попередніх числа утворюють наступне', en: 'This is a cycle in which two previous numbers form the next'}, link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'exercise', code: 
+  {image: fibonaccioCycleV2, caption: 'Fibonaccio cycle v2.0', text: {en: 'This is a cycle in which two previous numbers form the next', ua: 'Це цикл у якому два попередніх числа утворюють наступне'}, link: 'https://www.programiz.com/javascript/examples/fibonacci-series', type: 'exercise', code: 
 `function fibonaccioCycle(amount) { 
   return new Array(amount).fill(0).reduce( 
     (accumulator, zero, index) => [...accumulator, index < 2 
@@ -412,7 +412,7 @@ Promise.all([usersPromise, postsPromise])
 } 
 
 console.log(fibonaccioCycle(10))`},
-  {image: arrayWithUniqueValuesV2, caption: 'Filtering of unique values ​​in the array v2.0', text: {ua: 'Це функція, що фільтрує значення за допомогою метода filter та indexOf', en: 'This is a function that filters values ​​using the filter and indexOf methods'}, link: '#', type: 'exercise', code: 
+  {image: arrayWithUniqueValuesV2, caption: 'Filtering of unique values ​​in the array v2.0', text: {en: 'This is a function that filters values ​​using the filter and indexOf methods', ua: 'Це функція, що фільтрує значення за допомогою метода filter та indexOf'}, link: '#', type: 'exercise', code: 
 `const userArray = [ 
   'Alex', 
   'Mike', 
@@ -428,7 +428,7 @@ let uniqueArray = userArray.filter(
 ) 
 
 console.log(uniqueArray)`},
-  {image: arrayWithUniqueValuesV3, caption: 'Filtering of unique values ​​in the array v3.0', text: {ua: 'Це функція, що фільтрує значення за допомогою метода reduce та includes', en: 'This is a function that filters values ​​using the reduce and includes method'}, link: '#', type: 'exercise', code: 
+  {image: arrayWithUniqueValuesV3, caption: 'Filtering of unique values ​​in the array v3.0', text: {en: 'This is a function that filters values ​​using the reduce and includes method', ua: 'Це функція, що фільтрує значення за допомогою метода reduce та includes'}, link: '#', type: 'exercise', code: 
 `const userArray = [ 
   'Alex', 
   'Mike', 
@@ -446,7 +446,7 @@ let uniqueArray = userArray.reduce(
 ) 
 
 console.log(uniqueArray)`},
-  {image: euclideanAlgorithm, caption: 'Euclid`s algorithm', text: {ua: 'Це функція, що знаходить НСК для двух чисел', en: 'This is a function that finds the lowest common multiple for two numbers'}, link: '#', type: 'exercise', code: 
+  {image: euclideanAlgorithm, caption: 'Euclid`s algorithm', text: {en: 'This is a function that finds the lowest common multiple for two numbers', ua: 'Це функція, що знаходить НСК для двух чисел'}, link: '#', type: 'exercise', code: 
 `function euclideanAlgorithm(numberOne, numberTwo) { 
   let out = [] 
   
@@ -477,7 +477,7 @@ console.log(uniqueArray)`},
 
 console.log(euclideanAlgorithm(124, 28)) 
 console.log(euclideanAlgorithm(18, 24))`},  
-  {image: isIsogram, caption: 'Isogram check', text: {ua: 'Це функція, що перевіряє слово на ізограму. Тобто чи є у слові повторювальні літери', en: 'This is a function that checks a word for an isogram. That is, whether there are repeated letters in the word'}, link: '#', type: 'exercise', code: 
+  {image: isIsogram, caption: 'Isogram check', text: {en: 'This is a function that checks a word for an isogram. That is, whether there are repeated letters in the word', ua: 'Це функція, що перевіряє слово на ізограму. Тобто чи є у слові повторювальні літери'}, link: '#', type: 'exercise', code: 
 `function isIsogram(word) { 
   let separatedWord = word.split('') 
   let settedWord = [...new Set(separatedWord)] 
@@ -488,7 +488,7 @@ console.log(euclideanAlgorithm(18, 24))`},
 console.log(isIsogram('Dermatoglyphics')) 
 console.log(isIsogram('moose')) 
 console.log(isIsogram('aba'))`},  
-  {image: digitalClock, caption: 'Digital clock', text: {ua: 'Інтерактивний годинник, котрий зроблений за допомогою setInterval()', en: 'An interactive clock made using setInterval()'}, link: '#', type: 'exercise', code: 
+  {image: digitalClock, caption: 'Digital clock', text: {en: 'An interactive clock made using setInterval()', ua: 'Інтерактивний годинник, котрий зроблений за допомогою setInterval()'}, link: '#', type: 'exercise', code: 
 `<!DOCTYPE html> 
 <html lang="en"> 
 <head> 
@@ -507,7 +507,7 @@ console.log(isIsogram('aba'))`},
 </script> 
 </body> 
 </html>`},  
-  {image: switchCase, caption: 'switch', text: {ua: 'switch - це цикл, що зрівнює вирази з випадками, перерахованими у середені її, а потім випонює відповідне інструкції', en: 'switch is a loop that compares expressions with the cases listed in its environment and then issues the corresponding statement'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch', type: 'cycle', code: 
+  {image: switchCase, caption: 'switch', text: {en: 'switch is a loop that compares expressions with the cases listed in its environment and then issues the corresponding statement', ua: 'switch - це цикл, що зрівнює вирази з випадками, перерахованими у середені її, а потім випонює відповідне інструкції'}, link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch', type: 'cycle', code: 
 `function getDirection(language) { 
   switch (language) { 
     case 'JS': 
@@ -528,7 +528,7 @@ console.log(isIsogram('aba'))`},
 console.log(getDirection('JS')) 
 console.log(getDirection('Python')) 
 console.log(getDirection('Dart'))`},
-  {image: reactSearchPattern, caption: 'React Search Pattern', text: {ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту', en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query'}, link: '#', type: 'React', code: 
+  {image: reactSearchPattern, caption: 'React Search Pattern', text: {en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query', ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту'}, link: '#', type: 'React', code: 
 `import {useState} from 'react' 
 
 const Filter = ({content = []}) => { 
@@ -559,7 +559,7 @@ const Filter = ({content = []}) => {
 } 
 
 export default Filter`},
-  {image: categoryReactPattern, caption: 'React Categories Pattern', text: {ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії', en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written'}, link: '#', type: 'React', code: 
+  {image: categoryReactPattern, caption: 'React Categories Pattern', text: {en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written', ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії'}, link: '#', type: 'React', code: 
 `import {useState} from 'react' 
 import './Categories.css' 
 
@@ -606,7 +606,7 @@ const Categories = ({content = []}) => {
 
 export default Categories`},
 
-  {image: useEffectWithAllArgs, caption: 'All about useEffect', text: {ua: 'Хук ефекту дозволяє вам виконувати побічні ефекти в функціональному компоненті', en: 'An effect hook allows you to perform side effects in a functional component'}, link: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', type: 'React', code: 
+  {image: useEffectWithAllArgs, caption: 'All about useEffect', text: {en: 'An effect hook allows you to perform side effects in a functional component', ua: 'Хук ефекту дозволяє вам виконувати побічні ефекти в функціональному компоненті'}, link: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', type: 'React', code: 
 `
 // componentDidMount
 useEffect(() => {
@@ -631,7 +631,7 @@ useEffect(() => {
   }
 }, [])`},
 
-{image: gettingInfoFromApi, caption: 'Getting info from API', text: {ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування', en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use'}, link: '#', type: 'React', code: 
+{image: gettingInfoFromApi, caption: 'Getting info from API', text: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування'}, link: '#', type: 'React', code: 
 `
 import {useState, useEffect} from 'react'
 
@@ -660,7 +660,7 @@ const UserList = () => {
 
 export default UserList`},
 
-{image: gettingInfoFromApiKY, caption: 'Getting info from API by KY', text: {ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування. А саму інформацію можно взяти за допомогою бібліотеки KY.js', en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use. And the information itself can be taken using the KY.js library'}, link: 'https://github.com/sindresorhus/ky', type: 'React', code: 
+{image: gettingInfoFromApiKY, caption: 'Getting info from API by KY', text: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use. And the information itself can be taken using the KY.js library', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування. А саму інформацію можно взяти за допомогою бібліотеки KY.js'}, link: 'https://github.com/sindresorhus/ky', type: 'React', code: 
 `
 import {useState, useEffect} from 'react'
 import ky from 'ky'
@@ -694,7 +694,7 @@ const UserListKY = () => {
 
 export default UserListKY`},
 
-{image: [rrt_input_1, rrt_input_2, rrt_input_3, rrt_input_4, rrt_input_5, rrt_input_6], caption: 'React Redux-Toolkit mini form app', text: {ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось)', en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is output)'}, link: 'https://redux.js.org/', type: 'React', code: [
+{image: [rrt_input_1, rrt_input_2, rrt_input_3, rrt_input_4, rrt_input_5, rrt_input_6], caption: 'React Redux-Toolkit mini form app', text: {en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is output)', ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось)'}, link: 'https://redux.js.org/', type: 'React', code: [
 `
 import React from 'react'
 import ReactDOM from 'react-dom/client'
