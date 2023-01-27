@@ -148,3 +148,7 @@ Some addictions
 ### `v13.2.1`
 
 Some addictions
+
+### `v13.2.2`
+
+Some addictions
