@@ -140,3 +140,7 @@ New Post. New type of code image and copy code function
 ### `v13.1`
 
 Some addictions
+
+### `v13.2`
+
+Some addictions

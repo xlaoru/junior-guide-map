@@ -11,13 +11,14 @@ const CarouselItem = ({imgs, setShow, activeIndex, setActiveIndex}) => {
   }
 
   return (
-    <Carousel onSelect={handleSelect} activeIndex={activeIndex} interval={null} style={{'width': '300px', 'height': '350px'}} >
+    <Carousel onSelect={handleSelect} activeIndex={activeIndex} interval={null} style={{'width': '300px', 'height': '350px', 'display': 'flex', 'alingItem': 'center'}} >
       {imgs.map(
         (image, index) => 
           <Carousel.Item 
-            key={image}>
+            key={image}
+          >
               <img 
-                style={{'width': '300px', 'height': '350px', 'cursor': 'pointer'}}
+                style={{'maxWidth': '300px', 'maxHeight': 'auto', 'cursor': 'pointer'}}
                 src={image}
                 onClick={() => getImgData(index)}
               />

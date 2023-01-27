@@ -116,6 +116,12 @@ nav.navbar {
   max-height: auto;
 }
 
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+}
+
 .card-body {
   height: 330px;
   display: flex;
