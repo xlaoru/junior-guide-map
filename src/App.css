@@ -120,6 +120,7 @@ nav.navbar {
   display: flex;
   align-items: center;
   background-color: #1e1e1e;
+  border-radius: 5px;
 }
 
 .card-body {
