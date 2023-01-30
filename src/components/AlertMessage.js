@@ -1,6 +1,6 @@
 import {Alert} from "react-bootstrap";
 
-const AlertMessage = ({isCopied}) => {
+const AlertMessage = ({isCopied, activeLanguage}) => {
     return (
         <div className="AlertMessage" style={{'marginTop' : '10px'}}>
             <Alert
@@ -8,7 +8,7 @@ const AlertMessage = ({isCopied}) => {
                 variant="info"
                 style={{'textAlign' : 'center'}}
             >
-                Text Copied !
+                {activeLanguage === 0 ? 'Code Copied !' : 'Код Скопійовано'}
             </Alert>
         </div>
     );

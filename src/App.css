@@ -65,7 +65,7 @@ nav.navbar {
 }
 
 .languageOption {
-  margin-top: 2rem;
+  margin-top: 3rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -124,7 +124,7 @@ nav.navbar {
 }
 
 .card-body {
-  height: 330px;
+  height: 370px;
   display: flex;
   flex-direction: column;
   justify-content: center;

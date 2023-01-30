@@ -156,3 +156,7 @@ Some addictions
 ### `v13.2.3`
 
 Some addictions
+
+### `v14.0`
+
+Full page translation

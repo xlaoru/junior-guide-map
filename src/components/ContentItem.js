@@ -4,7 +4,7 @@ import AlertMessage from './AlertMessage';
 import CarouselItem from './CarouselItem';
 import ModalWindow from './ModalWindow';
 
-const ContentItem = ({image, caption, text, link, code}) => {
+const ContentItem = ({image, caption, text, link, code, activeLanguage}) => {
     const [show, setShow] = useState(false)
     const [copied, showCopied] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0)
@@ -31,14 +31,14 @@ const ContentItem = ({image, caption, text, link, code}) => {
                     <Card.Text className='card-text'>
                     {text}
                     </Card.Text>
-                    <Button variant="primary" style={{'padding': '0', 'background': 'rgb(140, 149, 156)', 'border': 'none'}} className='card-button'><a href={link} target='_blank' className='doc-link'>DOCUMENTAION</a></Button>
-                    <Button variant="primary" style={{'padding': '10px', 'background': 'rgb(120, 120, 120)', 'border': 'none', 'marginTop' : '10px'}} className='card-button' onClick={() => onCopy({code})}>Copy Code</Button>
+                    <Button variant="primary" style={{'padding': '0', 'background': 'rgb(140, 149, 156)', 'border': 'none'}} className='card-button'><a href={link} target='_blank' className='doc-link'>{activeLanguage === 0 ? 'DOCUMENTAION' : 'ДОКУМЕНТАЦІЯ'}</a></Button>
+                    <Button variant="primary" style={{'padding': '10px', 'background': 'rgb(120, 120, 120)', 'border': 'none', 'marginTop' : '10px'}} className='card-button' onClick={() => onCopy({code})}>{activeLanguage === 0 ? 'Copy Code' : 'Скопіювати Код'}</Button>
                 </Card.Body>
             </Card>
             <div className="ModalWindow">
                 <ModalWindow caption={caption} image={Array.isArray(image) ? image[activeIndex] : image} isShowed={show} setShow={setShow} /> 
             </div>
-            <AlertMessage isCopied={copied} />
+            <AlertMessage isCopied={copied} activeLanguage={activeLanguage}  />
         </div>
     );
 };
