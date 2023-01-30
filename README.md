@@ -160,3 +160,7 @@ Some addictions
 ### `v14.0`
 
 Full page translation
+
+### `v14.1`
+
+Some addictions

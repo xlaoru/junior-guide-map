@@ -158,7 +158,7 @@ getUsers(showUsers)`},
 } 
 
 init()`},
-  {image: recursionFunction, caption: {en: 'recursion', ua: 'Рекурсія'}, text: {en: 'Recursion is a function call to itself', ua: 'Рекурсія - це виклик функції у собі'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Errors/Too_much_recursion', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Too_much_recursion'}, type: 'function', code: 
+  {image: recursionFunction, caption: {en: 'Recursion', ua: 'Рекурсія'}, text: {en: 'Recursion is a function call to itself', ua: 'Рекурсія - це виклик функції у собі'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Errors/Too_much_recursion', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Too_much_recursion'}, type: 'function', code: 
 `let num = 0 
 function init() { 
   num ++  
