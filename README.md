@@ -172,3 +172,7 @@ Some addictions
 ### `v15.0`
 
 Destructuring components by folders. Splitting all styles of defined components into separate files
+
+### `v15.1`
+
+Some addictions
