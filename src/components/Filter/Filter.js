@@ -5,12 +5,12 @@ import './Filter.css'
 
 const types = [
     {en: 'all', ua: 'усе'},
-    {en: 'method', ua: 'метод'},
-    {en: 'operator', ua: 'оператор'},
-    {en: 'function', ua: 'функція'},
-    {en: 'cycle', ua: 'цикл'},
-    {en: 'request', ua: 'запит'},
-    {en: 'exercise', ua: 'задачка'},
+    {en: 'method', ua: 'методи'},
+    {en: 'operator', ua: 'оператори'},
+    {en: 'function', ua: 'функції'},
+    {en: 'cycle', ua: 'цикли'},
+    {en: 'request', ua: 'запити'},
+    {en: 'exercise', ua: 'задачки'},
     {en: 'OOP', ua: 'ООП'},
     {en: 'React', ua: 'Реакт'},
 ]

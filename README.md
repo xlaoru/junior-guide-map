@@ -176,3 +176,7 @@ Destructuring components by folders. Splitting all styles of defined components 
 ### `v15.1`
 
 Some addictions
+
+### `v15.2`
+
+Some addictions
