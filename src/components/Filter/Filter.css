@@ -1,0 +1,42 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.searcher {
+    padding: 5px;
+    border-radius: 20px;
+    border: 5px solid rgb(140, 149, 156);
+    width: 300px;
+}
+
+.types-bar {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin-top: 2rem;
+  }
+  
+.type-bar {
+    text-transform: uppercase;
+    background-color: white;
+    border: 5px solid rgb(140, 149, 156);
+    border-radius: 20px;
+    margin: 2.5px;
+    padding: 7.5px;
+    transition: all 0.5s;
+}
+  
+.type-bar:hover {
+    background-color:rgb(169, 180, 188);
+    border: 5px solid rgb(215, 214, 214);
+    color: white;
+}
+
+.clicked {
+    background-color:rgb(140, 149, 156);
+    border: 5px solid white;
+    color: white;
+}

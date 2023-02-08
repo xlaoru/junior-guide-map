@@ -1,0 +1,11 @@
+.error-caption {
+  text-align: center;
+  font-size: 30px;
+  color: rgb(140, 149, 156);
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

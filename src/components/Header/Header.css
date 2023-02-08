@@ -1,0 +1,23 @@
+.Header {
+    background-color: rgb(140, 149, 156);
+}
+
+nav.navbar {
+    padding: 0;
+    margin: 0;
+}
+
+.main-links {
+    display: flex;
+}
+
+.nav-item .nav-link {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 25px;
+}
+  
+.nav-item .active {
+    background-color: white;
+}

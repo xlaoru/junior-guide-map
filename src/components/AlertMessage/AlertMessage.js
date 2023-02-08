@@ -1,12 +1,13 @@
 import {Alert} from "react-bootstrap";
 
+import './AlertMessage.css'
+
 const AlertMessage = ({isCopied, activeLanguage}) => {
     return (
-        <div className="AlertMessage" style={{'marginTop' : '10px'}}>
+        <div className="AlertMessage">
             <Alert
                 show={isCopied}
                 variant="info"
-                style={{'textAlign' : 'center'}}
             >
                 {activeLanguage === 0 ? 'Code Copied !' : 'Код Скопійовано'}
             </Alert>

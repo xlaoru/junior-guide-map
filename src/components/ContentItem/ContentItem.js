@@ -1,8 +1,10 @@
 import {useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
-import AlertMessage from './AlertMessage';
-import CarouselItem from './CarouselItem';
-import ModalWindow from './ModalWindow';
+import AlertMessage from '../AlertMessage/AlertMessage';
+import CarouselItem from '../CarouselItem/CarouselItem';
+import ModalWindow from '../ModalWindow/ModalWindow';
+
+import './ContentItem.css'
 
 const ContentItem = ({image, caption, text, link, code, activeLanguage}) => {
     const [show, setShow] = useState(false)
@@ -23,7 +25,7 @@ const ContentItem = ({image, caption, text, link, code, activeLanguage}) => {
                 <div className="img-wrapper">
                     {Array.isArray(image) 
                         ? <CarouselItem imgs={image} setShow={setShow} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
-                        : <Card.Img variant="top" src={image} className="card-img" onClick={() => setShow(true)} style={{'cursor': 'pointer'}}/>
+                        : <Card.Img variant="top" src={image} className="card-img" onClick={() => setShow(true)}/>
                     }
                 </div>
                 <Card.Body className='card-body'>
@@ -31,8 +33,8 @@ const ContentItem = ({image, caption, text, link, code, activeLanguage}) => {
                     <Card.Text className='card-text'>
                     {text}
                     </Card.Text>
-                    <Button variant="primary" style={{'padding': '0', 'background': 'rgb(140, 149, 156)', 'border': 'none'}} className='card-button'><a href={link} target='_blank' className='doc-link'>{activeLanguage === 0 ? 'DOCUMENTAION' : 'ДОКУМЕНТАЦІЯ'}</a></Button>
-                    <Button variant="primary" style={{'padding': '10px', 'background': 'rgb(120, 120, 120)', 'border': 'none', 'marginTop' : '10px'}} className='card-button' onClick={() => onCopy({code})}>{activeLanguage === 0 ? 'Copy Code' : 'Скопіювати Код'}</Button>
+                    <Button variant="primary" id='doc-button' className='card-button'><a href={link} target='_blank' className='doc-link'>{activeLanguage === 0 ? 'DOCUMENTAION' : 'ДОКУМЕНТАЦІЯ'}</a></Button>
+                    <Button variant="primary" id='code-button' className='card-button' onClick={() => onCopy({code})}>{activeLanguage === 0 ? 'Copy Code' : 'Скопіювати Код'}</Button>
                 </Card.Body>
             </Card>
             <div className="ModalWindow">

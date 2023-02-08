@@ -1,61 +1,61 @@
 import {useState} from 'react';
 
 import './App.css';
-import Filter from './components/Filter';
-import AboutUs from './components/AboutUs';
-import Header from './components/Header';
+import Filter from '../Filter/Filter';
+import AboutUs from '../AboutUs/AboutUs';
+import Header from '../Header/Header';
 
 import ScrollToTop from "react-scroll-to-top";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
-import filterMethod from './images/filter.png'
-import mapMethod from './images/map.png'
-import reduceMethod from './images/reduce.png'
-import forEachMethod from './images/forEach.png'
-import indexOfMethod from './images/indexOf.png'
-import keysMethod from './images/keys.png'
-import splitMethod from './images/split.png'
-import spreadOperator from './images/spread.png'
-import callbackFunction from './images/callback.png'
-import closureFunction from './images/closure.png'
-import recursionFunction from './images/recursion.png'
-import doWhileCycle from './images/do while.png'
-import forInForOfCycle from './images/for in for of.png'
-import whileCycle from './images/while.png'
-import ternaryExpressions from './images/ternary-expressions.png'
-import isEqualLength from './images/is-equal-length.png'
-import fetchRequest from './images/fetch.png'
-import randomNumber from './images/random-number.png'
-import arrayWithoutEmptyStrings from './images/array-without-empty-strings.png'
-import arrayWithUniqueValues from './images/array-with-unique-values.png'
-import shuffledArray from './images/shuffled-array.png'
-import falsyValues from './images/falsy-values.png'
-import fibonaccioCycle from './images/fibonaccio-cycle.png'
-import findMaxValue from './images/find-max-number.png'
-import fizzBuzzTask from './images/fizz-buzz-task.png'
-import letterFinder from './images/letter-finder.png'
-import isEmptyObject from './images/is-empty-object.png'
-import Classes from './images/classes.png'
-import banWordsFilter from './images/ban-words-filter.png'
-import promise from './images/promise.png'
-import arrayWithUniqueValuesV2 from './images/array-with-unique-values_v2.0.png'
-import fibonaccioCycleV2 from './images/fibonaccio-cycle_v2.0.png'
-import arrayWithUniqueValuesV3 from './images/array-with-unique-values_v3.0.png'
-import euclideanAlgorithm from './images/euclidean-algorithm.png'
-import isIsogram from './images/is-isogram.png'
-import digitalClock from './images/digital-clock.jpg'
-import switchCase from './images/switch-case.png'
-import reactSearchPattern from './images/search-pattern_react.png'
-import categoryReactPattern from './images/categories-pattern_react.png'
-import useEffectWithAllArgs from './images/useEffectWithAllArgs.png'
-import gettingInfoFromApi from './images/gettingInfoFromApi.png'
-import gettingInfoFromApiKY from './images/gettingInfoFromApiKY.png'
-import rrt_input_1 from './images/rrt_input_1.png'
-import rrt_input_2 from './images/rrt_input_2.png'
-import rrt_input_3 from './images/rrt_input_3.png'
-import rrt_input_4 from './images/rrt_input_4.png'
-import rrt_input_5 from './images/rrt_input_5.png'
-import rrt_input_6 from './images/rrt_input_6.png'
+import filterMethod from '../../images/filter.png'
+import mapMethod from '../../images/map.png'
+import reduceMethod from '../../images/reduce.png'
+import forEachMethod from '../../images/forEach.png'
+import indexOfMethod from '../../images/indexOf.png'
+import keysMethod from '../../images/keys.png'
+import splitMethod from '../../images/split.png'
+import spreadOperator from '../../images/spread.png'
+import callbackFunction from '../../images/callback.png'
+import closureFunction from '../../images/closure.png'
+import recursionFunction from '../../images/recursion.png'
+import doWhileCycle from '../../images/do while.png'
+import forInForOfCycle from '../../images/for in for of.png'
+import whileCycle from '../../images/while.png'
+import ternaryExpressions from '../../images/ternary-expressions.png'
+import isEqualLength from '../../images/is-equal-length.png'
+import fetchRequest from '../../images/fetch.png'
+import randomNumber from '../../images/random-number.png'
+import arrayWithoutEmptyStrings from '../../images/array-without-empty-strings.png'
+import arrayWithUniqueValues from '../../images/array-with-unique-values.png'
+import shuffledArray from '../../images/shuffled-array.png'
+import falsyValues from '../../images/falsy-values.png'
+import fibonaccioCycle from '../../images/fibonaccio-cycle.png'
+import findMaxValue from '../../images/find-max-number.png'
+import fizzBuzzTask from '../../images/fizz-buzz-task.png'
+import letterFinder from '../../images/letter-finder.png'
+import isEmptyObject from '../../images/is-empty-object.png'
+import Classes from '../../images/classes.png'
+import banWordsFilter from '../../images/ban-words-filter.png'
+import promise from '../../images/promise.png'
+import arrayWithUniqueValuesV2 from '../../images/array-with-unique-values_v2.0.png'
+import fibonaccioCycleV2 from '../../images/fibonaccio-cycle_v2.0.png'
+import arrayWithUniqueValuesV3 from '../../images/array-with-unique-values_v3.0.png'
+import euclideanAlgorithm from '../../images/euclidean-algorithm.png'
+import isIsogram from '../../images/is-isogram.png'
+import digitalClock from '../../images/digital-clock.jpg'
+import switchCase from '../../images/switch-case.png'
+import reactSearchPattern from '../../images/search-pattern_react.png'
+import categoryReactPattern from '../../images/categories-pattern_react.png'
+import useEffectWithAllArgs from '../../images/useEffectWithAllArgs.png'
+import gettingInfoFromApi from '../../images/gettingInfoFromApi.png'
+import gettingInfoFromApiKY from '../../images/gettingInfoFromApiKY.png'
+import rrt_input_1 from '../../images/rrt_input_1.png'
+import rrt_input_2 from '../../images/rrt_input_2.png'
+import rrt_input_3 from '../../images/rrt_input_3.png'
+import rrt_input_4 from '../../images/rrt_input_4.png'
+import rrt_input_5 from '../../images/rrt_input_5.png'
+import rrt_input_6 from '../../images/rrt_input_6.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -129,7 +129,7 @@ console.log(newArray)
 console.log(newObject) 
 console.log(newStringArray) 
 console.log(multiply(...numbers))`},
-  {image: callbackFunction, caption: {en: 'Callback', ua: 'Колбек'}, text: {en: 'callback is a function that is passed as an argument to (for example) another function. Further, this callback function is used (for example) as outputting some information to the console', ua: 'callback - це функція, котру передають у якості аргументу до (наприклад) іншої функції. Далі цю callback функцію використовують (наприклад), як вивиодження якоїсь інформації у консоль'}, link: {en: 'https://developer.mozilla.org/en/docs/Glossary/Callback_function', ua: 'https://developer.mozilla.org/ru/docs/Glossary/Callback_function'}, type: 'function', code: 
+  {image: callbackFunction, caption: {en: 'Callback', ua: 'Колбек'}, text: {en: 'callback is a function that is passed as an argument to (for example) another function. Further, this callback function is used (for example) as outputting some information to the console', ua: 'callback - це функція, яку передають у якості аргументу до (наприклад) іншої функції. Далі цю callback функцію використовують (наприклад), як відображення якоїсь інформації у консоль'}, link: {en: 'https://developer.mozilla.org/en/docs/Glossary/Callback_function', ua: 'https://developer.mozilla.org/ru/docs/Glossary/Callback_function'}, type: 'function', code: 
 `function getUsers(callback) {
   fetch('https://jsonplaceholder.typicode.com/users')  
   .then((response) => { 
@@ -222,7 +222,7 @@ console.log(isBigger('bye', 'world'))`},
 } 
   
 getUsers()`},
-  {image: randomNumber, caption: {en: 'Math.floor + Math.random', ua: 'Math.floor + Math.random'}, text: {en: 'floor is a Math method that rounds a number to the nearest smaller integer. random is a Math method that helps find a random number in a specific range', ua: 'floor - це метод Math, котрий округлює число до найблищого меньшого цілого числа. random - це метод Math, котрий допомагає знайти випадкове число в конкретному діапазоні'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math/random', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random'}, type: 'exercise', code: 
+  {image: randomNumber, caption: {en: 'Math.floor() + Math.random()', ua: 'Math.floor() + Math.random()'}, text: {en: 'floor is a Math method that rounds a number to the nearest smaller integer. random is a Math method that helps find a random number in a specific range', ua: 'floor - це метод Math, котрий округлює число до найблищого меньшого цілого числа. random - це метод Math, котрий допомагає знайти випадкове число в конкретному діапазоні'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math/random', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random'}, type: 'method', code: 
 `function randomNumber(min, max) { 
   return Math.floor(Math.random() * (max - min) + min) 
 } 
@@ -818,7 +818,7 @@ function App() {
     <div className="App">
       <Router>
         <Header activeLanguage={activeLanguage}/>
-        <div className="languageOption">
+        <div className="language-option">
           {languageButtons}
         </div>
         <Routes>

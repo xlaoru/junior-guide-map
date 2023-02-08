@@ -1,5 +1,7 @@
 import {Modal, ModalHeader} from 'react-bootstrap'
 
+import './ModalWindow.css'
+
 const ModalWindow = ({caption, image, isShowed, setShow}) => {
     return (
         <div>
@@ -8,8 +10,8 @@ const ModalWindow = ({caption, image, isShowed, setShow}) => {
                 onHide={() => setShow(false)}
             >
                 <ModalHeader closeButton/>
-                <Modal.Title style={{'textAlign': 'center', 'padding': '10px'}}>{caption}</Modal.Title>
-                <img src={image} style={{'padding': '10px'}}/>
+                <Modal.Title>{caption}</Modal.Title>
+                <img src={image}/>
             </Modal>
         </div>
     );
