@@ -29,6 +29,7 @@ nav.navbar {
 }
 
 .type-bar {
+  text-transform: uppercase;
   background-color: white;
   border: 5px solid rgb(140, 149, 156);
   border-radius: 20px;

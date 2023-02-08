@@ -530,7 +530,7 @@ console.log(isIsogram('aba'))`},
 console.log(getDirection('JS')) 
 console.log(getDirection('Python')) 
 console.log(getDirection('Dart'))`},
-  {image: reactSearchPattern, caption: {en: 'React Search Pattern', ua: 'Пошуковий зразок (pattern) Реакт'}, text: {en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query', ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту'}, link: {en: '#', ua: '#'}, type: 'React', code: 
+  {image: reactSearchPattern, caption: {en: 'React Search Pattern', ua: 'Пошуковий зразок (паттерн) Реакт'}, text: {en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query', ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту'}, link: {en: '#', ua: '#'}, type: 'React', code: 
 `import {useState} from 'react' 
 
 const Filter = ({content = []}) => { 
