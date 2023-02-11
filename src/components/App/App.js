@@ -56,6 +56,8 @@ import rrt_input_3 from '../../images/rrt_input_3.png'
 import rrt_input_4 from '../../images/rrt_input_4.png'
 import rrt_input_5 from '../../images/rrt_input_5.png'
 import rrt_input_6 from '../../images/rrt_input_6.png'
+import props_destructurization from '../../images/props_destructurization.png'
+import conditional_rendering from '../../images/conditional_rendering.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -793,7 +795,41 @@ const Output = () => {
 }
 
 export default Output`,
-]}
+]},
+
+{image: props_destructurization, caption: {en: 'React props destructurization', ua: "Деструктурізація props об'єктів у Реакті"}, text: {en: 'Destructuring props objects in React is a very important part. Destructuring is used to make the code easier to read', ua: "Деструктурізація props об'єктів у Реакті дуже важлива частина. Щоб полегшити читабельність коду застосовують деструктурізацію"}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', code: 
+`
+// <Destructurization skills={['Frontend', 'DevOps', 'Project Manager]} id='1' name='Alex' />
+const Destructurization = ({skills, ...userInfo}) => {
+  return <ul><li>{userInfo.id}. {userInfo.name} is a {skills.join(', ')} developer</li></ul>
+}
+
+export default Destructurization`
+},
+
+{image: conditional_rendering, caption: {en: 'Conditional rendering', ua: 'Умовний рендеринг'}, text: {en: 'Conditional rendering is a special syntax in React, where there are conditions under which it is possible to adjust the rendering of individual parts of the code', ua: 'Умовний рендеринг - це спеціальний синтаксис у Реакті, де є умови при яких можливо регулювати рендеринг окремих частин коду'}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', code: 
+`
+const ConditionalRendering = () => {
+  return (
+      <div>
+          {5 > 3 && <span>Rendered when 'truthy'</span>} {/* if */}
+          {5 < 3 || <span>Rendered when 'falsy'</span>} {/* unless */}
+          {
+              5 > 3 
+                  ? (<span>Rendered when 'truthy'</span>) // if
+                  : (<span>Rendered when 'falsy'</span>) // else
+          }
+          {
+              5 < 3
+                  ? (<span>Rendered when 'truthy'</span>) // if
+                  : (<span>Rendered when 'falsy'</span>) // else
+          }
+      </div>
+  )
+}
+
+export default ConditionalRendering`
+}
 ]
 
 const languages = [
