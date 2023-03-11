@@ -39,8 +39,7 @@ const Filter = ({content, activeLanguage}) => {
 
     const filteredContent = typeSearchedContent.filter(
         typeSearchedContent => {
-            if (activeLanguage === 0) return typeSearchedContent.caption.en.toLowerCase().includes(value.toLowerCase())
-            else return typeSearchedContent.caption.ua.toLowerCase().includes(value.toLowerCase())
+            return typeSearchedContent.caption.en.toLowerCase().includes(value.toLowerCase()) || typeSearchedContent.caption.ua.toLowerCase().includes(value.toLowerCase())
         }
     )
 

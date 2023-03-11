@@ -184,3 +184,7 @@ Some addictions
 ### `v15.3`
 
 Some addictions
+
+### `v16.0`
+
+Now you can search for content without choosing the current language
