@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import './App.css';
-import Filter from '../Filter/Filter';
+import Main from '../Main/Main';
 import AboutUs from '../AboutUs/AboutUs';
 import Header from '../Header/Header';
 
@@ -858,7 +858,7 @@ function App() {
           {languageButtons}
         </div>
         <Routes>
-          <Route exact path="/" element={<Filter content={content} activeLanguage={activeLanguage}/>}/>
+          <Route exact path="/" element={<Main content={content} activeLanguage={activeLanguage}/>}/>
           <Route path="/aboutus" element={<AboutUs activeLanguage={activeLanguage}/>}/>
         </Routes>
       </Router>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import List from '../List/List'
 
-import './Filter.css'
+import './Main.css'
 
 const types = [
     {en: 'all', ua: 'усе'},
@@ -15,7 +15,7 @@ const types = [
     {en: 'React', ua: 'Реакт'},
 ]
 
-const Filter = ({content, activeLanguage}) => {
+const Main = ({content, activeLanguage}) => {
     const [activeType, setActiveType] = useState(0)
     const [value, setValue] = useState('')
 
@@ -44,7 +44,7 @@ const Filter = ({content, activeLanguage}) => {
     )
 
     return (
-        <div className='Filter'>
+        <div className='Main'>
             <div className='form'>
                 <input 
                     className='searcher'
@@ -61,4 +61,4 @@ const Filter = ({content, activeLanguage}) => {
     );
 };
 
-export default Filter;
+export default Main;

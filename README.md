@@ -188,3 +188,7 @@ Some addictions
 ### `v16.0`
 
 Now you can search for content without choosing the current language
+
+### `v16.1`
+
+Renamed file Filter to Main
