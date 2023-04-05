@@ -58,6 +58,8 @@ import rrt_input_5 from '../../images/rrt_input_5.png'
 import rrt_input_6 from '../../images/rrt_input_6.png'
 import props_destructurization from '../../images/props_destructurization.png'
 import conditional_rendering from '../../images/conditional_rendering.png'
+import discriminant_formula from '../../images/discriminant_formula.png'
+import node_email_sender from '../../images/node_email_sender.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -829,7 +831,55 @@ const ConditionalRendering = () => {
 }
 
 export default ConditionalRendering`
+},
+
+{image: discriminant_formula, caption: {en: 'Discriminant Formula', ua: 'Формула Дискримінанту'}, text: {en: 'The function for finding the roots of a quadratic equation using the Discriminant Formula is made using the methods of the Math class. Namely Math.pow() - power (numbers), Math.sqrt() - root (numbers)', ua: 'Функція для знаходження коренів квадратного рівняння за допомогою Формула Дискримінанту зробленна за допомогою методів класа Math. А саме Math.pow() - степінь(числа), Math.sqrt() - корінь(числа)'}, link: {en: 'https://en.wikipedia.org/wiki/Discriminant', ua: 'https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82'}, type: 'exercise', code: 
+`
+function discriminantFormula(a, b, c) {
+  let D = Math.pow(b, 2) - 4 * a * c
+  let x1
+  let x2
+
+  if (D < 0) {
+      return 'x1 = ∅; x2 = ∅'
+  } 
+  
+  else {
+      x1 = (-b + Math.sqrt(D, 2)) / (2 * a)
+      x2 = (-b - Math.sqrt(D, 2)) / (2 * a)
+      return "x1 = " + x1 + "; x2 = " + x2
+  }
 }
+
+console.log(discriminantFormula(1, -6, 5))
+console.log(discriminantFormula(1, -0, 5))`},
+
+{image: node_email_sender, caption: {en: 'Email sender on Node.js', ua: 'Відправник на електронну пошту на Node.js'}, text: {en: 'This program uses the nodemailer library, which helps to easily send information to e-mail', ua: 'Ця програма застосовую бібліотеку nodemailer, котра допомогає легко відсилати інформацію на електронну пошту'}, link: {en: 'https://github.com/nodemailer/nodemailer', ua: 'https://github.com/nodemailer/nodemailer'}, type: 'Node.js', code: 
+`
+const nodemailer = require('nodemailer')
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'you@example.com',
+        pass: 'your_password'
+    }
+})
+
+const mailOptions = {
+    from: 'you@example.com',
+    to: 'user@example.com',
+    subject: 'Title',
+    text: 'Email content'
+}
+
+transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+    console.log(error);
+    } else {
+        console.log('Email sent: ' + info.response);
+    }
+})`},
 ]
 
 const languages = [

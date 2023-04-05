@@ -13,6 +13,7 @@ const types = [
     {en: 'exercise', ua: 'задачки'},
     {en: 'OOP', ua: 'ООП'},
     {en: 'React', ua: 'Реакт'},
+    {en: 'Node.js', ua: 'Node.js'},
 ]
 
 const Main = ({content, activeLanguage}) => {
