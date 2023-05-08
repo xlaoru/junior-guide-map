@@ -60,6 +60,7 @@ import props_destructurization from '../../images/props_destructurization.png'
 import conditional_rendering from '../../images/conditional_rendering.png'
 import discriminant_formula from '../../images/discriminant_formula.png'
 import node_email_sender from '../../images/node_email_sender.png'
+import includesMethod from '../../images/includes.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -233,28 +234,28 @@ getUsers()`},
 
 console.log(randomNumber(0, 10)) 
 console.log(randomNumber(12, 99))`},
-  {image: arrayWithoutEmptyStrings, caption: {en: 'Filtering empty strings from the array', ua: 'Фільтрація порожніх рядків із масиву'}, text: {en: 'This is a function that finds all false values ​​using the filter method and a Boolean value', ua: 'Це функція, що знаходить усі неправильні (false) значення за допомогою методу filter та значення Boolean'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: arrayWithoutEmptyStrings, caption: {en: 'Filtering empty strings from the array', ua: 'Фільтрація порожніх рядків із масиву'}, text: {en: 'This is a function that finds all false values ​​using the filter method and a Boolean value', ua: 'Це функція, що знаходить усі неправильні (false) значення за допомогою методу filter та значення Boolean'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `const dirtyArray = ['JS', '', 'TS', '', '', 'PHP'] 
 const clearArray = dirtyArray.filter(Boolean) 
 
 console.log(clearArray)`},
-  {image: arrayWithUniqueValues, caption: {en: 'Filtering of unique values ​​in the array', ua: 'Фільтрація унікальних значень в масиві'}, text:{en: 'This is a function that filters values ​​using the filter and Set methods', ua: 'Це функція, що фільтрує значення за допомогою метода filter та Set'} , link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: arrayWithUniqueValues, caption: {en: 'Filtering of unique values ​​in the array', ua: 'Фільтрація унікальних значень в масиві'}, text:{en: 'This is a function that filters values ​​using the filter and Set methods', ua: 'Це функція, що фільтрує значення за допомогою метода filter та Set'} , link: {en: '#', ua: '#'}, type: 'task', code: 
 `const dirtyArray = ['JS', 'TS', 'TS', 'PHP', 'PYTHON', 'TS'] 
 let arrayWithUniqueValues = [... new Set(dirtyArray)] 
 
 console.log(arrayWithUniqueValues)`},
-  {image: shuffledArray, caption: {en: 'Shuffling elements in an array', ua: 'Переміщення елементів у масиві'}, text: {en: 'This is a function that shuffles all the values ​​in an array through the sort method', ua: 'Це функція, що перемішує усі значення у масиві через метод sort'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: shuffledArray, caption: {en: 'Shuffling elements in an array', ua: 'Переміщення елементів у масиві'}, text: {en: 'This is a function that shuffles all the values ​​in an array through the sort method', ua: 'Це функція, що перемішує усі значення у масиві через метод sort'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `const array = ['JS', 'TS', 'PHP', 'PYTHON', 'Java'] 
 const shuffledArray = array.sort( 
   () => Math.random() - 0.5 
 ) 
 
 console.log(shuffledArray)`},
-  {image: falsyValues, caption: {en: 'Falsy values', ua: 'Хибні значення'}, text: {en: 'Invalid values ​​that correspond to false in Boolean format', ua: 'Невірні значення, що у Boolean форматі відповідають false'}, link: {en: 'https://developer.mozilla.org/en/docs/Glossary/Falsy', ua: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy'}, type: 'exercise', code: 
+  {image: falsyValues, caption: {en: 'Falsy values', ua: 'Хибні значення'}, text: {en: 'Invalid values ​​that correspond to false in Boolean format', ua: 'Невірні значення, що у Boolean форматі відповідають false'}, link: {en: 'https://developer.mozilla.org/en/docs/Glossary/Falsy', ua: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy'}, type: 'task', code: 
 `const falsyValues = [
   '', 0, null, undefined, NaN, false
 ]`},
-  {image: fibonaccioCycle, caption: {en: 'Fibonaccio cycle', ua: 'Цикл Фібоначчі'}, text: {en: 'This is a cycle in which two previous numbers form the next', ua: 'Це цикл у якому два попередніх числа утворюють наступне'}, link: {en: 'https://www.programiz.com/javascript/examples/fibonacci-series', ua: 'https://www.programiz.com/javascript/examples/fibonacci-series'}, type: 'exercise', code: 
+  {image: fibonaccioCycle, caption: {en: 'Fibonaccio cycle', ua: 'Цикл Фібоначчі'}, text: {en: 'This is a cycle in which two previous numbers form the next', ua: 'Це цикл у якому два попередніх числа утворюють наступне'}, link: {en: 'https://www.programiz.com/javascript/examples/fibonacci-series', ua: 'https://www.programiz.com/javascript/examples/fibonacci-series'}, type: 'task', code: 
 `function fibonaccioCycle(limit) { 
   let a = 0 
   let b = 1 
@@ -272,7 +273,7 @@ console.log(shuffledArray)`},
 } 
 
 console.log(fibonaccioCycle(100))`},
-  {image: findMaxValue, caption: {en: 'Finding the largest number in an array', ua: 'Знаходження найбільшого числа в масиві'}, text: {en: 'This is a function that finds the largest number in an array using a loop', ua: 'Це функція, що знаходить найбільше число у масиві за допомогою цикла'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: findMaxValue, caption: {en: 'Finding the largest number in an array', ua: 'Знаходження найбільшого числа в масиві'}, text: {en: 'This is a function that finds the largest number in an array using a loop', ua: 'Це функція, що знаходить найбільше число у масиві за допомогою цикла'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `const numberArray = [1, 7, 26, 4, 82, 19] 
 function findMaxNumber(array) { 
   let maxNumber = array[0] 
@@ -284,7 +285,7 @@ function findMaxNumber(array) {
 } 
 
 console.log(findMaxNumber(numberArray))`},
-  {image: fizzBuzzTask, caption: {en: 'Finding multiples', ua: 'Пошук кратних'}, text: {en: 'This is a function that finds numbers that are multiples of 3, 5 and 3 and 5 at once', ua: 'Це функціі, що знаходиь числа кратним 3, 5 та 3 і 5 одразу'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: fizzBuzzTask, caption: {en: 'Finding multiples', ua: 'Пошук кратних'}, text: {en: 'This is a function that finds numbers that are multiples of 3, 5 and 3 and 5 at once', ua: 'Це функціі, що знаходиь числа кратним 3, 5 та 3 і 5 одразу'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `const fizzBuzz = (limit) => { 
   let out = '' 
   
@@ -301,7 +302,7 @@ console.log(findMaxNumber(numberArray))`},
 
 console.log(fizzBuzz(11)) 
 console.log(fizzBuzz(22))`}, 
-  {image: letterFinder, caption: {en: 'Search for a letter in a word', ua: 'Пошук букви в слові'}, text: {en: 'This function searches for letters in a word', ua: 'Ця функція шукає букви у слові'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: letterFinder, caption: {en: 'Search for a letter in a word', ua: 'Пошук букви в слові'}, text: {en: 'This function searches for letters in a word', ua: 'Ця функція шукає букви у слові'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `function letterFinder(word, letter) { 
   let firstCondition = typeof word === 'string' && word.length >= 2 
   let secondCondition = typeof word === 'string' && letter.length === 1
@@ -409,7 +410,7 @@ Promise.all([usersPromise, postsPromise])
     console.log(data) 
   }
 )`},
-  {image: fibonaccioCycleV2, caption: {en: 'Fibonaccio cycle v2.0', ua: 'Цикл Фібоначчі v2.0'}, text: {en: 'This is a cycle in which two previous numbers form the next', ua: 'Це цикл у якому два попередніх числа утворюють наступне'}, link: {en: 'https://www.programiz.com/javascript/examples/fibonacci-series', ua: 'https://www.programiz.com/javascript/examples/fibonacci-series'}, type: 'exercise', code: 
+  {image: fibonaccioCycleV2, caption: {en: 'Fibonaccio cycle v2.0', ua: 'Цикл Фібоначчі v2.0'}, text: {en: 'This is a cycle in which two previous numbers form the next', ua: 'Це цикл у якому два попередніх числа утворюють наступне'}, link: {en: 'https://www.programiz.com/javascript/examples/fibonacci-series', ua: 'https://www.programiz.com/javascript/examples/fibonacci-series'}, type: 'task', code: 
 `function fibonaccioCycle(amount) { 
   return new Array(amount).fill(0).reduce( 
     (accumulator, zero, index) => [...accumulator, index < 2 
@@ -418,7 +419,7 @@ Promise.all([usersPromise, postsPromise])
 } 
 
 console.log(fibonaccioCycle(10))`},
-  {image: arrayWithUniqueValuesV2, caption: {en: 'Filtering of unique values ​​in the array v2.0', ua: 'Фільтрація унікальних значень в масиві v2.0'}, text: {en: 'This is a function that filters values ​​using the filter and indexOf methods', ua: 'Це функція, що фільтрує значення за допомогою метода filter та indexOf'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: arrayWithUniqueValuesV2, caption: {en: 'Filtering of unique values ​​in the array v2.0', ua: 'Фільтрація унікальних значень в масиві v2.0'}, text: {en: 'This is a function that filters values ​​using the filter and indexOf methods', ua: 'Це функція, що фільтрує значення за допомогою метода filter та indexOf'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `const userArray = [ 
   'Alex', 
   'Mike', 
@@ -434,7 +435,7 @@ let uniqueArray = userArray.filter(
 ) 
 
 console.log(uniqueArray)`},
-  {image: arrayWithUniqueValuesV3, caption: {en: 'Filtering of unique values ​​in the array v3.0', ua: 'Фільтрація унікальних значень в масиві v3.0'}, text: {en: 'This is a function that filters values ​​using the reduce and includes method', ua: 'Це функція, що фільтрує значення за допомогою метода reduce та includes'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: arrayWithUniqueValuesV3, caption: {en: 'Filtering of unique values ​​in the array v3.0', ua: 'Фільтрація унікальних значень в масиві v3.0'}, text: {en: 'This is a function that filters values ​​using the reduce and includes method', ua: 'Це функція, що фільтрує значення за допомогою метода reduce та includes'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `const userArray = [ 
   'Alex', 
   'Mike', 
@@ -452,7 +453,7 @@ let uniqueArray = userArray.reduce(
 ) 
 
 console.log(uniqueArray)`},
-  {image: euclideanAlgorithm, caption: {en: 'Euclid`s algorithm', ua: 'Алгоритм Евкліда'}, text: {en: 'This is a function that finds the lowest common multiple for two numbers', ua: 'Це функція, що знаходить НСК для двух чисел'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: euclideanAlgorithm, caption: {en: 'Euclid`s algorithm', ua: 'Алгоритм Евкліда'}, text: {en: 'This is a function that finds the lowest common multiple for two numbers', ua: 'Це функція, що знаходить НСК для двух чисел'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `function euclideanAlgorithm(numberOne, numberTwo) { 
   let out = [] 
   
@@ -483,7 +484,7 @@ console.log(uniqueArray)`},
 
 console.log(euclideanAlgorithm(124, 28)) 
 console.log(euclideanAlgorithm(18, 24))`},  
-  {image: isIsogram, caption: {en: 'Isogram check', ua: 'Перевірка ізограми'}, text: {en: 'This is a function that checks a word for an isogram. That is, whether there are repeated letters in the word', ua: 'Це функція, що перевіряє слово на ізограму. Тобто чи є у слові повторювальні літери'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: isIsogram, caption: {en: 'Isogram check', ua: 'Перевірка ізограми'}, text: {en: 'This is a function that checks a word for an isogram. That is, whether there are repeated letters in the word', ua: 'Це функція, що перевіряє слово на ізограму. Тобто чи є у слові повторювальні літери'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `function isIsogram(word) { 
   let separatedWord = word.split('') 
   let settedWord = [...new Set(separatedWord)] 
@@ -494,7 +495,7 @@ console.log(euclideanAlgorithm(18, 24))`},
 console.log(isIsogram('Dermatoglyphics')) 
 console.log(isIsogram('moose')) 
 console.log(isIsogram('aba'))`},  
-  {image: digitalClock, caption: {en: 'Digital clock', ua: 'Цифровий годинник'}, text: {en: 'An interactive clock made using setInterval()', ua: 'Інтерактивний годинник, котрий зроблений за допомогою setInterval()'}, link: {en: '#', ua: '#'}, type: 'exercise', code: 
+  {image: digitalClock, caption: {en: 'Digital clock', ua: 'Цифровий годинник'}, text: {en: 'An interactive clock made using setInterval()', ua: 'Інтерактивний годинник, котрий зроблений за допомогою setInterval()'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `<!DOCTYPE html> 
 <html lang="en"> 
 <head> 
@@ -534,7 +535,7 @@ console.log(isIsogram('aba'))`},
 console.log(getDirection('JS')) 
 console.log(getDirection('Python')) 
 console.log(getDirection('Dart'))`},
-  {image: reactSearchPattern, caption: {en: 'React Search Pattern', ua: 'Пошуковий зразок (паттерн) Реакт'}, text: {en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query', ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту'}, link: {en: '#', ua: '#'}, type: 'React', code: 
+  {image: reactSearchPattern, caption: {en: 'React Search Pattern', ua: 'Зразок (паттерн) Пошуковику у Реакт'}, text: {en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query', ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту'}, link: {en: '#', ua: '#'}, type: 'React', code: 
 `import {useState} from 'react' 
 
 const Filter = ({content = []}) => { 
@@ -565,7 +566,7 @@ const Filter = ({content = []}) => {
 } 
 
 export default Filter`},
-  {image: categoryReactPattern, caption: {en: 'React Categories Pattern', ua: 'Зарозок (паттерн) Категорий Реакт'}, text: {en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written', ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії'}, link: {en: '#', ua: '#'}, type: 'React', code: 
+  {image: categoryReactPattern, caption: {en: 'React Categories Pattern', ua: 'Зарозок (паттерн) Категорій у Реакт'}, text: {en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written', ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії'}, link: {en: '#', ua: '#'}, type: 'React', code: 
 `import {useState} from 'react' 
 import './Categories.css' 
 
@@ -833,7 +834,7 @@ const ConditionalRendering = () => {
 export default ConditionalRendering`
 },
 
-{image: discriminant_formula, caption: {en: 'Discriminant Formula', ua: 'Формула Дискримінанту'}, text: {en: 'The function for finding the roots of a quadratic equation using the Discriminant Formula is made using the methods of the Math class. Namely Math.pow() - power (numbers), Math.sqrt() - root (numbers)', ua: 'Функція для знаходження коренів квадратного рівняння за допомогою Формула Дискримінанту зробленна за допомогою методів класа Math. А саме Math.pow() - степінь(числа), Math.sqrt() - корінь(числа)'}, link: {en: 'https://en.wikipedia.org/wiki/Discriminant', ua: 'https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82'}, type: 'exercise', code: 
+{image: discriminant_formula, caption: {en: 'Discriminant Formula', ua: 'Формула Дискримінанту'}, text: {en: 'The function for finding the roots of a quadratic equation using the Discriminant Formula is made using the methods of the Math class. Namely Math.pow() - power (numbers), Math.sqrt() - root (numbers)', ua: 'Функція для знаходження коренів квадратного рівняння за допомогою Формула Дискримінанту зробленна за допомогою методів класа Math. А саме Math.pow() - степінь(числа), Math.sqrt() - корінь(числа)'}, link: {en: 'https://en.wikipedia.org/wiki/Discriminant', ua: 'https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82'}, type: 'task', code: 
 `
 function discriminantFormula(a, b, c) {
   let D = Math.pow(b, 2) - 4 * a * c
@@ -880,6 +881,20 @@ transporter.sendMail(mailOptions, function(error, info){
         console.log('Email sent: ' + info.response);
     }
 })`},
+
+{image: includesMethod, caption: {en: 'Array.prototype.includes()', ua: 'Array.prototype.includes()'}, text: {en: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate', ua: 'Метод includes() визначає, чи містить масив певне значення серед своїх записів, повертаючи true або false відповідно'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/includes'}, type: 'method', code: 
+`
+const array = [1, 4, 'hello', 77, 'WoRld']
+
+console.log(array.includes(4))
+console.log(array.includes('hello'))
+console.log(array.includes('world'))
+console.log(array.includes('WoRld'))
+
+const string = 'helloWorld'
+
+console.log(array.includes('hello'))
+console.log(array.includes('world'))`},
 ]
 
 const languages = [

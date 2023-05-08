@@ -10,7 +10,7 @@ const types = [
     {en: 'function', ua: 'функції'},
     {en: 'cycle', ua: 'цикли'},
     {en: 'request', ua: 'запити'},
-    {en: 'exercise', ua: 'задачки'},
+    {en: 'task', ua: 'задачки'},
     {en: 'OOP', ua: 'ООП'},
     {en: 'React', ua: 'Реакт'},
     {en: 'Node.js', ua: 'Node.js'},
