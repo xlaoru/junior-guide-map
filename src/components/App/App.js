@@ -61,6 +61,7 @@ import conditional_rendering from '../../images/conditional_rendering.png'
 import discriminant_formula from '../../images/discriminant_formula.png'
 import node_email_sender from '../../images/node_email_sender.png'
 import includesMethod from '../../images/includes.png'
+import destructurization from '../../images/destructurization.jpg'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -895,6 +896,19 @@ const string = 'helloWorld'
 
 console.log(array.includes('hello'))
 console.log(array.includes('world'))`},
+
+{image: destructurization, caption: {en: 'Destructuring assignment', ua: 'Деструктуризаційне завдавання'}, text: {en: 'The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.', ua: 'Синтаксис присвоєння деструктуризації — це вираз JavaScript, який дає змогу розпаковувати значення з масивів або властивості з об’єктів у окремі змінні.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment'}, type: 'operator', code: 
+`
+const person = {
+  name: 'Alex',
+  age: 25,
+  city: 'Kyiv'
+}
+
+const {name, age} = person
+
+console.log(name)
+console.log(age)`}
 ]
 
 const languages = [
