@@ -61,7 +61,9 @@ import conditional_rendering from '../../images/conditional_rendering.png'
 import discriminant_formula from '../../images/discriminant_formula.png'
 import node_email_sender from '../../images/node_email_sender.png'
 import includesMethod from '../../images/includes.png'
-import destructurization from '../../images/destructurization.jpg'
+import destructurization from '../../images/destructurization.png'
+import pushMethod from '../../images/pushMethod.png'
+import popMethod from '../../images/popMethod.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -889,7 +891,7 @@ const array = [1, 4, 'hello', 77, 'WoRld']
 
 console.log(array.includes(4))
 console.log(array.includes('hello'))
-console.log(array.includes('world'))
+console.log(array.includes('hello', 3))
 console.log(array.includes('WoRld'))
 
 const string = 'helloWorld'
@@ -908,7 +910,27 @@ const person = {
 const {name, age} = person
 
 console.log(name)
-console.log(age)`}
+console.log(age)`},
+{image: pushMethod, caption: {en: 'Array.prototype.push()', ua: 'Array.prototype.push()'}, text: {en: 'The push() method adds one or more elements to the end of the array and returns the new length of the array', ua: 'Метод push() додає один або більше елементів до кінця масиву і повертає нову довжину масиву'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/push'}, type: 'method', code:
+`
+let array = [1, 1, 2, 3, 5, 8]
+
+array.push(13)
+console.log(array)
+
+array.push(21, 34, 55)
+console.log(array)
+
+console.log(array.push())`},
+{image: popMethod, caption: {en: 'Array.prototype.pop()', ua: 'Array.prototype.pop()'}, text: {en: 'The pop() method removes the last element from the array and returns its value. The last element of the array, or undefined if the array is empty', ua: 'Метод pop() видаляє останній елемент з масиву та повертає його значення. Останній елемент масиву або undefined, якщо масив порожній'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop#%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/pop#%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5'}, type: 'method', code:
+`
+let array = [1, 1, 2, 3, 5, 8]
+
+array.pop()
+console.log(array)
+
+console.log(array.pop())
+console.log(array)`},
 ]
 
 const languages = [
