@@ -208,3 +208,7 @@ Some addictions
 ### `v16.5`
 
 Some addictions
+
+### `v16.6`
+
+Some addictions

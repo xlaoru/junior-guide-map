@@ -64,6 +64,8 @@ import includesMethod from '../../images/includes.png'
 import destructurization from '../../images/destructurization.png'
 import pushMethod from '../../images/pushMethod.png'
 import popMethod from '../../images/popMethod.png'
+import PropsChildren from '../../images/Props_Children.png'
+import RerenderProps from '../../images/Rerender_Props.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -931,6 +933,116 @@ console.log(array)
 
 console.log(array.pop())
 console.log(array)`},
+
+{image: PropsChildren, caption: {en: 'Children props in React', ua: 'Children props у Реакті'}, text: {en: 'Children lets you manipulate and transform the JSX you received as the children prop', ua: 'Children дозволяють вам маніпулювати та перетворювати JSX, який ви отримали як дочірню props'}, link: {en: 'https://react.dev/reference/react/Children', ua: 'https://react.dev/reference/react/Children'}, type: 'React', code:
+`
+import React from 'react'
+import {Container, Row, Col} from 'react-bootstrap'
+
+const DynamicGreeting = (props) => {
+    return (
+      <div className={'mb-3 p-3 border border-' + props.color}>
+        {props.children}
+      </div>
+    )
+}
+
+const AdvancedDynamicGreeting = (props) => {
+    return (
+      <div className={'mb-3 p-3 border border-' + props.color}>
+        {
+          React.Children.map(props.children, child => {
+            return React.cloneElement(child, {className: 'shadow p-3 m-3 border rounded'})
+          })
+        }
+      </div>
+    )
+}
+
+const ColumnStyle = (props) => {
+    return (
+        <Container className='mt-5 mb-5'>
+            <Row>
+                <Col>
+                    {props.leftSide}
+                </Col>
+                <Col>
+                    {props.rightSide}
+                </Col>
+            </Row>
+        </Container>
+    )
+}
+
+const PropsChildren = () => {
+    return (
+        <>
+            <DynamicGreeting color={'primary'}>
+                <h2>This weel was hard</h2>
+                <h2>Hello world</h2>
+            </DynamicGreeting>
+
+            <AdvancedDynamicGreeting color={'primary'}>
+                <h2>This weel was hard</h2>
+                <h2>Hello world</h2>
+            </AdvancedDynamicGreeting>
+
+            <ColumnStyle 
+                leftSide = {
+                    <DynamicGreeting color={'primary'}>
+                        <h2>Left side</h2>
+                    </DynamicGreeting>
+                }
+
+                rightSide = {
+                    <AdvancedDynamicGreeting color={'primary'}>
+                        <h2>This weel was hard</h2>
+                        <h2>Hello world</h2>
+                    </AdvancedDynamicGreeting>
+                }
+            />
+
+        </>
+    )
+}
+
+export default PropsChildren`},
+{image: RerenderProps, caption: {en: 'Rerender props in React', ua: 'Ререндер props у Реакті'}, text: {en: 'The term "render-prop" refers to a technique in which React components share one code (function) among themselves by passing it through a prop. A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic', ua: 'Термін “рендер-проп” відноситься до техніки, в якій React-компоненти розділяють між собою один код (функцію) передаючи її через проп. Компонент з рендер-пропом приймає функцію, яка повертає React-елемент, і викликає її замість реалізації власної рендер-логіки'}, link: {en: 'https://react.dev/reference/react/cloneElement#passing-data-with-a-render-prop', ua: 'https://uk.legacy.reactjs.org/docs/render-props.html'}, type: 'React', code:
+`
+import React, {useState} from 'react'
+
+const Message = (props) => {
+    return (
+        <h2>The counter is {props.counter}</h2>
+    )
+}
+
+const Counter = (props) => {
+    const [counter, setCounter] = useState(0)
+
+    function changeCounter() {
+        setCounter(count => count + 1)
+    }
+
+    return (
+        <div>
+            <button onClick={changeCounter}>Click me</button>
+            {props.render(counter)}
+        </div>
+    )
+}
+
+const RerenderProps = () => {
+    return (
+        <div>
+            <Counter render={counter => (
+                <Message counter={counter}/>
+            )}/>
+        </div>
+    )
+}
+
+export default RerenderProps`}
 ]
 
 const languages = [
