@@ -209,10 +209,14 @@ Some addictions
 
 Some addictions
 
-### `v16.5.1`
-
-Some changes
-
 ### `v16.6`
 
 Some addictions
+
+### `v16.6.1`
+
+Some changes
+
+### `v16.6.2`
+
+Some changes
