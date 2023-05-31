@@ -66,6 +66,7 @@ import pushMethod from '../../images/pushMethod.png'
 import popMethod from '../../images/popMethod.png'
 import PropsChildren from '../../images/Props_Children.png'
 import RerenderProps from '../../images/Rerender_Props.png'
+import isArrayMethod from '../../images/isArrayMethod.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -1042,7 +1043,14 @@ const RerenderProps = () => {
     )
 }
 
-export default RerenderProps`}
+export default RerenderProps`},
+{image: isArrayMethod, caption: {en: 'Array.isArray()', ua: 'Array.isArray()'}, text: {en: 'The Array.isArray() static method determines whether the passed value is an Array', ua: 'Статичний метод Array.isArray() визначає, чи є передане значення масивом'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray'}, type: 'method', code:
+`
+const list1 = ['banana', 'apple', 'orange']
+const list2 = 'banana, apple, orange'
+
+console.log(Array.isArray(list1))
+console.log(Array.isArray(list2))`}
 ]
 
 const languages = [

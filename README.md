@@ -220,3 +220,7 @@ Some changes
 ### `v16.6.2`
 
 Some changes
+
+### `v16.7`
+
+Some addictions
