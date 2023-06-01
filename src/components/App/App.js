@@ -67,6 +67,7 @@ import popMethod from '../../images/popMethod.png'
 import PropsChildren from '../../images/Props_Children.png'
 import RerenderProps from '../../images/Rerender_Props.png'
 import isArrayMethod from '../../images/isArrayMethod.png'
+import hunger_games from '../../images/hunger_games.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -1050,7 +1051,52 @@ const list1 = ['banana', 'apple', 'orange']
 const list2 = 'banana, apple, orange'
 
 console.log(Array.isArray(list1))
-console.log(Array.isArray(list2))`}
+console.log(Array.isArray(list2))`},
+{image: hunger_games, caption: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, text: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less ', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.'}, link: {en: '#', ua: '#'}, type: 'React', code:
+`
+import React, { useState } from 'react'
+
+const HungerGamesApp = () => {
+  const [inputValue, setInputValue] = useState('')
+  const [wordList, setWordList] = useState([])
+  const [lostWord, setLostWord] = useState('')
+  const [winner, setWinner] = useState('')
+
+  function getWords(event) {
+    setInputValue(event.target.value)
+  }
+
+  function setWords() {
+    setWordList(inputValue.split(', '))
+  }
+
+  function startGame() {
+    if (wordList.length === 1) {
+      setWinner(wordList[0])
+    }
+    let randomNumber = Math.floor(Math.random() * wordList.length)
+    setLostWord(wordList[randomNumber])
+    let newWordList = wordList.filter((word, index) => {
+      return index !== randomNumber
+    })
+    setWordList(newWordList)
+  }
+
+  return (
+    <div>
+      <h1>Hunger Games</h1>
+      <input type="text" onChange={getWords} />
+      <button onClick={setWords}>Add Words</button>
+      <button onClick={startGame}>Play Game</button>
+      <h3>Lost word: {lostWord === '' ? 'No lost word' : lostWord}</h3>
+      {wordList.length === 0 ? <p>No Words</p> : wordList.map((word, index) => <p key={index}>{word}</p>)}
+      {wordList.length === 0 ? <h1>{winner} won!!!</h1> : ''}
+    </div>
+  );
+};
+
+export default HungerGamesApp
+`},
 ]
 
 const languages = [
