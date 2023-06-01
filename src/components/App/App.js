@@ -621,8 +621,7 @@ const Categories = ({content = []}) => {
 export default Categories`},
 
   {image: useEffectWithAllArgs, caption: {en: 'All about useEffect()', ua: 'Все про UseEffect()'}, text: {en: 'An effect hook allows you to perform side effects in a functional component', ua: 'Хук ефектів дозволяє виконувати побічні ефекти у функціональному компоненті'}, link: {en: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', ua: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/'}, type: 'React', code: 
-`
-// componentDidMount
+`// componentDidMount
 useEffect(() => {
   console.log('components did mount')
 }, [])
@@ -646,8 +645,7 @@ useEffect(() => {
 }, [])`},
 
 {image: gettingInfoFromApi, caption: {en: 'Getting info from API', ua: 'Отримуємо інформацію з API серверу'}, text: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування'}, link: {en: '#', ua: '#'}, type: 'React', code: 
-`
-import {useState, useEffect} from 'react'
+`import {useState, useEffect} from 'react'
 
 const UserList = () => {
     let [users, setUsers] = useState([])
@@ -675,8 +673,7 @@ const UserList = () => {
 export default UserList`},
 
 {image: gettingInfoFromApiKY, caption: {en: 'Getting info from API by KY.js library', ua: 'Отримуємо інформацію з API серверу за допомогою KY.js бібліотеки'}, text: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use. And the information itself can be taken using the KY.js library', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування. А саму інформацію можно взяти за допомогою бібліотеки KY.js'}, link: {en: 'https://github.com/sindresorhus/ky', ua: 'https://github.com/sindresorhus/ky'}, type: 'React', code: 
-`
-import {useState, useEffect} from 'react'
+`import {useState, useEffect} from 'react'
 import ky from 'ky'
 
 const api = ky.create({
@@ -709,8 +706,7 @@ const UserListKY = () => {
 export default UserListKY`},
 
 {image: [rrt_input_1, rrt_input_2, rrt_input_3, rrt_input_4, rrt_input_5, rrt_input_6], caption: {en: 'React Redux-Toolkit mini form app', ua: 'Робимо міні проект Форми за допомогою біліотеки Реакт Redux-Toolkit'}, text: {en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is output)', ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось)'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', code: [
-`
-import React from 'react'
+`import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'
 
@@ -730,8 +726,7 @@ root.render(
 
 reportWebVitals()
 `,
-`
-import Input from './components/Input'
+`import Input from './components/Input'
 import Output from './components/Output'
 
 const App = () => {
@@ -744,8 +739,7 @@ const App = () => {
 }
 
 export default App`,
-`
-import {configureStore} from '@reduxjs/toolkit'
+`import {configureStore} from '@reduxjs/toolkit'
 import TextReducer from './TextSlice'
 
 export default configureStore({
@@ -753,8 +747,7 @@ export default configureStore({
         text: TextReducer
     }
 })`,
-`
-import {createSlice} from '@reduxjs/toolkit'
+`import {createSlice} from '@reduxjs/toolkit'
 export const TextSlice = createSlice({
     name: 'text',
     initialState: {
@@ -770,8 +763,7 @@ export const TextSlice = createSlice({
 export const {textAdditor} = TextSlice.actions
 export const selectText = state => state.text.value
 export default TextSlice.reducer`,
-`
-import {createRef} from 'react'
+`import {createRef} from 'react'
 import {useDispatch} from 'react-redux'
 import {textAdditor} from '../store/TextSlice'
 
@@ -792,8 +784,7 @@ const Input = () => {
 }
 
 export default Input`,
-`
-import {useSelector} from "react-redux"
+`import {useSelector} from "react-redux"
 
 const Output = () => {
     const value = useSelector(state => state.text.value)
@@ -808,8 +799,7 @@ export default Output`,
 ]},
 
 {image: props_destructurization, caption: {en: 'React props destructurization', ua: "Деструктурізація props об'єктів у Реакті"}, text: {en: 'Destructuring props objects in React is a very important part. Destructuring is used to make the code easier to read', ua: "Деструктурізація props об'єктів у Реакті дуже важлива частина. Щоб полегшити читабельність коду застосовують деструктурізацію"}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', code: 
-`
-// <Destructurization skills={['Frontend', 'DevOps', 'Project Manager]} id='1' name='Alex' />
+`// <Destructurization skills={['Frontend', 'DevOps', 'Project Manager]} id='1' name='Alex' />
 const Destructurization = ({skills, ...userInfo}) => {
   return <ul><li>{userInfo.id}. {userInfo.name} is a {skills.join(', ')} developer</li></ul>
 }
@@ -818,8 +808,7 @@ export default Destructurization`
 },
 
 {image: conditional_rendering, caption: {en: 'Conditional rendering', ua: 'Умовний рендеринг'}, text: {en: 'Conditional rendering is a special syntax in React, where there are conditions under which it is possible to adjust the rendering of individual parts of the code', ua: 'Умовний рендеринг - це спеціальний синтаксис у Реакті, де є умови при яких можливо регулювати рендеринг окремих частин коду'}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', code: 
-`
-const ConditionalRendering = () => {
+`const ConditionalRendering = () => {
   return (
       <div>
           {5 > 3 && <span>Rendered when 'truthy'</span>} {/* if */}
@@ -842,8 +831,7 @@ export default ConditionalRendering`
 },
 
 {image: discriminant_formula, caption: {en: 'Discriminant Formula', ua: 'Формула Дискримінанту'}, text: {en: 'The function for finding the roots of a quadratic equation using the Discriminant Formula is made using the methods of the Math class. Namely Math.pow() - power (numbers), Math.sqrt() - root (numbers)', ua: 'Функція для знаходження коренів квадратного рівняння за допомогою Формула Дискримінанту зробленна за допомогою методів класа Math. А саме Math.pow() - степінь(числа), Math.sqrt() - корінь(числа)'}, link: {en: 'https://en.wikipedia.org/wiki/Discriminant', ua: 'https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82'}, type: 'task', code: 
-`
-function discriminantFormula(a, b, c) {
+`function discriminantFormula(a, b, c) {
   let D = Math.pow(b, 2) - 4 * a * c
   let x1
   let x2
@@ -863,8 +851,7 @@ console.log(discriminantFormula(1, -6, 5))
 console.log(discriminantFormula(1, -0, 5))`},
 
 {image: node_email_sender, caption: {en: 'Email sender on Node.js', ua: 'Відправник на електронну пошту на Node.js'}, text: {en: 'This program uses the nodemailer library, which helps to easily send information to e-mail', ua: 'Ця програма застосовую бібліотеку nodemailer, котра допомогає легко відсилати інформацію на електронну пошту'}, link: {en: 'https://github.com/nodemailer/nodemailer', ua: 'https://github.com/nodemailer/nodemailer'}, type: 'Node.js', code: 
-`
-const nodemailer = require('nodemailer')
+`const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -890,8 +877,7 @@ transporter.sendMail(mailOptions, function(error, info){
 })`},
 
 {image: includesMethod, caption: {en: 'Array.prototype.includes()', ua: 'Array.prototype.includes()'}, text: {en: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate', ua: 'Метод includes() визначає, чи містить масив певне значення серед своїх записів, повертаючи true або false відповідно'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/includes'}, type: 'method', code: 
-`
-const array = [1, 4, 'hello', 77, 'WoRld']
+`const array = [1, 4, 'hello', 77, 'WoRld']
 
 console.log(array.includes(4))
 console.log(array.includes('hello'))
@@ -904,8 +890,7 @@ console.log(array.includes('hello'))
 console.log(array.includes('world'))`},
 
 {image: destructurization, caption: {en: 'Destructuring assignment', ua: 'Деструктуризаційне завдавання'}, text: {en: 'The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.', ua: 'Синтаксис присвоєння деструктуризації — це вираз JavaScript, який дає змогу розпаковувати значення з масивів або властивості з об’єктів у окремі змінні.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment'}, type: 'operator', code: 
-`
-const person = {
+`const person = {
   name: 'Alex',
   age: 25,
   city: 'Kyiv'
@@ -916,8 +901,7 @@ const {name, age} = person
 console.log(name)
 console.log(age)`},
 {image: pushMethod, caption: {en: 'Array.prototype.push()', ua: 'Array.prototype.push()'}, text: {en: 'The push() method adds one or more elements to the end of the array and returns the new length of the array', ua: 'Метод push() додає один або більше елементів до кінця масиву і повертає нову довжину масиву'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/push'}, type: 'method', code:
-`
-let array = [1, 1, 2, 3, 5, 8]
+`let array = [1, 1, 2, 3, 5, 8]
 
 array.push(13)
 console.log(array)
@@ -927,8 +911,7 @@ console.log(array)
 
 console.log(array.push())`},
 {image: popMethod, caption: {en: 'Array.prototype.pop()', ua: 'Array.prototype.pop()'}, text: {en: 'The pop() method removes the last element from the array and returns its value. The last element of the array, or undefined if the array is empty', ua: 'Метод pop() видаляє останній елемент з масиву та повертає його значення. Останній елемент масиву або undefined, якщо масив порожній'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop#%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/pop#%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5'}, type: 'method', code:
-`
-let array = [1, 1, 2, 3, 5, 8]
+`let array = [1, 1, 2, 3, 5, 8]
 
 array.pop()
 console.log(array)
@@ -937,8 +920,7 @@ console.log(array.pop())
 console.log(array)`},
 
 {image: PropsChildren, caption: {en: 'Children props in React', ua: 'Children props у Реакті'}, text: {en: 'Children lets you manipulate and transform the JSX you received as the children prop', ua: 'Children дозволяють вам маніпулювати та перетворювати JSX, який ви отримали як дочірню props'}, link: {en: 'https://react.dev/reference/react/Children', ua: 'https://react.dev/reference/react/Children'}, type: 'React', code:
-`
-import React from 'react'
+`import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
 
 const DynamicGreeting = (props) => {
@@ -1010,8 +992,7 @@ const PropsChildren = () => {
 
 export default PropsChildren`},
 {image: RerenderProps, caption: {en: 'Rerender props in React', ua: 'Ререндер props у Реакті'}, text: {en: 'The term "render-prop" refers to a technique in which React components share one code (function) among themselves by passing it through a prop. A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic', ua: 'Термін “рендер-проп” відноситься до техніки, в якій React-компоненти розділяють між собою один код (функцію) передаючи її через проп. Компонент з рендер-пропом приймає функцію, яка повертає React-елемент, і викликає її замість реалізації власної рендер-логіки'}, link: {en: 'https://react.dev/reference/react/cloneElement#passing-data-with-a-render-prop', ua: 'https://uk.legacy.reactjs.org/docs/render-props.html'}, type: 'React', code:
-`
-import React, {useState} from 'react'
+`import React, {useState} from 'react'
 
 const Message = (props) => {
     return (
@@ -1046,15 +1027,13 @@ const RerenderProps = () => {
 
 export default RerenderProps`},
 {image: isArrayMethod, caption: {en: 'Array.isArray()', ua: 'Array.isArray()'}, text: {en: 'The Array.isArray() static method determines whether the passed value is an Array', ua: 'Статичний метод Array.isArray() визначає, чи є передане значення масивом'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray'}, type: 'method', code:
-`
-const list1 = ['banana', 'apple', 'orange']
+`const list1 = ['banana', 'apple', 'orange']
 const list2 = 'banana, apple, orange'
 
 console.log(Array.isArray(list1))
 console.log(Array.isArray(list2))`},
 {image: hunger_games, caption: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, text: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less ', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.'}, link: {en: '#', ua: '#'}, type: 'React', code:
-`
-import React, { useState } from 'react'
+`import React, { useState } from 'react'
 
 const HungerGamesApp = () => {
   const [inputValue, setInputValue] = useState('')

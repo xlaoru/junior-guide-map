@@ -3,6 +3,8 @@
     padding: 10px;
 }
 
-img {
-    padding: 10px;
+.code-show {
+    padding: 25px;
+    color: green;
+    background-color: #1e1e1e;
 }

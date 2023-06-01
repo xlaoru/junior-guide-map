@@ -228,3 +228,7 @@ Some addictions
 ### `v16.8`
 
 Some addictions
+
+### `v17.0`
+
+New text animation when you clicked on code image 
