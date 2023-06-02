@@ -10,7 +10,7 @@ const ModalWindow = ({caption, code, isShowed, setShow}) => {
             >
                 <ModalHeader closeButton/>
                 <Modal.Title>{caption}</Modal.Title>
-                <pre className='code-show' style={{'overflow': 'scroll', 'height': '400px'}}>{code}</pre>
+                <pre className='code-show'>{code}</pre>
             </Modal>
         </div>
     );

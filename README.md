@@ -236,3 +236,7 @@ New text animation when you clicked on code image
 ### `v17.0.1`
 
 Some changes
+
+### `v17.0.2`
+
+Some changes
