@@ -34,6 +34,7 @@
 }
 
 #doc-button {
+    margin-top: 15px;
     padding: 0;
     background: rgb(140, 149, 156);
     border: none;
