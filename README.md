@@ -240,3 +240,7 @@ Some changes
 ### `v17.0.2`
 
 Some changes
+
+### `v17.1`
+
+Some addictions

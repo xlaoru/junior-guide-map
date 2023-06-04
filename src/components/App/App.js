@@ -68,6 +68,7 @@ import PropsChildren from '../../images/Props_Children.png'
 import RerenderProps from '../../images/Rerender_Props.png'
 import isArrayMethod from '../../images/isArrayMethod.png'
 import hunger_games from '../../images/hunger_games.png'
+import spinner from '../../images/spinner.png'
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -1032,7 +1033,7 @@ const list2 = 'banana, apple, orange'
 
 console.log(Array.isArray(list1))
 console.log(Array.isArray(list2))`},
-{image: hunger_games, caption: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, text: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less ', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.'}, link: {en: '#', ua: '#'}, type: 'React', code:
+{image: hunger_games, caption: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, text: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше'}, link: {en: '#', ua: '#'}, type: 'React', code:
 `import React, { useState } from 'react'
 
 const HungerGamesApp = () => {
@@ -1074,8 +1075,73 @@ const HungerGamesApp = () => {
   );
 };
 
-export default HungerGamesApp
-`},
+export default HungerGamesApp`},
+{image: spinner, caption: {en: 'Spinner in React', ua: 'Spinner в React'}, text: {en: 'Spinner in React is a very important thing. When information comes with a delay from the API, then some kind of stub is needed so that the user does not see an empty page', ua: 'Spinner у React — це дуже важлива річ. Коли інформація надходить із затримкою від API, то потрібна якась заглушка, щоб користувач не бачив порожню сторінку'}, link: {en: '#', ua: '#'}, type: 'React', code:
+`const Spinner = () => {
+  return (
+      <svg xmlns="http://www.w3.org/2000/svg" style={{margin: '0 auto', background: 'none', display: 'block'}} width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+          <g transform="translate(80,50)">
+          <g transform="rotate(0)">
+          <circle cx="0" cy="0" r="7" fill="#1c4595" fillOpacity="1">
+          <animateTransform attributeName="transform" type="scale" begin="-0.875s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+          <animate attributeName="fillOpacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.875s"></animate>
+          </circle>
+          </g>
+          </g><g transform="translate(71.21320343559643,71.21320343559643)">
+          <g transform="rotate(45)">
+          <circle cx="0" cy="0" r="7" fill="#1c4595" fillOpacity="0.875">
+          <animateTransform attributeName="transform" type="scale" begin="-0.75s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+          <animate attributeName="fillOpacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.75s"></animate>
+          </circle>
+          </g>
+          </g><g transform="translate(50,80)">
+          <g transform="rotate(90)">
+          <circle cx="0" cy="0" r="7" fill="#1c4595" fillOpacity="0.75">
+          <animateTransform attributeName="transform" type="scale" begin="-0.625s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+          <animate attributeName="fillOpacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.625s"></animate>
+          </circle>
+          </g>
+          </g><g transform="translate(28.786796564403577,71.21320343559643)">
+          <g transform="rotate(135)">
+          <circle cx="0" cy="0" r="7" fill="#1c4595" fillOpacity="0.625">
+          <animateTransform attributeName="transform" type="scale" begin="-0.5s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+          <animate attributeName="fillOpacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.5s"></animate>
+          </circle>
+          </g>
+          </g><g transform="translate(20,50.00000000000001)">
+          <g transform="rotate(180)">
+          <circle cx="0" cy="0" r="7" fill="#1c4595" fillOpacity="0.5">
+          <animateTransform attributeName="transform" type="scale" begin="-0.375s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+          <animate attributeName="fillOpacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.375s"></animate>
+          </circle>
+          </g>
+          </g><g transform="translate(28.78679656440357,28.786796564403577)">
+          <g transform="rotate(225)">
+          <circle cx="0" cy="0" r="7" fill="#1c4595" fillOpacity="0.375">
+          <animateTransform attributeName="transform" type="scale" begin="-0.25s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+          <animate attributeName="fillOpacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.25s"></animate>
+          </circle>
+          </g>
+          </g><g transform="translate(49.99999999999999,20)">
+          <g transform="rotate(270)">
+          <circle cx="0" cy="0" r="7" fill="#1c4595" fillOpacity="0.25">
+          <animateTransform attributeName="transform" type="scale" begin="-0.125s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+          <animate attributeName="fillOpacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.125s"></animate>
+          </circle>
+          </g>
+          </g><g transform="translate(71.21320343559643,28.78679656440357)">
+          <g transform="rotate(315)">
+          <circle cx="0" cy="0" r="7" fill="#1c4595" fillOpacity="0.125">
+          <animateTransform attributeName="transform" type="scale" begin="0s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+          <animate attributeName="fillOpacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="0s"></animate>
+          </circle>
+          </g>
+          </g>
+      </svg>
+  )
+}
+
+export default Spinner;`},
 ]
 
 const languages = [
