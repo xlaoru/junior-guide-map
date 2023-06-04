@@ -244,3 +244,7 @@ Some changes
 ### `v17.1`
 
 Some addictions
+
+### `v17.1.1`
+
+Some changes

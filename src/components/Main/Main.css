@@ -15,28 +15,30 @@
 
 .types-bar {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(5, auto);
     margin-top: 2rem;
-  }
+}
   
 .type-bar {
-    text-transform: uppercase;
+    text-transform: capitalize;
+    font-weight: 550;
+    font-size: 13.5px;
     background-color: white;
-    border: 5px solid rgb(140, 149, 156);
+    border: 3.5px solid rgb(140, 149, 156);
     border-radius: 20px;
     margin: 2.5px;
-    padding: 7.5px;
+    padding: 10px 5px;
     transition: all 0.5s;
 }
   
 .type-bar:hover {
     background-color:rgb(169, 180, 188);
-    border: 5px solid rgb(215, 214, 214);
+    border: 3.5px solid rgb(215, 214, 214);
     color: white;
 }
 
 .clicked {
     background-color:rgb(140, 149, 156);
-    border: 5px solid white;
+    border: 3.5px solid white;
     color: white;
 }
