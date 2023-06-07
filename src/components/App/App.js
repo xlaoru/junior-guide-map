@@ -69,6 +69,7 @@ import RerenderProps from '../../images/Rerender_Props.png'
 import isArrayMethod from '../../images/isArrayMethod.png'
 import hunger_games from '../../images/hunger_games.png'
 import spinner from '../../images/spinner.png'
+import Footer from '../Footer/Footer';
 
 const content = [
   {image: filterMethod, caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -1179,6 +1180,7 @@ function App() {
        viewBox="0 0 32 32"
        svgPath="M17.504 26.025l.001-14.287 6.366 6.367L26 15.979 15.997 5.975 6 15.971 8.129 18.1l6.366-6.368v14.291z" 
       />
+      <Footer activeLanguage={activeLanguage}/>
     </div>
   );
 }

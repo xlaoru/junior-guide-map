@@ -252,3 +252,7 @@ Some changes
 ### `v17.1.2`
 
 Some changes
+
+### `v18.0`
+
+New Footer
