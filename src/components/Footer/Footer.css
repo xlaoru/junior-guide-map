@@ -1,18 +1,19 @@
 .Footer {
     height: 150px;
     background-color: rgb(140, 149, 156);
-    margin-top: 16%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px;
+    padding: 0 75px;
+    margin-top: 75px;
 }
 
 .Footer img {
+    margin-right: 15px;
     width: 125px;
     height: 125px;
 }
 
-.Footer h1 {
+.Footer h3 {
     color: white;
 }

@@ -256,3 +256,7 @@ Some changes
 ### `v18.0`
 
 New Footer
+
+### `v18.0.1`
+
+Some changes
