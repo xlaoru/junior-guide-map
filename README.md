@@ -268,3 +268,7 @@ Some changes
 ### `v18.0.3`
 
 Some changes
+
+### `v18.0.4`
+
+Some changes
