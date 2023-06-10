@@ -1,7 +1,7 @@
 import {Carousel} from 'react-bootstrap'
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { dark  } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import './CarouselItem.css'
 
@@ -17,7 +17,7 @@ const CarouselItem = ({codes, activeIndex, setActiveIndex}) => {
           <Carousel.Item 
             key={index}
           >
-              <SyntaxHighlighter className="code-show" language="javascript" style={ dark }>{code}</SyntaxHighlighter>
+              <SyntaxHighlighter className="code-show-carousel" language="jsx" style={ atomOneDark } customStyle={{padding: '25px'}}>{code}</SyntaxHighlighter>
           </Carousel.Item>
       )}
     </Carousel>

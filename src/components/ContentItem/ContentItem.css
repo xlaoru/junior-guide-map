@@ -4,14 +4,14 @@
 }
 
 .card-body {
-    height: 390px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .card-text {
-    height: 170px;
+    height: auto;
 }
 
 #doc-button {

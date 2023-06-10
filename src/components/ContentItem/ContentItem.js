@@ -4,7 +4,7 @@ import AlertMessage from '../AlertMessage/AlertMessage';
 import CarouselItem from '../CarouselItem/CarouselItem';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { dark  } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atomOneDark  } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import './ContentItem.css'
 
@@ -23,10 +23,10 @@ const ContentItem = ({caption, text, link, code, activeLanguage}) => {
     return (
         <div className='ContentItem'>
             <Card style={{'borderRadius': '10px'}} className="card-item">
-                <div className={Array.isArray(code) ? 'code-wrapper carousel' : "code-wrapper"}>
+                <div className="code-wrapper">
                     {Array.isArray(code) 
                         ? <CarouselItem codes={code} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
-                        : (<SyntaxHighlighter className="code-show" language="javascript" style={ dark }>{code}</SyntaxHighlighter>)
+                        : (<SyntaxHighlighter className="code-show" language="jsx" style={ atomOneDark } customStyle={{padding: '25px'}}>{code}</SyntaxHighlighter>)
                     }
                 </div>
                 <Card.Body className="card-body">

@@ -284,3 +284,7 @@ Application redesign
 ### `v19.1`
 
 Style correction
+
+### `v19.1.1`
+
+Style correction
