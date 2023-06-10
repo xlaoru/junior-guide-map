@@ -11,7 +11,7 @@ const CarouselItem = ({codes, type, activeIndex, setActiveIndex}) => {
   }
 
   return (
-    <Carousel className='Carousel' onSelect={handleSelect} activeIndex={activeIndex} interval={null} controls={false}>
+    <Carousel className='Carousel' onSelect={handleSelect} activeIndex={activeIndex} interval={null} controls={false} touch={false}>
       {codes.map(
         (code, index) => 
           <Carousel.Item 

@@ -292,3 +292,7 @@ Style correction
 ### `v19.1.2`
 
 Style correction
+
+### `v19.1.3`
+
+Style correction
