@@ -280,3 +280,7 @@ Some changes
 ### `v19.0`
 
 Application redesign
+
+### `v19.1`
+
+Style correction

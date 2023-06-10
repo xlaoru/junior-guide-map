@@ -1,8 +1,11 @@
 import {Carousel} from 'react-bootstrap'
 
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { dark  } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 import './CarouselItem.css'
 
-const CarouselItem = ({codes, setShow, activeIndex, setActiveIndex}) => {
+const CarouselItem = ({codes, activeIndex, setActiveIndex}) => {
   function handleSelect(selectedIndex) {
     setActiveIndex(selectedIndex)
   }
@@ -14,7 +17,7 @@ const CarouselItem = ({codes, setShow, activeIndex, setActiveIndex}) => {
           <Carousel.Item 
             key={index}
           >
-              <pre className='code-show'>{code}</pre>
+              <SyntaxHighlighter className="code-show" language="javascript" style={ dark }>{code}</SyntaxHighlighter>
           </Carousel.Item>
       )}
     </Carousel>

@@ -3,6 +3,9 @@ import {Card, Button} from 'react-bootstrap'
 import AlertMessage from '../AlertMessage/AlertMessage';
 import CarouselItem from '../CarouselItem/CarouselItem';
 
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { dark  } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 import './ContentItem.css'
 
 const ContentItem = ({caption, text, link, code, activeLanguage}) => {
@@ -19,14 +22,14 @@ const ContentItem = ({caption, text, link, code, activeLanguage}) => {
 
     return (
         <div className='ContentItem'>
-            <Card className="card-item">
-                <div className="code-wrapper">
+            <Card style={{'borderRadius': '10px'}} className="card-item">
+                <div className={Array.isArray(code) ? 'code-wrapper carousel' : "code-wrapper"}>
                     {Array.isArray(code) 
                         ? <CarouselItem codes={code} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
-                        : <pre className='code-show'>{code}</pre>
+                        : (<SyntaxHighlighter className="code-show" language="javascript" style={ dark }>{code}</SyntaxHighlighter>)
                     }
                 </div>
-                <Card.Body className='card-body'>
+                <Card.Body className="card-body">
                     <Card.Title className='card-title'>{caption}</Card.Title>
                     <Card.Text className='card-text'>
                     {text}

@@ -1,5 +1,6 @@
 .card-item {
-    width: 350px;
+    border-radius: 10px;
+    width: 100vh;
 }
 
 .card-body {
@@ -8,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
 }
-  
+
 .card-text {
     height: 170px;
 }
@@ -39,8 +40,16 @@
 }
 
 .code-show {
-    height: 550px;
-    padding: 25px;
-    color: #97d4f4;
-    background-color: #1e1e1e;
+    border-radius: 10px 10px 0 0;
+    height: auto;
+}
+
+.carousel .code-show {
+    height: 350px;
+}
+
+@media (max-width: 600px) {
+    .card-item {
+        width: 45vh;
+    }
 }
