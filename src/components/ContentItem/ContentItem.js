@@ -2,17 +2,15 @@ import {useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
 import AlertMessage from '../AlertMessage/AlertMessage';
 import CarouselItem from '../CarouselItem/CarouselItem';
-import ModalWindow from '../ModalWindow/ModalWindow';
 
 import './ContentItem.css'
 
-const ContentItem = ({image, caption, text, link, code, activeLanguage}) => {
-    const [show, setShow] = useState(false)
+const ContentItem = ({caption, text, link, code, activeLanguage}) => {
     const [copied, showCopied] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0)
 
     function onCopy(item) {
-        Array.isArray(image) ? navigator.clipboard.writeText(item.code[activeIndex]) : navigator.clipboard.writeText(item.code)
+        Array.isArray(code) ? navigator.clipboard.writeText(item.code[activeIndex]) : navigator.clipboard.writeText(item.code)
         showCopied(true)
         setTimeout(() => {
             showCopied(false)
@@ -22,10 +20,10 @@ const ContentItem = ({image, caption, text, link, code, activeLanguage}) => {
     return (
         <div className='ContentItem'>
             <Card className="card-item">
-                <div className="img-wrapper">
-                    {Array.isArray(image) 
-                        ? <CarouselItem imgs={image} setShow={setShow} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
-                        : <Card.Img variant="top" src={image} className="card-img" onClick={() => setShow(true)}/>
+                <div className="code-wrapper">
+                    {Array.isArray(code) 
+                        ? <CarouselItem codes={code} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
+                        : <pre className='code-show'>{code}</pre>
                     }
                 </div>
                 <Card.Body className='card-body'>
@@ -37,9 +35,6 @@ const ContentItem = ({image, caption, text, link, code, activeLanguage}) => {
                     <Button variant="primary" id='code-button' className='card-button' onClick={() => onCopy({code})}>{activeLanguage === 0 ? 'Copy Code' : 'Скопіювати Код'}</Button>
                 </Card.Body>
             </Card>
-            <div className="ModalWindow">
-                <ModalWindow caption={caption} code={Array.isArray(code) ? code[activeIndex] : code} isShowed={show} setShow={setShow} /> 
-            </div>
             <AlertMessage isCopied={copied} activeLanguage={activeLanguage}  />
         </div>
     );

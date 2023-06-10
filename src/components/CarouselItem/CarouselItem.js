@@ -2,27 +2,19 @@ import {Carousel} from 'react-bootstrap'
 
 import './CarouselItem.css'
 
-const CarouselItem = ({imgs, setShow, activeIndex, setActiveIndex}) => {
-  function getImgData(index) {
-    setShow(true)
-    setActiveIndex(index)
-  }
-
+const CarouselItem = ({codes, setShow, activeIndex, setActiveIndex}) => {
   function handleSelect(selectedIndex) {
     setActiveIndex(selectedIndex)
   }
 
   return (
-    <Carousel className='Carousel' onSelect={handleSelect} activeIndex={activeIndex} interval={null}>
-      {imgs.map(
-        (image, index) => 
+    <Carousel className='Carousel' onSelect={handleSelect} activeIndex={activeIndex} interval={null} controls={false}>
+      {codes.map(
+        (code, index) => 
           <Carousel.Item 
-            key={image}
+            key={index}
           >
-              <img 
-                src={image}
-                onClick={() => getImgData(index)}
-              />
+              <pre className='code-show'>{code}</pre>
           </Carousel.Item>
       )}
     </Carousel>

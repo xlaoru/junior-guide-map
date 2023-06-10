@@ -276,3 +276,7 @@ Some changes
 ### `v18.0.5`
 
 Some changes
+
+### `v19.0`
+
+Application redesign
