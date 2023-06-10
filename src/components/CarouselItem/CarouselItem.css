@@ -14,8 +14,8 @@
 }
 
 div.carousel-indicators {
-  border-bottom: 1px solid rgb(171, 178, 191);
   margin: 0;
   position: relative;
-  background-color: #1e1e1e;
+  background-color: rgb(140, 149, 156);
+  border-top: 1px solid white;
 }

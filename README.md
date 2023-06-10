@@ -304,3 +304,7 @@ Copy button style correction
 ### `v19.2.1`
 
 Style correction
+
+### `v19.2.2`
+
+Style correction

@@ -22,12 +22,12 @@ const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
     return (
         <div className='ContentItem'>
             <Card style={{'borderRadius': '10px'}} className="card-item">
-                <div style={{'display': 'flex', 'justifyContent': 'space-between', 'background': 'rgb(37 36 36)', 'padding': '2.5px 7.5px', 'borderRadius': '10px 10px 0 0', 'borderBottom': '1px solid rgb(171, 178, 191)'}}>
-                    <p style={{'margin': '0', 'color': 'rgb(220 220 220)'}}>{type.toUpperCase()}</p>
+                <div style={{'display': 'flex', 'justifyContent': 'space-between', 'background': 'rgb(140, 149, 156)', 'padding': '2.5px 7.5px', 'borderRadius': '10px 10px 0 0'}}>
+                    <p style={{'margin': '0', 'color': 'white'}}>{type.toUpperCase()}</p>
                     {
                         copied 
                         ? (
-                            <button style={{'background': 'transparent', 'color': 'rgb(220 220 220)', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
+                            <button style={{'background': 'transparent', 'color': 'white', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
                                 <span style={{'display': 'flex', 'justifyContent': 'center'}}>
                                     <ion-icon style={{'marginRight': '5px'}} name="checkmark-sharp"></ion-icon>
                                 </span>
@@ -35,7 +35,7 @@ const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
                             </button>
                         )
                         : (
-                            <button onClick={() => onCopy({code})} style={{'background': 'transparent', 'color': 'rgb(220 220 220)', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
+                            <button onClick={() => onCopy({code})} style={{'background': 'transparent', 'color': 'white', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
                                 <span style={{'display': 'flex', 'alignItems': 'center'}}>
                                     <ion-icon style={{'marginRight': '5px'}} name="clipboard-outline"></ion-icon>
                                 </span>
