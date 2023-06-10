@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
-import AlertMessage from '../AlertMessage/AlertMessage';
 import CarouselItem from '../CarouselItem/CarouselItem';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -23,6 +22,28 @@ const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
     return (
         <div className='ContentItem'>
             <Card style={{'borderRadius': '10px'}} className="card-item">
+                <div style={{'display': 'flex', 'justifyContent': 'space-between', 'background': 'rgb(37 36 36)', 'padding': '2.5px 7.5px', 'borderRadius': '10px 10px 0 0', 'borderBottom': '1px solid rgb(171, 178, 191)'}}>
+                    <p style={{'margin': '0', 'color': 'rgb(220 220 220)'}}>{type.toUpperCase()}</p>
+                    {
+                        copied 
+                        ? (
+                            <button style={{'background': 'transparent', 'color': 'rgb(220 220 220)', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
+                                <span style={{'display': 'flex', 'justifyContent': 'center'}}>
+                                    <ion-icon style={{'marginRight': '5px'}} name="checkmark-sharp"></ion-icon>
+                                </span>
+                                Copied
+                            </button>
+                        )
+                        : (
+                            <button onClick={() => onCopy({code})} style={{'background': 'transparent', 'color': 'rgb(220 220 220)', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
+                                <span style={{'display': 'flex', 'alignItems': 'center'}}>
+                                    <ion-icon style={{'marginRight': '5px'}} name="clipboard-outline"></ion-icon>
+                                </span>
+                                Copy Text
+                            </button>
+                        )
+                    }
+                </div>
                 <div className="code-wrapper">
                     {Array.isArray(code) 
                         ? <CarouselItem codes={code} type={type} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
@@ -35,10 +56,8 @@ const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
                     {text}
                     </Card.Text>
                     <Button variant="primary" id='doc-button' className='card-button'><a href={link} target='_blank' className='doc-link'>{activeLanguage === 0 ? 'DOCUMENTAION' : 'ДОКУМЕНТАЦІЯ'}</a></Button>
-                    <Button variant="primary" id='code-button' className='card-button' onClick={() => onCopy({code})}>{activeLanguage === 0 ? 'Copy Code' : 'Скопіювати Код'}</Button>
                 </Card.Body>
             </Card>
-            <AlertMessage isCopied={copied} activeLanguage={activeLanguage}  />
         </div>
     );
 };

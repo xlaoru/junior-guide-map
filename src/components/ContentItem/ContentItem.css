@@ -15,7 +15,6 @@
 }
 
 #doc-button {
-    margin-top: 15px;
     padding: 0;
     background: rgb(140, 149, 156);
     border: none;
@@ -32,15 +31,7 @@
     color: white;
 }
 
-#code-button {
-    padding: 10px;
-    background: rgb(120, 120, 120);
-    border: none;
-    margin-top: 10px;
-}
-
 .code-show {
-    border-radius: 10px 10px 0 0;
     height: auto;
 }
 

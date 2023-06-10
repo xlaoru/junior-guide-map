@@ -296,3 +296,7 @@ Style correction
 ### `v19.1.3`
 
 Style correction
+
+### `v19.2`
+
+Copy button style correction
