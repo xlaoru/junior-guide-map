@@ -8,7 +8,7 @@ import { atomOneDark  } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import './ContentItem.css'
 
-const ContentItem = ({caption, text, link, code, activeLanguage}) => {
+const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
     const [copied, showCopied] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0)
 
@@ -25,8 +25,8 @@ const ContentItem = ({caption, text, link, code, activeLanguage}) => {
             <Card style={{'borderRadius': '10px'}} className="card-item">
                 <div className="code-wrapper">
                     {Array.isArray(code) 
-                        ? <CarouselItem codes={code} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
-                        : (<SyntaxHighlighter className="code-show" language="jsx" style={ atomOneDark } customStyle={{padding: '25px'}}>{code}</SyntaxHighlighter>)
+                        ? <CarouselItem codes={code} type={type} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
+                        : (<SyntaxHighlighter className="code-show" language={type === "React" ? "jsx" : "javascript"} style={ atomOneDark } customStyle={{padding: '25px'}}>{code}</SyntaxHighlighter>)
                     }
                 </div>
                 <Card.Body className="card-body">

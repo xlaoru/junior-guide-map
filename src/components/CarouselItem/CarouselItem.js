@@ -5,7 +5,7 @@ import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import './CarouselItem.css'
 
-const CarouselItem = ({codes, activeIndex, setActiveIndex}) => {
+const CarouselItem = ({codes, type, activeIndex, setActiveIndex}) => {
   function handleSelect(selectedIndex) {
     setActiveIndex(selectedIndex)
   }
@@ -17,7 +17,7 @@ const CarouselItem = ({codes, activeIndex, setActiveIndex}) => {
           <Carousel.Item 
             key={index}
           >
-              <SyntaxHighlighter className="code-show-carousel" language="jsx" style={ atomOneDark } customStyle={{padding: '25px'}}>{code}</SyntaxHighlighter>
+              <SyntaxHighlighter className="code-show-carousel" language={type === "React" ? "jsx" : "javascript"} style={ atomOneDark } customStyle={{padding: '25px'}}>{code}</SyntaxHighlighter>
           </Carousel.Item>
       )}
     </Carousel>
