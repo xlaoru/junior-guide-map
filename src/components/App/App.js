@@ -266,7 +266,7 @@ console.log(fizzBuzz(22))`},
 console.log(letterFinder([], []))
 console.log(letterFinder('cat', 'c'))
 console.log(letterFinder('cat', 'd'))`}, 
-  {caption: {en: 'Checking the object for emptiness', ua: "Перевірка об'єкта на порожнечу"}, text: {en: 'This function checks the object for void via Object.keys() + .length.', ua: 'Ця функція перевіряє об`єкт на порожнечу через Object.keys() + .length.'}, link: {en: '#', ua: '#'}, type: 'lifehack', code: 
+  {caption: {en: 'Checking the object for emptiness', ua: "Перевірка об'єкта на порожнечу"}, text: {en: 'This function checks the object for void via Object.keys() + .length.', ua: 'Ця функція перевіряє об`єкт на порожнечу через Object.keys() + .length.'}, link: {en: '#', ua: '#'}, type: 'task', code: 
 `function isEmptyObject(object) { 
   return Object.keys(object).length === 0 
 } 

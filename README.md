@@ -320,3 +320,7 @@ New background
 ### `v19.3.1`
 
 Some changes
+
+### `v19.3.1`
+
+Style correction
