@@ -1090,25 +1090,33 @@ const languages = [
 ]
 
 function App() {
+  const [activePage, setActivePage] = useState(0)
   const [activeLanguage, setActiveLanguage] = useState(0)
     
   const languageButtons = languages.map(
-      (language, index) => 
-          <button 
-              className={activeLanguage === index ? `language-button selected` : 'language-button'} 
-              key={language} 
-              onClick={() => setActiveLanguage(index)}
-          >
-              {language}
-          </button>
+    (language, index) => 
+        <button 
+            className={activeLanguage === index ? `language-button selected` : 'language-button'} 
+            key={language} 
+            onClick={() => setActiveLanguage(index)}
+        >
+            {language}
+        </button>
   )
   return (
     <div className="App">
       <Router>
-        <Header activeLanguage={activeLanguage}/>
-        <div className="language-option">
-          {languageButtons}
+        <Header setActivePage={setActivePage} activeLanguage={activeLanguage}/>
+        <div className="fullscreen-wrapper" style={activePage === 0 ? {'display': 'flex'} : {'display': 'none'}}>
+          <div className="fullscreen-background">
+            <span className='content-wrapper'>
+              <h1 className='fullscreen_title'>{activeLanguage === 0 ? (<span>Welcome To The <span style={{'color': 'rgb(230, 192, 123)'}}>Code</span> Zone</span>) : (<span>Ласкаво Просимо До Зони <span style={{'color': 'rgb(230, 192, 123)'}}>Коду</span> </span>)}</h1>
+            </span>
+          </div>
         </div>
+          <div className="language-option" style={activePage === 1 ? {'marginTop': '3rem'} : {}}>
+            {languageButtons}
+          </div>
         <Routes>
           <Route exact path="/" element={<Main content={content} activeLanguage={activeLanguage}/>}/>
           <Route path="/aboutus" element={<AboutUs activeLanguage={activeLanguage}/>}/>
