@@ -647,7 +647,8 @@ const UserListKY = () => {
 export default UserListKY`},
 
 {caption: {en: 'React Redux-Toolkit mini form app', ua: 'Робимо міні проект Форми за допомогою біліотеки Реакт Redux-Toolkit'}, text: {en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is output).', ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось).'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', code: [
-`import React from 'react'
+`/* index.js */
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'
 
@@ -667,7 +668,8 @@ root.render(
 
 reportWebVitals()
 `,
-`import Input from './components/Input'
+`/* App.js */
+import Input from './components/Input'
 import Output from './components/Output'
 
 const App = () => {
@@ -680,7 +682,8 @@ const App = () => {
 }
 
 export default App`,
-`import {configureStore} from '@reduxjs/toolkit'
+` /* store index.js */
+import {configureStore} from '@reduxjs/toolkit'
 import TextReducer from './TextSlice'
 
 export default configureStore({
@@ -688,7 +691,8 @@ export default configureStore({
         text: TextReducer
     }
 })`,
-`import {createSlice} from '@reduxjs/toolkit'
+`/* TextSlice.js */
+import {createSlice} from '@reduxjs/toolkit'
 export const TextSlice = createSlice({
     name: 'text',
     initialState: {
@@ -704,7 +708,8 @@ export const TextSlice = createSlice({
 export const {textAdditor} = TextSlice.actions
 export const selectText = state => state.text.value
 export default TextSlice.reducer`,
-`import {createRef} from 'react'
+`/* Input.js */
+import {createRef} from 'react'
 import {useDispatch} from 'react-redux'
 import {textAdditor} from '../store/TextSlice'
 
@@ -725,7 +730,8 @@ const Input = () => {
 }
 
 export default Input`,
-`import {useSelector} from "react-redux"
+`/* Output.js */
+import {useSelector} from "react-redux"
 
 const Output = () => {
     const value = useSelector(state => state.text.value)
@@ -1082,6 +1088,180 @@ export default HungerGamesApp`},
 }
 
 export default Spinner;`},
+{caption: {en: 'A small React + Redux.js Todo app', ua: 'Невеликий Todo додаток з React + Redux.js'}, text: {en: 'This small app is made using React + Redux.js toolkit. NewTodoForm.js takes the data and passes it to the store and then TodoList.js takes it and renders it in TodoItem.js.', ua: 'Цей невеликий додаток зроблений за допомогою React + Redux.js toolkit. NewTodoForm.js приймає данні та передає їх у store а потім TodoList.js приймає їх й рендерить у TodoItem.js.'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', code:[
+`/* index.js */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import store from './store';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+reportWebVitals();`,
+`/* App.js */
+import {useState} from 'react';
+import { useDispatch } from 'react-redux';
+
+import { addTodo } from './store/todoSlice';
+import NewTodoForm from './components/NewTodoForm';
+import TodoList from './components/TodoList';
+
+import './App.css';
+
+function App() {
+  const [text, setText] = useState('');
+  const dispatch = useDispatch();
+
+  const handleAction = () => {
+    if(text.trim().length) {
+      dispatch(addTodo({text}));
+      setText('');
+    }
+  }
+
+  return (
+    <div className='App'>
+      <NewTodoForm
+        value={text}
+        updateText={setText}
+        handleAction={handleAction}
+      />
+      <TodoList />
+    </div>
+  );
+}
+
+export default App;`,
+`/* store index.js */
+import { configureStore } from '@reduxjs/toolkit';
+import todoReducer from './todoSlice';
+
+export default configureStore({
+  reducer: {
+    todos: todoReducer,
+  },
+});`,
+`/* todoSlice.js */
+import { createSlice } from '@reduxjs/toolkit';
+
+const todoSlice = createSlice({
+    name: 'todos',
+    initialState: {
+        todos: [],
+    },
+    reducers: {
+        addTodo(state, action) {
+            state.todos.push({
+              id: new Date().toISOString(),
+              text: action.payload.text,
+              completed: false,
+            });
+        },
+        toggleComplete(state, action) {
+            const toggledTodo = state.todos.find(todo => todo.id === action.payload.id);
+            toggledTodo.completed = !toggledTodo.completed;
+        },
+        removeTodo(state, action) {
+            state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
+        }
+    },
+});
+
+export const {addTodo, toggleComplete, removeTodo} = todoSlice.actions;
+
+export default todoSlice.reducer;`,
+`/* NewTodoForm.js */
+const NewTodoForm = ({ value, updateText, handleAction }) => {
+  return (
+    <label>
+      <input
+        placeholer='new todo'
+        value={value}
+        onChange={(e) => updateText(e.target.value)}
+      />
+      <button onClick={handleAction}>Add todo</button>
+    </label>
+  );
+};
+
+export default NewTodoForm;`,
+`/* TodoList.js */
+import { useSelector } from 'react-redux';
+import TodoItem from './TodoItem';
+
+const TodoList = () => {
+    const todos = useSelector(state => state.todos.todos);
+
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          {...todo}
+        />
+      ))}
+    </ul>
+  );
+};
+
+export default TodoList;`,
+`/* TodoItem.js */
+import { useDispatch } from 'react-redux';
+import {toggleComplete, removeTodo} from '../store/todoSlice';
+
+const TodoItem = ({ id, text, completed }) => {
+  const dispatch = useDispatch();
+
+  return (
+    <li>
+      <input
+        type='checkbox'
+        checked={completed}
+        onChange={() => dispatch(toggleComplete({ id }))}
+      />
+      <span>{text}</span>
+      <span onClick={() => dispatch(removeTodo({id}))}>&times;</span>
+    </li>
+  );
+};
+
+export default TodoItem;`,
+]},
+{caption: {en: 'All about useState()', ua: 'Все про useState()'}, text: {en: 'The useState() hook is a function in React used to add state to functional components. It takes an initial state value and returns an array containing the current state value and a function to update it. When this function is called, the component is re-rendered with the new state value, and state changes can be tracked and handled in the component.', ua: 'Хук useState() — це функція в React, яка використовується для додавання стану до функціональних компонентів. Він приймає початкове значення стану та повертає масив, що містить поточне значення стану та функцію для його оновлення. Коли ця функція викликається, компонент повторно візуалізується з новим значенням стану, і зміни стану можна відстежувати та обробляти в компоненті.'}, link: {en: 'https://legacy.reactjs.org/docs/hooks-state.html', ua: 'https://legacy.reactjs.org/docs/hooks-state.html'}, type: 'React', code:
+`import {useState} from 'react';
+
+const UseStateInfo = () => {
+    const [count, setCount] = useState(0)
+
+    function adjustCount(amount) {
+        setCount(
+            currentCount => {
+                return currentCount + amount
+            }
+        )
+    }
+
+    return (
+        <div>
+            <button onClick={() => adjustCount(-1)}>-</button>
+            <span>{count}</span>
+            <button onClick={() => adjustCount(1)}>+</button>
+        </div>
+    );
+};
+
+export default UseStateInfo;`}
 ]
 
 const languages = [

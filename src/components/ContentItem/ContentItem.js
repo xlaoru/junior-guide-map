@@ -39,7 +39,7 @@ const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
                                 <span style={{'display': 'flex', 'alignItems': 'center'}}>
                                     <ion-icon style={{'marginRight': '5px'}} name="clipboard-outline"></ion-icon>
                                 </span>
-                                Copy Text
+                                Copy Code
                             </button>
                         )
                     }
