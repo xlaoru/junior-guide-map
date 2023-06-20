@@ -18,7 +18,7 @@ div.carousel-indicators {
   position: relative;
   background-color: rgb(140, 149, 156);
   border-top: 1px solid white;
-  padding: 2.5px 25px;
+  padding: 5px 25px;
 }
 
 .Carousel .carousel-control-prev,
@@ -30,7 +30,7 @@ div.carousel-indicators {
 
 .Carousel .carousel-control-prev-icon,
 .Carousel .carousel-control-next-icon {
-  width: 20px;
-  height: 20px;
-  margin-top: 5px;
+  width: 27px;
+  height: 27px;
+  margin-top: 3px;
 }

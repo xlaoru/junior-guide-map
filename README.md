@@ -340,3 +340,7 @@ Some changes
 ### `v19.5`
 
 New controls button for carousel
+
+### `v19.5.1`
+
+Some changes
