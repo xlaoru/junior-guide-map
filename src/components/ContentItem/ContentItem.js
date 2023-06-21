@@ -2,9 +2,6 @@ import {useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
 import CarouselItem from '../CarouselItem/CarouselItem';
 
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark  } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
 import './ContentItem.css'
 
 const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
@@ -47,7 +44,7 @@ const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
                 <div className="code-wrapper">
                     {Array.isArray(code) 
                         ? <CarouselItem codes={code} type={type} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
-                        : (<SyntaxHighlighter className="code-show" language={type === "React" ? "jsx" : "javascript"} style={ atomOneDark } customStyle={{padding: '25px'}}>{code}</SyntaxHighlighter>)
+                        : (<pre className="code-show">{code}</pre>)
                     }
                 </div>
                 <Card.Body className="card-body">

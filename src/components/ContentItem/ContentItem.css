@@ -34,6 +34,10 @@
 .code-show {
     height: auto;
     margin: 0;
+    padding: 25px;
+    color: #1e1e1e;
+    background: #fafafa;
+    border-bottom: 1px solid #BBBBBB;
 }
 
 .carousel .code-show {

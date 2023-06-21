@@ -344,3 +344,7 @@ New controls button for carousel
 ### `v19.5.1`
 
 Some changes
+
+### `v19.5.2`
+
+Style correction
