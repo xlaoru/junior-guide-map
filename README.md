@@ -348,3 +348,7 @@ Some changes
 ### `v19.5.2`
 
 Style correction
+
+### `v19.5.3`
+
+Style correction

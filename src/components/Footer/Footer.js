@@ -3,10 +3,10 @@ import './Footer.css'
 
 import jgm_logo from '../../images/jgm-logo.png'
 
-const Footer = ({activeLanguege}) => {
+const Footer = (props) => {
     return (
         <footer className='Footer'>
-            <h5>Copyright © 2023. <br/> {activeLanguege === 0 ? 'All rights are reserved' : 'Усі права захищені'}</h5>
+            <h5>Copyright © 2023. <br/> {props.activeLanguage === 0 ? 'All rights are reserved' : 'Усі права захищені'}</h5>
             <img src={jgm_logo}/> 
         </footer>
     );
