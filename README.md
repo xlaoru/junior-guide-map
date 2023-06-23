@@ -352,3 +352,8 @@ Style correction
 ### `v19.5.3`
 
 Style correction
+
+
+### `v19.6`
+
+New navigate buttons
