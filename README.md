@@ -353,7 +353,14 @@ Style correction
 
 Style correction
 
-
 ### `v19.6`
+
+New navigate buttons
+
+### `v19.7`
+
+New navigate buttons
+
+### `v19.7.1`
 
 New navigate buttons

@@ -13,8 +13,6 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import content from '../../Content';
 
-console.log(content)
-
 const languages = [
   'en',
   'ua'
