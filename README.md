@@ -367,4 +367,8 @@ New navigate buttons
 
 ### `v19.8`
 
-New navigate buttons
+Some addictions
+
+### `v19.8.1`
+
+Some changes
