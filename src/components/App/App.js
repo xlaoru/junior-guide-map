@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom'
 import ScrollToTop from "react-scroll-to-top";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
-import content from '../../Content';
+import content from '../../content/content';
 
 const languages = [
   'en',

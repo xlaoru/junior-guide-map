@@ -364,3 +364,7 @@ New navigate buttons
 ### `v19.7.1`
 
 New navigate buttons
+
+### `v19.8`
+
+New navigate buttons

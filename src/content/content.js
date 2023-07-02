@@ -1010,7 +1010,7 @@ return (
 };
 
 export default HungerGamesApp`},
-{caption: {en: 'Spinner in React', ua: 'Spinner в React'}, text: {en: 'Spinner in React is a very important thing. When information comes with a delay from the API, then some kind of stub is needed so that the user does not see an empty page.', ua: 'Spinner у React — це дуже важлива річ. Коли інформація надходить із затримкою від API, то потрібна якась заглушка, щоб користувач не бачив порожню сторінку.'}, link: {en: '#', ua: '#'}, type: 'React', code:
+{caption: {en: 'Spinner in React', ua: 'Spinner в Реакт'}, text: {en: 'Spinner in React is a very important thing. When information comes with a delay from the API, then some kind of stub is needed so that the user does not see an empty page.', ua: 'Spinner у React — це дуже важлива річ. Коли інформація надходить із затримкою від API, то потрібна якась заглушка, щоб користувач не бачив порожню сторінку.'}, link: {en: '#', ua: '#'}, type: 'React', code:
 `const Spinner = () => {
 return (
     <svg xmlns="http://www.w3.org/2000/svg" style={{margin: '0 auto', background: 'none', display: 'block'}} width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
@@ -1076,7 +1076,7 @@ return (
 }
 
 export default Spinner;`},
-{caption: {en: 'A small React + Redux.js Todo app', ua: 'Невеликий Todo додаток з React + Redux.js'}, text: {en: 'This small app is made using React + Redux.js toolkit. NewTodoForm.js takes the data and passes it to the store and then TodoList.js takes it and renders it in TodoItem.js.', ua: 'Цей невеликий додаток зроблений за допомогою React + Redux.js toolkit. NewTodoForm.js приймає данні та передає їх у store а потім TodoList.js приймає їх й рендерить у TodoItem.js.'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', code:[
+{caption: {en: 'A small React + Redux.js Todo app', ua: 'Невеликий Todo додаток з Реакт + Redux.js'}, text: {en: 'This small app is made using React + Redux.js toolkit. NewTodoForm.js takes the data and passes it to the store and then TodoList.js takes it and renders it in TodoItem.js.', ua: 'Цей невеликий додаток зроблений за допомогою React + Redux.js toolkit. NewTodoForm.js приймає данні та передає їх у store а потім TodoList.js приймає їх й рендерить у TodoItem.js.'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', code:[
 `/* index.js */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -1249,7 +1249,88 @@ const UseStateInfo = () => {
     );
 };
 
-export default UseStateInfo;`}
+export default UseStateInfo;`},
+{caption: {en: 'Portals in React', ua: 'Портали у Реакті'}, text: {en: 'Portals let your components render some of their children into a different place in the DOM. This lets a part of your component “escape” from whatever containers it may be in. For example, a component can display a modal dialog or a tooltip that appears above and outside of the rest of the page.', ua: 'Портали дозволяють вашим компонентам відтворювати деякі їхні дочірні елементи в іншому місці в DOM. Це дозволяє частині вашого компонента «втекти» з будь-яких контейнерів, у яких він може знаходитися. Наприклад, компонент може відображати модальне діалогове вікно або спливаючу підказку, яка з’являється над і поза межами решти сторінки.'}, link: {en: 'https://react.dev/reference/react-dom/createPortal', ua: 'https://habr.com/ru/companies/smartprogress/articles/306096/'}, type: 'React', code:
+`import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+import {Container} from 'react-bootstrap';
+import './App.css';
+
+class Form extends Component {
+    state = {
+        advOpen: false
+    }
+
+    componentDidMount() {
+        setTimeout(this.handleClick, 1000)
+    }
+
+    handleClick = () => {
+        this.setState(({advOpen}) => ({
+            advOpen: !advOpen
+        }))        
+    }
+
+    render() {
+        return (
+            <Container>
+                <form onClick={this.handleClick} className="w-50 border mt-5 p-3 m-auto" 
+                style={{'overflow': 'hidden', 
+                        'position': 'relative'}}>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
+                        <input  type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    {
+                        this.state.advOpen 
+                            ? (
+                                <Portal>
+                                    <Msg/>
+                                </Portal>
+                            ) 
+                            
+                            : null
+                    }
+                </form>
+            </Container>
+        )
+    }
+}
+
+const Portal = (props) => {
+    const node = document.createElement('div')
+    document.body.appendChild(node)
+
+    return ReactDOM.createPortal(props.children, node)
+}
+
+const Msg = () => {
+    return (
+        <div 
+            style={{'width': '500px', 
+                'height': '150px', 
+                'backgroundColor': 'red', 
+                'position': 'absolute', 
+                'right': '0', 
+                'bottom': '0'
+            }}
+        >
+            Hello
+        </div>
+    )
+}
+
+function App() {
+    return (
+        <Form/>
+    );
+}
+
+export default App;`}
 ]
 
 export default content
