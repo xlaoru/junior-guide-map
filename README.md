@@ -372,3 +372,7 @@ Some addictions
 ### `v19.8.1`
 
 Some changes
+
+### `v19.9`
+
+Some addictions

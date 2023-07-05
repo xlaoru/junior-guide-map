@@ -1234,8 +1234,8 @@ const UseStateInfo = () => {
 
     function adjustCount(amount) {
         setCount(
-            currentCount => {
-                return currentCount + amount
+            prevValue => {
+                return prevValue + amount
             }
         )
     }
