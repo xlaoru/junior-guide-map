@@ -1231,8 +1231,10 @@ export default TodoItem;`,
 
 const UseStateInfo = () => {
     const [count, setCount] = useState(0)
+    const [value, setValue] = useState('')
 
     function adjustCount(amount) {
+        // Given the past value
         setCount(
             prevValue => {
                 return prevValue + amount
@@ -1240,11 +1242,22 @@ const UseStateInfo = () => {
         )
     }
 
+    function valueCatcher(string) {
+        // Ignoring the past value
+        setValue(string)
+    }
+
     return (
         <div>
-            <button onClick={() => adjustCount(-1)}>-</button>
-            <span>{count}</span>
-            <button onClick={() => adjustCount(1)}>+</button>
+            <div className='counter'>
+                <button onClick={() => adjustCount(-1)}>-</button>
+                <span>{count}</span>
+                <button onClick={() => adjustCount(1)}>+</button>
+            </div>
+            <div className='form'>
+                <input type="text" onChange={(event) => valueCatcher(event.target.value)} />
+                <h5>{value}</h5>
+            </div>
         </div>
     );
 };
