@@ -38,3 +38,8 @@ div.carousel-indicators {
   height: 27px;
   margin-top: 3px;
 }
+
+.carousel img {
+  min-width: auto;
+  cursor: pointer;
+}

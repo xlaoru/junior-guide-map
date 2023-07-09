@@ -1,10 +1,12 @@
 import {useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
 import CarouselItem from '../CarouselItem/CarouselItem';
+import ModalWindow from '../ModalWindow/ModalWindow';
 
 import './ContentItem.css'
 
-const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
+const ContentItem = ({media, caption, text, link, code, type, activeLanguage}) => {
+    const [show, setShow] = useState(false)
     const [copied, showCopied] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0)
 
@@ -41,12 +43,10 @@ const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
                         )
                     }
                 </div>
-                <div className="code-wrapper">
-                    {Array.isArray(code) 
-                        ? <CarouselItem codes={code} type={type} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> 
-                        : (<pre className="code-show">{code}</pre>)
-                    }
-                </div>
+                {media === 'none' 
+                    ? Array.isArray(code) ? <div className="code-wrapper"><CarouselItem codes={code} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/></div> : <div className="code-wrapper"><pre className="code-show">{code}</pre></div>
+                    : Array.isArray(media) ? <CarouselItem setShow={setShow} media={media} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> : <div style={{'overflow': 'scroll', 'height': '350px'}}><Card.Img style={{'cursor': 'pointer'}} src={media} alt="" onClick={() => setShow(true)}/></div>
+                }
                 <Card.Body className="card-body">
                     <Card.Title className='card-title'>{caption}</Card.Title>
                     <Card.Text className='card-text'>
@@ -55,6 +55,9 @@ const ContentItem = ({caption, text, link, code, type, activeLanguage}) => {
                     <Button variant="primary" id='doc-button' className='card-button'><a href={link} target='_blank' className='doc-link'>{activeLanguage === 0 ? 'DOCUMENTAION' : 'ДОКУМЕНТАЦІЯ'}</a></Button>
                 </Card.Body>
             </Card>
+            <div className="ModalWindow">
+                <ModalWindow caption={caption} media={Array.isArray(media) ? media[activeIndex] : media} isShowed={show} setShow={setShow} /> 
+            </div>
         </div>
     );
 };
