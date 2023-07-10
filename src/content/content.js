@@ -1352,6 +1352,68 @@ function App() {
 export default App;`},
 {media: responsiveBreakpoints, caption: {en: 'Responsive Screen Size Breakpoints', ua: 'Точки зупинки розміру адаптивного екрана'}, text: {en: 'Here is a nice illustration of setting breakpoints for your application.', ua: 'Ось гарна ілюстрація з встановленням брєйкпоінтів для вашого застосунку.'}, link: {en: '#', ua: '#'}, type: 'all', code: ``},
 {media: [markdown1, markdown2, markdown3, markdown4], caption: {en: 'Markdown tips', ua: 'Поради щодо верстки'}, text: {en: 'Here are a bunch of markdown tips for people looking to improve their experience.', ua: 'Ось багато порад щодо ведення верстки для людей, що прагунть покращити свій досвід.'}, link: {en: '#', ua: '#'}, type: 'all', code: [``, ``, ``, ``]},
+{media: 'none', caption: {en: '', ua: ''}, text: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'function', code: 
+`// Guard clause example
+function(list) {
+    if(list == null) return
+    list.update()
+}`},
+{media: 'none', caption: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, text: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'html/css', code: 
+[`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <section class="fullscreen">
+            <div class="fullscreen__body">
+                <h1 class="fullscreen__title">Hello World</h1>
+                <div class="fullscreen__text">Don't Give Up</div>
+                <button class="fullscreen__button">Go</button>
+            </div>
+        </section>
+        <div class="content"></div>
+        <div class="content__body">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
+        </div>
+        <footer class="footer">
+            <div class="footer_body">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores animi excepturi cumque inventore repellat. In magni similique maxime dolor asperiores a dolores molestiae quae! Ipsum quae recusandae beatae at commodi.
+            </div>
+        </footer>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
+`,
+`body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.fullscreen {
+    background-color: #1e1e1e;
+    color: white;
+    display: flex;
+    min-height: 100vh;
+}`]}
 ]
 
 export default content

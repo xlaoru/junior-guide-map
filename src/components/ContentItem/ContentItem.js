@@ -45,7 +45,7 @@ const ContentItem = ({media, caption, text, link, code, type, activeLanguage}) =
                 </div>
                 {media === 'none' 
                     ? Array.isArray(code) ? <div className="code-wrapper"><CarouselItem codes={code} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/></div> : <div className="code-wrapper"><pre className="code-show">{code}</pre></div>
-                    : Array.isArray(media) ? <CarouselItem setShow={setShow} media={media} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> : <div style={{'overflow': 'scroll', 'height': '350px'}}><Card.Img style={{'cursor': 'pointer'}} src={media} alt="" onClick={() => setShow(true)}/></div>
+                    : Array.isArray(media) ? <CarouselItem setShow={setShow} media={media} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> : <div style={{'overflow': 'scroll'}}><Card.Img style={{'cursor': 'pointer'}} src={media} alt="" onClick={() => setShow(true)}/></div>
                 }
                 <Card.Body className="card-body">
                     <Card.Title className='card-title'>{caption}</Card.Title>

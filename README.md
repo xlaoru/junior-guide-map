@@ -388,3 +388,7 @@ Now you have the opportunity to see both the code and pictures
 ### `v20.0.1`
 
 Some changes
+
+### `v20.0.2`
+
+Some changes + new category html/css
