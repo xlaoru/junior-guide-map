@@ -396,3 +396,7 @@ Some changes + new category html/css
 ### `v20.0.3`
 
 Some changes
+
+### `v20.0.4`
+
+Some changes

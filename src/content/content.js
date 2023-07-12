@@ -1358,7 +1358,7 @@ function(list) {
     if(list == null) return
     list.update()
 }`},
-{media: 'none', caption: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, text: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'html/css', code: 
+{media: 'none', caption: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, text: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'html/css/js', code: 
 [`<!DOCTYPE html>
 <html lang="en">
 <head>
