@@ -5,7 +5,7 @@ import './Main.css'
 
 const types = [
     {en: 'all', ua: 'усе'},
-    {en: 'html/css/js', ua: 'html/css/js'},
+    {en: 'markdown', ua: 'верстка'},
     {en: 'method', ua: 'методи'},
     {en: 'operator', ua: 'оператори'},
     {en: 'function', ua: 'функції'},

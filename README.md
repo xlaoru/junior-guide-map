@@ -400,3 +400,7 @@ Some changes
 ### `v20.0.4`
 
 Some changes
+
+### `v20.1`
+
+Some addictions

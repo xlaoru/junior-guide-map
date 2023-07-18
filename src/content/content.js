@@ -3,6 +3,7 @@ import markdown1 from '../images/markdown_1.jpg'
 import markdown2 from '../images/markdown_2.jpg'
 import markdown3 from '../images/markdown_3.jpg'
 import markdown4 from '../images/markdown_4.jpg'
+import gapstyle from '../images/gap-style.jpg'
 
 const content = [
 {media: 'none', caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -1350,15 +1351,15 @@ function App() {
 }
 
 export default App;`},
-{media: responsiveBreakpoints, caption: {en: 'Responsive Screen Size Breakpoints', ua: 'Точки зупинки розміру адаптивного екрана'}, text: {en: 'Here is a nice illustration of setting breakpoints for your application.', ua: 'Ось гарна ілюстрація з встановленням брєйкпоінтів для вашого застосунку.'}, link: {en: '#', ua: '#'}, type: 'all', code: ``},
-{media: [markdown1, markdown2, markdown3, markdown4], caption: {en: 'Markdown tips', ua: 'Поради щодо верстки'}, text: {en: 'Here are a bunch of markdown tips for people looking to improve their experience.', ua: 'Ось багато порад щодо ведення верстки для людей, що прагунть покращити свій досвід.'}, link: {en: '#', ua: '#'}, type: 'all', code: [``, ``, ``, ``]},
+{media: responsiveBreakpoints, caption: {en: 'Responsive Screen Size Breakpoints', ua: 'Точки зупинки розміру адаптивного екрана'}, text: {en: 'Here is a nice illustration of setting breakpoints for your application.', ua: 'Ось гарна ілюстрація з встановленням брєйкпоінтів для вашого застосунку.'}, link: {en: '#', ua: '#'}, type: 'markdown', code: ``},
+{media: [markdown1, markdown2, markdown3, markdown4], caption: {en: 'Markdown tips', ua: 'Поради щодо верстки'}, text: {en: 'Here are a bunch of markdown tips for people looking to improve their experience.', ua: 'Ось багато порад щодо ведення верстки для людей, що прагунть покращити свій досвід.'}, link: {en: '#', ua: '#'}, type: 'markdown', code: [``, ``, ``, ``]},
 {media: 'none', caption: {en: 'Guard clause example', ua: 'Приклад вкорочення коду'}, text: {en: 'Here is an easy example for applying code shortening via an empty return.', ua: 'Ось легкий приклад для застосування вкорочення коду через порожній return.'}, link: {en: '#', ua: '#'}, type: 'function', code: 
 `// Guard clause example
 function(list) {
     if(list == null) return
     list.update()
 }`},
-{media: 'none', caption: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, text: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'html/css/js', code: 
+{media: 'none', caption: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, text: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'markdown', code: 
 [`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1413,7 +1414,8 @@ function(list) {
     color: white;
     display: flex;
     min-height: 100vh;
-}`]}
+}`]},
+{media: gapstyle, caption: {en: 'gap in CSS3', ua: 'gap у CSS3'}, text: {en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap'}, type: 'markdown', code: ``},
 ]
 
 export default content
