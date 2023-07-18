@@ -404,3 +404,7 @@ Some changes
 ### `v20.1`
 
 Some addictions
+
+### `v20.2`
+
+Some addictions

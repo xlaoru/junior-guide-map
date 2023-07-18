@@ -40,6 +40,6 @@ div.carousel-indicators {
 }
 
 .carousel img {
-  min-width: auto;
+  min-width: 0;
   cursor: pointer;
 }

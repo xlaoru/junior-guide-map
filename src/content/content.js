@@ -4,6 +4,9 @@ import markdown2 from '../images/markdown_2.jpg'
 import markdown3 from '../images/markdown_3.jpg'
 import markdown4 from '../images/markdown_4.jpg'
 import gapstyle from '../images/gap-style.jpg'
+import arraymethods_01 from '../images/array-methods_01.jpg'
+import arraymethods_02 from '../images/array-methods_02.jpg'
+import arraymethods_03 from '../images/array-methods_03.jpg'
 
 const content = [
 {media: 'none', caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -1416,6 +1419,37 @@ function(list) {
     min-height: 100vh;
 }`]},
 {media: gapstyle, caption: {en: 'gap in CSS3', ua: 'gap у CSS3'}, text: {en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap'}, type: 'markdown', code: ``},
+{media: [arraymethods_01, arraymethods_02, arraymethods_03], caption: {en: 'Simplifying array methods', ua: 'Спрощення методів масивів'}, text: {en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.'}, link: {en: '', ua: ''}, type: 'markdown', code: [``, ``, ``]},
+{media: 'none', caption: {en: 'Zoom on hover effect', ua: 'Ефект приближення (зуму)'}, text: {en: 'This zoom effect is made using the hover pseudo-class and transition scale.', ua: 'Цей ефект приближення (зуму) зроблений за допомогою псевдокласу hover та transition scale.'}, link: {en: '#', ua: '#'}, type: 'markdown', code: 
+[`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <img src="image.jpg" alt="image">
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>`,
+`.wrapper {
+    overflow: hidden;
+}
+
+.wrapper img {
+    width: 100%;
+    height: 100%;
+    transition: scale 400ms;
+}
+
+.wrapper:hover img {
+    scale: 120%;
+}`]},
 ]
 
 export default content
