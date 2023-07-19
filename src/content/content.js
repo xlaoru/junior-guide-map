@@ -1,12 +1,14 @@
 import responsiveBreakpoints from '../images/responsive-breakpoints.png'
-import markdown1 from '../images/markdown_1.jpg'
-import markdown2 from '../images/markdown_2.jpg'
-import markdown3 from '../images/markdown_3.jpg'
-import markdown4 from '../images/markdown_4.jpg'
+import markup1 from '../images/markup_1.jpg'
+import markup2 from '../images/markup_2.jpg'
+import markup3 from '../images/markup_3.jpg'
+import markup4 from '../images/markup_4.jpg'
 import gapstyle from '../images/gap-style.jpg'
 import arraymethods_01 from '../images/array-methods_01.jpg'
 import arraymethods_02 from '../images/array-methods_02.jpg'
 import arraymethods_03 from '../images/array-methods_03.jpg'
+import flexboxstyle from '../images/flexbox-style.jpg'
+import objectfitstyle from '../images/object-fit-style.jpg'
 
 const content = [
 {media: 'none', caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -1354,15 +1356,15 @@ function App() {
 }
 
 export default App;`},
-{media: responsiveBreakpoints, caption: {en: 'Responsive Screen Size Breakpoints', ua: 'Точки зупинки розміру адаптивного екрана'}, text: {en: 'Here is a nice illustration of setting breakpoints for your application.', ua: 'Ось гарна ілюстрація з встановленням брєйкпоінтів для вашого застосунку.'}, link: {en: '#', ua: '#'}, type: 'markdown', code: ``},
-{media: [markdown1, markdown2, markdown3, markdown4], caption: {en: 'Markdown tips', ua: 'Поради щодо верстки'}, text: {en: 'Here are a bunch of markdown tips for people looking to improve their experience.', ua: 'Ось багато порад щодо ведення верстки для людей, що прагунть покращити свій досвід.'}, link: {en: '#', ua: '#'}, type: 'markdown', code: [``, ``, ``, ``]},
+{media: responsiveBreakpoints, caption: {en: 'Responsive Screen Size Breakpoints', ua: 'Точки зупинки розміру адаптивного екрана'}, text: {en: 'Here is a nice illustration of setting breakpoints for your application.', ua: 'Ось гарна ілюстрація з встановленням брєйкпоінтів для вашого застосунку.'}, link: {en: '#', ua: '#'}, type: 'markup', code: ``},
+{media: [markup1, markup2, markup3, markup4], caption: {en: 'Markup tips', ua: 'Поради щодо верстки'}, text: {en: 'Here are a bunch of markup tips for people looking to improve their experience.', ua: 'Ось багато порад щодо ведення верстки для людей, що прагунть покращити свій досвід.'}, link: {en: '#', ua: '#'}, type: 'markup', code: [``, ``, ``, ``]},
 {media: 'none', caption: {en: 'Guard clause example', ua: 'Приклад вкорочення коду'}, text: {en: 'Here is an easy example for applying code shortening via an empty return.', ua: 'Ось легкий приклад для застосування вкорочення коду через порожній return.'}, link: {en: '#', ua: '#'}, type: 'function', code: 
 `// Guard clause example
 function(list) {
     if(list == null) return
     list.update()
 }`},
-{media: 'none', caption: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, text: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'markdown', code: 
+{media: 'none', caption: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, text: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'markup', code: 
 [`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1418,9 +1420,9 @@ function(list) {
     display: flex;
     min-height: 100vh;
 }`]},
-{media: gapstyle, caption: {en: 'gap in CSS3', ua: 'gap у CSS3'}, text: {en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap'}, type: 'markdown', code: ``},
-{media: [arraymethods_01, arraymethods_02, arraymethods_03], caption: {en: 'Simplifying array methods', ua: 'Спрощення методів масивів'}, text: {en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.'}, link: {en: '', ua: ''}, type: 'markdown', code: [``, ``, ``]},
-{media: 'none', caption: {en: 'Zoom on hover effect', ua: 'Ефект приближення (зуму)'}, text: {en: 'This zoom effect is made using the hover pseudo-class and transition scale.', ua: 'Цей ефект приближення (зуму) зроблений за допомогою псевдокласу hover та transition scale.'}, link: {en: '#', ua: '#'}, type: 'markdown', code: 
+{media: gapstyle, caption: {en: 'gap in CSS3', ua: 'gap у CSS3'}, text: {en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap'}, type: 'markup', code: ``},
+{media: [arraymethods_01, arraymethods_02, arraymethods_03], caption: {en: 'Simplifying array methods', ua: 'Спрощення методів масивів'}, text: {en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.'}, link: {en: '', ua: ''}, type: 'markup', code: [``, ``, ``]},
+{media: 'none', caption: {en: 'Zoom on hover effect', ua: 'Ефект приближення (зуму)'}, text: {en: 'This zoom effect is made using the hover pseudo-class and transition scale.', ua: 'Цей ефект приближення (зуму) зроблений за допомогою псевдокласу hover та transition scale.'}, link: {en: '#', ua: '#'}, type: 'markup', code: 
 [`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1450,6 +1452,8 @@ function(list) {
 .wrapper:hover img {
     scale: 120%;
 }`]},
+{media: flexboxstyle, caption: {en: 'Flexbox layout', ua: 'Макет Flexbox'}, text: {en: 'This image contains all instances of the Flexbox layout.', ua: 'На цій картинці забрані усі випадки макету Flexbox.'}, link: {en: '#', ua: '#'}, type: 'markup', code: ``},
+{media: objectfitstyle, caption: {en: 'object-fit style', ua: 'Стиль object-fit'}, text: {en: 'This picture shows all cases of using the object-fit style for pictures.', ua: 'На цій картинці забрані усі випадки використання стилю object-fit для картинок.'}, link: {en: '#', ua: '#'}, type: 'markup', code: ``},
 ]
 
 export default content
