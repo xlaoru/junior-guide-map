@@ -1454,6 +1454,38 @@ function(list) {
 }`]},
 {media: flexboxstyle, caption: {en: 'Flexbox layout', ua: 'Макет Flexbox'}, text: {en: 'This image contains all instances of the Flexbox layout.', ua: 'На цій картинці забрані усі випадки макету Flexbox.'}, link: {en: '#', ua: '#'}, type: 'markup', code: ``},
 {media: objectfitstyle, caption: {en: 'object-fit style', ua: 'Стиль object-fit'}, text: {en: 'This picture shows all cases of using the object-fit style for pictures.', ua: 'На цій картинці забрані усі випадки використання стилю object-fit для картинок.'}, link: {en: '#', ua: '#'}, type: 'markup', code: ``},
+{media: 'none', caption: {en: 'this', ua: 'this'}, text: {en: "The this keyword is a word that indicates the context of their execution. Case 1: when a function is created in an object as its method, then the this word points to this object itself. Case 2: a constructor function that is used to create a new object using the new operator here the word this indicates the object that will be created. Case 3: arrow functions. You can often hear that they do not have their own execution context, but in fact it depends on the lexical environment, and in simple words on the function inside which the arrow function was created. What value the this of the top function had, will also be the value of the arrow function", ua: 'Ключове слово this — це слово, яке вказує на контекст їх виконання. Випадок 1: коли функція створюється в об’єкті як його метод, тоді слово this вказує на сам об’єкт. Випадок 2: функція-конструктор, яка використовується для створення нового об’єкта за допомогою оператора new, тут слово this вказує на об’єкт, який буде створено. Випадок 3: функції стрілок. Часто можна почути, що вони не мають власного контексту виконання, але насправді це залежить від лексичного оточення, а простими словами від функції, всередині якої була створена функція-стрілка. Значення функції this у верхній частині також буде значенням функції зі стрілкою'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this'}, type: 'function', code: 
+[
+`// Case 1
+const user = {
+    firstName: 'Alex',
+    age: 20,
+    sayHello: function() {
+        console.log('Hello ' + this.firstName)
+    }
+}
+
+user.sayHello() // Hello Alex`,
+`// Case 2
+function User(id, name, age) {
+    this.id = id
+    this.name = name
+    this.age = age
+}`,
+`// Case 3
+const user = {
+    firstName: 'Kate',
+    age: 20,
+    sayHello: function() {
+        const getName = () => {
+            return this.firstName
+        }
+        console.log('Hello ' + getName())
+    }
+}
+
+user.sayHello() // Hello Kate`
+]},
 ]
 
 export default content
