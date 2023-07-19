@@ -1486,6 +1486,115 @@ const user = {
 
 user.sayHello() // Hello Kate`
 ]},
+{media: 'none', caption: {en: 'Professional data fetching with useEffect() and controller signal "AbortController()"', ua: 'Професійне отримання даних за допомогою useEffect() і сигналу контролера "AbortController()"'}, text: {en: 'In the example code, you can see the quality of getting data from useEffect() and the "AbortController()" controller signal.', ua: 'На прикладі коду можно побачити якісне отримання даних із useEffect() і сигналу контролера "AbortController()".'}, link: {en: '#', ua: '#'}, type: 'React', code: 
+[
+`import User from '../User/User';
+import {BrowserRouter as Router} from 'react-router-dom'
+
+function App() {
+    return (
+      <div className="App">
+        <Router>
+            <User />
+        </Router>
+      </div>
+  );
+}
+
+export default App;`,
+`import {useState, useEffect} from 'react';
+import {Link, useLocation} from 'react-router-dom'
+
+const User = () => {
+    const [user, setUser] = useState({})
+    const id = useLocation().pathname.split("/")[2]
+    useEffect(() => {
+        const controller = new AbortController()
+        const signal = controller.signal
+        fetch('https://jsonplaceholder.typicode.com/users/' + id, {signal})
+            .then((res) => res.json())
+            .then((data) => {
+                setUser(data)
+            }).catch(err => {
+                if(err.name === "AbortError") {
+                    console.log('cancelled')
+                } else {
+                    console.log('Error is not an "AbortError"')
+                }
+            })
+        return () => {
+            controller.abort()
+        }
+
+    }, [id])
+    return (
+        <div>
+            <p>Name: {user.name}</p>
+            <p>Username: {user.username}</p>
+            <p>Email: {user.email}</p>
+            <Link to="/users/1">Fetch User 1</Link> <br />
+            <Link to="/users/2">Fetch User 2</Link> <br />
+            <Link to="/users/3">Fetch User 3</Link> <br />
+        </div>
+    );
+};
+
+export default User;`,
+]},
+{media: 'none', caption: {en: 'Professional data axios fetching with useEffect() and controller signal "AbortController()"', ua: 'Професійне отримання axios даних за допомогою useEffect() і сигналу контролера "AbortController()"'}, text: {en: 'In the example, you can see the quality of getting data from axios, useEffect() and the "Abortcontroller()" controller signal.', ua: 'У прикладі ви можете побачити якість отримання даних від axios, useEffect() і сигналу контролера "Abortcontroller()".'}, link: {en: '#', ua: '#'}, type: 'React', code: 
+[
+`import User from '../User/User';
+import {BrowserRouter as Router} from 'react-router-dom'
+
+function App() {
+    return (
+      <div className="App">
+        <Router>
+            <User />
+        </Router>
+      </div>
+  );
+}
+
+export default App;`,
+`import {useState, useEffect} from 'react';
+import {Link, useLocation} from 'react-router-dom'
+import axios from 'axios'
+
+const User = () => {
+    const [user, setUser] = useState({})
+    const id = useLocation().pathname.split("/")[2]
+    useEffect(() => {
+        const cancelToken = axios.CancelToken.source()
+        axios.get('https://jsonplaceholder.typicode.com/users/' + id, {cancelToken: cancelToken.token})
+            .then((res) => {
+                setUser(res.data)
+            }).catch(err => {
+                if(axios.isCancel(err)) {
+                    console.log('cancelled')
+                } else {
+                    console.log('Error is not an "AbortError"')
+                }
+            })
+        return () => {
+            cancelToken.cancel()
+        }
+
+    }, [id])
+    return (
+        <div>
+            <p>Name: {user.name}</p>
+            <p>Username: {user.username}</p>
+            <p>Email: {user.email}</p>
+            <Link to="/users/1">Fetch User 1</Link> <br />
+            <Link to="/users/2">Fetch User 2</Link> <br />
+            <Link to="/users/3">Fetch User 3</Link> <br />
+        </div>
+    );
+};
+
+export default User;`,
+]},
 ]
 
 export default content
