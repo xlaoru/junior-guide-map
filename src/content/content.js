@@ -9,6 +9,14 @@ import arraymethods_02 from '../images/array-methods_02.jpg'
 import arraymethods_03 from '../images/array-methods_03.jpg'
 import flexboxstyle from '../images/flexbox-style.jpg'
 import objectfitstyle from '../images/object-fit-style.jpg'
+import nthchildselector from '../images/nth-child-selector.jpg'
+import basicsofhtml00 from '../images/basics-of-html-00.jpg'
+import basicsofhtml01 from '../images/basics-of-html-01.jpg'
+import basicsofhtml02 from '../images/basics-of-html-02.jpg'
+import basicsofhtml03 from '../images/basics-of-html-03.jpg'
+import basicsofhtml04 from '../images/basics-of-html-04.jpg'
+import basicsofhtml05 from '../images/basics-of-html-05.jpg'
+import basicsofhtml06 from '../images/basics-of-html-06.jpg'
 
 const content = [
 {media: 'none', caption: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, text: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', code: 
@@ -1595,6 +1603,92 @@ const User = () => {
 
 export default User;`,
 ]},
+{media: 'none', caption: {en: 'async + await request', ua: 'async + await запит'}, text: {en: 'The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.', ua: 'Оголошення async функції створює прив’язку нової асинхронної функції до заданого імені. Ключове слово await дозволено в тілі функції, що дозволяє записувати асинхронну поведінку, засновану на обіцянках, у зрозумілішому стилі та уникати необхідності явного налаштування ланцюжків promises.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function'}, type: 'request', code:
+`const axios = require('axios');
+
+async function fetchData(url) {
+    try {
+        // Process the received data
+        const response = await axios.get(url);
+        console.log(response.data);
+    } catch (error) {
+        // Handle errors if they occur
+        console.error('Error while getting data: ', error.message);
+    }
+}
+
+// Call the function to get the data
+fetchData('https://jsonplaceholder.typicode.com/users');
+`},
+{media: nthchildselector, caption: {en: 'nth-child selector', ua: 'nth-child селектор'}, text: {en: 'The :nth-child() CSS pseudo-class matches elements based on their position among a group of siblings.', ua: 'Псевдоклас CSS :nth-child() зіставляє елементи на основі їхньої позиції в групі.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/:nth-child'}, type: 'markup', code:``},
+{media: [basicsofhtml00, basicsofhtml01, basicsofhtml02, basicsofhtml03, basicsofhtml04, basicsofhtml05, basicsofhtml06], caption: {en: 'Basics of HTML', ua: 'HTML база'}, text: {en: 'Basic information about HTML tags and their properties.', ua: 'Базова інформація стосовно HTML тегів та їх властивості.'}, link: {en: '#', ua: '#'}, type: 'markup', code:[``, ``, ``, ``, ``, ``, ``]},
+{media: 'none', caption: {en: 'A large list of sites/web applications for Front-End developers', ua: 'Великий перелік із сайтами/веб-застосунками для Front-End розробників'}, text: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'all', code:
+`Web IDE for frontend:
+codesandbox.io\n
+
+color palette:
+colorhunt.co\n
+
+Fake API:
+jsonplaceholder.typicode.com\n
+
+Mail for non-important registrations:
+10minuteemail.com\n
+
+Design for one-page sites:
+http://onepagelove.com/cursorup\n
+
+Guide for Frontend Developers:
+https://my-js.org\n
+
+Website with styles in web format (links):
+https://cdnjs.com/\n
+
+resume template website:
+jobseeker.com [be careful with your subscription]\n
+
+Website similar to chatGPT:
+you.com\n
+
+Website with React patterns:
+https://reactpatterns.com/\n
+
+Site with custom icons:
+https://storyset.com/\n
+
+Site with spinners:
+https://uiball.com/loaders/\n
+
+Website generator of stylized blocks and more:  
+softr.io\n
+
+Website with collections of icons for interface styling: 
+iconer.app\n
+
+Website with a collection of custom svg backgrounds: 
+superdesigner.co\n
+
+A site with all kinds of people icons to illustrate situations with the possibility of customization: 
+undraw.co\n
+
+Website with useful features for UI development: 
+10015.io\n
+
+Site with 3D figures:  
+shapefest.com\n
+
+Website with beautiful free icons: 
+futicons.com\n
+
+Website with the ability to generate beautiful blocks/backgrounds using box-shadow: 
+neumorphism.io\n
+
+Site for creating svg backgrounds with the possibility of customization: 
+https://app.haikei.app/\n
+
+A site with a css library for creating animations in a project: 
+http://animate.style\n
+`},
 ]
 
 export default content

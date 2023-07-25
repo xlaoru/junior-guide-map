@@ -420,3 +420,7 @@ Some addictions
 ### `v20.5`
 
 Some addictions
+
+### `v20.6`
+
+Some addictions
