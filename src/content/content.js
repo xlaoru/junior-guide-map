@@ -1603,7 +1603,7 @@ const User = () => {
 
 export default User;`,
 ]},
-{media: 'none', caption: {en: 'async + await request', ua: 'async + await запит'}, text: {en: 'The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.', ua: 'Оголошення async функції створює прив’язку нової асинхронної функції до заданого імені. Ключове слово await дозволено в тілі функції, що дозволяє записувати асинхронну поведінку, засновану на обіцянках, у зрозумілішому стилі та уникати необхідності явного налаштування ланцюжків promises.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function'}, type: 'request', code:
+{media: 'none', caption: {en: 'async + await request with axios', ua: 'async + await запит за допомогою axios'}, text: {en: 'The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains. With axios help.', ua: 'Оголошення async функції створює прив’язку нової асинхронної функції до заданого імені. Ключове слово await дозволено в тілі функції, що дозволяє записувати асинхронну поведінку, засновану на обіцянках, у зрозумілішому стилі та уникати необхідності явного налаштування ланцюжків promises. Це все створено за допомогою axios.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function'}, type: 'request', code:
 `const axios = require('axios');
 
 async function fetchData(url) {
@@ -1689,6 +1689,45 @@ https://app.haikei.app/\n
 A site with a css library for creating animations in a project: 
 http://animate.style\n
 `},
+{media: 'none', caption: {en: 'async await request', ua: 'async await запит'}, text: {en: 'The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.', ua: 'Оголошення async функції створює прив’язку нової асинхронної функції до заданого імені. Ключове слово await дозволено в тілі функції, що дозволяє записувати асинхронну поведінку, засновану на обіцянках, у зрозумілішому стилі та уникати необхідності явного налаштування ланцюжків promises.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function'}, type: 'request', code:
+`async function u1() {
+    const result = await fetch('https://jsonplaceholder.typicode.com/users/1')
+    return result.text()
+}
+
+async function u2() {
+    const result = await fetch('https://jsonplaceholder.typicode.com/users/2')
+    return result.text()
+}
+
+async function u3() {
+    const result = await fetch('https://jsonplaceholder.typicode.com/users/3')
+    return result.text()
+}
+
+// Not Optimized Function
+async function getUsersNotOptimized() {
+  const user1 = await u1()
+  console.log(user1)
+  const user2 = await u2()
+  console.log(user2)
+  const user3 = await u3()
+  console.log(user3);
+}
+getUsersNotOptimized()
+
+// Optimized Function
+async function getUsersOptimized() {
+    const [user1, user2, user3] = await Promise.allSettled([
+        u1(),
+        u2(),
+        u3()
+    ])
+    console.log(user1.value);
+    console.log(user2.value);
+    console.log(user3.value);
+}
+getUsersOptimized()`},
 ]
 
 export default content
