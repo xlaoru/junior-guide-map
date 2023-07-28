@@ -459,3 +459,7 @@ Some addictions
 ### `v20.7.6`
 
 Some addictions
+
+### `v20.8`
+
+Some addictions

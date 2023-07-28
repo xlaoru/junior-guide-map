@@ -1728,6 +1728,52 @@ async function getUsersOptimized() {
     console.log(user3.value);
 }
 getUsersOptimized()`},
+{media: 'none', caption: {en: 'Glassmorphism block', ua: 'Блок у стилі скла'}, text: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'markup', code: [
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glassmorphism</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<svg class="bg" viewBox="0 0 400 400"><defs><pattern id="bg_pattern" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="100" fill="#7678ED"></circle> <circle cx="50" cy="50" r="60" fill="#3D348B"></circle> <circle cx="50" cy="50" r="50" fill="#7678ED"></circle> <circle cx="50" cy="50" r="40" fill="#3D348B"></circle> <circle cx="50" cy="50" r="30" fill="#7678ED"></circle> <circle cx="50" cy="50" r="20" fill="#3D348B"></circle> <circle cx="50" cy="50" r="10" fill="#7678ED"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="#f9f9ff"></rect><rect x="0" y="0" width="100%" height="100%" fill="url(#bg_pattern)"></rect></svg>
+<div class="container">
+    <div class="glassmorphism"></div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>`,
+`body {
+    margin: 0;
+    padding: 0;
+}
+
+.bg {
+    position: absolute;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+}
+
+.glassmorphism {
+    width: 600px;
+    height: 400px;
+    border-top: 2px solid #FFFFFF75;
+    border-left: 2px solid #FFFFFF75;
+    box-shadow: 5px 5px 12px #00000035;
+    background: #FFFFFF25;
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+}`]},
+
 ]
 
 export default content
