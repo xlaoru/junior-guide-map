@@ -5,18 +5,10 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 
 import './ContentItem.css'
 
-const ContentItem = ({media, caption, text, link, code, type, activeLanguage}) => {
+const ContentItem = ({data, title, text, link, type, activeLanguage}) => {
     const [show, setShow] = useState(false)
     const [copied, showCopied] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0)
-
-    function onCopy(item) {
-        Array.isArray(code) ? navigator.clipboard.writeText(item.code[activeIndex]) : navigator.clipboard.writeText(item.code)
-        showCopied(true)
-        setTimeout(() => {
-            showCopied(false)
-        }, 3000);
-    }
 
     return (
         <div className='ContentItem'>
@@ -34,7 +26,7 @@ const ContentItem = ({media, caption, text, link, code, type, activeLanguage}) =
                             </button>
                         )
                         : (
-                            <button onClick={() => onCopy({code})} style={{'background': 'transparent', 'color': 'white', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
+                            <button /* onClick={() => onCopy({code})} */ style={{'background': 'transparent', 'color': 'white', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
                                 <span style={{'display': 'flex', 'alignItems': 'center'}}>
                                     <ion-icon style={{'marginRight': '5px'}} name="clipboard-outline"></ion-icon>
                                 </span>
@@ -43,12 +35,13 @@ const ContentItem = ({media, caption, text, link, code, type, activeLanguage}) =
                         )
                     }
                 </div>
-                {media === 'none' 
-                    ? Array.isArray(code) ? <div className="code-wrapper"><CarouselItem codes={code} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/></div> : <div className="code-wrapper"><pre className="code-show">{code}</pre></div>
-                    : Array.isArray(media) ? <CarouselItem setShow={setShow} media={media} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/> : <div style={{'overflow': 'scroll'}}><Card.Img style={{'cursor': 'pointer'}} src={media} alt="" onClick={() => setShow(true)}/></div>
+                {
+                    Array.isArray(data) 
+                        ? <div className="code-wrapper"><CarouselItem data={data} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/></div> 
+                        : data.includes('/static/media/') ? <img src={data} alt="Image" /> : <div className="code-wrapper"><pre className="code-show">{data}</pre></div>
                 }
                 <Card.Body className="card-body">
-                    <Card.Title className='card-title'>{caption}</Card.Title>
+                    <Card.Title className='card-title'>{title}</Card.Title>
                     <Card.Text className='card-text'>
                     {text}
                     </Card.Text>
@@ -56,10 +49,10 @@ const ContentItem = ({media, caption, text, link, code, type, activeLanguage}) =
                 </Card.Body>
             </Card>
             <div className="ModalWindow">
-                <ModalWindow caption={caption} media={Array.isArray(media) ? media[activeIndex] : media} isShowed={show} setShow={setShow} /> 
+                {/* <ModalWindow title={title} media={Array.isArray() ? media[activeIndex] : media} isShowed={show} setShow={setShow} />  */}
             </div>
         </div>
-    );
+    )    
 };
 
 export default ContentItem;

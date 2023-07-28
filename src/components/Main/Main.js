@@ -41,7 +41,7 @@ const Main = ({content, activeLanguage}) => {
 
     const filteredContent = typeSearchedContent.filter(
         typeSearchedContent => {
-            return typeSearchedContent.caption.en.toLowerCase().includes(value.toLowerCase()) || typeSearchedContent.caption.ua.toLowerCase().includes(value.toLowerCase())
+            return typeSearchedContent.title.en.toLowerCase().includes(value.toLowerCase()) || typeSearchedContent.title.ua.toLowerCase().includes(value.toLowerCase())
         }
     )
 
