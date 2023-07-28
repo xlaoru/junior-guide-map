@@ -1429,7 +1429,7 @@ function(list) {
     min-height: 100vh;
 }`]},
 {media: gapstyle, caption: {en: 'gap in CSS3', ua: 'gap у CSS3'}, text: {en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap'}, type: 'markup', code: ``},
-{media: [arraymethods_01, arraymethods_02, arraymethods_03], caption: {en: 'Simplifying array methods', ua: 'Спрощення методів масивів'}, text: {en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.'}, link: {en: '', ua: ''}, type: 'markup', code: [``, ``, ``]},
+{media: [arraymethods_01, arraymethods_02, arraymethods_03], caption: {en: 'Simplifying array methods', ua: 'Спрощення методів масивів'}, text: {en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.'}, link: {en: '', ua: ''}, type: 'method', code: [``, ``, ``]},
 {media: 'none', caption: {en: 'Zoom on hover effect', ua: 'Ефект приближення (зуму)'}, text: {en: 'This zoom effect is made using the hover pseudo-class and transition scale.', ua: 'Цей ефект приближення (зуму) зроблений за допомогою псевдокласу hover та transition scale.'}, link: {en: '#', ua: '#'}, type: 'markup', code: 
 [`<!DOCTYPE html>
 <html lang="en">

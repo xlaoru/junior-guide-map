@@ -455,3 +455,7 @@ Test
 ### `v20.7.5`
 
 Some addictions
+
+### `v20.7.6`
+
+Some addictions
