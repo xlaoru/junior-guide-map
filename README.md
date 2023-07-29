@@ -467,3 +467,7 @@ Some addictions
 ### `v20.8.1`
 
 New good features soon
+
+### `v21.0`
+
+Now it's able to mix images and code in one slider
