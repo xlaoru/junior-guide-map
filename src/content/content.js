@@ -17,6 +17,10 @@ import basicsofhtml03 from '../images/basics-of-html-03.jpg'
 import basicsofhtml04 from '../images/basics-of-html-04.jpg'
 import basicsofhtml05 from '../images/basics-of-html-05.jpg'
 import basicsofhtml06 from '../images/basics-of-html-06.jpg'
+import fullscreensample from '../images/fullscreensample.jpg'
+import zoomhovereffect_01 from '../images/zoomhovereffect_01.jpg'
+import zoomhovereffect_02 from '../images/zoomhovereffect_02.jpg'
+import glassmorphism from '../images/glassmorphism.jpg'
 
 const content = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -1372,7 +1376,8 @@ function(list) {
     list.update()
 }`},
 {title: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, body: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'markup', data: 
-[`<!DOCTYPE html>
+[fullscreensample,
+`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1386,30 +1391,12 @@ function(list) {
         <section class="fullscreen">
             <div class="fullscreen__body">
                 <h1 class="fullscreen__title">Hello World</h1>
-                <div class="fullscreen__text">Don't Give Up</div>
-                <button class="fullscreen__button">Go</button>
             </div>
         </section>
-        <div class="content"></div>
-        <div class="content__body">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nesciunt vitae nemo minus adipisci sunt, praesentium possimus iusto, nam ipsum quae beatae hic, maxime saepe iure laboriosam odio eligendi reiciendis.
-        </div>
-        <footer class="footer">
-            <div class="footer_body">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores animi excepturi cumque inventore repellat. In magni similique maxime dolor asperiores a dolores molestiae quae! Ipsum quae recusandae beatae at commodi.
-            </div>
-        </footer>
     </div>
-    
     <script src="index.js"></script>
 </body>
-</html>
-`,
+</html>`,
 `body {
     height: 100%;
     margin: 0;
@@ -1422,15 +1409,26 @@ function(list) {
 }
 
 .fullscreen {
-    background-color: #1e1e1e;
+    background: url(background.jpg);
     color: white;
     display: flex;
     min-height: 100vh;
+    justify-content: center;
+}
+
+.fullscreen__body {
+    display: flex;
+    align-items: center;
+}
+
+.fullscreen__title {
+    font-size: 150px;
 }`]},
 {title: {en: 'gap in CSS3', ua: 'gap у CSS3'}, body: {en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap'}, type: 'markup', data: gapstyle},
 {title: {en: 'Simplifying array methods', ua: 'Спрощення методів масивів'}, body: {en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.'}, link: {en: '', ua: ''}, type: 'method', data: [arraymethods_01, arraymethods_02, arraymethods_03]},
 {title: {en: 'Zoom on hover effect', ua: 'Ефект приближення (зуму)'}, body: {en: 'This zoom effect is made using the hover pseudo-class and transition scale.', ua: 'Цей ефект приближення (зуму) зроблений за допомогою псевдокласу hover та transition scale.'}, link: {en: '#', ua: '#'}, type: 'markup', data: 
-[`<!DOCTYPE html>
+[zoomhovereffect_01, zoomhovereffect_02,
+`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1441,13 +1439,15 @@ function(list) {
 </head>
 <body>
     <div class="wrapper">
-        <img src="image.jpg" alt="image">
+        <img src="background.jpg" alt="image">
     </div>
     <script src="index.js"></script>
 </body>
 </html>`,
 `.wrapper {
     overflow: hidden;
+    width: 500px;
+    height: 500px;
 }
 
 .wrapper img {
@@ -1727,7 +1727,8 @@ async function getUsersOptimized() {
     console.log(user3.value);
 }
 getUsersOptimized()`},
-{title: {en: 'Glassmorphism block', ua: 'Блок у стилі скла'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'markup', data: [
+{title: {en: 'Glassmorphism block', ua: 'Блок у стилі скла'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'markup', data:
+[glassmorphism,
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1739,7 +1740,6 @@ getUsersOptimized()`},
 </head>
 
 <body>
-<svg class="bg" viewBox="0 0 400 400"><defs><pattern id="bg_pattern" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="100" fill="#7678ED"></circle> <circle cx="50" cy="50" r="60" fill="#3D348B"></circle> <circle cx="50" cy="50" r="50" fill="#7678ED"></circle> <circle cx="50" cy="50" r="40" fill="#3D348B"></circle> <circle cx="50" cy="50" r="30" fill="#7678ED"></circle> <circle cx="50" cy="50" r="20" fill="#3D348B"></circle> <circle cx="50" cy="50" r="10" fill="#7678ED"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="#f9f9ff"></rect><rect x="0" y="0" width="100%" height="100%" fill="url(#bg_pattern)"></rect></svg>
 <div class="container">
     <div class="glassmorphism"></div>
 </div>
@@ -1749,16 +1749,12 @@ getUsersOptimized()`},
 `body {
     margin: 0;
     padding: 0;
+    background: url(background.jpg);
 }
-
-.bg {
-    position: absolute;
-}
-
 .container {
     display: flex;
     justify-content: center;
-    padding-top: 200px;
+    padding-top: 180px;
 }
 
 .glassmorphism {

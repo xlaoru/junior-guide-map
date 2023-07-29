@@ -471,3 +471,7 @@ New good features soon
 ### `v21.0`
 
 Now it's able to mix images and code in one slider
+
+### `v21.1`
+
+Some addictions
