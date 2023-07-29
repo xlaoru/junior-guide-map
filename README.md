@@ -475,3 +475,7 @@ Now it's able to mix images and code in one slider
 ### `v21.1`
 
 Some addictions
+
+### `v21.2`
+
+Some addictions

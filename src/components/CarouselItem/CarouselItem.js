@@ -11,7 +11,7 @@ const CarouselItem = ({data, setShow, activeIndex, setActiveIndex, setImgData}) 
     <Carousel className='Carousel' onSelect={handleSelect} activeIndex={activeIndex} interval={null} touch={false}>
       {data.map((item, index) =>
         item.includes('/static/media/')
-          ? <Carousel.Item key={index} style={{'overflow': 'scroll', 'height': '350px'}}><div style={{'display': 'flex', 'justifyContent': 'center'}}><img src={item} alt="Image" onClick={() => {setShow(true); setImgData(item)}} /></div></Carousel.Item>
+          ? <Carousel.Item key={index} style={{'overflow': 'scroll', 'height': '350px'}}><div className='image-wrapper'><img src={item} alt="Image" onClick={() => {setShow(true); setImgData(item)}} /></div></Carousel.Item>
           : <Carousel.Item key={index}><div className="code-wrapper"><pre className="code-show">{item}</pre></div></Carousel.Item>
       )}
     </Carousel>

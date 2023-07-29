@@ -21,6 +21,7 @@ import fullscreensample from '../images/fullscreensample.jpg'
 import zoomhovereffect_01 from '../images/zoomhovereffect_01.jpg'
 import zoomhovereffect_02 from '../images/zoomhovereffect_02.jpg'
 import glassmorphism from '../images/glassmorphism.jpg'
+import gridlayout from '../images/gridlayout.jpg'
 
 const content = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -1375,7 +1376,7 @@ function(list) {
     if(list == null) return
     list.update()
 }`},
-{title: {en: 'Fullscreen background image wrapper', ua: 'Обгортка фонового зображення на весь екран'}, body: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'markup', data: 
+{title: {en: 'Fullscreen background image', ua: 'Фонове зображення на весь екран'}, body: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'markup', data: 
 [fullscreensample,
 `<!DOCTYPE html>
 <html lang="en">
@@ -1768,6 +1769,7 @@ getUsersOptimized()`},
     overflow: hidden;
     backdrop-filter: blur(4px);
 }`]},
+{title: {en: 'Grid layout cheat sheet', ua: 'Шпаргалка по Grid системі'}, body: {en: 'This picture contains the most important concepts of the Grid system, which are required for markup.', ua: 'На цій картинці зібрані найголовніші поняття по Grid системі, що потрібні для верстки.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/grid'}, type: 'markup', data: gridlayout},
 ]
 
 export default content

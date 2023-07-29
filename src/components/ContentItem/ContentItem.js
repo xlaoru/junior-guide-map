@@ -5,7 +5,7 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 
 import './ContentItem.css'
 
-const ContentItem = ({data, title, text, link, type, activeLanguage}) => {
+const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
     const [show, setShow] = useState(false)
     const [imgData, setImgData] = useState('')
 
@@ -13,7 +13,6 @@ const ContentItem = ({data, title, text, link, type, activeLanguage}) => {
     const [activeIndex, setActiveIndex] = useState(0)
 
     const onCopy = (item) => {
-        // console.log(item.data);
         Array.isArray(item.data) 
         ?  navigator.clipboard.writeText(
                 item.data[activeIndex].includes('/static/media/') ? '' : item.data[activeIndex]
@@ -58,7 +57,7 @@ const ContentItem = ({data, title, text, link, type, activeLanguage}) => {
                 <Card.Body className="card-body">
                     <Card.Title className='card-title'>{title}</Card.Title>
                     <Card.Text className='card-text'>
-                    {text}
+                    {body}
                     </Card.Text>
                     <Button variant="primary" id='doc-button' className='card-button'><a href={link} target='_blank' className='doc-link'>{activeLanguage === 0 ? 'DOCUMENTAION' : 'ДОКУМЕНТАЦІЯ'}</a></Button>
                 </Card.Body>

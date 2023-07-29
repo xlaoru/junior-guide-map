@@ -43,3 +43,15 @@ div.carousel-indicators {
   min-width: 0;
   cursor: pointer;
 }
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .image-wrapper {
+    display: contents;
+    justify-content: none;
+  }
+}
