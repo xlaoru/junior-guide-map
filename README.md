@@ -1,4 +1,5 @@
-![Preview](	https://hlaoru-portfolio.netlify.app/static/media/jgm.e645a586adae21388ff7.jpg)
+![Preview](https://hlaoru-portfolio.netlify.app/static/media/jgm.e645a586adae21388ff7.jpg)
+
 <hr>
 Hello! The Junior Guide Map project is one of the most important projects.  It was in it that I collected brief summaries of all knowledge.  Look at the versions and it is with it that you can track my progress from the skeleton of the site to the addition of sliders with code and pictures.
 <br>
@@ -238,7 +239,7 @@ Some addictions
 
 ### `v17.0`
 
-New text animation when you clicked on code image 
+New text animation when you clicked on code image
 
 ### `v17.0.1`
 
@@ -479,3 +480,7 @@ Some addictions
 ### `v21.2`
 
 Some addictions
+
+### `v22.0`
+
+New category and some addictions
