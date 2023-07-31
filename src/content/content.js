@@ -1777,6 +1777,44 @@ const isStudent: boolean = true
 
 if (isStudent) console.log(userName + ' is ' + age + ' years old and he is a student')
 // Ilya is 16 years old and he is a student`},
+{title: {en: 'Typing a function and what exactly it should return', ua: 'Типізація функції та що саме вона має повертати'}, body: {en: 'The function has the ability to specify what exactly it should return. If the centered function does not have a return, then void must be written. since this function returns void. If we need the function to return something specific, for example a clear answer in the format of a date, then we need to write it. This notation is the same in normal functions and in arrow functions.', ua: 'У функції є можливість прописати, що саме вона має повертати. Якщо усередені функції нема return, то треба прописати void. оскільки ця функція повертає порожнечу. Якщо нам треба аби функція повертала конкретно щось, наприклад чітку відповідь у форматі строки, то нам треба це прописати. У звичайних функціях та у стрілочних функціях це прописування є однаковим.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html'}, type: 'typescript', data: 
+`const isBirthdayData: boolean = true
+const userNameData: string = 'John'
+const ageData: number = 40
+
+/* if function has nothing to return, then function must has type void */
+function logBrtMsgVoid(isBirthday: boolean, userName: string, age: number): void {
+    if (isBirthday) console.log('Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1))
+}
+
+logBrtMsgVoid(isBirthdayData, userNameData, ageData) // Congrats JOHN, age: 41
+
+/* if function has nothing to return, then function must has current type */
+function logBrtMsgFunctional(isBirthday: boolean, userName: string, age: number): string {
+    if (isBirthday) {
+        return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
+    } else {
+        return 'Error'
+    }
+}
+
+console.log(
+    logBrtMsgFunctional(isBirthdayData, userNameData, ageData)
+) // Congrats JOHN, age: 41
+
+const logBrtMsgArrow = (isBirthday: boolean, userName: string, age: number): string => {
+    if (isBirthday) {
+        return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
+    } else {
+        return 'Error'
+    }
+}
+
+console.log(
+    logBrtMsgArrow(isBirthdayData, userNameData, ageData)
+) // Congrats JOHN, age: 41
+
+`},
 ]
 
 export default content
