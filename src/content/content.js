@@ -1838,7 +1838,47 @@ function logBrtMsg(isBirthday: boolean, userName: string, age: number): string {
     return createError("Error")
 }
 
-logBrtMsg(isBirthdayData, userNameData, ageData)`}
+logBrtMsg(isBirthdayData, userNameData, ageData)`},
+{title: {en: 'The null and undefined types in TypeScript', ua: 'Типи null та undefined у TypeScript'}, body: {en: '"undefined" values have not been defined yet, whereas "null" values indicate intentional absence of a value.', ua: '"undefined" значення ще не визначені, тоді як "null" значення вказують на навмисну відсутність значення.'}, link: {en: 'https://basarat.gitbook.io/typescript/recap/null-undefined', ua: 'https://basarat.gitbook.io/typescript/recap/null-undefined'}, type: 'typescript', data: 
+`/* null is the absence of anything at all */
+/* undefined is a type that says something doesn't exist */
+
+const test: null = null // correct
+const test2: any = null // correct
+// const test3: string = null // not correct
+// const test4: number = null // not correct
+
+const test5: undefined = undefined // correct
+const test6: any = undefined // correct
+// const test7: string = undefined // not correct
+
+let smth // type any
+
+function getRandomData() {
+    if (Math.random() < 0.5) {
+        return null
+    } else {
+        return ' Some data  '
+    }
+}
+
+const data = getRandomData()
+const trimmedData = data ? data.trim() : null`},
+{title: {en: 'symbol and bigint types in TypeScript', ua: 'Типи symbol та bigint у TypeScript'}, body: {en: 'Starting with ECMAScript 2015, "symbol" is a primitive data type, just like number and string. "symbol" values are created by calling the Symbol constructor. "bigint" part of an upcoming proposal in ECMAScript that allow us to model theoretically arbitrarily large integers.', ua: 'Починаючи з ECMAScript 2015, "symbol" — це примітивний тип даних, як число та рядок. Значення "symbol" створюються шляхом виклику конструктора Symbol. "bigint" частина майбутньої пропозиції в ECMAScript, яка дозволяє нам моделювати теоретично довільно великі цілі числа.'}, link: {en: 'https://www.typescriptlang.org/', ua: 'https://www.typescriptlang.org/'}, type: 'typescript', data: 
+`let id: symbol = Symbol('id')
+
+const data = {
+    [id]: 1
+}
+
+console.log(data[id]) // 1
+
+// set "target":"2020" in tsconfig
+const num1: bigint = 1n
+const num2: bigint = 2n
+
+// console.log(num1 + 5) // Error! Operator '+' cannot be applied to types 'bigint' and '5'
+console.log(num1 + num2) // 3n`},
 ]
 
 export default content
