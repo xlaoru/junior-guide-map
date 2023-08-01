@@ -1790,7 +1790,7 @@ function logBrtMsgVoid(isBirthday: boolean, userName: string, age: number): void
 
 logBrtMsgVoid(isBirthdayData, userNameData, ageData) // Congrats JOHN, age: 41
 
-/* if function has nothing to return, then function must has current type */
+/* if function has something to return, then function must has current type */
 function logBrtMsgFunctional(isBirthday: boolean, userName: string, age: number): string {
     if (isBirthday) {
         return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
