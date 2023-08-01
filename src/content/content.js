@@ -1777,14 +1777,15 @@ const isStudent: boolean = true
 
 if (isStudent) console.log(userName + ' is ' + age + ' years old and he is a student')
 // Ilya is 16 years old and he is a student`},
-{title: {en: 'Typing a function and what exactly it should return', ua: 'Типізація функції та що саме вона має повертати'}, body: {en: 'The function has the ability to specify what exactly it should return. If the centered function does not have a return, then void must be written. since this function returns void. If we need the function to return something specific, for example a clear answer in the format of a date, then we need to write it. This notation is the same in normal functions and in arrow functions.', ua: 'У функції є можливість прописати, що саме вона має повертати. Якщо усередені функції нема return, то треба прописати void. оскільки ця функція повертає порожнечу. Якщо нам треба аби функція повертала конкретно щось, наприклад чітку відповідь у форматі строки, то нам треба це прописати. У звичайних функціях та у стрілочних функціях це прописування є однаковим.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html'}, type: 'typescript', data: 
+{title: {en: 'Typing a function and what exactly it should return', ua: 'Типізація функції та що саме вона має повертати'}, body: {en: 'The function has the ability to specify what exactly it should return. If the current function does not have a return or the function returns undefind, then void must be written. Because this function returns void. If we need the function to return something specific, for example a clear answer as a string, then we need to write type string. This notation is the same in normal functions and in arrow functions.', ua: 'У функції є можливість прописати, що саме вона має повертати. Якщо усередені функції нема return або функція повертаю undefind, то треба прописати void. Оскільки ця функція повертає порожнечу. Якщо нам треба аби функція повертала конкретно щось, наприклад чітку відповідь у форматі строки, то нам треба це прописати. У звичайних функціях та у стрілочних функціях це прописування є однаковим.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html'}, type: 'typescript', data: 
 `const isBirthdayData: boolean = true
 const userNameData: string = 'John'
 const ageData: number = 40
 
-/* if function has nothing to return, then function must has type void */
+/* if function has nothing to return or this function returns undefind, then function must has type void */
 function logBrtMsgVoid(isBirthday: boolean, userName: string, age: number): void {
     if (isBirthday) console.log('Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1))
+    // return undefind // this return is possible for void function
 }
 
 logBrtMsgVoid(isBirthdayData, userNameData, ageData) // Congrats JOHN, age: 41
@@ -1815,6 +1816,29 @@ console.log(
 ) // Congrats JOHN, age: 41
 
 `},
+{title: {en: 'The never type in functions and where it is used', ua: 'Тип never у функціях та де він використовується'}, body: {en: 'The never type is usually used when we need to write an error output. Another never type can occur when we have an infinite while loop or an infinite recursion. In general, we need the never type as a stopgap when we have a possible error when processing its arguments in the function.', ua: 'Тип never зазвичай використовується, коли нам треба прописати вивід помилки. Ще тип never може виникнути, коли в нас є безкінечний цикл while або безкінечна рекурсія. Взагалом тип never нам потрібен, як затичка, коли в нас можлива помилка при обробці у функції її аргументів.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/basic-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/basic-types.html'}, type: 'typescript', data: 
+`const isBirthdayData: boolean = true
+let ageData: number = 40
+const userNameData: string = 'John'
+
+/* The never type is used when something in the function will never be returned in time. That is, the difference between void and never is that void returns undefind, and never returns nothing at all */
+const createError = (msg: string): never => {
+    throw new Error(msg)
+}
+
+function logBrtMsg(isBirthday: boolean, userName: string, age: number): string {
+    if (isBirthday == true) {
+        return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
+    } 
+    
+    else if (isBirthday === false) {
+        return 'Too bad'
+    }
+    
+    return createError("Error")
+}
+
+logBrtMsg(isBirthdayData, userNameData, ageData)`}
 ]
 
 export default content

@@ -488,3 +488,7 @@ New category and some addictions
 ### `v22.0.1`
 
 Some addictions
+
+### `v22.0.2`
+
+Some addictions
