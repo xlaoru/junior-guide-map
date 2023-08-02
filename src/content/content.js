@@ -1879,6 +1879,238 @@ const num2: bigint = 2n
 
 // console.log(num1 + 5) // Error! Operator '+' cannot be applied to types 'bigint' and '5'
 console.log(num1 + num2) // 3n`},
+{title: {en: 'Objects and their destructuring in TypeScript', ua: "Об'єкти та їч деструктурізація у TypeScript"}, body: {en: 'In general, the code shown in this post is used very rarely, because there are other more powerful types of object types and destructuring. But this code shows just the basic use of objects.', ua: "Взагалі код, що показаний у цьому пості застосовується дуже рідко, оскільки існують інші більш потужні види типізацій та деструктурізації об'єктів. Але у цьому коді показано саме базове використовування об'єктів."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
+`const userData: 
+{
+    isBirthdayData: boolean,
+    ageData: number,
+    userNameData: string,
+    messages: {error: string}
+} = {
+    isBirthdayData: true,
+    ageData: 40,
+    userNameData: 'John',
+    messages: {
+        error: 'Error'
+    }
+}
+
+const createError = (msg: string): never => {
+    throw new Error(msg)
+}
+
+// not destructured object
+function logBrtMsg1(data: {
+    isBirthdayData: boolean, 
+    userNameData: string, 
+    ageData: number
+}): string {
+    if (data.isBirthdayData) {
+        return 'Congrats ' + data.userNameData.toUpperCase() + ', age: ' + (data.ageData + 1)
+    } 
+    else {
+        return createError("Error")
+    }
+}
+
+console.log(
+    logBrtMsg1(userData)
+) // Congrats JOHN, age: 41
+
+// destructured object
+function logBrtMsg2({
+    isBirthdayData, 
+    userNameData, 
+    ageData, 
+    messages: {error}
+}: {
+    isBirthdayData: boolean, 
+    userNameData: string, 
+    ageData: number,
+    messages: {error: string}
+}): string {
+    if (isBirthdayData) {
+        return 'Congrats ' + userNameData.toUpperCase() + ', age: ' + (ageData + 1)
+    } 
+    else {
+        return createError(error)
+    }
+}
+
+console.log(
+    logBrtMsg2(userData)
+) // Congrats JOHN, age: 41`},
+{title: {en: 'Arrays and their destructuring in TypeScript', ua: "Масиви та їч деструктурізація у TypeScript"}, body: {en: 'Usually arrays and their destructuring in TypeScript is not hard typing. The same applies to both ordinary and multidimensional arrays, etc.', ua: "Зазвичай масиви та їх деструктурізація у TypeScript це не важка типізація. Це ж стосується як звичайних масивів так і мультівимірних тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
+`const departments: string[] = ['dev', 'design', 'marketing'] // simple array
+
+const department: string = departments[0]
+
+// departments.push(5) // Error! Argument of type 'number' is not assignable to parameter of type 'string'.
+
+const report = departments
+    .filter((d: string) => 
+        d !== 'dev'
+    )
+    .map((d: string) => 
+    d + ' - done'
+    )
+
+const nums: number[][] = [[3, 5, 6], [1, 2, 4]] // multidimensional array
+
+const [first] = report
+
+console.log(first) // design - done
+`},
+{title: {en: 'Tuples in TypeScript', ua: "Tuples (Кортежі) у TypeScript"}, body: {en: 'Tuples is an array that has a clear sequence of data and its types, as you can see in the code of the post. You cannot dynamically change the type of one of the elements using array methods or by calling a specific element by index. Tuples also have the ability to spread some specific type of data like an array using the spread operator, but there is one condition. You can perform this action once per Tuple.', ua: "Tuples (Кортежі) - це масив, що має чітку послідовність даних та їх типів, як можно побачити у коді поста. Ти не маєш змогу змінити динамічно тип одного з елементів за допомогою методів масиву чи викликом конкретного елемента за індексом. Також у Tuples (Кортежі) є змога розвернути якийсь конкретний тип даних мов масив за допомогою spread оператора, але є одна умова. Таку дію ти можеш зробити один раз на один Tuple (Кортеж)."}, link: {en: 'https://www.tutorialsteacher.com/typescript/typescript-tuple', ua: 'https://www.tutorialsteacher.com/typescript/typescript-tuple'}, type: 'typescript', data: 
+`const userDataTuple: [boolean, number, string] = [true, 40, 'John']
+
+/* tuple with spread operator */
+// const userDataTuple: [boolean, number, ...string[]] = [true, 40, 'John', 'Alex', 'Anna']
+
+/* tuple with spread operator */
+// const userDataTuple: [...boolean[], number, string] = [true, false, 40, 'John']
+
+/* tuple with spread operator and error. It's because tuple must have only one spread */
+// const userDataTuple: [...boolean[], number, ...string[]] = [true, 40, 'John', 'Alex', 'Anna'] // Error! A rest element cannot follow another rest element.
+
+/* you can't change tuple element type */
+// userDataTuple[0] = 'true' // Error! Type 'string' is not assignable to type 'boolean'.
+
+// userDataTuple[3] // Error! Tuple type '[boolean, number, string]' of length '3' has no element at index '3'.
+/* you can push something in the tuple but it will not count */
+// userDataTuple.push(50)
+// userDataTuple[3] // Error! Tuple type '[boolean, number, string]' of length '3' has no element at index '3'.
+
+const res = userDataTuple.map((t) => t + ' - data') // res array will be string[] type
+
+const [bthd, age, userName] = userDataTuple // tuple destructuring`},
+{title: {en: 'Union type in TypeScript', ua: "Тип Union (Об'єднаний) у TypeScript"}, body: {en: 'Typically, the Union type is used by developers to record undefined information in advance. For example: we have an error output and we do not know what it will give us, whether it is a 404 number or a "not found" notification, and for this we need a Union type. But there is also a downside to the use of this technology, namely uncertainty. Because if we have variants of string or number types, then we definitely cannot apply methods for this information. For example: we have a choice between a string and a number, and in the function we need to output information from the argument, but we cannot apply the toUpperCase() method to this information, because the information can be a number, and numbers do not have the toUpperCase() method .', ua: "Зазвичай тип Union використовується розробниками для запису невизначеної заздалегідь інформації. Наприклад: в нас є вивід помилки і ми не знаємо, що саме нам видасть, чи число 404, чи сповіщення ''не знайдено'' і ось для цього нам потрібен тип Union. Але є і мінус застосування цієї технології, а саме невизначеність. Бо якщо в нас є варіанти типів строки чи числу, то ми однозначно не можемо застосувати методи для цієї інформації. Наприклад: в нас є вибір між строкою та числом і у фінкції нам треба вивести інформацію з аргументу, але ми не можемо застосувати метод toUpperCase() до цієї інформації, оскільки інформація може бути і числом, а вже у числа не має методу toUpperCase()."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html', ua: 'https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html'}, type: 'typescript', data: 
+`let message: string | number = 5
+// message = 'hello' // correct
+
+let messages: string[] | number[] = ['a', 'b']
+// messages = [1, 1, 2, 3, 5, 8] // correct
+
+function printMsg(msg: string | number): void {
+    console.log(msg)
+    // console.log(msg.toLowerCase()) // Error! Property 'toLowerCase' does not exist on type 'string | number'. Property 'toLowerCase' does not exist on type 'number'.
+}
+
+printMsg(4) // 4
+printMsg('hello') // hello`},
+{title: {en: 'Narrowing Union type in TypeScript', ua: "Narrowing (Звуження) типу Union (Об'єднаний) у TypeScript"}, body: {en: 'Commonly, data type narrowing for Union type is used to use specific methods for specific data types. For this, commands such as Array.isArray() are used for arrays, "in" for objects, instanceof for classes, etc.', ua: "Зазвичай для використання конкретних методів для конкретних типів даних використовуються Narrowing (Звуження) типів даних для типу Union. Для цього використовують такі команди, як Array.isArray() для масивів, ''in'' для об'єктів, instanceof для класів тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html'}, type: 'typescript', data: 
+`function printMsg(msg: string[] | number | boolean): void {
+    if (Array.isArray(msg)) {
+            msg.forEach(m => console.log(m) // (parameter) msg: string[]
+        )
+    } else if (typeof msg === 'number') {
+        console.log(msg.toFixed())
+    } else {
+        console.log(msg)
+    }
+}
+
+// printMsg(4) // 4
+
+const printReadings = (a: number | string, b: number | boolean) => {
+    if (a === b) console.log(a, b)
+}
+
+const printReadings2 = (a: number[] | string) => {
+    console.log(a.slice(0, 3))
+}
+
+const checkReadings = (readings: {system: number} | {user: number}): void => {
+    if('system' in readings) {
+        console.log(readings.system)
+    } else {
+        console.log(readings.user)
+    }
+}
+
+function logValue(x: string | Date) {
+    if (x instanceof Date) {
+        console.log(x.getDate())
+    } else {
+        console.log(x.toUpperCase())
+    }
+}`},
+{title: {en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript"}, body: {en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html'}, type: 'typescript', data: 
+`let msg: 'Hello' = 'Hello' 
+msg = 'Hello' // correct
+// msg = 'hello' // Error! Type '"hello"' is not assignable to type '"Hello"'.
+
+const port3000: number = 3000
+const port3001: number = 3001
+
+function startServer(
+    protocol: 'http' | 'https', 
+    port: 3000 | 3001
+): 'Server Started' { // (parameter) protocol: "http" | "https", (parameter) port: 3000 | 3001
+    if (port === port3000 || port === port3001) {
+        console.log('Server started on ' + protocol + '://server:' + port)
+    } else {
+        console.error('Invalid port')
+    }
+
+    return 'Server Started'
+}
+
+startServer('https', 3001) // Server started on https://server:3001
+
+function createAnimation(
+    id: string | number, 
+    animationName: string, 
+    timingFunc: 'ease' | 'ease-out' | 'ease-in' = 'ease',
+    duration: number,
+    iterCount: 'infinite' | number
+): void {
+    const elem = document.querySelector('#' + id) as HTMLElement
+    if (elem) {
+        console.log(animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount)
+        elem.style.animation = animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount
+    }
+}
+
+createAnimation('id', 'fade', 'ease-in', 5, 'infinite') // fade ease-in 5 infinite`}, 
+{title: {en: 'Type Aliases in TypeScript', ua: "Тип Aliases у TypeScript"}, body: {en: 'Type "Aliases" create a new name for a type. Type "Aliases" are sometimes similar to "Interfaces", but can name primitives, "Unions", "Tuples", and any other types that you’d otherwise have to write by hand.', ua: "Тип ''Aliases'' створює нову назву для типу. Тип ''Aliases'' іноді схожий на ''Interfaces'', але може іменувати примітиви, ''Unions'', ''Tuples'' та будь-які інші типи, які інакше вам довелося б писати вручну."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data: 
+`type AnimationTimingFunc = 'ease' | 'ease-out' | 'ease-in'
+type AnimationID = string | number
+type AnimationIterCount = 'infinite' | number
+
+function createAnimation(
+    id: AnimationID, 
+    animationName: string, 
+    timingFunc: AnimationTimingFunc = 'ease',
+    duration: number,
+    iterCount: AnimationIterCount
+): void {
+    const elem = document.querySelector('#' + id) as HTMLElement
+    if (elem) {
+        console.log(animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount)
+        elem.style.animation = animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount
+    }
+}
+
+createAnimation('id', 'fade', 'ease-in', 5, 'infinite') // fade ease-in 5 infinite`},
+{title: {en: 'Object Literals and Function Annotations in TypeScript', ua: "Об'єктні Literals (Літерали) та анотації функцій"}, body: {en: 'Usually, object "Literals" and function annotations are not used very much in future developments due to their inconvenience, unreadability and non-reusability, but the realization that this way of typing objects and function annotations is definitely worth it.', ua: "Зазвичай об'єктні Literals (Літерали) та анотації функцій не дуже використовуються при будених розробках через свою незручніть, нечитабельність та неперевикористовуванність, але усвідомлення про те, що такий спосіб типізації об'єктів та анотацій до функцій однозначно вартую того."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
+`const serverConfig: {
+    protocol: 'http' | 'https';
+    port: 3000 | 3001;
+} = {
+    protocol: 'https',
+    port: 3001
+}
+
+const startServer: (protocol: 'http' | 'https', port: 3000 | 3001) => string /* <- function annotation */ = (
+    protocol: 'http' | 'https', /* <- function announcement */
+    port: 3000 | 3001 /* <- function announcement */
+): 'Server Started' => { // (parameter) protocol: "http" | "https", (parameter) port: 3000 | 3001
+    console.log('Server started on ' + protocol + '://server:' + port)
+    return 'Server Started'
+}
+
+startServer(serverConfig.protocol, serverConfig.port) // Server started on https://server:3001`},
 ]
 
 export default content

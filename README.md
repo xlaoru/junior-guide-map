@@ -500,3 +500,7 @@ Some addictions
 ### `v22.0.4`
 
 Some addictions
+
+### `v22.0.5`
+
+Some addictions
