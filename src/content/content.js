@@ -2111,6 +2111,71 @@ const startServer: (protocol: 'http' | 'https', port: 3000 | 3001) => string /* 
 }
 
 startServer(serverConfig.protocol, serverConfig.port) // Server started on https://server:3001`},
+{title: {en: 'All about useCallback()', ua: "Все про useCallback()"}, body: {en: 'useCallback() is a React hook that allows you to cache function definitions between re-renders. It is usually used to receive information from the server so that the request is not re-sent in case of an arbitrary phenomenon.', ua: "useCallback() — це хук React, який дозволяє кешувати визначення функції між повторними візуалізаціями. Зазвичай його використовують для отримання інформації із серверу так, щоб при довільному явищі запит повторно не посилався."}, link: {en: 'https://react.dev/reference/react/useCallback', ua: 'https://react.dev/reference/react/useCallback'}, type: 'React', data: 
+`import {useState, useCallback, useEffect} from 'react';
+import {Container} from 'react-bootstrap';
+
+const Slider = (props) => {
+    const [slide, setSlide] = useState(0)
+    const [autoplay, setAutoplay] = useState(false)
+
+    function changeSlide(i) {
+        setSlide(slide => slide + i)
+    }
+
+    function toggleAutoplay() {
+        setAutoplay(autoplay => !autoplay)
+    }
+
+    const getSomeImages = useCallback(() => {
+        console.log('fetching')
+        return [
+            "https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg",
+            "https://image.jimcdn.com/app/cms/image/transf/none/path/sa6549607c78f5c11/image/i88794b9d2e349e12/version/1641571453/best-places-to-visit-in-france-colmar-copyright-matthieu-cadiou-european-best-destinations.jpg",
+        ]
+    }, [])
+
+    return (
+        <Container>
+            <Slide getSomeImages={getSomeImages} />
+            <div className="slider w-50 m-auto">
+                <div className='text-center mt-5'>Active Slide: {slide}<br />{autoplay ? 'auto' : null}</div>
+                <div className="buttons mt-3" style={{'display': 'flex', 'justifyContent': 'center'}}>
+                    <button className='btn btn-primary me-2' onClick={() => changeSlide(-1)}>Prev</button>
+                    <button className='btn btn-primary me-2' onClick={() => changeSlide(1)}>Next</button>
+                    <button className='btn btn-primary me-2' onClick={() => toggleAutoplay()}>autoplay</button>
+                </div>
+
+            </div>
+        </Container>
+    )
+}
+
+const Slide = ({getSomeImages}) => {
+    const [images, setImages] = useState([])
+
+    useEffect(() => {
+        setImages(getSomeImages())
+    }, [getSomeImages])
+
+    return (
+        <>
+            {
+                images.map((url, i) => (<img key={i} src={url} className='d-block w-100' alt='slide'/>))
+            }
+        </>
+    )
+}
+
+const App = () => {
+    return (
+        <div>
+            <Slider />
+        </div>
+    );
+};
+
+export default App;`},
 ]
 
 export default content
