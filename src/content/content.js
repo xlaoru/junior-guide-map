@@ -22,6 +22,7 @@ import zoomhovereffect_01 from '../images/zoomhovereffect_01.jpg'
 import zoomhovereffect_02 from '../images/zoomhovereffect_02.jpg'
 import glassmorphism from '../images/glassmorphism.jpg'
 import gridlayout from '../images/gridlayout.jpg'
+import easyLoader from '../images/easy-loader.jpg'
 
 const content = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -991,7 +992,7 @@ const list2 = 'banana, apple, orange'
 
 console.log(Array.isArray(list1))
 console.log(Array.isArray(list2))`},
-{title: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, body: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less.', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.'}, link: {en: '#', ua: '#'}, type: 'React', data:
+{title: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, body: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less.', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.'}, link: {en: '#', ua: '#'}, type: 'task', data:
 `import React, { useState } from 'react'
 
 const HungerGamesApp = () => {
@@ -2112,70 +2113,112 @@ const startServer: (protocol: 'http' | 'https', port: 3000 | 3001) => string /* 
 
 startServer(serverConfig.protocol, serverConfig.port) // Server started on https://server:3001`},
 {title: {en: 'All about useCallback()', ua: "Все про useCallback()"}, body: {en: 'useCallback() is a React hook that allows you to cache function definitions between re-renders. It is usually used to receive information from the server so that the request is not re-sent in case of an arbitrary phenomenon.', ua: "useCallback() — це хук React, який дозволяє кешувати визначення функції між повторними візуалізаціями. Зазвичай його використовують для отримання інформації із серверу так, щоб при довільному явищі запит повторно не посилався."}, link: {en: 'https://react.dev/reference/react/useCallback', ua: 'https://react.dev/reference/react/useCallback'}, type: 'React', data: 
-`import {useState, useCallback, useEffect} from 'react';
-import {Container} from 'react-bootstrap';
+[`import {useState, useCallback} from 'react';
+import Item from './Item';
 
-const Slider = (props) => {
-    const [slide, setSlide] = useState(0)
-    const [autoplay, setAutoplay] = useState(false)
+const UseCallbackInfo = () => {
+    const [count, setCount] = useState(0)
 
-    function changeSlide(i) {
-        setSlide(slide => slide + i)
-    }
-
-    function toggleAutoplay() {
-        setAutoplay(autoplay => !autoplay)
-    }
-
-    const getSomeImages = useCallback(() => {
-        console.log('fetching')
-        return [
-            "https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg",
-            "https://image.jimcdn.com/app/cms/image/transf/none/path/sa6549607c78f5c11/image/i88794b9d2e349e12/version/1641571453/best-places-to-visit-in-france-colmar-copyright-matthieu-cadiou-european-best-destinations.jpg",
-        ]
+    const handleChange = useCallback(() => {
+        // Some code...
+        return 'useCallback() works'
     }, [])
 
     return (
-        <Container>
-            <Slide getSomeImages={getSomeImages} />
-            <div className="slider w-50 m-auto">
-                <div className='text-center mt-5'>Active Slide: {slide}<br />{autoplay ? 'auto' : null}</div>
-                <div className="buttons mt-3" style={{'display': 'flex', 'justifyContent': 'center'}}>
-                    <button className='btn btn-primary me-2' onClick={() => changeSlide(-1)}>Prev</button>
-                    <button className='btn btn-primary me-2' onClick={() => changeSlide(1)}>Next</button>
-                    <button className='btn btn-primary me-2' onClick={() => toggleAutoplay()}>autoplay</button>
-                </div>
-
-            </div>
-        </Container>
-    )
-}
-
-const Slide = ({getSomeImages}) => {
-    const [images, setImages] = useState([])
-
-    useEffect(() => {
-        setImages(getSomeImages())
-    }, [getSomeImages])
-
-    return (
-        <>
-            {
-                images.map((url, i) => (<img key={i} src={url} className='d-block w-100' alt='slide'/>))
-            }
-        </>
-    )
-}
-
-const App = () => {
-    return (
-        <div>
-            <Slider />
+        <div className='UseCallbackInfo'>
+            <Item onChange={handleChange} />
+            <h1>Count: {count}</h1>
+            <button onClick={() => setCount(prev => prev + 1)}>
+                Increment
+            </button>
         </div>
     );
 };
 
-export default App;`},
+export default UseCallbackInfo;`,
+`import {memo} from 'react';
+
+const Item = ({onChange}) => {
+    console.log('Item rendered')
+    return <>{onChange()}</>
+};
+
+export default memo(Item);`]},
+{title: {en: 'Easy loader', ua: "Легеньки спіннер (лоадер)"}, body: {en: 'This spinner (loader) is made using basic styles and animations.', ua: "Цей спіннер (лоадер) зроблений за допомогою базових стилів та анімації."}, link: {en: '#', ua: '#'}, type: 'markup', data: 
+[easyLoader, 
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+    </div>
+  <script src="main.js"></script>
+</body>
+</html>`, 
+`.container {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    transform: (-54%, -50%);
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}`]},
+{title: {en: 'Custom useLocalStorage() hook', ua: 'Зроблений власноруч хук useLocalStorage()'}, body: {en: 'This useLocalStorage() hook is made using LocalStorage technology and its capabilities. This hook will come in handy when developing your applications.', ua: 'Цей хук useLocalStorage() зроблений за допомогою технології LocalStorage та її можливостей. Цей хук буде внагоді при розробці своїх застоснунків.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
+[`import { useState, useCallback } from "react";
+
+function useLocalStorage(key, initialValue) {
+    const [storedValue, setStoredValue] = useState(() => {
+        const item = window.localStorage.getItem(key)
+        return item ? JSON.parse(item) : initialValue
+    })
+    const setValue = useCallback((value) => {
+        setStoredValue(value)
+        window.localStorage.setItem(key, JSON.stringify(value))
+    }, [key])
+
+    return {storedValue, setValue}
+}
+
+export default useLocalStorage`,
+`import React from 'react';
+import useLocalStorage from '../useLocalStorage/useLocalStorage';
+
+const App = () => {
+  const {storedValue, setValue} = useLocalStorage('Test', '')
+  return (
+    <div>
+      <h1>{storedValue}</h1>
+      <br />
+      <button onClick={() => setValue('Hello World!')}>Push</button>
+    </div>
+  );
+};
+
+export default App;`]},
 ]
 
 export default content

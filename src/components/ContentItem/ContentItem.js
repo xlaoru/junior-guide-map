@@ -2,10 +2,15 @@ import {useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
 import CarouselItem from '../CarouselItem/CarouselItem';
 import ModalWindow from '../ModalWindow/ModalWindow';
-
 import './ContentItem.css'
 
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';
+import monokai from 'react-syntax-highlighter/dist/esm/styles/hljs/monokai';
+
 const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
+    SyntaxHighlighter.registerLanguage('javascript', js)
+
     const [show, setShow] = useState(false)
     const [imgData, setImgData] = useState('')
 
@@ -52,7 +57,7 @@ const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
                 {
                     Array.isArray(data) 
                         ? <div className="code-wrapper"><CarouselItem data={data} activeIndex={activeIndex} setActiveIndex={setActiveIndex} setShow={setShow} setImgData={setImgData}/></div> 
-                        : data.includes('/static/media/') ? <img style={{'cursor': 'pointer'}} src={data} alt="Image" onClick={() => {setImgData(data); setShow(true)}}/> : <div className="code-wrapper"><pre className="code-show">{data}</pre></div>
+                        : data.includes('/static/media/') ? <img style={{'cursor': 'pointer'}} src={data} alt="Image" onClick={() => {setImgData(data); setShow(true)}}/> : <div className="code-wrapper"><SyntaxHighlighter style={monokai} className="code-show">{data}</SyntaxHighlighter></div>
                 }
                 <Card.Body className="card-body">
                     <Card.Title className='card-title'>{title}</Card.Title>
