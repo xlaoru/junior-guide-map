@@ -1881,66 +1881,44 @@ const num2: bigint = 2n
 // console.log(num1 + 5) // Error! Operator '+' cannot be applied to types 'bigint' and '5'
 console.log(num1 + num2) // 3n`},
 {title: {en: 'Objects and their destructuring in TypeScript', ua: "Об'єкти та їч деструктурізація у TypeScript"}, body: {en: 'In general, the code shown in this post is used very rarely, because there are other more powerful types of object types and destructuring. But this code shows just the basic use of objects.', ua: "Взагалі код, що показаний у цьому пості застосовується дуже рідко, оскільки існують інші більш потужні види типізацій та деструктурізації об'єктів. Але у цьому коді показано саме базове використовування об'єктів."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
-`const userData: 
-{
-    isBirthdayData: boolean,
-    ageData: number,
-    userNameData: string,
-    messages: {error: string}
-} = {
-    isBirthdayData: true,
-    ageData: 40,
-    userNameData: 'John',
-    messages: {
-        error: 'Error'
-    }
+`const userData: {name: string, age: number, skills: string[], isStudent: boolean} = {
+    name: 'Alex',
+    age: 30,
+    skills: ['dev', 'test', 'disign'],
+    isStudent: false
 }
 
-const createError = (msg: string): never => {
-    throw new Error(msg)
-}
-
-// not destructured object
-function logBrtMsg1(data: {
-    isBirthdayData: boolean, 
-    userNameData: string, 
-    ageData: number
-}): string {
-    if (data.isBirthdayData) {
-        return 'Congrats ' + data.userNameData.toUpperCase() + ', age: ' + (data.ageData + 1)
-    } 
-    else {
-        return createError("Error")
+// Not destructured object in function arguments
+function userAnalysis(user: {name: string, age: number, skills: string[], isStudent: boolean}): string {
+    if (user.isStudent) {
+        return "Sorry, but you are student. Let's meet another time!"
+    } else {
+        return 'Hello, ' + user.name + '. You are ' + user.age + ' years old and you have ' + user.skills.join(', ') + ' skills.'
     }
 }
 
 console.log(
-    logBrtMsg1(userData)
-) // Congrats JOHN, age: 41
+    userAnalysis(userData)
+) // Hello, Alex. You are 30 years old and you have dev, test, disign skills.
 
-// destructured object
-function logBrtMsg2({
-    isBirthdayData, 
-    userNameData, 
-    ageData, 
-    messages: {error}
-}: {
-    isBirthdayData: boolean, 
-    userNameData: string, 
-    ageData: number,
-    messages: {error: string}
-}): string {
-    if (isBirthdayData) {
-        return 'Congrats ' + userNameData.toUpperCase() + ', age: ' + (ageData + 1)
-    } 
-    else {
-        return createError(error)
+// Destructured object in function arguments
+function userGreeting({name, age, isStudent}: {name: string, age: number, isStudent: boolean}): string {
+    if (isStudent) {
+        return 'Hello! Nice to meet you, ' + name + '! Hope we are in the same class!'
+    } else {
+        return 'Hi, ' + name + "! It's so glad to see such a great specialist as for " + age + ' years old!'
     }
 }
 
 console.log(
-    logBrtMsg2(userData)
-) // Congrats JOHN, age: 41`},
+    userGreeting(userData)
+) // Hi, Alex! It's so glad to see such a great specialist as for 30 years old!
+
+// Destructured object
+let {age, isStudent} = userData
+
+console.log(age) // 30
+console.log(isStudent) // false`},
 {title: {en: 'Arrays and their destructuring in TypeScript', ua: "Масиви та їч деструктурізація у TypeScript"}, body: {en: 'Usually arrays and their destructuring in TypeScript is not hard typing. The same applies to both ordinary and multidimensional arrays, etc.', ua: "Зазвичай масиви та їх деструктурізація у TypeScript це не важка типізація. Це ж стосується як звичайних масивів так і мультівимірних тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
 `const departments: string[] = ['dev', 'design', 'marketing'] // simple array
 
@@ -1966,18 +1944,18 @@ console.log(first) // design - done
 `const userDataTuple: [boolean, number, string] = [true, 40, 'John']
 
 /* tuple with spread operator */
-// const userDataTuple: [boolean, number, ...string[]] = [true, 40, 'John', 'Alex', 'Anna']
+const carsDataTuple: [boolean, number, ...string[]] = [true, 42, 'Audi', 'Ford', 'Opel']
 
 /* tuple with spread operator */
-// const userDataTuple: [...boolean[], number, string] = [true, false, 40, 'John']
+const FiboLoopTuple: [...number[], boolean, string] = [1, 1, 2, 3, 5, 8, 13, true, 'FiboLoop']
 
 /* tuple with spread operator and error. It's because tuple must have only one spread */
 // const userDataTuple: [...boolean[], number, ...string[]] = [true, 40, 'John', 'Alex', 'Anna'] // Error! A rest element cannot follow another rest element.
 
 /* you can't change tuple element type */
 // userDataTuple[0] = 'true' // Error! Type 'string' is not assignable to type 'boolean'.
-
 // userDataTuple[3] // Error! Tuple type '[boolean, number, string]' of length '3' has no element at index '3'.
+
 /* you can push something in the tuple but it will not count */
 // userDataTuple.push(50)
 // userDataTuple[3] // Error! Tuple type '[boolean, number, string]' of length '3' has no element at index '3'.
@@ -2041,24 +2019,6 @@ function logValue(x: string | Date) {
 msg = 'Hello' // correct
 // msg = 'hello' // Error! Type '"hello"' is not assignable to type '"Hello"'.
 
-const port3000: number = 3000
-const port3001: number = 3001
-
-function startServer(
-    protocol: 'http' | 'https', 
-    port: 3000 | 3001
-): 'Server Started' { // (parameter) protocol: "http" | "https", (parameter) port: 3000 | 3001
-    if (port === port3000 || port === port3001) {
-        console.log('Server started on ' + protocol + '://server:' + port)
-    } else {
-        console.error('Invalid port')
-    }
-
-    return 'Server Started'
-}
-
-startServer('https', 3001) // Server started on https://server:3001
-
 function createAnimation(
     id: string | number, 
     animationName: string, 
@@ -2066,6 +2026,7 @@ function createAnimation(
     duration: number,
     iterCount: 'infinite' | number
 ): void {
+    console.log(msg)
     const elem = document.querySelector('#' + id) as HTMLElement
     if (elem) {
         console.log(animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount)
@@ -2103,7 +2064,8 @@ createAnimation('id', 'fade', 'ease-in', 5, 'infinite') // fade ease-in 5 infini
     port: 3001
 }
 
-const startServer: (protocol: 'http' | 'https', port: 3000 | 3001) => string /* <- function annotation */ = (
+const startServer: 
+(protocol: 'http' | 'https', port: 3000 | 3001) => string /* <- function annotation */ = (
     protocol: 'http' | 'https', /* <- function announcement */
     port: 3000 | 3001 /* <- function announcement */
 ): 'Server Started' => { // (parameter) protocol: "http" | "https", (parameter) port: 3000 | 3001
