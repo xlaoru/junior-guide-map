@@ -524,3 +524,7 @@ Some addictions
 ### `v22.1.3`
 
 Some addictions
+
+### `v22.1.4`
+
+Some addictions
