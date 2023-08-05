@@ -2352,35 +2352,55 @@ const userSkills: readonly string[] = [
 
 // userSkills[2] = 'Vue.js' // Error! Index signature in type 'readonly string[]' only permits reading.`},
 {title: {en: 'Enums in TypeScript', ua: 'Enums (Перелік) у TypeScript'}, body: {en: 'Enums are one of the few TypeScript features that are not JavaScript type-level extensions. Enums allow the developer to define a set of named constants. Using lists can make it easier to document intent or create a set of different cases. TypeScript provides both numeric and string enumerations. If you substitute a const enum, then when compiling, TypeScript will not make a function from the enum, but will immediately place everything you need where you need it. But you should not abuse this, because it can cause many mistakes.', ua: `Enums є однією з небагатьох функцій TypeScript, яка не є розширенням рівня типу JavaScript. Enums дозволяють розробнику визначати набір іменованих констант. Використання переліків може спростити документування намірів або створити набір різних випадків. TypeScript надає як числові, так і рядкові переліки. Якщо підставити const enum, то при конпіляції TypeScript не буде робити із enum функцію, а зразу підставе все що треба куди треба. Але не треба зловживати цим, адже це може спричинити багато помилок.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/enums.html', ua: 'https://www.typescriptlang.org/docs/handbook/enums.html'}, type: 'typescript', data: 
-`enum Directions {
-    TOP, // 0
-    RIGHT, // 1
-    LEFT, // 2
-    BOTTOM // 3
+`enum ShapeType {
+    Circle, // (enum member) ShapeType.Circle = 0
+    Square, // (enum member) ShapeType.Circle = 1
+    Triangle, // (enum member) ShapeType.Circle = 2
+}
+  
+enum Color {
+    Red = '#FF0000', // (enum member) Color.Red = "#FF0000"
+    Green = '#00FF00', // (enum member) Color.Red = "#00FF00"
+    Blue = '#0000FF', // (enum member) Color.Red = "#0000FF"
+}
+  
+const enum Unit {
+    Centimeters = 'cm', // (enum member) Unit.Centimeters = "cm"
+    Inches = 'in', // (enum member) Unit.Inches = "in"
+}
+  
+interface Shape {
+    type: ShapeType;
+    color: Color;
+    size: number;
+    unit: Unit;
+}
+  
+const circle: Shape = {
+    type: ShapeType.Circle,
+    color: Color.Blue,
+    size: 10,
+    unit: Unit.Inches,
+}
+  
+const square: Shape = {
+    type: ShapeType.Square,
+    color: Color.Green,
+    size: 5,
+    unit: Unit.Centimeters,
 }
 
-const enum TimingFunction {
-    EASE = 'ease', // ease
-    EASE_IN = 'ease-in', // ease-in
-    LINEAR = 'linear', // linear
-    // Error = 5 // Correct, but it is bad practise
-}
-
-function frameCompiler(element: string, animationName: string, direction: Directions, timingFunction: TimingFunction): string {
-    if (element === 'text' && direction === Directions.RIGHT) {
-        return animationName + ' ' + timingFunction + ' 0.3 5'
+function logdrawShape(shape: Shape, shapeType: ShapeType): void {
+    if (shapeType !== shape.type) {
+        console.log('Error! Shape types do not match')
     } else {
-        return 'Error!'
+        console.log('Drawing a ' + ShapeType[shape.type] + ' with color ' + shape.color + ' and size ' + shape.size + shape.unit)
     }
 }
-
-console.log(
-    frameCompiler('text', 'fade', Directions.RIGHT, TimingFunction.LINEAR)
-) // fade linear 0.3 5
-
-console.log(
-    frameCompiler('circle', 'fade', Directions.BOTTOM, TimingFunction.EASE)
-) // Error!`},
+  
+logdrawShape(circle, ShapeType.Circle); // Drawing a Circle with color #0000FF and size 10in
+logdrawShape(square, ShapeType.Square); // Drawing a Square with color #00FF00 and size 5cm
+  `},
 ]
 
 export default content
