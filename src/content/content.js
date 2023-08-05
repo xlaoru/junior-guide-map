@@ -23,6 +23,7 @@ import zoomhovereffect_02 from '../images/zoomhovereffect_02.jpg'
 import glassmorphism from '../images/glassmorphism.jpg'
 import gridlayout from '../images/gridlayout.jpg'
 import easyLoader from '../images/easy-loader.jpg'
+import InterfaceVSTypeAlias from '../images/interface-vs-type-alias.jpg'
 
 const content = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -2181,6 +2182,205 @@ const App = () => {
 };
 
 export default App;`]},
+{title: {en: 'Advanced Type Aliases in TypeScript', ua: 'Продвинутий Type Aliases у TypeScript'}, body: {en: 'Advanced "Aliases" Type in TypeScript can contain not only basic types or "Union" Type, but also entire Objects or annotations for functions.', ua: `Продвинутий "Aliases" Type у TypeScript може в собі вмістити не тільки базові типи чи "Union" Type, а й цілі Об'єкти чи анотації для функцій.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data: 
+`type Car = {
+    id: number,
+    name: string,
+    spareParts: string[]
+}
+
+type Region = {
+    country: string
+}
+
+// Type intersection
+type CarWithRegion = Car & Region
+
+const Audi: Car = {
+    id: 1,
+    name: 'A6',
+    spareParts: ['steering wheel', 'motor', 'carburetor']
+}
+
+const AudiToUkraine: CarWithRegion = {
+    id: 2,
+    name: 'A100',
+    spareParts: ['suspension', 'brake system', 'engine'],
+    country: 'Ukraine'
+}
+
+type StartExprort = (permission: boolean, region: string, exportId: number) => string
+
+// Function annotation
+const exprortControl: StartExprort = (permission: boolean, region: string, exportId: number): string => {
+    if (permission) return 'Car will go to ' + region + ' region with ' + exportId + ' export id.'
+    else return "Car have not permission for export."
+}
+
+console.log(
+    exprortControl(true, 'Canada', 3)
+) // Car will go to Canada region with 3 export id.
+
+console.log(
+    exprortControl(false, 'USA', 4)
+) // Car have not permission for export.`},
+{title: {en: 'Interfaces in TypeScript', ua: 'Interfaces (Інтерфейси) у TypeScript'}, body: {en: 'One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.', ua: `Одним із основних принципів TypeScript є те, що перевірка типу зосереджена на формі, яку мають значення. Це іноді називають «качиним типом» або «структурним підтипом». У TypeScript інтерфейси виконують роль імен цих типів і є потужним способом визначення контрактів у вашому коді, а також контрактів із кодом за межами вашого проекту.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/interfaces.html', ua: 'https://www.typescriptlang.org/docs/handbook/interfaces.html'}, type: 'typescript', data: 
+`interface ILegoSet {
+    id: number,
+    category: string,
+    isPlaySet: boolean,
+    numberOfDetails: number
+}
+
+interface ISetSize {
+    scale: 'big' | 'small' | 'polybag'
+}
+
+// interface ILegoSetWithSize extends ILegoSet, ISetSize {} // correct
+interface ILegoSetWithSize extends ILegoSet, ISetSize {isNovelty: boolean}
+
+const legoSet: ILegoSetWithSize = {
+    id: 1,
+    category: 'Star Wars',
+    isPlaySet: false,
+    numberOfDetails: 352,
+    scale: 'small',
+    isNovelty: true,
+
+}
+
+const logLegoSet = (legoSetSample: ILegoSetWithSize): void => {
+    if (legoSetSample.isNovelty) console.log('Set: ' + legoSetSample.id + ' with category: ' + legoSetSample.category + ' is new.')
+    else if (legoSetSample.scale === 'polybag') console.log('Set: ' + legoSetSample.id + ' with category: ' + legoSetSample.category + ' is polybag.')
+    else console.log('Buy old Lego set with category' + legoSetSample.category + ' only now in our shop!')
+}
+
+logLegoSet(legoSet) // Set: 1 with category: Star Wars is new.
+
+
+interface ISetStyles {
+    [key: string]: string
+}
+
+const setStyles: ISetStyles = {
+    color: 'space blue',
+    font: 'sans-serif'
+}`},
+
+{title: {en: 'Interfaces VS Type Alias in TypeScript', ua: 'Interfaces VS Type Alias у TypeScript'}, body: {en: 'Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable. For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.', ua: `Type Alias та Interface дуже схожі, і в багатьох випадках ви можете вільно вибирати між ними. Майже всі функції Interface доступні в Type Alias, ключовою відмінністю є те, що Type Alias не можна повторно відкрити для додавання нових властивостей проти Interface, який завжди розширюється. Здебільшого ви можете вибрати на основі особистих уподобань, і TypeScript підкаже вам, чи потрібно щось, щоб бути іншим типом оголошення. Якщо вам потрібна евристика, використовуйте Interface, доки вам не знадобиться використовувати функції Type Alias.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces'}, type: 'typescript', data: InterfaceVSTypeAlias},
+{title: {en: 'Property Modifiers (Optional Properties) in TypeScript', ua: 'Модифікатори властивостей (Додаткові властивості) у TypeScript'}, body: {en: 'Property modifiers are usually used when we have a clear form, but it has some optional fields. For example, the user can enter his name, but if he does not want to do this, then we will call him by his login, since the login is a mandatory input field for us.', ua: `Модифікатори властивостей зазвичай використовують, коли в нас є чітка форма, але у неї є декілька не обов'язкових полей. Наприклад користувач може ввести своє ім'я, але якщо він цього не хоче робити, то ми його будем називати за логіном, оскільки логін в нас обов'язкове поле для вводу.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties'}, type: 'typescript', data: 
+`interface IUser {
+    login: string,
+    password: number,
+    name?: string,
+    age?: number
+    skills?: {
+        techLanguage?: string,
+        framework?: string
+    }
+}
+
+const user: IUser = {
+    login: 'Xlaoru',
+    password: 143584,
+    // name: 'Ilya', // Not mandatory
+    age: 16,
+    skills: {framework: 'React.js'}
+}
+
+const isStudent: boolean = true
+
+function sendUserData(userData: IUser, isStudent?: boolean): string {
+    if (isStudent) console.log(!userData.name ? userData.login + ' is student' : userData.name + ' is student')
+    return 'Hello, ' + userData.login + '! Nice to meet you! You are ' + userData.age + ', but you already know ' + userData.skills?.framework 
+}
+
+console.log(
+    sendUserData(user, isStudent)
+)
+// Xlaoru is student
+// Hello, Xlaoru! Nice to meet you! You are 16, but you already know React.js`},
+{title: {en: 'Non-null Assertion Operator (Postfix !) in TypeScript', ua: 'Non-null Assertion Operator (Postfix !) у TypeScript'}, body: {en: 'TypeScript also has a special syntax for removing null and undefined from a type without doing any explicit checking. Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined.', ua: `TypeScript також має спеціальний синтаксис для видалення null і undefined з типу без виконання будь-якої явної перевірки. Написання ! після будь-якого виразу фактично є твердженням типу, що значення не є null або undefined.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-'}, type: 'typescript', data: 
+`interface IRequest {
+    requestType: 'get' | 'post'
+    requestText?: {
+        title?: string,
+        body?: string
+    }
+}
+
+const request: IRequest = {
+    requestType: 'get',
+    requestText: {title: 'Hello World'}
+}
+
+let dbName: string
+sendRequest(request, 'Xlaoru-WEB')
+
+console.log(dbName!)
+// HELLO WORLD
+// xlaoru-web
+// test
+
+function sendRequest(requestData: IRequest, db?: string): void {
+    dbName = 'test'
+    console.log(requestData.requestText!.title?.toUpperCase())
+    console.log(db!.toLowerCase())
+}
+
+`},
+{title: {en: 'readonly property Modifiers in TypeScript', ua: 'Модифікатори властивостей readonly (тільки для читання) у TypeScript'}, body: {en: 'Modifiers of readonly properties are created so that when writing code by other developers, specific important information cannot be changed. For example: we have a user login and this information cannot be overwritten under any circumstances, under understandable circumstances. And it is for this purpose that such modifiers of readonly capabilities were invented.', ua: `Модифікатори властивостей readonly (тільки для читання) створений для того, щоб при написані коду іншими розробниками конкретну важливу інформацію неможливо було змінити. Наприклад: в нас є логін користувача і цю інформацію неможно перезаписати ні в якому разі, за зрозумілі обставини. І саме для цього були вигадані такі модифікатори можливостей readonly.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#readonly-and-const', ua: 'https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#readonly-and-const'}, type: 'typescript', data: 
+`interface IUser {
+    readonly login: string // Unable to overwrite
+    password: number
+    name?: string // Not mandatory
+}
+
+const user: IUser = {
+    login: 'Kehaar',
+    password: 247523,
+}
+
+// user.login = 'Xlaoru' // Error! Cannot assign to 'login' because it is a read-only property.
+
+const userSkills: readonly string[] = [
+    'Markup', 
+    'JavaScript', 
+    'React.js', 
+    'Node.js'
+]
+
+// userSkills[2] = 'Vue.js' // Error! Index signature in type 'readonly string[]' only permits reading.`},
+{title: {en: 'Enums in TypeScript', ua: 'Enums (Перелік) у TypeScript'}, body: {en: 'Enums are one of the few TypeScript features that are not JavaScript type-level extensions. Enums allow the developer to define a set of named constants. Using lists can make it easier to document intent or create a set of different cases. TypeScript provides both numeric and string enumerations. If you substitute a const enum, then when compiling, TypeScript will not make a function from the enum, but will immediately place everything you need where you need it. But you should not abuse this, because it can cause many mistakes.', ua: `Enums є однією з небагатьох функцій TypeScript, яка не є розширенням рівня типу JavaScript. Enums дозволяють розробнику визначати набір іменованих констант. Використання переліків може спростити документування намірів або створити набір різних випадків. TypeScript надає як числові, так і рядкові переліки. Якщо підставити const enum, то при конпіляції TypeScript не буде робити із enum функцію, а зразу підставе все що треба куди треба. Але не треба зловживати цим, адже це може спричинити багато помилок.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/enums.html', ua: 'https://www.typescriptlang.org/docs/handbook/enums.html'}, type: 'typescript', data: 
+`enum Directions {
+    TOP, // 0
+    RIGHT, // 1
+    LEFT, // 2
+    BOTTOM // 3
+}
+
+const enum TimingFunction {
+    EASE = 'ease', // ease
+    EASE_IN = 'ease-in', // ease-in
+    LINEAR = 'linear', // linear
+    // Error = 5 // Correct, but it is bad practise
+}
+
+function frameCompiler(element: string, animationName: string, direction: Directions, timingFunction: TimingFunction): string {
+    if (element === 'text' && direction === Directions.RIGHT) {
+        return animationName + ' ' + timingFunction + ' 0.3 5'
+    } else {
+        return 'Error!'
+    }
+}
+
+console.log(
+    frameCompiler('text', 'fade', Directions.RIGHT, TimingFunction.LINEAR)
+) // fade linear 0.3 5
+
+console.log(
+    frameCompiler('circle', 'fade', Directions.BOTTOM, TimingFunction.EASE)
+) // Error!`},
 ]
 
 export default content
