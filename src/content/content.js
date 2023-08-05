@@ -2225,47 +2225,62 @@ console.log(
     exprortControl(false, 'USA', 4)
 ) // Car have not permission for export.`},
 {title: {en: 'Interfaces in TypeScript', ua: 'Interfaces (Інтерфейси) у TypeScript'}, body: {en: 'One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.', ua: `Одним із основних принципів TypeScript є те, що перевірка типу зосереджена на формі, яку мають значення. Це іноді називають «качиним типом» або «структурним підтипом». У TypeScript інтерфейси виконують роль імен цих типів і є потужним способом визначення контрактів у вашому коді, а також контрактів із кодом за межами вашого проекту.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/interfaces.html', ua: 'https://www.typescriptlang.org/docs/handbook/interfaces.html'}, type: 'typescript', data: 
-`interface ILegoSet {
-    id: number,
-    category: string,
-    isPlaySet: boolean,
-    numberOfDetails: number
+`interface ISpaceShip {
+    id: number
+    name: string
 }
 
-interface ISetSize {
-    scale: 'big' | 'small' | 'polybag'
+interface ISpaceShipSide {
+    side: 'empire' | 'rebels'
 }
 
-// interface ILegoSetWithSize extends ILegoSet, ISetSize {} // correct
-interface ILegoSetWithSize extends ILegoSet, ISetSize {isNovelty: boolean}
-
-const legoSet: ILegoSetWithSize = {
-    id: 1,
-    category: 'Star Wars',
-    isPlaySet: false,
-    numberOfDetails: 352,
-    scale: 'small',
-    isNovelty: true,
-
+// interface ISpaceShipReport extends ISpaceShip, ISpaceShipSide {} // correct
+interface ISpaceShipReport extends ISpaceShip, ISpaceShipSide {
+    isStolen: boolean
 }
 
-const logLegoSet = (legoSetSample: ILegoSetWithSize): void => {
-    if (legoSetSample.isNovelty) console.log('Set: ' + legoSetSample.id + ' with category: ' + legoSetSample.category + ' is new.')
-    else if (legoSetSample.scale === 'polybag') console.log('Set: ' + legoSetSample.id + ' with category: ' + legoSetSample.category + ' is polybag.')
-    else console.log('Buy old Lego set with category' + legoSetSample.category + ' only now in our shop!')
+const spaceShip1: ISpaceShipReport = {
+    id: 1, 
+    name: 'Star Destroyer',
+    side: 'empire',
+    isStolen: false
 }
 
-logLegoSet(legoSet) // Set: 1 with category: Star Wars is new.
-
-
-interface ISetStyles {
-    [key: string]: string
+const spaceShip2: ISpaceShipReport = {
+    id: 2,
+    name: 'Ghost',
+    side: 'rebels',
+    isStolen: true
 }
 
-const setStyles: ISetStyles = {
-    color: 'space blue',
-    font: 'sans-serif'
-}`},
+const spaceShip3: ISpaceShipReport = {
+    id: 3,
+    name: 'Tie Fighter',
+    side: 'empire',
+    isStolen: true
+}
+
+function spaceShipCheck(spaceShip: ISpaceShipReport): string {
+    if (spaceShip.side === 'rebels') {
+        return "Rebel's space ship: " + spaceShip.name + ' does not get access to the seat.'
+    } else if (spaceShip.isStolen) {
+        return 'Space ship: ' + spaceShip.name + ' was stolen.'
+    } else {
+        return 'Space ship: ' + spaceShip.name + ' has access to boarding.'
+    }
+}
+
+console.log(
+    spaceShipCheck(spaceShip1) 
+) // Space ship: Star Destroyer has access to boarding.
+
+console.log(
+    spaceShipCheck(spaceShip2) 
+) // Rebel's space ship: Ghost does not get access to the seat.
+
+console.log(
+    spaceShipCheck(spaceShip3) 
+) // Space ship: Tie Fighter was stolen.`},
 
 {title: {en: 'Interfaces VS Type Alias in TypeScript', ua: 'Interfaces VS Type Alias у TypeScript'}, body: {en: 'Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable. For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.', ua: `Type Alias та Interface дуже схожі, і в багатьох випадках ви можете вільно вибирати між ними. Майже всі функції Interface доступні в Type Alias, ключовою відмінністю є те, що Type Alias не можна повторно відкрити для додавання нових властивостей проти Interface, який завжди розширюється. Здебільшого ви можете вибрати на основі особистих уподобань, і TypeScript підкаже вам, чи потрібно щось, щоб бути іншим типом оголошення. Якщо вам потрібна евристика, використовуйте Interface, доки вам не знадобиться використовувати функції Type Alias.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces'}, type: 'typescript', data: InterfaceVSTypeAlias},
 {title: {en: 'Property Modifiers (Optional Properties) in TypeScript', ua: 'Модифікатори властивостей (Додаткові властивості) у TypeScript'}, body: {en: 'Property modifiers are usually used when we have a clear form, but it has some optional fields. For example, the user can enter his name, but if he does not want to do this, then we will call him by his login, since the login is a mandatory input field for us.', ua: `Модифікатори властивостей зазвичай використовують, коли в нас є чітка форма, але у неї є декілька не обов'язкових полей. Наприклад користувач може ввести своє ім'я, але якщо він цього не хоче робити, то ми його будем називати за логіном, оскільки логін в нас обов'язкове поле для вводу.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties'}, type: 'typescript', data: 
