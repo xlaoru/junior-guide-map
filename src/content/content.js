@@ -2473,7 +2473,7 @@ if (square.type === ShapeType.SQUARE) {
     console.log('Here is SQUARE shape!')
 } // Here is SQUARE shape!
 
-function logdrawShape(shape: Shape, shapeType: ShapeType): void {
+function logDrawShape(shape: Shape, shapeType: ShapeType): void {
     if (shapeType !== shape.type) {
         console.log('Error! Shape types do not match')
     } else {
@@ -2481,8 +2481,9 @@ function logdrawShape(shape: Shape, shapeType: ShapeType): void {
     }
 }
   
-logdrawShape(circle, ShapeType.CIRCLE) // Drawing a CIRCLE with color #0000FF and size 10 in
-logdrawShape(square, ShapeType.SQUARE) // Drawing a SQUARE with color #00FF00 and size 5 cm`},
+logDrawShape(circle, ShapeType.CIRCLE) // Drawing a CIRCLE with color #0000FF and size 10 in
+logDrawShape(square, ShapeType.SQUARE) // Drawing a SQUARE with color #00FF00 and size 5 cm
+logDrawShape(circle, ShapeType.SQUARE) // Error! Shape types do not match`},
 {title: {en: 'Type Unknown in TypeScript', ua: 'Тип Unknown (Невизначений) у TypeScript'}, body: {en: 'The unknown type represents any value. This is similar to the any type, but is safer because it’s not legal to do anything with an unknown value. This is useful when describing function types because you can describe functions that accept any value without having any values in your function body. Conversely, you can describe a function that returns a value of unknown type.', ua: `Тип Unknown представляє будь-яке значення. Це схоже на тип Any, але безпечніше, оскільки заборонено робити щось із Unknown значенням. Це корисно під час опису типів функцій, оскільки ви можете описати функції, які приймають будь-які значення, не маючи жодних значень у вашому тілі функції. І навпаки, ви можете описати функцію, яка повертає значення типу Unknown.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown'}, type: 'typescript', data:
 `/* Case 1 */
 const userData = '{"isBirthday": true, "ageData": 40, "userName": "John"}'
