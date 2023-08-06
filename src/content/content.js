@@ -2014,7 +2014,55 @@ function logValue(x: string | Date) {
     } else {
         console.log(x.toUpperCase())
     }
-}`},
+}
+
+interface ICar {
+    engine: string
+    wheels: {
+        number: number,
+        type: string
+    }
+}
+
+interface IShip {
+    engine: string
+    sail: string
+}
+
+const car: ICar = {
+    engine: 'M57',
+    wheels: {
+        number: 4,
+        type: 'Composite wheels'
+    }
+}
+
+const ship: IShip = {
+    engine: 'Yamaha 9.9 GMHS',
+    sail: 'Default'
+}
+
+function repairVehicle(vehicle: ICar | IShip): void {
+    if (isCar(vehicle)) {
+        console.log(vehicle.wheels)
+    } else if (isShip(vehicle)) {
+        console.log(vehicle.sail)
+    } else {
+        console.log(vehicle) // vehicle: never
+    }
+}
+
+// Type Flow method
+function isCar(car: ICar | IShip): car is ICar {
+    return (car as ICar).wheels !== undefined
+}
+
+function isShip(ship: ICar | IShip): ship is IShip {
+    return "sail" in ship
+}
+
+repairVehicle(car) // { number: 4, type: 'Composite wheels' }
+repairVehicle(ship) // Default`},
 {title: {en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript"}, body: {en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html'}, type: 'typescript', data: 
 `let msg: 'Hello' = 'Hello' 
 msg = 'Hello' // correct
@@ -2225,63 +2273,80 @@ console.log(
     exprortControl(false, 'USA', 4)
 ) // Car have not permission for export.`},
 {title: {en: 'Interfaces in TypeScript', ua: 'Interfaces (Інтерфейси) у TypeScript'}, body: {en: 'One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.', ua: `Одним із основних принципів TypeScript є те, що перевірка типу зосереджена на формі, яку мають значення. Це іноді називають «качиним типом» або «структурним підтипом». У TypeScript інтерфейси виконують роль імен цих типів і є потужним способом визначення контрактів у вашому коді, а також контрактів із кодом за межами вашого проекту.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/interfaces.html', ua: 'https://www.typescriptlang.org/docs/handbook/interfaces.html'}, type: 'typescript', data: 
-`interface ISpaceShip {
+`interface ISpaceship {
     id: number
     name: string
 }
 
-interface ISpaceShipSide {
+interface ISpaceshipSide {
     side: 'empire' | 'rebels'
 }
 
-// interface ISpaceShipReport extends ISpaceShip, ISpaceShipSide {} // correct
-interface ISpaceShipReport extends ISpaceShip, ISpaceShipSide {
+// interface ISpaceshipInfo extends ISpaceship, ISpaceshipSide {} // correct
+interface ISpaceshipInfo extends ISpaceship, ISpaceshipSide {
     isStolen: boolean
 }
 
-const spaceShip1: ISpaceShipReport = {
+const spaceship1: ISpaceshipInfo = {
     id: 1, 
     name: 'Star Destroyer',
     side: 'empire',
     isStolen: false
 }
 
-const spaceShip2: ISpaceShipReport = {
+const spaceship2: ISpaceshipInfo = {
     id: 2,
     name: 'Ghost',
     side: 'rebels',
     isStolen: true
 }
 
-const spaceShip3: ISpaceShipReport = {
+const spaceship3: ISpaceshipInfo = {
     id: 3,
     name: 'Tie Fighter',
     side: 'empire',
     isStolen: true
 }
 
-function spaceShipCheck(spaceShip: ISpaceShipReport): string {
-    if (spaceShip.side === 'rebels') {
-        return "Rebel's space ship: " + spaceShip.name + ' does not get access to the seat.'
-    } else if (spaceShip.isStolen) {
-        return 'Space ship: ' + spaceShip.name + ' was stolen.'
+function checkSpaceship(spaceship: ISpaceshipInfo): string {
+    if (spaceship.side === 'rebels') {
+        return "Rebel's spaceship: " + spaceship.name + ' does not get access to the seat.'
+    } else if (spaceship.isStolen) {
+        return 'Spaceship: ' + spaceship.name + ' was stolen.'
     } else {
-        return 'Space ship: ' + spaceShip.name + ' has access to boarding.'
+        return 'Spaceship: ' + spaceship.name + ' has access to boarding.'
     }
 }
 
 console.log(
-    spaceShipCheck(spaceShip1) 
-) // Space ship: Star Destroyer has access to boarding.
+    checkSpaceship(spaceship1) 
+) // Spaceship: Star Destroyer has access to boarding.
 
 console.log(
-    spaceShipCheck(spaceShip2) 
-) // Rebel's space ship: Ghost does not get access to the seat.
+    checkSpaceship(spaceship2) 
+) // Rebel's spaceship: Ghost does not get access to the seat.
 
 console.log(
-    spaceShipCheck(spaceShip3) 
-) // Space ship: Tie Fighter was stolen.`},
+    checkSpaceship(spaceship3) 
+) // Spaceship: Tie Fighter was stolen.
 
+const newSpaceship: ISpaceship = {
+    id: 4,
+    name: 'Y-Wing'
+}
+
+function createSpaceshipInfo(spaceship: ISpaceship, side: 'empire' | 'rebels', isStolen: boolean): ISpaceshipInfo {
+    return {
+        id: spaceship.id,
+        name: spaceship.name,
+        side: side,
+        isStolen: isStolen
+    }
+}
+
+const spaceship4 = createSpaceshipInfo(newSpaceship, 'rebels', false)
+
+console.log(spaceship4) // { id: 4, name: 'Y-Wing', side: 'rebels', isStolen: false }`},
 {title: {en: 'Interfaces VS Type Alias in TypeScript', ua: 'Interfaces VS Type Alias у TypeScript'}, body: {en: 'Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable. For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.', ua: `Type Alias та Interface дуже схожі, і в багатьох випадках ви можете вільно вибирати між ними. Майже всі функції Interface доступні в Type Alias, ключовою відмінністю є те, що Type Alias не можна повторно відкрити для додавання нових властивостей проти Interface, який завжди розширюється. Здебільшого ви можете вибрати на основі особистих уподобань, і TypeScript підкаже вам, чи потрібно щось, щоб бути іншим типом оголошення. Якщо вам потрібна евристика, використовуйте Interface, доки вам не знадобиться використовувати функції Type Alias.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces'}, type: 'typescript', data: InterfaceVSTypeAlias},
 {title: {en: 'Property Modifiers (Optional Properties) in TypeScript', ua: 'Модифікатори властивостей (Додаткові властивості) у TypeScript'}, body: {en: 'Property modifiers are usually used when we have a clear form, but it has some optional fields. For example, the user can enter his name, but if he does not want to do this, then we will call him by his login, since the login is a mandatory input field for us.', ua: `Модифікатори властивостей зазвичай використовують, коли в нас є чітка форма, але у неї є декілька не обов'язкових полей. Наприклад користувач може ввести своє ім'я, але якщо він цього не хоче робити, то ми його будем називати за логіном, оскільки логін в нас обов'язкове поле для вводу.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties'}, type: 'typescript', data: 
 `interface IUser {
@@ -2419,6 +2484,91 @@ function logdrawShape(shape: Shape, shapeType: ShapeType): void {
   
 logdrawShape(circle, ShapeType.CIRCLE) // Drawing a CIRCLE with color #0000FF and size 10 in
 logdrawShape(square, ShapeType.SQUARE) // Drawing a SQUARE with color #00FF00 and size 5 cm`},
+{title: {en: 'Type Unknown in TypeScript', ua: 'Тип Unknown (Невизначений) у TypeScript'}, body: {en: 'The unknown type represents any value. This is similar to the any type, but is safer because it’s not legal to do anything with an unknown value. This is useful when describing function types because you can describe functions that accept any value without having any values in your function body. Conversely, you can describe a function that returns a value of unknown type.', ua: `Тип Unknown представляє будь-яке значення. Це схоже на тип Any, але безпечніше, оскільки заборонено робити щось із Unknown значенням. Це корисно під час опису типів функцій, оскільки ви можете описати функції, які приймають будь-які значення, не маючи жодних значень у вашому тілі функції. І навпаки, ви можете описати функцію, яка повертає значення типу Unknown.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown'}, type: 'typescript', data:
+`/* Case 1 */
+const userData = '{"isBirthday": true, "ageData": 40, "userName": "John"}'
+
+function safeParse(response: string): unknown {
+    return JSON.parse(response)
+}
+
+const parsedData = safeParse(userData)
+
+function transferData(data: unknown): void {
+    if (typeof data === 'string') {
+        console.log(data.toLowerCase())
+    } else if (typeof data === 'object' && data) {
+        console.log(parsedData)
+    } else {
+        console.error('Some Error')
+    }
+}
+
+transferData(parsedData)
+
+/* Case 2 */
+try {
+    if (true) {
+        throw new Error('error')
+    }
+} catch(e) { // typeof e === "unknown"
+    if (e instanceof Error) {
+        console.log(e.message) // error
+    } else if (typeof e === 'string') {
+        console.log(e)
+    }
+}
+
+/* Case 3 */
+type T0 = any | unknown // type T0 = any
+type T1 = number | unknown // type T1 = unknown
+
+type T2 = any & unknown // type T0 = any
+type T3 = number & unknown // type T1 = number`},
+{title: {en: 'Type Query in TypeScript', ua: 'Type Query у TypeScript'}, body: {en: 'The mechanism that allows you to get the type of a particular entity is called a type query. Most often, it is necessary when we clearly understand what type we need in this situation and it will not be repeated anywhere else. Implemented via the typeof + entity operator.', ua: `Механізм, який дозволяє отримати тип певної сутності, називається запит типу (type query). Найчастіше він необхідний, коли ми чітко розуміємо, який тип нам потрібен у цій ситуації і він ніде далі не повторюватиметься. Реалізується через оператор typeof + сутність.`}, link: {en: '#', ua: '#'}, type: 'typescript', data: 
+`const dataFromControl = {
+    water: 200,
+    el: 350
+}
+
+function checkReadings(data: typeof dataFromControl): boolean {
+    const dataFromUser = {
+        water: 200,
+        el: 350
+    }
+
+    return data.el == dataFromUser.el && data.water == dataFromUser.water
+}
+
+console.log(
+    checkReadings(dataFromControl)
+) // true
+
+const PI = 3.14
+let PIClone: typeof PI // PIClone: 3.14`},
+{title: {en: 'Type Inference in TypeScript', ua: 'Механізм виводу типів (Type Inference) у Typescript'}, body: {en: 'In TypeScript, there are several places where type inference is used to provide type information when there is no explicit type annotation. When a type inference is made from several expressions, the types of those expressions are used to calculate a “best common type”.', ua: `У TypeScript є кілька місць, де Inference (висновок) типу використовується для надання інформації про тип, коли немає явної анотації типу. Коли висновок типу робиться з кількох виразів, типи цих виразів використовуються для обчислення «найкращого загального типу».`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/type-inference.html#handbook-content', ua: 'https://www.typescriptlang.org/docs/handbook/type-inference.html#handbook-content'}, type: 'typescript', data: 
+`const salary: number = 500 // const salary: number
+// const salary = 500 // const salary: 500
+
+let example // let example: any
+example = 'string' // let example: any
+
+interface IUserData {
+    isBirthdayData: boolean
+    ageData: number
+    userNameData: string
+}
+
+const userData = {"isBirthdayData": true, "ageData": 40, "userNameData": "John"}
+
+const arr = ['hello', 5, true] // const arr: (string | number | boolean)[]
+
+const isOkay = true // const isOkay: true
+let movement: boolean | string = false // let movement: string | boolean
+
+if (isOkay) {
+    movement = 'moving'
+}`},
 ]
 
 export default content
