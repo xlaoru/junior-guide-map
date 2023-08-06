@@ -1978,7 +1978,7 @@ function printMsg(msg: string | number): void {
 
 printMsg(4) // 4
 printMsg('hello') // hello`},
-{title: {en: 'Narrowing Union type in TypeScript', ua: "Narrowing (Звуження) типу Union (Об'єднаний) у TypeScript"}, body: {en: 'Commonly, data type narrowing for Union type is used to use specific methods for specific data types. For this, commands such as Array.isArray() are used for arrays, "in" for objects, instanceof for classes, etc.', ua: "Зазвичай для використання конкретних методів для конкретних типів даних використовуються Narrowing (Звуження) типів даних для типу Union. Для цього використовують такі команди, як Array.isArray() для масивів, ''in'' для об'єктів, instanceof для класів тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html'}, type: 'typescript', data: 
+{title: {en: 'Narrowing Union type and Type Guard in TypeScript', ua: "Narrowing (Звуження) типу Union (Об'єднаний) та Type Guard у TypeScript"}, body: {en: 'Commonly, data type narrowing for Union type is used to use specific methods for specific data types. For this, commands such as Array.isArray() are used for arrays, "in" for objects, instanceof for classes, etc.', ua: "Зазвичай для використання конкретних методів для конкретних типів даних використовуються Narrowing (Звуження) типів даних для типу Union. Для цього використовують такі команди, як Array.isArray() для масивів, ''in'' для об'єктів, instanceof для класів тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html'}, type: 'typescript', data: 
 `function printMsg(msg: string[] | number | boolean): void {
     if (Array.isArray(msg)) {
         msg.forEach(m => console.log(m)) // (parameter) msg: string[]
@@ -2568,6 +2568,64 @@ let movement: boolean | string = false // let movement: string | boolean
 if (isOkay) {
     movement = 'moving'
 }`},
+{title: {en: 'Type Assertions in TypeScript', ua: 'Type Assertions (Утвердження Типу) у Typescript'}, body: {en: 'Typically, Type Assertions are used to specify Union type annotations in a function argument when we accept an Object or Literal type assertion for a variable. As well as specification of the Element in the DOM tree, namely what properties it will have.', ua: `Зазвичай Type Assertions (Утвердження Типу) використовують для конкретизації анотацій Union типу в аргументі функції, коли ми приймаємо об'єкт чи затвердження типу Literal для змінної. А також конкретезації Елементу в DOM дереві, а саме які властивості воно матиме.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions'}, type: 'typescript', data: 
+`function fetchData(url: string, method: "GET" | "POST"): void {
+    console.log({
+        to: url,
+        mathod: method
+    })
+}
+
+/*
+const requestOptions = {
+    url: 'https://web-app.com',
+    method: "GET"
+}
+
+fetchData(requestOptions.url, requestOptions.method) // Error! Argument of type 'string' is not assignable to parameter of type '"GET" | "POST"'.
+*/
+
+// Case 1. Using "as const" to show, that you have Union type
+const requestOptions1 = {
+    url: 'https://webapp.com', // url: "https://webapp.com"
+    method: "GET" // method: "GET"
+} as const
+
+fetchData(requestOptions1.url, requestOptions1.method) // { to: 'https://web-app.com', mathod: 'GET' }
+
+// Case 2. Using "as VALUE" inside object
+
+const requestOptions2 = {
+    url: 'https://some.com', // url: string
+    method: "POST" as "POST" // method: "POST"
+}
+
+fetchData(requestOptions2.url, requestOptions2.method) // { to: 'https://some.com', mathod: 'POST' }
+
+// Case 3. Using "as VALUE" inside function arguments
+const requestOptions3 = {
+    url: 'https://helloworld.io', // url: string
+    method: "GET" // method: string
+}
+
+fetchData(requestOptions3.url, requestOptions3.method as "GET") // { to: 'https://helloworld.io', mathod: 'GET' }
+
+// Case 4. Using triangular brackets
+const requestOptions4 = {
+    url: 'https://xlaoruweb.info', // url: string
+    method: "POST" // method: string
+}
+
+fetchData(requestOptions4.url, <"POST">requestOptions4.method) // { to: 'https://xlaoruweb.info', mathod: 'POST' }
+
+let T0 = 'hello world' // T0: string
+let T1 = 'bye world' as const // T1: "bye world"
+
+const output = document.querySelector('.output') as HTMLElement // output: HTMLElement
+output.textContent = 'Hello World'
+
+const input = <HTMLInputElement>document.querySelector('input') // input: HTMLInputElement
+const someNumber: number = +input.value // someNumber: number`},
 ]
 
 export default content
