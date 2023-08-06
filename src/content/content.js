@@ -1981,16 +1981,15 @@ printMsg('hello') // hello`},
 {title: {en: 'Narrowing Union type in TypeScript', ua: "Narrowing (Звуження) типу Union (Об'єднаний) у TypeScript"}, body: {en: 'Commonly, data type narrowing for Union type is used to use specific methods for specific data types. For this, commands such as Array.isArray() are used for arrays, "in" for objects, instanceof for classes, etc.', ua: "Зазвичай для використання конкретних методів для конкретних типів даних використовуються Narrowing (Звуження) типів даних для типу Union. Для цього використовують такі команди, як Array.isArray() для масивів, ''in'' для об'єктів, instanceof для класів тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html'}, type: 'typescript', data: 
 `function printMsg(msg: string[] | number | boolean): void {
     if (Array.isArray(msg)) {
-            msg.forEach(m => console.log(m) // (parameter) msg: string[]
-        )
+        msg.forEach(m => console.log(m)) // (parameter) msg: string[]
     } else if (typeof msg === 'number') {
-        console.log(msg.toFixed())
+        console.log(msg.toFixed()) // parameter) msg: number
     } else {
-        console.log(msg)
+        console.log(msg) // parameter) msg: boolean
     }
 }
 
-// printMsg(4) // 4
+printMsg(4) // 4
 
 const printReadings = (a: number | string, b: number | boolean) => {
     if (a === b) console.log(a, b)
