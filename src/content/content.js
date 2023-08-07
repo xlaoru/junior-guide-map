@@ -2085,7 +2085,7 @@ function sellVehicle(vehicle: ICar | IShip | IAirplane): void {
             console.log('I have ' + vehicle.wheels.number + ' wheels for sell')
             break
         case 'ship':
-            console.log('I have' + vehicle.sail + ' sail for sell')
+            console.log('I have ' + vehicle.sail + ' sail for sell')
             break
         case 'airplane':
             console.log('I have ' + vehicle.wings + ' wings for sell')
@@ -2096,7 +2096,7 @@ function sellVehicle(vehicle: ICar | IShip | IAirplane): void {
 }
 
 sellVehicle(car) // I have 4 wheels for sell
-sellVehicle(ship) // I haveDefault sail for sell
+sellVehicle(ship) // I have Default sail for sell
 sellVehicle(airplane) // I have 2 wings for sell`},
 {title: {en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript"}, body: {en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html'}, type: 'typescript', data: 
 `let msg: 'Hello' = 'Hello' 
@@ -2296,13 +2296,13 @@ type StartExprort = (permission: boolean, region: string, exportId: number) => s
 
 // Function annotation
 const exprortControl: StartExprort = (permission: boolean, region: string, exportId: number): string => {
-    if (permission) return 'Car will go to ' + region + ' region with ' + exportId + ' export id.'
+    if (permission) return 'Car will go to ' + region + ' region with export id: ' + exportId + '.'
     else return "Car have not permission for export."
 }
 
 console.log(
     exprortControl(true, 'Canada', 3)
-) // Car will go to Canada region with 3 export id.
+) // Car will go to Canada region with export id: 3.
 
 console.log(
     exprortControl(false, 'USA', 4)
@@ -2534,7 +2534,7 @@ function transferData(data: unknown): void {
     if (typeof data === 'string') {
         console.log(data.toLowerCase())
     } else if (typeof data === 'object' && data) {
-        console.log(parsedData)
+        console.log(parsedData) // {isBirthday: true, ageData: 40, userName: 'John'}
     } else {
         console.error('Some Error')
     }
@@ -2628,7 +2628,7 @@ const requestOptions1 = {
     method: "GET" // method: "GET"
 } as const
 
-fetchData(requestOptions1.url, requestOptions1.method) // { to: 'https://web-app.com', mathod: 'GET' }
+fetchData(requestOptions1.url, requestOptions1.method) // {to: 'https://webapp.com', mathod: 'GET'}
 
 // Case 2. Using "as VALUE" inside object
 
@@ -2637,7 +2637,7 @@ const requestOptions2 = {
     method: "POST" as "POST" // method: "POST"
 }
 
-fetchData(requestOptions2.url, requestOptions2.method) // { to: 'https://some.com', mathod: 'POST' }
+fetchData(requestOptions2.url, requestOptions2.method) // {to: 'https://some.com', mathod: 'POST'}
 
 // Case 3. Using "as VALUE" inside function arguments
 const requestOptions3 = {
@@ -2645,7 +2645,7 @@ const requestOptions3 = {
     method: "GET" // method: string
 }
 
-fetchData(requestOptions3.url, requestOptions3.method as "GET") // { to: 'https://helloworld.io', mathod: 'GET' }
+fetchData(requestOptions3.url, requestOptions3.method as "GET") // {to: 'https://helloworld.io', mathod: 'GET'}
 
 // Case 4. Using triangular brackets
 const requestOptions4 = {
@@ -2653,7 +2653,7 @@ const requestOptions4 = {
     method: "POST" // method: string
 }
 
-fetchData(requestOptions4.url, <"POST">requestOptions4.method) // { to: 'https://xlaoruweb.info', mathod: 'POST' }
+fetchData(requestOptions4.url, <"POST">requestOptions4.method) // to: 'https://xlaoruweb.info', mathod: 'POST'}
 
 let T0 = 'hello world' // T0: string
 let T1 = 'bye world' as const // T1: "bye world"
