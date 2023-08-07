@@ -2016,6 +2016,7 @@ function logValue(x: string | Date) {
 }
 
 interface ICar {
+    name: 'car'
     engine: string
     wheels: {
         number: number,
@@ -2024,11 +2025,19 @@ interface ICar {
 }
 
 interface IShip {
+    name: 'ship'
     engine: string
     sail: string
 }
 
+interface IAirplane {
+    name: 'airplane'
+    engine: string
+    wings: number
+}
+
 const car: ICar = {
+    name: 'car',
     engine: 'M57',
     wheels: {
         number: 4,
@@ -2037,8 +2046,24 @@ const car: ICar = {
 }
 
 const ship: IShip = {
+    name: 'ship',
     engine: 'Yamaha 9.9 GMHS',
     sail: 'Default'
+}
+
+const airplane: IAirplane = {
+    name: 'airplane',
+    engine: 'Rocket engines',
+    wings: 2
+}
+
+// Type Flow method
+function isCar(car: ICar | IShip): car is ICar {
+    return (car as ICar).wheels !== undefined
+}
+
+function isShip(ship: ICar | IShip): ship is IShip {
+    return "sail" in ship
 }
 
 function repairVehicle(vehicle: ICar | IShip): void {
@@ -2051,17 +2076,28 @@ function repairVehicle(vehicle: ICar | IShip): void {
     }
 }
 
-// Type Flow method
-function isCar(car: ICar | IShip): car is ICar {
-    return (car as ICar).wheels !== undefined
-}
-
-function isShip(ship: ICar | IShip): ship is IShip {
-    return "sail" in ship
-}
-
 repairVehicle(car) // { number: 4, type: 'Composite wheels' }
-repairVehicle(ship) // Default`},
+repairVehicle(ship) // Default
+
+function sellVehicle(vehicle: ICar | IShip | IAirplane): void {
+    switch (vehicle.name) {
+        case 'car':
+            console.log('I have ' + vehicle.wheels.number + ' wheels for sell')
+            break
+        case 'ship':
+            console.log('I have' + vehicle.sail + ' sail for sell')
+            break
+        case 'airplane':
+            console.log('I have ' + vehicle.wings + ' wings for sell')
+            break
+        default:
+            const remainder = vehicle // vehicle: never
+    }
+}
+
+sellVehicle(car) // I have 4 wheels for sell
+sellVehicle(ship) // I haveDefault sail for sell
+sellVehicle(airplane) // I have 2 wings for sell`},
 {title: {en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript"}, body: {en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html'}, type: 'typescript', data: 
 `let msg: 'Hello' = 'Hello' 
 msg = 'Hello' // correct
@@ -2627,6 +2663,114 @@ output.textContent = 'Hello World'
 
 const input = <HTMLInputElement>document.querySelector('input') // input: HTMLInputElement
 const someNumber: number = +input.value // someNumber: number`},
+{title: {en: 'Function overloads in TypeScript', ua: 'Перегрузки функції (functionoverloads) у Typescript'}, body: {en: 'Some JavaScript functions can be called in a variety of argument counts and types. For example, you might write a function to produce a Date that takes either a timestamp (one argument) or a month/day/year specification (three arguments). In TypeScript, we can specify a function that can be called in different ways by writing overload signatures. To do this, write some number of function signatures (usually two or more), followed by the body of the function.', ua: `Деякі функції JavaScript можна викликати з різною кількістю аргументів і різними типами. Наприклад, ви можете написати функцію для отримання дати, яка приймає позначку часу (один аргумент) або специфікацію місяця/дня/ріку (три аргументи). У TypeScript ми можемо вказати функцію, яку можна викликати різними способами, написавши підписи перевантаження. Для цього напишіть певну кількість сигнатур функції (зазвичай дві або більше), а потім тіло функції.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads'}, type: 'typescript', data: 
+`interface ISquare {
+    side: number
+    area: number
+}
+
+interface IRect {
+    length: number
+    width: number
+    area: number
+}
+
+/* Function Overloads */
+function calculateArea(side: number): ISquare
+function calculateArea(length: number, width: number): IRect
+
+function calculateArea(length: number, width?: number): ISquare | IRect {
+    if (width) {
+        const rect: IRect = {
+            length, width, 
+            area: length * width
+        }
+        return rect
+    } else {
+        const square: ISquare = {
+            side: length,
+            area: length * length
+        }
+        return square
+    }
+}
+
+calculateArea(1) // function calculateArea(side: number): ISquare (+1 overload)
+calculateArea(1, 5) // function calculateArea(length: number, width: number): IRect (+1 overload)`},
+{title: {en: 'Manipulation with DOM tree in TypeScript', ua: 'Робота з DOM деревом у Typescript'}, body: {en: 'Usually, working with the DOM tree in TypeScript is not used, because most of the work with TypeScript has additional tools. Like React.js or Angular.js, but knowing that TypeScript allows you to work with the DOM tree to do event handling is as good as it gets.', ua: `Зазвичай робота з DOM деревом у TypeScript не використовується, оскільки в більшості роботи з TypeScript є ще додаткові інструменти. Такі як React.js чи Angular.js, але знати, що TypeScript дозволяє працювати з DOM деревом для робити обробку подій, є максимально добре.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/dom-manipulation.html#handbook-content', ua: 'https://www.typescriptlang.org/docs/handbook/dom-manipulation.html#handbook-content'}, type: 'typescript', data: 
+[
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+
+    <input type="number" value="55">
+
+    <p class="paragraph">foo</p>
+
+    <a href="fb.com">click me</a>
+    
+    <script src="index.js"></script>
+</body>
+</html>`,
+`const box = document.querySelector('.box') as HTMLElement
+box.textContent = 'hello world!'
+
+const input = document.querySelector('input') as HTMLInputElement
+input.value = '88'
+
+const link = document.querySelector('a') as HTMLAnchorElement
+if (link) {
+    link.href = 'https://google.com'
+}
+
+const p = document.querySelector('.paragraph') as HTMLParagraphElement
+p.style.color = '#BBBBBB'
+
+const links = document.querySelectorAll('a') // links: NodeListOf<HTMLAnchorElement>
+
+const elem = document.createElement('a') as HTMLAnchorElement
+link.addEventListener('click', (e) => { // e: MouseEvent
+    e.preventDefault()
+})`]},
+{title: {en: 'Type Void inside TypeScript', ua: 'Тип Void всередені Typescript'}, body: {en: 'The void return type for functions can produce some unusual, but expected behavior. Contextual typing with a return type of void does not force functions to not return something. Another way to say this is a contextual function type with a void return type (type voidFunc = () => void), when implemented, can return any other value, but it will be ignored. Thus, examples in the post of the "type () => void" are valid.', ua: `Тип повернення void для функцій може викликати деяку незвичну, але очікувану поведінку. Контекстна типізація з типом повернення void не змушує функції нічого не повертати. Інший спосіб сказати, що це тип контекстної функції з типом повернення void (тип voidFunc = () => void), коли він реалізований, може повертати будь-яке інше значення, але воно буде проігноровано. Таким чином, приклади в дописі "type () => void" є дійсними.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#return-type-void', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#return-type-void'}, type: 'typescript', data:
+`type voidFunc = () => void
+
+const returnString: voidFunc = () => {
+    // ... some code...
+    return 'string'
+}
+
+const str = returnString() // s: void
+console.log(str) // string
+
+const returnNumber: voidFunc = () => {
+    // ... some code...
+    return 5
+}
+
+const num = returnNumber() // n: void
+console.log(num) // 5
+
+function returnBoolean(): void {
+    // return true // Error! Type 'boolean' is not assignable to type 'void'.
+}
+
+const T0 = function (): void {
+    // return true // Error! Type 'boolean' is not assignable to type 'void'.
+}
+
+const names = ['Alex', 'Tom', 'John']
+const newArray = names.slice() // newArray: string[]
+
+names.forEach((name, index, array) => {
+    array.push('Hey!')
+})`},
 ]
 
 export default content
