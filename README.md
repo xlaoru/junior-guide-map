@@ -556,3 +556,7 @@ Some addictions
 ### `v22.1.11`
 
 Some addictions
+
+### `v23.0`
+
+Lots of new content. Removed clutter of ternary expressions

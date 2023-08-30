@@ -29,6 +29,28 @@ const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
         }, 3000);
     }
 
+    const renderContent = (data) => {
+        if (Array.isArray(data)) {
+            return (
+                <div className="code-wrapper">
+                    <CarouselItem data={data} activeIndex={activeIndex} setActiveIndex={setActiveIndex} setShow={setShow} setImgData={setImgData}/>
+                </div>
+            )
+        }
+
+        if (data.includes('/static/media/')) {
+            return (
+                <img style={{'cursor': 'pointer'}} src={data} alt="Image" onClick={() => {setImgData(data); setShow(true)}}/>
+            )
+        }
+
+        return (
+            <div className="code-wrapper">
+                <SyntaxHighlighter style={monokai} className="code-show">{data}</SyntaxHighlighter>
+            </div>
+        )
+    }
+
     return (
         <div className='ContentItem'>
             <Card style={{'borderRadius': '10px'}} className="card-item">
@@ -54,11 +76,7 @@ const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
                         )
                     }
                 </div>
-                {
-                    Array.isArray(data) 
-                        ? <div className="code-wrapper"><CarouselItem data={data} activeIndex={activeIndex} setActiveIndex={setActiveIndex} setShow={setShow} setImgData={setImgData}/></div> 
-                        : data.includes('/static/media/') ? <img style={{'cursor': 'pointer'}} src={data} alt="Image" onClick={() => {setImgData(data); setShow(true)}}/> : <div className="code-wrapper"><SyntaxHighlighter style={monokai} className="code-show">{data}</SyntaxHighlighter></div>
-                }
+                {renderContent(data)}
                 <Card.Body className="card-body">
                     <Card.Title className='card-title'>{title}</Card.Title>
                     <Card.Text className='card-text'>

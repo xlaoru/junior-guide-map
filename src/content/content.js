@@ -851,16 +851,23 @@ console.log(array.includes('hello'))
 console.log(array.includes('world'))`},
 
 {title: {en: 'Destructuring assignment', ua: 'Деструктуризаційне завдавання'}, body: {en: 'The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.', ua: 'Синтаксис присвоєння деструктуризації — це вираз JavaScript, який дає змогу розпаковувати значення з масивів або властивості з об’єктів у окремі змінні.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment'}, type: 'operator', data: 
-`const person = {
-name: 'Alex',
-age: 25,
-city: 'Kyiv'
+`const arr = [1, 1, 2, 3, 5]
+
+const [a, b] = arr
+
+console.log(a) // 1
+console.log(b) // 1
+
+const person = {
+    name: 'Alex',
+    age: 25,
+    city: 'Kyiv'
 }
 
 const {name, age} = person
 
-console.log(name)
-console.log(age)`},
+console.log(name) // Alex
+console.log(age) // 25`},
 {title: {en: 'Array.prototype.push()', ua: 'Array.prototype.push()'}, body: {en: 'The push() method adds one or more elements to the end of the array and returns the new length of the array.', ua: 'Метод push() додає один або більше елементів до кінця масиву і повертає нову довжину масиву.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/push'}, type: 'method', data:
 `let array = [1, 1, 2, 3, 5, 8]
 
@@ -1695,41 +1702,52 @@ http://animate.style\n
 `async function u1() {
     const result = await fetch('https://jsonplaceholder.typicode.com/users/1')
     return result.text()
-}
-
-async function u2() {
+  }
+  
+  async function u2() {
     const result = await fetch('https://jsonplaceholder.typicode.com/users/2')
     return result.text()
-}
-
-async function u3() {
+  }
+  
+  async function u3() {
     const result = await fetch('https://jsonplaceholder.typicode.com/users/3')
     return result.text()
-}
-
-// Not Optimized Function
-async function getUsersNotOptimized() {
-  const user1 = await u1()
-  console.log(user1)
-  const user2 = await u2()
-  console.log(user2)
-  const user3 = await u3()
-  console.log(user3);
-}
-getUsersNotOptimized()
-
-// Optimized Function
-async function getUsersOptimized() {
+  }
+  
+  // Not Optimized Function
+  async function getUsersNotOptimized() {
+    const user1 = await u1()
+    console.log(user1)
+    const user2 = await u2()
+    console.log(user2)
+    const user3 = await u3()
+    console.log(user3);
+  }
+  getUsersNotOptimized()
+  
+  // Optimized Function
+  async function getUsersOptimized() {
     const [user1, user2, user3] = await Promise.allSettled([
-        u1(),
-        u2(),
-        u3()
-    ])
+          u1(),
+          u2(),
+          u3()
+      ])
     console.log(user1.value);
     console.log(user2.value);
     console.log(user3.value);
-}
-getUsersOptimized()`},
+  }
+  getUsersOptimized()
+  
+  async function getUsers() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    return response.json()
+  }
+  
+  async function printUsers(data) {
+    const result = await data
+    console.log(result)
+  }
+  printUsers(getUsers())`},
 {title: {en: 'Glassmorphism block', ua: 'Блок у стилі скла'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'markup', data:
 [glassmorphism,
 `<!DOCTYPE html>
@@ -1983,9 +2001,9 @@ printMsg('hello') // hello`},
     if (Array.isArray(msg)) {
         msg.forEach(m => console.log(m)) // (parameter) msg: string[]
     } else if (typeof msg === 'number') {
-        console.log(msg.toFixed()) // parameter) msg: number
+        console.log(msg.toFixed()) // (parameter) msg: number
     } else {
-        console.log(msg) // parameter) msg: boolean
+        console.log(msg) // (parameter) msg: boolean
     }
 }
 
@@ -2234,37 +2252,45 @@ export default memo(Item);`]},
     }
 }`]},
 {title: {en: 'Custom useLocalStorage() hook', ua: 'Зроблений власноруч хук useLocalStorage()'}, body: {en: 'This useLocalStorage() hook is made using LocalStorage technology and its capabilities. This hook will come in handy when developing your applications.', ua: 'Цей хук useLocalStorage() зроблений за допомогою технології LocalStorage та її можливостей. Цей хук буде внагоді при розробці своїх застоснунків.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[`import { useState, useCallback } from "react";
+[`import { useState, useCallback } from "react"
 
-function useLocalStorage(key, initialValue) {
-    const [storedValue, setStoredValue] = useState(() => {
-        const item = window.localStorage.getItem(key)
-        return item ? JSON.parse(item) : initialValue
-    })
-    const setValue = useCallback((value) => {
-        setStoredValue(value)
-        window.localStorage.setItem(key, JSON.stringify(value))
-    }, [key])
+import Buttons from "./Buttons"
 
-    return {storedValue, setValue}
-}
-
-export default useLocalStorage`,
-`import React from 'react';
-import useLocalStorage from '../useLocalStorage/useLocalStorage';
+import "./styles.css"
 
 const App = () => {
-  const {storedValue, setValue} = useLocalStorage('Test', '')
-  return (
-    <div>
-      <h1>{storedValue}</h1>
-      <br />
-      <button onClick={() => setValue('Hello World!')}>Push</button>
-    </div>
-  );
-};
+  const [count, setCount] = useState(0)
+  
+  const increment = useCallback(() => {
+    setCount((prevCount) => prevCount + 1)
+  }, [])
 
-export default App;`]},
+  const decrement = useCallback(() => {
+    setCount((prevCount) => prevCount - 1)
+  }, [])
+
+  return (
+    <div className="Example">
+      <p>Count: {count}</p>
+      <Buttons increment={increment} decrement={decrement} />
+    </div>
+  )
+}
+
+export default App`,
+`import { memo } from "react"
+
+const Buttons = memo(({ increment, decrement }) => {
+  console.log("Buttons rendered")
+  return (
+    <div className="Buttons">
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </div>
+  )
+})
+
+export default Buttons`]},
 {title: {en: 'Advanced Type Aliases in TypeScript', ua: 'Продвинутий Type Aliases у TypeScript'}, body: {en: 'Advanced "Aliases" Type in TypeScript can contain not only basic types or "Union" Type, but also entire Objects or annotations for functions.', ua: `Продвинутий "Aliases" Type у TypeScript може в собі вмістити не тільки базові типи чи "Union" Type, а й цілі Об'єкти чи анотації для функцій.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data: 
 `type Car = {
     id: number,
@@ -2323,7 +2349,7 @@ interface ISpaceshipInfo extends ISpaceship, ISpaceshipSide {
 }
 
 const spaceship1: ISpaceshipInfo = {
-    id: 1, 
+    id: 1,
     name: 'Star Destroyer',
     side: 'empire',
     isStolen: false
@@ -2354,15 +2380,15 @@ function checkSpaceship(spaceship: ISpaceshipInfo): string {
 }
 
 console.log(
-    checkSpaceship(spaceship1) 
+    checkSpaceship(spaceship1)
 ) // Spaceship: Star Destroyer has access to boarding.
 
 console.log(
-    checkSpaceship(spaceship2) 
+    checkSpaceship(spaceship2)
 ) // Rebel's spaceship: Ghost does not get access to the seat.
 
 console.log(
-    checkSpaceship(spaceship3) 
+    checkSpaceship(spaceship3)
 ) // Spaceship: Tie Fighter was stolen.
 
 const newSpaceship: ISpaceship = {
@@ -2381,7 +2407,151 @@ function createSpaceshipInfo(spaceship: ISpaceship, side: 'empire' | 'rebels', i
 
 const spaceship4 = createSpaceshipInfo(newSpaceship, 'rebels', false)
 
-console.log(spaceship4) // { id: 4, name: 'Y-Wing', side: 'rebels', isStolen: false }`},
+console.log(spaceship4) // { id: 4, name: 'Y-Wing', side: 'rebels', isStolen: false }
+
+const spaceshipList: ISpaceshipInfo[] = [
+    spaceship1,
+    spaceship2,
+    spaceship3,
+    spaceship4,
+    {
+        id: 5,
+        name: 'Millenium Falcon',
+        side: 'rebels',
+        isStolen: false
+    }
+]
+console.log(spaceshipList)
+/*
+[
+    {
+        "id": 1,
+        "name": "Star Destroyer",
+        "side": "empire",
+        "isStolen": false
+    }, {
+        "id": 2,
+        "name": "Ghost",
+        "side": "rebels",
+        "isStolen": true
+    }, {
+        "id": 3,
+        "name": "Tie Fighter",
+        "side": "empire",
+        "isStolen": true
+    }, {
+        "id": 4,
+        "name": "Y-Wing",
+        "side": "rebels",
+        "isStolen": false
+    }, {
+        "id": 5,
+        "name": "Millenium Falcon",
+        "side": "rebels",
+        "isStolen": false
+    }
+] 
+*/
+
+interface ILogSpaceshipName {
+    (name: string): void
+}
+
+const logSpaceshipName: ILogSpaceshipName = (name: string) => {
+    console.log('Welocome ' + name + '.')
+}
+
+const logSpaceshipInfo = (spaceship: ISpaceshipInfo, logSpacecraftName: ILogSpaceshipName): void => {
+    if (spaceship.side === 'empire') {
+        logSpacecraftName(spaceship.name)
+    } else {
+        console.log('Go head of here rebel scum.')
+    }
+}
+
+logSpaceshipInfo(spaceship1, logSpaceshipName) // Welcome Star Destroyer.
+logSpaceshipInfo(spaceship2, logSpaceshipName) // Go head of here rebel scum.
+
+interface ISecretSpaceship {
+    id: number
+    name: string
+    specialIntroduction: (pilotName: string) => string
+}
+
+const secretSpaceship1: ISecretSpaceship = {
+    id: 1,
+    name: 'Tie Interceptor',
+    specialIntroduction: (pilotName: string) => {return pilotName + ', 65780923'}
+}
+
+console.log(
+    secretSpaceship1.specialIntroduction('Grand Inquisitor')
+) // Grand Inquisitor, 65780923
+
+function checkSecretSpaceship(
+    {id, name, specialIntroduction}: ISecretSpaceship, pilotName: string
+    ): void {
+    if (specialIntroduction(pilotName) === 'Grand Inquisitor, 65780923') {
+        console.log('Spaceship: ' + name + ', with id: ' + id + ' has got access to boarding.')
+    } else {
+        console.log("Spaceship hasn't got acess to boarding.")
+    }
+}
+
+checkSecretSpaceship(secretSpaceship1, 'Grand Inquisitor') // Spaceship: Tie Interceptor, with id: 1 has got access to boarding.
+
+interface ISpaceshipInfoState {
+    spaceship: ISpaceshipInfo
+    hasRegistered: boolean 
+    error: Error | null
+}
+
+function createSpaceshipRegister(spaceship: ISpaceshipInfo): ISpaceshipInfoState {
+    if(spaceship.side === 'empire') {
+        return {
+            spaceship: spaceship,
+            hasRegistered: true,
+            error: null
+        }
+    } else {
+        return {
+            spaceship: spaceship,
+            hasRegistered: false,
+            error: new Error()
+        }
+    }
+}
+console.log(
+createSpaceshipRegister(spaceship1)
+)
+/*
+{
+    "spaceship": {
+        "id": 1,
+        "name": "Star Destroyer",
+        "side": "empire",
+        "isStolen": false
+    },
+    "hasRegistered": true,
+    "error": null
+} 
+*/
+
+console.log(
+createSpaceshipRegister(spaceship2)
+)
+/*
+{
+    "spaceship": {
+        "id": 2,
+        "name": "Ghost",
+        "side": "rebels",
+        "isStolen": true
+    },
+    "hasRegistered": false,
+    "error": {}
+} 
+*/`},
 {title: {en: 'Interfaces VS Type Alias in TypeScript', ua: 'Interfaces VS Type Alias у TypeScript'}, body: {en: 'Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable. For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.', ua: `Type Alias та Interface дуже схожі, і в багатьох випадках ви можете вільно вибирати між ними. Майже всі функції Interface доступні в Type Alias, ключовою відмінністю є те, що Type Alias не можна повторно відкрити для додавання нових властивостей проти Interface, який завжди розширюється. Здебільшого ви можете вибрати на основі особистих уподобань, і TypeScript підкаже вам, чи потрібно щось, щоб бути іншим типом оголошення. Якщо вам потрібна евристика, використовуйте Interface, доки вам не знадобиться використовувати функції Type Alias.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces'}, type: 'typescript', data: InterfaceVSTypeAlias},
 {title: {en: 'Property Modifiers (Optional Properties) in TypeScript', ua: 'Модифікатори властивостей (Додаткові властивості) у TypeScript'}, body: {en: 'Property modifiers are usually used when we have a clear form, but it has some optional fields. For example, the user can enter his name, but if he does not want to do this, then we will call him by his login, since the login is a mandatory input field for us.', ua: `Модифікатори властивостей зазвичай використовують, коли в нас є чітка форма, але у неї є декілька не обов'язкових полей. Наприклад користувач може ввести своє ім'я, але якщо він цього не хоче робити, то ми його будем називати за логіном, оскільки логін в нас обов'язкове поле для вводу.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties'}, type: 'typescript', data: 
 `interface IUser {
@@ -2467,7 +2637,8 @@ const userSkills: readonly string[] = [
 
 // userSkills[2] = 'Vue.js' // Error! Index signature in type 'readonly string[]' only permits reading.`},
 {title: {en: 'Enums in TypeScript', ua: 'Enums (Перелік) у TypeScript'}, body: {en: 'Enums are one of the few TypeScript features that are not JavaScript type-level extensions. Enums allow the developer to define a set of named constants. Using lists can make it easier to document intent or create a set of different cases. TypeScript provides both numeric and string enumerations. If you substitute a const enum, then when compiling, TypeScript will not make a function from the enum, but will immediately place everything you need where you need it. But you should not abuse this, because it can cause many mistakes.', ua: `Enums є однією з небагатьох функцій TypeScript, яка не є розширенням рівня типу JavaScript. Enums дозволяють розробнику визначати набір іменованих констант. Використання переліків може спростити документування намірів або створити набір різних випадків. TypeScript надає як числові, так і рядкові переліки. Якщо підставити const enum, то при конпіляції TypeScript не буде робити із enum функцію, а зразу підставе все що треба куди треба. Але не треба зловживати цим, адже це може спричинити багато помилок.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/enums.html', ua: 'https://www.typescriptlang.org/docs/handbook/enums.html'}, type: 'typescript', data: 
-`enum ShapeType {
+`/* After compilation in JavaScript, the code will turn into a function. */
+enum ShapeType {
     CIRCLE, // ShapeType.CIRCLE = 0
     SQUARE, // ShapeType.SQUARE = 1
     TRIANGLE, // ShapeType.TRIANGLE = 2
@@ -2479,6 +2650,7 @@ enum Color {
     BLUE = '#0000FF', // Color.BLUE = "#0000FF"
 }
   
+/* After compilation in JavaScript, the code will be cut. */
 const enum Unit {
     CENTIMETERS = 'cm', // Unit.CENTIMETERS = "cm"
     INCHES = 'in', // Unit.INCHES = "in"
@@ -2746,7 +2918,7 @@ const returnString: voidFunc = () => {
     return 'string'
 }
 
-const str = returnString() // s: void
+const str = returnString() // str: void
 console.log(str) // string
 
 const returnNumber: voidFunc = () => {
@@ -2754,7 +2926,7 @@ const returnNumber: voidFunc = () => {
     return 5
 }
 
-const num = returnNumber() // n: void
+const num = returnNumber() // num: void
 console.log(num) // 5
 
 function returnBoolean(): void {
@@ -2771,6 +2943,245 @@ const newArray = names.slice() // newArray: string[]
 names.forEach((name, index, array) => {
     array.push('Hey!')
 })`},
+{title: {en: 'Rest Operator', ua: 'Оператор Rest'}, body: {en: 'The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.', ua: `Синтаксис присвоєння деструктуризації — це вираз JavaScript, який дає змогу розпаковувати значення з масивів або властивості з об’єктів у окремі змінні.`}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment'}, type: 'operator', data: 
+`const array = [1, 1, 2, 3, 5, 8]
+
+const user = {
+    name: 'Alex',
+    age: 28,
+    isStudent: false
+}
+
+const [a, ...b] = array
+
+console.log(a) // 1
+console.log(b) // [ 1, 2, 3, 5, 8 ]
+
+const {name, ...otherData} = user
+
+console.log(name) // Alex
+console.log(otherData) // { age: 28, isStudent: false }`},
+{title: {en: 'An example of using enum in React.js', ua: 'Приклад використання enum у React.js'}, body: {en: 'It is in this example that enum is used to check whether the page for the user or the page for the administrator should be displayed.', ua: 'Саме у цьому прикладі enum використовується як перевірити, що саме треба виводити на екран: сторінку для користувача чи сторінку для адміністратора.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
+[`import MainView from "./MainView";
+export default function App() {
+  return (
+    <div className="App">
+      <MainView role={"USER"} />
+    </div>
+  );
+}`,
+`import AdminView from "./AdminView";
+import UserView from "./UserView";
+
+enum RolesViews {
+  ADMIN = AdminView,
+  USER = UserView
+}
+
+function DefaultView() {
+  return <h1>Default View</h1>;
+}
+
+function MainView({ role }: { role: string }) {
+  const CurrentView = RolesViews[role] ?? DefaultView;
+  return <CurrentView />;
+}
+
+export default MainView;`]},
+{title: {en: 'An example of displaying a render in the form of a log in the console', ua: 'Приклад показу рендеру у вигляді логу у консоль'}, body: {en: `This example shows that when rendering, the log in the body of the function of the parent element will be displayed first, then the log in the body of the child element. Then the log in the child element's ref, then the log in the parent element. And at the end, log in useEffect() in the child element, and then log in useEffect() in the parent element.`, ua: `На цьому прикладі показано, що при рендері спочатку буде виводитись лог у тілі функції батьківського елементу, далі лог у тілі дочірнього елементу. Потім лог у ref'і дочірнього елементу, далі лог у батьківському елементі. А в кінці лог в useEffect() у дочірньому елементі, а потім лог в useEffect() у батьківському елементі.`}, link: {en: '#', ua: '#'}, type: 'React', data: 
+[`import React from 'react'
+
+const T0: React.FC = ({children}) => {
+  console.log(1)
+  
+  React.useEffect(() => {
+    console.log(2)
+  })
+  
+  return (
+    <div ref={element => console.log (5)}>
+      {children}
+    </div>
+  );
+}
+
+const T1: React.FC = () => {
+  console.log(3)
+  
+  React.useEffect(() => {
+    console.log(4)
+  })
+  
+  return (
+    <div ref={element => console.log(6)}>Hello World</div>
+  )
+}
+
+const App: React.FC = () => {
+  return (
+    <T0><T1/></T0>
+  )
+}
+
+export default App`,
+`Result:
+/* 1 - 3 - 6 - 5 - 4 - 3 */`]},
+{title: {en: 'Dependency Inversion ', ua: 'Інверсія залежностей'}, body: {en: 'The principle of dependency inversion is a principle of object-oriented programming, the essence of which is that classes should depend on abstractions, not on concrete details. It is used to minimize engagement in computer programs.', ua: `Принцип інверсії залежностей — принцип об'єктно-орієнтованого програмування, суть якого у тому, що класи мають залежати від абстракцій, а чи не від конкретних деталей. Використовується для мінімізації зачеплення у комп'ютерних програмах.`}, link: {en: '#', ua: '#'}, type: 'OOP', data: 
+`interface USBPort {
+    charge(battery: Battery): void
+}
+  
+class Battery {
+    private percentage: number = 0
+    receiveCharge(): void {
+        setInterval(() => {
+        this.percentage += 1
+        }, 30000)
+    }
+}
+
+class PowerBank implements USBPort {
+    charge(battery: Battery) {
+        battery.receiveCharge()
+    }
+}
+  
+export class Phone {
+    private battery: Battery = new Battery()
+    constructor(
+        private charger: USBPort
+    ) {
+        if(charger) {
+            this.charger.charge(this.battery)
+        }
+    }
+}
+
+const phone = new Phone(new PowerBank())`},
+{title: {en: 'Strategy Pattern', ua: 'Паттерн Стратегії'}, body: {en: 'The Strategy pattern encapsulates alternative algorithms (or strategies) for a particular task. It allows a method to be swapped out at runtime by any other method (strategy) without the client realizing it. Essentially, Strategy is a group of algorithms that are interchangeable.', ua: 'Шаблон стратегії інкапсулює альтернативні алгоритми (або стратегії) для конкретного завдання. Це дозволяє замінити метод під час виконання будь-яким іншим методом (стратегією), не усвідомлюючи цього клієнтом. По суті, стратегія — це група взаємозамінних алгоритмів.'}, link: {en: '#', ua: '#'}, type: 'OOP', data: 
+`interface USBPort {
+    charge(battery: Battery): void
+}
+  
+class Battery {
+    private percentage: number = 0
+    receiveCharge(): void {
+        setInterval(() => {
+            this.percentage += 1
+        }, 30000)
+    }
+}
+  
+class PowerBank implements USBPort {
+    charge(battery: Battery) {
+        console.log('Charging from PowerBank...')
+        battery.receiveCharge()
+    }
+}
+  
+class Socket implements USBPort {
+    charge(battery: Battery) {
+        console.log('Charging from Socket...')
+        battery.receiveCharge()
+    }
+}
+  
+class MacBook implements USBPort {
+    charge(battery: Battery) {
+        console.log('Charging from MacBook...')
+        battery.receiveCharge()
+    }
+}
+  
+export class Phone {
+    private battery: Battery = new Battery()
+    private charger?: USBPort
+    setCharger(charger: USBPort) {
+        this.charger = charger
+        this.charger.charge(this.battery)
+    }
+    removeCharger() {
+        this.charger = undefined
+    }
+}
+  
+const phone = new Phone()
+phone.setCharger(new PowerBank())
+phone.removeCharger()
+
+// some time...
+
+phone.setCharger(new MacBook())
+phone.removeCharger()`},
+{title: {en: 'An example of the competent use of useState() and the capabilities of React.js', ua: 'Приклад грамотного використовування useState() та можливостей React.js'}, body: {en: 'An easy way to label the result without using additional useState() states.', ua: 'Легкий спосіб позначити результат без використання додаткових useState() станів.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
+`import { useState } from "react";
+
+interface IUser {
+  username: string;
+  friendsCount: number;
+}
+
+function Demo() {
+  const [user] = useState<IUser>({
+    username: "Alex",
+    friendsCount: 1
+  });
+
+  const isPopular = user.friendsCount > 1000;
+
+  return <>{isPopular ? "🔥" : "😔"}</>;
+}
+
+export default Demo;
+`},
+{title: {en: 'An example of a good use of conditional statements when rendering a page', ua: 'Приклад гарного використання умовних операторів при рендері сторінки'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'React', data: 
+[`import Demo from './Demo'
+import "./styles.css";
+
+export default function App() {
+  return (
+    <div className="App">
+      <Demo friends={['Alex', 'Tom', 'Michelle']} isSignedIn={true}/>
+    </div>
+  );
+}`,
+`import Redirect from './Redirect'
+
+interface DemoProps {
+  frineds: string[]
+  isSignedIn: boolean
+}
+
+function Demo({friends, isSignedIn}: DemoProps) {
+  const renderContent = () => {
+    if (!isSignedIn) {
+      return (<Redirect to='/signin'/>)
+    }
+    
+    if (friends.length === 0) {
+     return (<p>You have no friends 😞</p>)
+    }
+    
+    return (<p>Your friends: {friends.join(', ')}</p>)
+  }
+  return (
+    <>
+      {renderContent()}
+    </>
+  )
+}
+
+export default Demo`]},
+{title: {en: 'An example of the correct naming of logical variables', ua: 'Приклад грамотного іменування логічних змінних'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: '', data: 
+`// 🚫 Bad practice
+const admin = true
+const fail = false
+const activate = true
+
+// ✅ Good practice
+const isAdmin = true
+const hasFailed = false
+const canActivate = true`},
 ]
 
 export default content
