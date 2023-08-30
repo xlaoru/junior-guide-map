@@ -2177,37 +2177,50 @@ const startServer:
 
 startServer(serverConfig.protocol, serverConfig.port) // Server started on https://server:3001`},
 {title: {en: 'All about useCallback()', ua: "Все про useCallback()"}, body: {en: 'useCallback() is a React hook that allows you to cache function definitions between re-renders. It is usually used to receive information from the server so that the request is not re-sent in case of an arbitrary phenomenon.', ua: "useCallback() — це хук React, який дозволяє кешувати визначення функції між повторними візуалізаціями. Зазвичай його використовують для отримання інформації із серверу так, щоб при довільному явищі запит повторно не посилався."}, link: {en: 'https://react.dev/reference/react/useCallback', ua: 'https://react.dev/reference/react/useCallback'}, type: 'React', data: 
-[`import {useState, useCallback} from 'react';
-import Item from './Item';
+[`import { useState, useCallback } from "react";
+import Buttons from "./Buttons";
 
-const UseCallbackInfo = () => {
-    const [count, setCount] = useState(0)
+const Demo = () => {
+  const [count, setCount] = useState(0);
 
-    const handleChange = useCallback(() => {
-        // Some code...
-        return 'useCallback() works'
-    }, [])
+  const increment = useCallback(() => setCount((count) => count + 1), []);
+  const decrement = useCallback(() => setCount((count) => count - 1), []);
+
+  return (
+    <>
+      <h1>{count}</h1>
+      <Buttons increment={increment} decrement={decrement} />
+    </>
+  );
+};
+
+export default Demo;
+`,
+`import { memo } from "react";
+
+type counterFunc = () => void;
+
+const Buttons = memo(
+  ({
+    increment,
+    decrement
+  }: {
+    increment: counterFunc;
+    decrement: counterFunc;
+  }) => {
+    console.log("Buttons Render");
 
     return (
-        <div className='UseCallbackInfo'>
-            <Item onChange={handleChange} />
-            <h1>Count: {count}</h1>
-            <button onClick={() => setCount(prev => prev + 1)}>
-                Increment
-            </button>
-        </div>
+      <>
+        <button onClick={increment}>+</button>
+        <button onClick={decrement}>-</button>
+      </>
     );
-};
+  }
+);
 
-export default UseCallbackInfo;`,
-`import {memo} from 'react';
-
-const Item = ({onChange}) => {
-    console.log('Item rendered')
-    return <>{onChange()}</>
-};
-
-export default memo(Item);`]},
+export default Buttons;
+`]},
 {title: {en: 'Easy loader', ua: "Легеньки спіннер (лоадер)"}, body: {en: 'This spinner (loader) is made using basic styles and animations.', ua: "Цей спіннер (лоадер) зроблений за допомогою базових стилів та анімації."}, link: {en: '#', ua: '#'}, type: 'markup', data: 
 [easyLoader, 
 `<!DOCTYPE html>
