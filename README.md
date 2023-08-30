@@ -564,3 +564,7 @@ Lots of new content. Removed clutter of ternary expressions
 ### `v23.0.1`
 
 Some addictions
+
+### `v23.0.2`
+
+Some addictions

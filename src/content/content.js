@@ -1702,52 +1702,52 @@ http://animate.style\n
 `async function u1() {
     const result = await fetch('https://jsonplaceholder.typicode.com/users/1')
     return result.text()
-  }
+}
   
-  async function u2() {
+async function u2() {
     const result = await fetch('https://jsonplaceholder.typicode.com/users/2')
     return result.text()
-  }
+}
   
-  async function u3() {
+async function u3() {
     const result = await fetch('https://jsonplaceholder.typicode.com/users/3')
     return result.text()
-  }
+}
   
-  // Not Optimized Function
-  async function getUsersNotOptimized() {
+// Not Optimized Function
+async function getUsersNotOptimized() {
     const user1 = await u1()
     console.log(user1)
     const user2 = await u2()
     console.log(user2)
     const user3 = await u3()
     console.log(user3);
-  }
-  getUsersNotOptimized()
+}
+getUsersNotOptimized()
   
-  // Optimized Function
-  async function getUsersOptimized() {
+// Optimized Function
+async function getUsersOptimized() {
     const [user1, user2, user3] = await Promise.allSettled([
-          u1(),
-          u2(),
-          u3()
-      ])
+        u1(),
+        u2(),
+        u3()
+    ])
     console.log(user1.value);
     console.log(user2.value);
     console.log(user3.value);
-  }
-  getUsersOptimized()
+}
+getUsersOptimized()
   
-  async function getUsers() {
+async function getUsers() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users')
     return response.json()
-  }
-  
-  async function printUsers(data) {
+}
+
+async function printUsers(data) {
     const result = await data
     console.log(result)
-  }
-  printUsers(getUsers())`},
+}
+printUsers(getUsers())`},
 {title: {en: 'Glassmorphism block', ua: 'Блок у стилі скла'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'markup', data:
 [glassmorphism,
 `<!DOCTYPE html>
