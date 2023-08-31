@@ -3195,6 +3195,27 @@ const activate = true
 const isAdmin = true
 const hasFailed = false
 const canActivate = true`},
+{title: {en: `A function that has a fully typed ability to extract nested keys from an object using generics and keyof`, ua: `Функція, що має повністю типізовану змогу на витягання вкладених ключів з об'єкту за допомогою generics і keyof`}, body: {en: `An example of a function that can retrieve the value of nested keys, while being fully protected from the point of view of Type Guard.`, ua: `Приклад функції, яка може отримувати значення вкладених ключів, будучи при цьому повністю захищеною з точки зору Type Guard.`}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`const menu = {
+    analytics: {
+        business: "For Business",
+        data: "Big Data"
+    },
+    design: {
+        graphical: "Graphic"
+    }
+}
+
+function getMenu<TMenu, TKey1 extends keyof TMenu, TKey2 extends keyof TMenu[TKey1]>(
+    object: TMenu,
+    key1: TKey1,
+    key2: TKey2
+) {
+    return object[key1][key2]
+}
+
+console.log(getMenu(menu, "analytics", "data")) // "Big Data" 
+console.log(getMenu(menu, "design", "graphical")) // "Graphic"`},
 ]
 
 export default content
