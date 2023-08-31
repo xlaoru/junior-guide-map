@@ -3216,6 +3216,28 @@ function getMenu<TMenu, TKey1 extends keyof TMenu, TKey2 extends keyof TMenu[TKe
 
 console.log(getMenu(menu, "analytics", "data")) // "Big Data" 
 console.log(getMenu(menu, "design", "graphical")) // "Graphic"`},
+{title: {en: `Finding a number without a pair in an array of numbers using the xor(^) operator`, ua: `Пошук числа без пари в масиві чисел за допомогою оператора xor(^)`}, body: {en: ``, ua: ``}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR`}, type: 'task', data:
+`function singleNumber(numArray: number[]): number {
+    let xorResult: number = 0
+
+    for (let i: number = 0; numArray.length > i; i++) {
+        xorResult ^= numArray[i]
+    }
+    
+    return xorResult
+}
+
+console.log(
+    singleNumber([4, 2, 2, 1, 1])
+) // 4
+
+console.log(
+    singleNumber([7, 8, 8, 9, 7])
+) // 9
+
+console.log(
+singleNumber([7, 7, 8, 8, 8, 9, 9])
+) // 8`},
 ]
 
 export default content
