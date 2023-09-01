@@ -2267,45 +2267,37 @@ export default Buttons;
     }
 }`]},
 {title: {en: 'Custom useLocalStorage() hook', ua: 'Зроблений власноруч хук useLocalStorage()'}, body: {en: 'This useLocalStorage() hook is made using LocalStorage technology and its capabilities. This hook will come in handy when developing your applications.', ua: 'Цей хук useLocalStorage() зроблений за допомогою технології LocalStorage та її можливостей. Цей хук буде внагоді при розробці своїх застоснунків.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[`import { useState, useCallback } from "react"
+[`import { useState, useCallback } from "react";
 
-import Buttons from "./Buttons"
+function useLocalStorage(key, initialValue) {
+    const [storedValue, setStoredValue] = useState(() => {
+        const item = window.localStorage.getItem(key)
+        return item ? JSON.parse(item) : initialValue
+    })
+    const setValue = useCallback((value) => {
+        setStoredValue(value)
+        window.localStorage.setItem(key, JSON.stringify(value))
+    }, [key])
 
-import "./styles.css"
-
-const App = () => {
-  const [count, setCount] = useState(0)
-  
-  const increment = useCallback(() => {
-    setCount((prevCount) => prevCount + 1)
-  }, [])
-
-  const decrement = useCallback(() => {
-    setCount((prevCount) => prevCount - 1)
-  }, [])
-
-  return (
-    <div className="Example">
-      <p>Count: {count}</p>
-      <Buttons increment={increment} decrement={decrement} />
-    </div>
-  )
+    return {storedValue, setValue}
 }
 
-export default App`,
-`import { memo } from "react"
+export default useLocalStorage`,
+`import React from 'react';
+import useLocalStorage from '../useLocalStorage/useLocalStorage';
 
-const Buttons = memo(({ increment, decrement }) => {
-  console.log("Buttons rendered")
+const App = () => {
+  const {storedValue, setValue} = useLocalStorage('Test', '')
   return (
-    <div className="Buttons">
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+    <div>
+      <h1>{storedValue}</h1>
+      <br />
+      <button onClick={() => setValue('Hello World!')}>Push</button>
     </div>
-  )
-})
+  );
+};
 
-export default Buttons`]},
+export default App;`]},
 {title: {en: 'Advanced Type Aliases in TypeScript', ua: 'Продвинутий Type Aliases у TypeScript'}, body: {en: 'Advanced "Aliases" Type in TypeScript can contain not only basic types or "Union" Type, but also entire Objects or annotations for functions.', ua: `Продвинутий "Aliases" Type у TypeScript може в собі вмістити не тільки базові типи чи "Union" Type, а й цілі Об'єкти чи анотації для функцій.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data: 
 `type Car = {
     id: number,
