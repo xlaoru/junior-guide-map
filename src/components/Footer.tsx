@@ -1,4 +1,4 @@
-import jgm_logo from '../assets/jgm-logo.png'
+import jgm_logo from '../assets/images/jgm-logo.png'
 import { IFooterProps } from '../utils/Interfaces';
 
 const Footer = ({activeLanguage}: IFooterProps) => {

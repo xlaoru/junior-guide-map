@@ -576,3 +576,11 @@ Some addictions
 ### `v23.0.4`
 
 Some addictions
+
+### `v24.0`
+
+The application has been completely rewritten in TypeScript
+
+### `v24.0.1`
+
+Some addictions
