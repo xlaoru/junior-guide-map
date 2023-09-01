@@ -3232,6 +3232,89 @@ console.log(
 console.log(
 singleNumber([7, 7, 8, 8, 8, 9, 9])
 ) // 8`},
+{title: {en: `Custom useDebounce() hook`, ua: ``}, body: {en: `This useDebounce() hook is designed to control the frequency of receiving values from the input to save optimization moments in the application.`, ua: `Цей useDebounce() хук зроблений для того, щоб контролювати частоту отримання значень із інпуту для збереження оптимізаційних моментів в роботі додатку.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
+`import { useState, useEffect } from "react";
+
+export default function useDebounce<T>(value: T, delay: number = 250): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+`,
+`import useDebounce from "./useDebounce";
+import { useState } from "react";
+
+export default function App() {
+  const [input, setInput] = useState("");
+  const debouncedInput = useDebounce(input);
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={input}
+        onChange={(event) => setInput(event.target.value)}
+        placeholder="type something..."
+      />
+      <p>Debounced: {debouncedInput}</p>
+    </div>
+  );
+}
+`]},
+{title: {en: `Renderless Pattern`, ua: `Паттерн без рендеру`}, body: {en: `Renderless Pattern is a React design pattern that separates the logic and state of a component from its display (rendering). This pattern is based on the idea of creating components that provide functionality and state, but no display logic. Such components usually pass functions or callbacks to child components for rendering.`, ua: `Renderless Pattern - це патерн проектування в React, який полягає у поділі логіки та стану компонента від його відображення (рендерингу). В основі цього патерну лежить ідея створення компонентів, що надають функціональність та стан, але не містять логіки відображення. Такі компоненти зазвичай передають функції або колбеки дочірнім компонентам рендерингу.`}, link: {en: `#`, ua: `#`}, type: 'React', data:
+`import React, { useState } from "react";
+
+interface IMouseTrackerProps {
+  children: React.ReactNode;
+}
+
+interface IMousePositionState {
+  x: number;
+  y: number;
+}
+
+function MouseTracker({ children }: IMouseTrackerProps) {
+  const [mousePosition, setMousePosition] = useState<IMousePositionState>({
+    x: 0,
+    y: 0
+  });
+
+  const handleMouseMove = (event: React.MouseEvent) => {
+    setMousePosition({ x: event.clientX, y: event.clientY });
+  };
+
+  return <div onMouseMove={handleMouseMove}>{children(mousePosition)}</div>;
+}
+
+export default function App() {
+  return (
+    <div className="App">
+      <MouseTracker>
+        {(mousePosition) => (
+          <p
+            style={{
+              border: "1px solid black",
+              width: "350px",
+              height: "350px"
+            }}
+          >
+            Mouse position {mousePosition.x}, {mousePosition.y}
+          </p>
+        )}
+      </MouseTracker>
+    </div>
+  );
+}
+`},
 ]
 
 export default content

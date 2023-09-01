@@ -588,3 +588,7 @@ Some addictions
 ### `v24.0.2`
 
 Test
+
+### `v24.0.3`
+
+Some addictions
