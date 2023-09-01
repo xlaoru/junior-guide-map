@@ -1,23 +1,18 @@
 import {useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
-import CarouselItem from '../CarouselItem/CarouselItem';
-import ModalWindow from '../ModalWindow/ModalWindow';
-import './ContentItem.css'
+import CarouselItem from '../components/CarouselItem';
+import ModalWindow from '../components/ModalWindow';
 
-import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
-import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';
-import monokai from 'react-syntax-highlighter/dist/esm/styles/hljs/monokai';
+import { IContentItemProps, IItemProp } from '../utils/Interfaces';
 
-const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
-    SyntaxHighlighter.registerLanguage('javascript', js)
-
+function ContentItem ({data, title, body, link, type, activeLanguage}: IContentItemProps) {
     const [show, setShow] = useState(false)
     const [imgData, setImgData] = useState('')
 
     const [copied, showCopied] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0)
 
-    const onCopy = (item) => {
+    const onCopy = (item: IItemProp) => {
         Array.isArray(item.data) 
         ?  navigator.clipboard.writeText(
                 item.data[activeIndex].includes('/static/media/') ? '' : item.data[activeIndex]
@@ -29,7 +24,7 @@ const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
         }, 3000);
     }
 
-    const renderContent = (data) => {
+    const renderContent = (data: string | string[]) => {
         if (Array.isArray(data)) {
             return (
                 <div className="code-wrapper">
@@ -46,7 +41,11 @@ const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
 
         return (
             <div className="code-wrapper">
-                <SyntaxHighlighter style={monokai} className="code-show">{data}</SyntaxHighlighter>
+                <div>
+                    <pre className="code-show">
+                        {data}
+                    </pre>
+                </div>
             </div>
         )
     }
@@ -61,7 +60,6 @@ const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
                         ? (
                             <button style={{'background': 'transparent', 'color': 'white', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
                                 <span style={{'display': 'flex', 'justifyContent': 'center'}}>
-                                    <ion-icon style={{'marginRight': '5px'}} name="checkmark-sharp"></ion-icon>
                                 </span>
                                 Copied
                             </button>
@@ -69,7 +67,6 @@ const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
                         : (
                             <button onClick={() => onCopy({data})} style={{'background': 'transparent', 'color': 'white', 'border': 'none', 'display': 'flex', 'alignItems': 'center'}}>
                                 <span style={{'display': 'flex', 'alignItems': 'center'}}>
-                                    <ion-icon style={{'marginRight': '5px'}} name="clipboard-outline"></ion-icon>
                                 </span>
                                 Copy Code
                             </button>
@@ -80,7 +77,7 @@ const ContentItem = ({data, title, body, link, type, activeLanguage}) => {
                 <Card.Body className="card-body">
                     <Card.Title className='card-title'>{title}</Card.Title>
                     <Card.Text className='card-text'>
-                    {body}
+                        {body}
                     </Card.Text>
                     <Button variant="primary" id='doc-button' className='card-button'><a href={link} target='_blank' className='doc-link'>{activeLanguage === 0 ? 'DOCUMENTAION' : 'ДОКУМЕНТАЦІЯ'}</a></Button>
                 </Card.Body>

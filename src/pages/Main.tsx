@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import List from '../List/List'
+import { useState } from 'react';
 
-import './Main.css'
+import List from '../layouts/List'
 
-const types = [
+import { IMainProps, ITypeCategory } from '../utils/Interfaces';
+
+const types: ITypeCategory[] = [
     {en: 'all', ua: 'усе'},
     {en: 'markup', ua: 'верстка'},
     {en: 'method', ua: 'методи'},
@@ -18,9 +19,9 @@ const types = [
     {en: 'typescript', ua: 'typescript'},
 ]
 
-const Main = ({content, activeLanguage}) => {
-    const [activeType, setActiveType] = useState(0)
-    const [value, setValue] = useState('')
+function Main({content, activeLanguage}: IMainProps) {
+    const [activeType, setActiveType] = useState<number>(0)
+    const [value, setValue] = useState<string>('')
 
     const typeSearcherButtons = types.map(
         (type, index) => 

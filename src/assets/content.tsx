@@ -1,31 +1,33 @@
-import responsiveBreakpoints from '../images/responsive-breakpoints.png'
-import markup1 from '../images/markup_1.jpg'
-import markup2 from '../images/markup_2.jpg'
-import markup3 from '../images/markup_3.jpg'
-import markup4 from '../images/markup_4.jpg'
-import gapstyle from '../images/gap-style.jpg'
-import arraymethods_01 from '../images/array-methods_01.jpg'
-import arraymethods_02 from '../images/array-methods_02.jpg'
-import arraymethods_03 from '../images/array-methods_03.jpg'
-import flexboxstyle from '../images/flexbox-style.jpg'
-import objectfitstyle from '../images/object-fit-style.jpg'
-import nthchildselector from '../images/nth-child-selector.jpg'
-import basicsofhtml00 from '../images/basics-of-html-00.jpg'
-import basicsofhtml01 from '../images/basics-of-html-01.jpg'
-import basicsofhtml02 from '../images/basics-of-html-02.jpg'
-import basicsofhtml03 from '../images/basics-of-html-03.jpg'
-import basicsofhtml04 from '../images/basics-of-html-04.jpg'
-import basicsofhtml05 from '../images/basics-of-html-05.jpg'
-import basicsofhtml06 from '../images/basics-of-html-06.jpg'
-import fullscreensample from '../images/fullscreensample.jpg'
-import zoomhovereffect_01 from '../images/zoomhovereffect_01.jpg'
-import zoomhovereffect_02 from '../images/zoomhovereffect_02.jpg'
-import glassmorphism from '../images/glassmorphism.jpg'
-import gridlayout from '../images/gridlayout.jpg'
-import easyLoader from '../images/easy-loader.jpg'
-import InterfaceVSTypeAlias from '../images/interface-vs-type-alias.jpg'
+import { IContentItem } from '../utils/Interfaces'
 
-const content = [
+import responsiveBreakpoints from './responsive-breakpoints.png'
+import markup1 from './markup_1.jpg'
+import markup2 from './markup_2.jpg'
+import markup3 from './markup_3.jpg'
+import markup4 from './markup_4.jpg'
+import gapstyle from './gap-style.jpg'
+import arraymethods_01 from './array-methods_01.jpg'
+import arraymethods_02 from './array-methods_02.jpg'
+import arraymethods_03 from './array-methods_03.jpg'
+import flexboxstyle from './flexbox-style.jpg'
+import objectfitstyle from './object-fit-style.jpg'
+import nthchildselector from './nth-child-selector.jpg'
+import basicsofhtml00 from './basics-of-html-00.jpg'
+import basicsofhtml01 from './basics-of-html-01.jpg'
+import basicsofhtml02 from './basics-of-html-02.jpg'
+import basicsofhtml03 from './basics-of-html-03.jpg'
+import basicsofhtml04 from './basics-of-html-04.jpg'
+import basicsofhtml05 from './basics-of-html-05.jpg'
+import basicsofhtml06 from './basics-of-html-06.jpg'
+import fullscreensample from './fullscreensample.jpg'
+import zoomhovereffect_01 from './zoomhovereffect_01.jpg'
+import zoomhovereffect_02 from './zoomhovereffect_02.jpg'
+import glassmorphism from './glassmorphism.jpg'
+import gridlayout from './gridlayout.jpg'
+import easyLoader from './easy-loader.jpg'
+import InterfaceVSTypeAlias from './interface-vs-type-alias.jpg'
+
+const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
 `const array = ['JS', 'TS', 'C#', 'Java'] 
 let filteredArray = array.filter(
@@ -3216,28 +3218,6 @@ function getMenu<TMenu, TKey1 extends keyof TMenu, TKey2 extends keyof TMenu[TKe
 
 console.log(getMenu(menu, "analytics", "data")) // "Big Data" 
 console.log(getMenu(menu, "design", "graphical")) // "Graphic"`},
-{title: {en: `Finding a number without a pair in an array of numbers using the xor(^) operator`, ua: `Пошук числа без пари в масиві чисел за допомогою оператора xor(^)`}, body: {en: ``, ua: ``}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR`}, type: 'task', data:
-`function singleNumber(numArray: number[]): number {
-    let xorResult: number = 0
-
-    for (let i: number = 0; numArray.length > i; i++) {
-        xorResult ^= numArray[i]
-    }
-    
-    return xorResult
-}
-
-console.log(
-    singleNumber([4, 2, 2, 1, 1])
-) // 4
-
-console.log(
-    singleNumber([7, 8, 8, 9, 7])
-) // 9
-
-console.log(
-singleNumber([7, 7, 8, 8, 8, 9, 9])
-) // 8`},
 ]
 
 export default content

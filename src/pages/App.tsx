@@ -1,19 +1,16 @@
-import {useState} from 'react';
+import { useState } from "react"
+import { Button } from "react-bootstrap"
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom"
+import ScrollToTop from "react-scroll-to-top"
 
-import './App.css';
-import Main from '../Main/Main';
-import AboutUs from '../AboutUs/AboutUs';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import content from "../assets/content"
 
-import {Button} from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
-import ScrollToTop from "react-scroll-to-top";
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import AboutUs from "./AboutUs"
+import Main from "./Main"
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
-import content from '../../content/content';
-
-const languages = [
+const languages: string[] = [
   'en',
   'ua'
 ]
@@ -48,7 +45,7 @@ function App() {
             {languageButtons}
           </div>
         <Routes>
-          <Route exact path="/" element={<Main content={content} activeLanguage={activeLanguage}/>}/>
+          <Route path="/" element={<Main content={content} activeLanguage={activeLanguage}/>}/>
           <Route path="/aboutus" element={<AboutUs activeLanguage={activeLanguage}/>}/>
         </Routes>
       </Router>
@@ -62,4 +59,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
