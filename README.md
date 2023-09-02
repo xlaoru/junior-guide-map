@@ -596,3 +596,7 @@ Some addictions
 ### `v25.0`
 
 Now the Junior Guide Map has a preloader and content memoization
+
+### `v25.0.1`
+
+Some addictions

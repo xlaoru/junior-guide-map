@@ -2269,35 +2269,40 @@ export default Buttons;
 {title: {en: 'Custom useLocalStorage() hook', ua: 'Зроблений власноруч хук useLocalStorage()'}, body: {en: 'This useLocalStorage() hook is made using LocalStorage technology and its capabilities. This hook will come in handy when developing your applications.', ua: 'Цей хук useLocalStorage() зроблений за допомогою технології LocalStorage та її можливостей. Цей хук буде внагоді при розробці своїх застоснунків.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
 [`import { useState, useCallback } from "react";
 
-function useLocalStorage(key, initialValue) {
-    const [storedValue, setStoredValue] = useState(() => {
-        const item = window.localStorage.getItem(key)
-        return item ? JSON.parse(item) : initialValue
-    })
-    const setValue = useCallback((value) => {
-        setStoredValue(value)
-        window.localStorage.setItem(key, JSON.stringify(value))
-    }, [key])
+function useLocalStorage<T>(key: string, initialValue: T) {
+  const [storedValue, setStoredValue] = useState(() => {
+    const item = window.localStorage.getItem(key);
+    return item ? JSON.parse(item) : initialValue;
+  });
 
-    return {storedValue, setValue}
+  const setValue = useCallback(
+    (value: T) => {
+      setStoredValue(value);
+      window.localStorage.setItem(key, JSON.stringify(value));
+    },
+    [key]
+  );
+
+  return [storedValue, setValue];
 }
 
-export default useLocalStorage`,
-`import React from 'react';
-import useLocalStorage from '../useLocalStorage/useLocalStorage';
+export default useLocalStorage;
+`,
+`import useLocalStorage from "./useLocalStorage";
 
 const App = () => {
-  const {storedValue, setValue} = useLocalStorage('Test', '')
+  const [storedValue, setValue] = useLocalStorage("Test", "");
   return (
     <div>
       <h1>{storedValue}</h1>
       <br />
-      <button onClick={() => setValue('Hello World!')}>Push</button>
+      <button onClick={() => setValue("Hello World!")}>Push</button>
     </div>
   );
 };
 
-export default App;`]},
+export default App;
+`]},
 {title: {en: 'Advanced Type Aliases in TypeScript', ua: 'Продвинутий Type Aliases у TypeScript'}, body: {en: 'Advanced "Aliases" Type in TypeScript can contain not only basic types or "Union" Type, but also entire Objects or annotations for functions.', ua: `Продвинутий "Aliases" Type у TypeScript може в собі вмістити не тільки базові типи чи "Union" Type, а й цілі Об'єкти чи анотації для функцій.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data: 
 `type Car = {
     id: number,
