@@ -3232,7 +3232,7 @@ console.log(
 console.log(
 singleNumber([7, 7, 8, 8, 8, 9, 9])
 ) // 8`},
-{title: {en: `Custom useDebounce() hook`, ua: ``}, body: {en: `This useDebounce() hook is designed to control the frequency of receiving values from the input to save optimization moments in the application.`, ua: `Цей useDebounce() хук зроблений для того, щоб контролювати частоту отримання значень із інпуту для збереження оптимізаційних моментів в роботі додатку.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
+{title: {en: `Custom useDebounce() hook`, ua: `Зроблений власноруч хук useDebounce()`}, body: {en: `This useDebounce() hook is designed to control the frequency of receiving values from the input to save optimization moments in the application.`, ua: `Цей useDebounce() хук зроблений для того, щоб контролювати частоту отримання значень із інпуту для збереження оптимізаційних моментів в роботі додатку.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
 `import { useState, useEffect } from "react";
 
 export default function useDebounce<T>(value: T, delay: number = 250): T {

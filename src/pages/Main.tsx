@@ -3,6 +3,8 @@ import { useState } from 'react';
 import List from '../layouts/List'
 
 import { IMainProps, ITypeCategory } from '../utils/Interfaces';
+import useDebounce from '../utils/useDebouce';
+import { Spinner } from 'react-bootstrap';
 
 const types: ITypeCategory[] = [
     {en: 'all', ua: 'усе'},
@@ -19,9 +21,17 @@ const types: ITypeCategory[] = [
     {en: 'typescript', ua: 'typescript'},
 ]
 
+enum Deoubnce {
+    DATA,
+    ISSPINER
+}
+
 function Main({content, activeLanguage}: IMainProps) {
     const [activeType, setActiveType] = useState<number>(0)
     const [value, setValue] = useState<string>('')
+
+    const debouncedValue = useDebounce<string>(value)
+    const debouncedType = useDebounce<number>(activeType)
 
     const typeSearcherButtons = types.map(
         (type, index) => 
@@ -34,19 +44,19 @@ function Main({content, activeLanguage}: IMainProps) {
             </button>
     )
 
-    const typeSearchedContent = content.filter(
-        content => { 
-            if (activeType === 0) return content
-            if (types[activeType].en === content.type) return true
+    const filteredContent = content.filter(
+        content => {
+            return content.title.en.toLowerCase().includes(debouncedValue[Deoubnce.DATA].toLowerCase()) || content.title.ua.toLowerCase().includes(debouncedValue[Deoubnce.DATA].toLowerCase())
         }
     )
 
-    const filteredContent = typeSearchedContent.filter(
-        typeSearchedContent => {
-            return typeSearchedContent.title.en.toLowerCase().includes(value.toLowerCase()) || typeSearchedContent.title.ua.toLowerCase().includes(value.toLowerCase())
+    const typeSearchedContent = filteredContent.filter( 
+        filteredContent => { 
+            if (debouncedType[Deoubnce.DATA] === 0) return filteredContent
+            if (types[debouncedType[Deoubnce.DATA]].en === filteredContent.type) return true
         }
     )
-
+    
     return (
         <div className='Main'>
             <div className='form'>
@@ -60,7 +70,11 @@ function Main({content, activeLanguage}: IMainProps) {
                     {typeSearcherButtons}
                 </div>
             </div>
-            <List content={filteredContent} activeLanguage={activeLanguage}/>
+            {
+                !debouncedValue[Deoubnce.ISSPINER] || !debouncedType[Deoubnce.ISSPINER]
+                    ? <div style={{'display': 'flex', 'justifyContent': 'center', 'margin': '50px 0'}}><Spinner /></div> 
+                    : <List content={typeSearchedContent} activeLanguage={activeLanguage}/>
+            }
         </div>
     );
 };

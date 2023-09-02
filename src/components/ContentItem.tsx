@@ -5,7 +5,13 @@ import ModalWindow from '../components/ModalWindow';
 
 import { IContentItemProps, IItemProp } from '../utils/Interfaces';
 
+import {Light as SyntaxHighlighter} from 'react-syntax-highlighter'
+import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
+import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 function ContentItem ({data, title, body, link, type, activeLanguage}: IContentItemProps) {
+    SyntaxHighlighter.registerLanguage('javascript', js)
+
     const [show, setShow] = useState(false)
     const [imgData, setImgData] = useState('')
 
@@ -41,11 +47,9 @@ function ContentItem ({data, title, body, link, type, activeLanguage}: IContentI
 
         return (
             <div className="code-wrapper">
-                <div>
-                    <pre className="code-show">
-                        {data}
-                    </pre>
-                </div>
+                <SyntaxHighlighter style={monokai} className="code-show">
+                    {data}
+                </SyntaxHighlighter>
             </div>
         )
     }

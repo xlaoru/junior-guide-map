@@ -1,9 +1,11 @@
+import {memo} from 'react'
+
 import {Container, Row, Col} from 'react-bootstrap'
 import ContentItem from '../components/ContentItem';
 
 import { IContentItem, IMainProps } from '../utils/Interfaces';
 
-const List = ({content, activeLanguage}: IMainProps) => {
+const List = memo(({content, activeLanguage}: IMainProps) => {
     return (
         <Container className='List mt-5 mb-5'>
             <Row className='mt-5 mb-5'>
@@ -16,6 +18,6 @@ const List = ({content, activeLanguage}: IMainProps) => {
             </Row>
         </Container>
     );
-};
+})
 
 export default List;

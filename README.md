@@ -1,4 +1,4 @@
-![Preview](https://hlaoru-portfolio.netlify.app/static/media/jgm.e645a586adae21388ff7.jpg)
+![Preview](https://hlaoru.netlify.app/static/media/jgm.e645a586adae21388ff7.jpg)
 
 <hr>
 Hello! The Junior Guide Map project is one of the most important projects.  It was in it that I collected brief summaries of all knowledge.  Look at the versions and it is with it that you can track my progress from the skeleton of the site to the addition of sliders with code and pictures.
@@ -592,3 +592,7 @@ Test
 ### `v24.0.3`
 
 Some addictions
+
+### `v25.0`
+
+Now the Junior Guide Map has a preloader and content memoization
