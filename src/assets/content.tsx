@@ -3320,6 +3320,144 @@ export default function App() {
   );
 }
 `},
+{title: {en: `Custom useArrayState() hook`, ua: `Зроблений власноруч хук useArrayState()`}, body: {en: `This useArrayState() hook is made to control and manipulate array elements through built-in manipulators.`, ua: `Цей useArrayState() хук зроблений для того, щоб контролювати та маніпулювати елементами масиву через вбудованні маніпулятори.`}, link: {en: `#`, ua: `#`}, type: 'React', data:[
+`import { useState } from "react";
+
+type ArrayStateActions<T> = {
+  add: (item: T) => void;
+  remove: (item: T) => void;
+  clear: () => void;
+};
+
+function useArrayState<T>(initialItems: T[]): [T[], ArrayStateActions<T>] {
+  const [items, setItems] = useState(initialItems);
+
+  const add = (item: T) => setItems([...items, item]);
+  const remove = (item: T) => setItems([...items.filter((i) => i !== item)]);
+  const clear = () => setItems([]);
+
+  return [items, { add, remove, clear }];
+}
+
+export default useArrayState;
+`,
+`import useArrayState from "./useArrayState";
+
+interface ITodo {
+  id: number;
+  name: string;
+  completed: boolean;
+}
+
+export default function App() {
+  const [todos, { add, remove, clear }] = useArrayState<ITodo>([
+    {
+      id: 1,
+      name: "Vacuum the floor.",
+      completed: false
+    },
+    {
+      id: 2,
+      name: "Wash the dishes.",
+      completed: true
+    }
+  ]);
+  return (
+    <div className="App">
+      <button
+        onClick={() =>
+          add({
+            id: Number(new Date()),
+            name: "Water plants.",
+            completed: false
+          })
+        }
+      >
+        add
+      </button>
+      <ul>
+        {todos.map((todo: ITodo) => (
+          <li key={todo.id}>
+            <span>{todo.completed ? "✅" : "🚫"}</span> {todo.name}{" "}
+            <button onClick={() => remove(todo)}>clear</button>
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => clear()}>clear</button>
+    </div>
+  );
+}
+`]},
+{title: {en: `Custom useCountdown() hook`, ua: `Зроблений власноруч хук useCountdown()`}, body: {en: `This useCountdown() hook is made to allow the timer to be reused.`, ua: `Цей useCountdown() хук зроблений для того, щоб була можливість перевикористовувати таймер.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
+`import { useEffect, useState } from "react";
+
+function useCountdown(length: number) {
+  const [seconds, setSeconds] = useState(length);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setSeconds((prevSeconds) =>
+        prevSeconds > 0 ? prevSeconds - 1 : prevSeconds
+      );
+    }, 1000);
+    return () => clearTimeout(timeoutId);
+  }, [seconds]);
+
+  return seconds;
+}
+
+export default useCountdown;
+`,
+`import useCountdown from "./useCountdown";
+
+function App() {
+  const seconds = useCountdown(60);
+  return <div className="App">Seconds left: {seconds}</div>;
+}
+
+export default App;
+`]},
+{title: {en: `ComponentProps and ComponentPropsWithRef props in React with TypeScript`, ua: `Пропси ComponentProps і ComponentPropsWithRef у React з TypeScript`}, body: {en: `ComponentProps and ComponentPropsWithRef are needed to nicely type components in TypeScript without using your own custom interfaces.`, ua: `ComponentProps і ComponentPropsWithRef потрібні для гарної типізації компонентів у TypeScript без використання своїх власноруч написаних інтерфейсів.`}, link: {en: `#`, ua: `#`}, type: 'React', data: 
+`import { ComponentProps, ComponentPropsWithRef } from "react";
+import React, { useRef } from "react";
+
+type ButtonProps = ComponentProps<"button">;
+
+function Button({ onClick }: ButtonProps) {
+  return <button onClick={onClick}>Button</button>;
+}
+
+type LogButtonProps = ComponentProps<typeof Button>
+
+function LogButton({ onClick }: LogButtonProps) {
+  return <button onClick={onClick}>Log</button>;
+}
+
+type InputProps = ComponentPropsWithRef<"input">;
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ placeholder }, ref) => {
+    return <input type="text" ref={ref} placeholder={placeholder} />;
+  }
+);
+
+function App() {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  function onClick() {
+    console.log(inputRef.current?.value);
+  }
+
+  return (
+    <div className="App">
+      <Input ref={inputRef} placeholder="type something..." />
+      <Button onClick={onClick} />
+      <LogButton onClick={onClick} />
+    </div>
+  );
+}
+
+export default App;`},
 ]
 
 export default content
