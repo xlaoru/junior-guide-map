@@ -3458,6 +3458,17 @@ function App() {
 }
 
 export default App;`},
+{title: {en: `An example of the correct naming of functions`, ua: `Приклад правильного іменування функцій`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: '', data:
+`// 🚫 Bad practice
+function find() {}
+function rating() {}
+function posts() {}
+
+// ✅ Good practice
+function findUser() {}
+function findUserById() {}
+function countRating() {}
+function fetchPosts() {}`},
 ]
 
 export default content
