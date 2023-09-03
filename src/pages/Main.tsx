@@ -21,7 +21,7 @@ const types: ITypeCategory[] = [
     {en: 'typescript', ua: 'typescript'},
 ]
 
-enum Deoubnce {
+enum Debounce {
     DATA,
     ISSPINER
 }
@@ -46,14 +46,14 @@ function Main({content, activeLanguage}: IMainProps) {
 
     const filteredContent = content.filter(
         content => {
-            return content.title.en.toLowerCase().includes(debouncedValue[Deoubnce.DATA].toLowerCase()) || content.title.ua.toLowerCase().includes(debouncedValue[Deoubnce.DATA].toLowerCase())
+            return content.title.en.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase()) || content.title.ua.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase())
         }
     )
 
     const typeSearchedContent = filteredContent.filter( 
         filteredContent => { 
-            if (debouncedType[Deoubnce.DATA] === 0) return filteredContent
-            if (types[debouncedType[Deoubnce.DATA]].en === filteredContent.type) return true
+            if (debouncedType[Debounce.DATA] === 0) return filteredContent
+            if (types[debouncedType[Debounce.DATA]].en === filteredContent.type) return true
         }
     )
     
@@ -71,7 +71,7 @@ function Main({content, activeLanguage}: IMainProps) {
                 </div>
             </div>
             {
-                !debouncedValue[Deoubnce.ISSPINER] || !debouncedType[Deoubnce.ISSPINER]
+                !debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]
                     ? <div style={{'display': 'flex', 'justifyContent': 'center', 'margin': '50px 0'}}><Spinner /></div> 
                     : <List content={typeSearchedContent} activeLanguage={activeLanguage}/>
             }
