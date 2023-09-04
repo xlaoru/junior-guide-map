@@ -323,7 +323,7 @@ class Expeditions extends Vacation {
 
 const africanExpedition = new Expeditions('Mali', 14, ['special suite', 'backpack', 'road map']) 
 africanExpedition.print()`},
-{title: {en: 'Filtering ban words', ua: 'Фільтрування заборонених слів'}, body: {en: 'This function filters out ban words using the includes method.', ua: 'Ця функція фільтрує бан-слова за допомогою метода includes.'}, link: {en: '#', ua: '#'}, type: 'lifehack', data: 
+{title: {en: 'Filtering ban words', ua: 'Фільтрування заборонених слів'}, body: {en: 'This function filters out ban words using the includes method.', ua: 'Ця функція фільтрує бан-слова за допомогою метода includes.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
 `const banWordsArray = [ 
     'JS', 
     'TS', 
@@ -3184,7 +3184,7 @@ function Demo({friends, isSignedIn}: DemoProps) {
 }
 
 export default Demo`]},
-{title: {en: 'An example of the correct naming of logical variables', ua: 'Приклад грамотного іменування логічних змінних'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: '', data: 
+{title: {en: 'An example of the correct naming of logical variables', ua: 'Приклад грамотного іменування логічних змінних'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'all', data: 
 `// 🚫 Bad practice
 const admin = true
 const fail = false
@@ -3458,7 +3458,7 @@ function App() {
 }
 
 export default App;`},
-{title: {en: `An example of the correct naming of functions`, ua: `Приклад правильного іменування функцій`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: '', data:
+{title: {en: `An example of the correct naming of functions`, ua: `Приклад правильного іменування функцій`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'all', data:
 `// 🚫 Bad practice
 function find() {}
 function rating() {}
@@ -3469,6 +3469,192 @@ function findUser() {}
 function findUserById() {}
 function countRating() {}
 function fetchPosts() {}`},
+{title: {en: `Utility types in TypeScript`, ua: `Utility типи у TypeScript`}, body: {en: `In TypeScript, utility types are built-in type transformations that allow you to manipulate and transform types easily. These utility types help you manipulate and transform types in various ways, making it easier to work with complex data structures and ensuring type safety.`, ua: `У TypeScript службові типи — це вбудовані перетворення типів, які дозволяють легко маніпулювати типами та перетворювати їх. Ці типи утиліт допомагають маніпулювати типами та перетворювати їх різними способами, полегшуючи роботу зі складними структурами даних і забезпечуючи безпеку типів.`}, link: {en: `#`, ua: `#`}, type: 'typescript', data: [
+`interface IUser {
+    id: number;
+    name: string;
+    email: string
+}
+
+type PartialUser = Partial<IUser>
+
+const partialUser: PartialUser = {
+    name: 'Alice'
+}
+
+console.log(partialUser) // {name: 'Alice'}
+
+/* 
+    Partial<Type> constructs a type with all
+    properties of Type set to optional.
+*/
+
+/* 
+    In the example, the Partial<IUser> type allows
+    partialUser to have only some of the properties
+    of IUser without causing a type error.
+*/
+
+`,
+`interface IConfig {
+    host?: string;
+    port?: number
+}
+
+type RequiredConfig = Required<IConfig>
+
+const config: RequiredConfig = {
+    host: 'example.com',
+    port: 8080
+}
+
+console.log(
+    config
+) // {host: 'example.com', port: 8080}
+
+/* 
+    Required<Type> constructs a type with all
+    properties of Type set to required.
+*/
+
+/* 
+    The Required<IConfig> type ensures that config
+    must have both host and properties.
+*/`,
+`interface IPoint {
+    x: number;
+    y: number
+}
+
+type ReadonlyPoint = Readonly<IPoint>
+
+const point: ReadonlyPoint = {
+    x: 10,
+    y: 20
+}
+
+// point.x = 30 // Error! Cannot assign to 'x' because it is a read-only property.
+
+console.log(
+    point
+) // {x: 10, y: 20}
+
+/* 
+    Readonly<Type> constructs a type where all
+    properties of Type are made readonly.
+*/
+
+/* 
+    The Readonly<IPoint> type ensures that you
+    cannot modify the properties of point after
+    initialization.
+*/`,
+`type Fruit = 'apple' | 'banana' | 'cherry'
+type FruitInfo = Record<Fruit, {color: string; taste: string}>
+
+const fruitInfo: FruitInfo = {
+    apple: {color: 'red', taste: 'sweet'},
+    banana: {color: 'yellow', taste: 'sweet'},
+    cherry: {color: 'red', taste: 'tart'}
+}
+
+console.log(
+    fruitInfo
+)
+
+/* 
+{
+    "apple": {
+        "color": "red",
+        "taste": "sweet"
+    },
+    "banana": {
+        "color": "yellow",
+        "taste": "sweet"
+    },
+    "cherry": {
+        "color": "red",
+        "taste": "tart"
+    }
+}
+*/
+
+/* 
+    Record<Keys, Type> constructs a type eith a set
+    of properties defined by Keys and their values o
+    type Type.
+*/
+
+/* 
+    In this example, the Record<Fruit, {color: string; taste: string}>
+    type defines a mapping of friut names to 
+    their properties.
+*/
+`,
+`interface IPerson {
+    name: string;
+    age: number;
+    address: string
+}
+
+type PersonBasicInfo = Pick<IPerson, 'name' | 'age'>
+
+const basicInfo: PersonBasicInfo = {
+    name: 'Alice',
+    age: 30
+}
+
+console.log(
+    basicInfo
+) // {name: 'Alice', age: 30}
+
+/* 
+    Pick<Type, Keys> constructs a type by picking
+    only the specified keys from Type.
+*/`,
+`interface IProduct {
+    id: string;
+    name: string;
+    price: number
+}
+
+type ProductWithId = Omit<IProduct, 'id'>
+
+const productWithId: ProductWithId = {
+    name: 'Phone',
+    price: 1000
+}
+
+console.log(
+    productWithId
+) // {name: 'Phone', price: 1000}
+
+/* 
+    Omit<Type, Keys> constructs a type by omiting
+    the specified keys from Type.
+*/`,
+`type Colors = 'red' | 'green' | 'blue'
+type NonRed = Exclude<Colors, 'red'>
+
+// const red: NonRed = 'red' // Error! Type '"red"' is not assignable to type 'NonRed'.
+const green: NonRed = 'green'
+
+/* 
+    Exclude<Type, ExcludedUnion> constructs a type
+    by excluding types that are assignable to
+    ExcludedUnion from Type.
+*/`,
+`type Colors = 'red' | 'green' | 'blue'
+type RedAndGreen = Extract<Colors, 'red' | 'green'>
+
+// const blue: RedAndGreen = 'blue' // Error! Type '"blue"' is not assignable to type 'RedAndGreen'.
+const green: RedAndGreen = 'green'
+
+/* 
+    Exclude<Type, Union> constructs a type by 
+    selection types from Type that are assignable to
+    Union.
+*/`]},
 ]
 
 export default content

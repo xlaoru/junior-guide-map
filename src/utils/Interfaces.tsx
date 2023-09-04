@@ -11,7 +11,7 @@ export interface IContentItem {
         en: string,
         ua: string
     };
-    type: string;
+    type: 'all' | 'markup' | 'method' | 'operator' | 'function' | 'cycle' | 'request' | 'task' | 'OOP' | 'React' | 'Node.js' | 'typescript';
     data: string | string[]
 }
 
