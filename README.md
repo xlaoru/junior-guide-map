@@ -616,3 +616,7 @@ Some addictions
 ### `v25.0.5`
 
 Some addictions
+
+### `v25.0.6`
+
+Some addictions

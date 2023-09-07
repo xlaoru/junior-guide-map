@@ -3655,6 +3655,86 @@ const green: RedAndGreen = 'green'
     selection types from Type that are assignable to
     Union.
 */`]},
+{title: {en: `Pattern for creating a multilingual application using localStorage`, ua: `Паттерн для створення багатомовної програми за допомогою localStorage`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'React', data: [
+`import { useState } from "react";
+
+import LanguageHandler from "./LanguageHandler";
+import Demo from "./Demo";
+
+function App() {
+  const [lang, setLang] = useState(window.localStorage.getItem('lang') || 'en');
+
+  const setEnLang = () => {
+  	window.localStorage.setItem("lang", "en");
+    setLang('en')
+  }
+
+  const setUaLang = () => {
+  	window.localStorage.setItem("lang", "ua");
+    setLang('ua')
+  }
+
+  return (
+    <div className="App">
+      <LanguageHandler lang={lang} setEnLang={setEnLang} setUaLang={setUaLang}/>
+      <Demo />
+    </div>
+  );
+}
+
+export default App;`,
+`import translation from "./translation";
+import getText from "./getText";
+
+interface ILanguageHandlerProps {
+    lang: string;
+    setEnLang: () => void;
+    setUaLang: () => void;
+}
+
+export default function LanguageHandler({lang, setEnLang, setUaLang,}: ILanguageHandlerProps) {
+  return (
+    <div>
+        {getText(translation.chooseLang)}
+        <button className={lang === "en" ? 'selected' : ""} onClick={() => setEnLang()}>en</button>
+        <button className={lang === "ua" ? 'selected' : ""} onClick={() => setUaLang()}>ua</button>
+    </div>
+  )
+}`,
+`import translation from "./translation";
+import getText from "./getText";
+type Props = {}
+
+export default function Demo({}: Props) {
+  return (
+    <div>{getText(translation.menu)}</div>
+  )
+}`,
+`const translation = {
+	chooseLang: {
+  	ua: "Оберіть мову",
+    en: "Choose language"
+  },
+	menu: {
+  	ua: "Меню",
+    en: "Menu"
+  },
+  login: {
+    ua: "Логін",
+    en: "Login"
+  }
+}
+
+export default translation`,
+`export default function getText(text: object) {
+    const getText = (text: any) => {
+        const lang = localStorage.getItem("lang");
+        return text[lang || "en"];
+    }
+
+    return getText(text)
+}`,
+]},
 ]
 
 export default content
