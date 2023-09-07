@@ -1,60 +1,52 @@
+import getText from './utils/getText';
+import translation from './assets/translation';
+
 import { useState } from "react"
 import { Button } from "react-bootstrap"
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom"
-import ScrollToTop from "react-scroll-to-top"
 
 import content from "./assets/content"
 
 import AboutUs from "./pages/AboutUs"
 import Main from "./pages/Main"
-import Header from './components/Header'
-import Footer from './components/Footer'
-
-const languages: string[] = [
-  'en',
-  'ua'
-]
-
+import Header from './layouts/Header'
+import Footer from './layouts/Footer'
+import LanguageFilter from "./layouts/LanguageFilter"
+import ScrollToTopButton from './components/ScrollToTopButton';
 function App() {
   const [activePage, setActivePage] = useState(0)
-  const [activeLanguage, setActiveLanguage] = useState(0)
-    
-  const languageButtons = languages.map(
-    (language, index) => 
-        <button 
-            className={activeLanguage === index ? `language-button selected` : 'language-button'} 
-            key={language} 
-            onClick={() => setActiveLanguage(index)}
-        >
-            {language}
-        </button>
-  )
+  const [language, setLanguage] = useState(window.localStorage.getItem('language') || 'en');
+
+  const setENLanguage = () => {
+  	window.localStorage.setItem("language", "en");
+    setLanguage('en')
+  }
+
+  const setUALanguage = () => {
+  	window.localStorage.setItem("language", "ua");
+    setLanguage('ua')
+  }
+
   return (
     <div className="App">
       <Router>
-        <Header setActivePage={setActivePage} activeLanguage={activeLanguage}/>
+        <Header setActivePage={setActivePage}/>
         <div className="fullscreen-wrapper" style={activePage === 0 ? {'display': 'flex'} : {'display': 'none'}}>
           <div className="fullscreen-background">
             <span className='content-wrapper'>
-              <h1 className='fullscreen_title'>{activeLanguage === 0 ? (<span>Welcome To The <span style={{'color': 'rgb(230, 192, 123)'}}>Code</span> Zone</span>) : (<span>Ласкаво Просимо До Зони <span style={{'color': 'rgb(230, 192, 123)'}}>Коду</span> </span>)}</h1>
-              <span style={{'marginTop': '25px'}}><a style={{'textDecoration': 'none', 'color': 'white'}} href="#main"><Button style={{'marginRight': '10px'}} variant="secondary">{activeLanguage === 0 ? 'Get Started' : 'Почнемо'}</Button></a><NavLink style={{'display': 'contents'}} className="nav-link" to="/aboutus" onClick={() => setActivePage(1)}><Button variant="secondary">{activeLanguage === 0 ? 'About Us' : 'Про Нас'}</Button></NavLink></span>
+              <h1 className='fullscreen_title'>{getText(translation.app.welocomeTitle)}</h1>
+              <span style={{'marginTop': '25px'}}><a style={{'textDecoration': 'none', 'color': 'white'}} href="#main"><Button style={{'marginRight': '10px'}} variant="secondary">{getText(translation.app.getStartBtn)}</Button></a><NavLink style={{'display': 'contents'}} className="nav-link" to="/aboutus" onClick={() => setActivePage(1)}><Button variant="secondary">{getText(translation.app.aboutUsBtn)}</Button></NavLink></span>
             </span>
           </div>
         </div>
-          <div className="language-option" id='main' style={activePage === 1 ? {'marginTop': '3rem'} : {}}>
-            {languageButtons}
-          </div>
+          <LanguageFilter activePage={activePage} language={language} setENLanguage={setENLanguage} setUALanguage={setUALanguage} />
         <Routes>
-          <Route path="/" element={<Main content={content} activeLanguage={activeLanguage}/>}/>
-          <Route path="/aboutus" element={<AboutUs activeLanguage={activeLanguage}/>}/>
+          <Route path="/" element={<Main content={content}/>}/>
+          <Route path="/aboutus" element={<AboutUs/>}/>
         </Routes>
       </Router>
-      <ScrollToTop
-       smooth
-       viewBox="0 0 32 32"
-       svgPath="M17.504 26.025l.001-14.287 6.366 6.367L26 15.979 15.997 5.975 6 15.971 8.129 18.1l6.366-6.368v14.291z" 
-      />
-      <Footer activeLanguage={activeLanguage}/>
+      <ScrollToTopButton />
+      <Footer/>
     </div>
   );
 }

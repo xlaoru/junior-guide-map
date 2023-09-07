@@ -1,10 +1,13 @@
+import getText from '../utils/getText';
+import translation from '../assets/translation';
+
 import { useState } from 'react';
 
 import List from '../layouts/List'
 
 import { IMainProps, ITypeCategory } from '../utils/Interfaces';
 import useDebounce from '../utils/useDebouce';
-import { Spinner } from 'react-bootstrap';
+import Spinner from '../assets/Spinner';
 
 const types: ITypeCategory[] = [
     {en: 'all', ua: 'усе'},
@@ -26,7 +29,7 @@ enum Debounce {
     ISSPINER
 }
 
-function Main({content, activeLanguage}: IMainProps) {
+function Main({content}: IMainProps) {
     const [activeType, setActiveType] = useState<number>(0)
     const [value, setValue] = useState<string>('')
 
@@ -40,7 +43,7 @@ function Main({content, activeLanguage}: IMainProps) {
                 key={type.en} 
                 onClick={() => setActiveType(index)}
             >
-                {activeLanguage === 0 ? type.en : type.ua}
+                {localStorage.getItem("language") === "en" ? type.en : type.ua}
             </button>
     )
 
@@ -63,7 +66,7 @@ function Main({content, activeLanguage}: IMainProps) {
                 <input 
                     className='searcher'
                     type="text" 
-                    placeholder={activeLanguage === 0 ? 'Search...' : 'Пошук...'}
+                    placeholder={getText(translation.main.searcher)}
                     onChange={(event) => setValue(event.target.value)} 
                 />
                 <div className="types-bar">
@@ -73,7 +76,7 @@ function Main({content, activeLanguage}: IMainProps) {
             {
                 !debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]
                     ? <div style={{'display': 'flex', 'justifyContent': 'center', 'margin': '50px 0'}}><Spinner /></div> 
-                    : <List content={typeSearchedContent} activeLanguage={activeLanguage}/>
+                    : <List content={typeSearchedContent}/>
             }
         </div>
     );

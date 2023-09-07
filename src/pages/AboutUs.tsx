@@ -1,10 +1,13 @@
+import getText from '../utils/getText';
+import translation from '../assets/translation';
+
 import { IAboutUsProps } from "../utils/Interfaces";
 
-function AboutUs({activeLanguage}: IAboutUsProps) {
+function AboutUs({}: IAboutUsProps) {
     return (
         <div className="AboutUs">
-            <span>{activeLanguage === 0 ? `Hello! I'm Ilya and I'm React Front-End developer.` : `Привіт! Мене звати Ілля і я React Front-End розробник`}</span>
-            <span>{activeLanguage === 0 ? `You can see more about me on my personal portfolio web-site` : 'Ви можете побачити трошки більше про мене на моєму особистому'} <a href="https://hlaoru.netlify.app/">{activeLanguage === 0 ? 'portfolio web-site' : 'веб-сайті із портфоліо'}</a></span>
+            <span style={{'width': '600px', 'textAlign': 'center'}}>{getText(translation.aboutus.text)}: <a href="https://hlaoru.netlify.app/">{getText(translation.aboutus.link)}</a></span>
+            <span></span>
         </div>
     );
 };

@@ -620,3 +620,7 @@ Some addictions
 ### `v25.0.6`
 
 Some addictions
+
+### `v26.0`
+
+New system of web-site translation. Some code refactoring. And some addictions

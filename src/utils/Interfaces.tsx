@@ -15,17 +15,18 @@ export interface IContentItem {
     data: string | string[]
 }
 
+export interface ILanguageFilterProps {
+    activePage: number;
+    language: string;
+    setENLanguage: () => void;
+    setUALanguage: () => void
+}
+
 export interface IAboutUsProps {
-    activeLanguage: number
 }
 
 export interface IHeaderProps {
-    setActivePage: (page: number) => void;
-    activeLanguage: number
-}
-
-export interface IFooterProps {
-    activeLanguage: number
+    setActivePage: (page: number) => void
 }
 
 export interface ITypeCategory {
@@ -35,7 +36,6 @@ export interface ITypeCategory {
 
 export interface IMainProps {
     content: IContentItem[];
-    activeLanguage: number
 }
 
 export interface IContentItemProps {
@@ -44,7 +44,6 @@ export interface IContentItemProps {
     body: string;
     link: string;
     type: string;
-    activeLanguage: number
 }
 
 export interface IItemProp {
