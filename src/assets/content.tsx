@@ -3735,6 +3735,58 @@ export default translation`,
     return getText(text)
 }`,
 ]},
+{title: {en: `Possibilities of calling object options`, ua: `Можливості виклику опцій об'єкта`}, body: {en: `A variant of calling the internal options of an object using square brackets and the option name in quotes.`, ua: `Варіант виклику внутрішніх опцій об'єкта за допомогою квадратних дужок та назви опції в лапках.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics`, ua: `https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics`}, type: 'typescript',data: 
+`interface IPerson {
+    name: string;
+    age: number;
+    contact : {
+        messangers: {
+            messanger_facebook?: string
+            whats_app: string
+        },
+        socialNetworking?: {
+            instagram: string;
+            facebook: {
+                main_account: string;
+                twink_account?: string
+            } | string
+        }
+    }
+}
+
+const person: IPerson = {
+    name: 'Alex',
+    age: 34,
+    contact: {
+        messangers: {
+            whats_app: '+380418533489'
+        },
+        socialNetworking: {
+            instagram: 'the_alex',
+            facebook: 'alex_official'
+        }
+    }
+}
+
+console.log(
+    person["age"]
+) // 34
+
+console.log(
+    person.contact.messangers.whats_app
+) // +380418533489
+
+console.log(
+    person["contact"]["socialNetworking"]["instagram"]
+) // the_alex
+
+console.log(
+    person.contact["messangers"].whats_app
+) // +380418533489
+
+console.log(
+    person["contact"].socialNetworking["facebook"]
+) // alex_official`}
 ]
 
 export default content
