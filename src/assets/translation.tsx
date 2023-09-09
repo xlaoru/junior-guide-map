@@ -1,7 +1,7 @@
 const translation = {
     app: {
         welocomeTitle: {
-            en: "Welcome To The Code zone",
+            en: "Welcome To The Code Zone",
             ua: "Ласкаво Просимо До Зони Коду"
         },
         getStartBtn: {
