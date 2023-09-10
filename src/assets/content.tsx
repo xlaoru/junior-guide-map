@@ -3904,11 +3904,11 @@ console.log(
 // Not enough people for a party.
 // [['Alice', 'Anna', 'John'], false]
 
-type NumberOeString = number | string
+type NumberOrString = number | string
 function generateFigure<
-    L extends NumberOeString, 
-    W extends NumberOeString, 
-    H extends NumberOeString> (length: L, width: W, height: H): [L, W, H] {
+    L extends NumberOrString, 
+    W extends NumberOrString, 
+    H extends NumberOrString> (length: L, width: W, height: H): [L, W, H] {
     if (+length === +width && +width === +height) {
         console.log("It's a cube.")
     } else {
