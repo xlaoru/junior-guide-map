@@ -2534,7 +2534,7 @@ function createSpaceshipRegister(spaceship: ISpaceshipInfo): ISpaceshipInfoState
     }
 }
 console.log(
-createSpaceshipRegister(spaceship1)
+    createSpaceshipRegister(spaceship1)
 )
 /*
 {
@@ -2550,7 +2550,7 @@ createSpaceshipRegister(spaceship1)
 */
 
 console.log(
-createSpaceshipRegister(spaceship2)
+    createSpaceshipRegister(spaceship2)
 )
 /*
 {
@@ -2563,7 +2563,64 @@ createSpaceshipRegister(spaceship2)
     "hasRegistered": false,
     "error": {}
 } 
-*/`},
+*/
+
+const message: string = 'Obi Wan you are my only hope.'
+const executeOrder: number = 66
+
+interface IGetMessageInfoGeneric {
+    <T>(data: T): T
+}
+
+const message1: IGetMessageInfoGeneric = <T>(data: T): T => {
+    return data
+}
+
+console.log(
+    message1(message)
+) // Obi Wan you are my only hope.
+
+const getMessageInfo = <T>(data: T): T => {
+    switch (typeof data) {
+        case "string":
+            console.log(data.toUpperCase())
+            return data
+        case "number":
+            console.log("Binary Code of Order: " + data.toString(2))
+            return data
+        default:
+            console.log('Not valid message.')
+            return data
+    }
+}
+
+interface IGetMessageInfoTypeQuery {
+    processing: typeof getMessageInfo
+}
+
+const message2: IGetMessageInfoTypeQuery = {
+    processing: getMessageInfo,
+}
+
+console.log(
+    message2.processing(message)
+)
+// OBI WAN YOU ARE MY ONLY HOPE.
+// Obi Wan you are my only hope.
+
+console.log(
+    message2.processing(executeOrder)
+)
+// Binary Code of Order: 1000010
+// 66
+
+const message3: IGetMessageInfoGeneric = getMessageInfo
+
+console.log(
+    message3(67)
+)
+// Binary Code of Order: 1000011
+// 67`},
 {title: {en: 'Interfaces VS Type Alias in TypeScript', ua: 'Interfaces VS Type Alias у TypeScript'}, body: {en: 'Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable. For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.', ua: `Type Alias та Interface дуже схожі, і в багатьох випадках ви можете вільно вибирати між ними. Майже всі функції Interface доступні в Type Alias, ключовою відмінністю є те, що Type Alias не можна повторно відкрити для додавання нових властивостей проти Interface, який завжди розширюється. Здебільшого ви можете вибрати на основі особистих уподобань, і TypeScript підкаже вам, чи потрібно щось, щоб бути іншим типом оголошення. Якщо вам потрібна евристика, використовуйте Interface, доки вам не знадобиться використовувати функції Type Alias.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces'}, type: 'typescript', data: InterfaceVSTypeAlias},
 {title: {en: 'Property Modifiers (Optional Properties) in TypeScript', ua: 'Модифікатори властивостей (Додаткові властивості) у TypeScript'}, body: {en: 'Property modifiers are usually used when we have a clear form, but it has some optional fields. For example, the user can enter his name, but if he does not want to do this, then we will call him by his login, since the login is a mandatory input field for us.', ua: `Модифікатори властивостей зазвичай використовують, коли в нас є чітка форма, але у неї є декілька не обов'язкових полей. Наприклад користувач може ввести своє ім'я, але якщо він цього не хоче робити, то ми його будем називати за логіном, оскільки логін в нас обов'язкове поле для вводу.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties'}, type: 'typescript', data: 
 `interface IUser {
@@ -2745,7 +2802,7 @@ type T1 = number | unknown // type T1 = unknown
 
 type T2 = any & unknown // type T0 = any
 type T3 = number & unknown // type T1 = number`},
-{title: {en: 'Type Query in TypeScript', ua: 'Type Query у TypeScript'}, body: {en: 'The mechanism that allows you to get the type of a particular entity is called a type query. Most often, it is necessary when we clearly understand what type we need in this situation and it will not be repeated anywhere else. Implemented via the typeof + entity operator.', ua: `Механізм, який дозволяє отримати тип певної сутності, називається запит типу (type query). Найчастіше він необхідний, коли ми чітко розуміємо, який тип нам потрібен у цій ситуації і він ніде далі не повторюватиметься. Реалізується через оператор typeof + сутність.`}, link: {en: '#', ua: '#'}, type: 'typescript', data: 
+{title: {en: 'Type Query in TypeScript', ua: 'Type Query (Запит Типів) у TypeScript'}, body: {en: 'The mechanism that allows you to get the type of a particular entity is called a type query. Most often, it is necessary when we clearly understand what type we need in this situation and it will not be repeated anywhere else. Implemented via the typeof + entity operator.', ua: `Механізм, який дозволяє отримати тип певної сутності, називається запит типу (type query). Найчастіше він необхідний, коли ми чітко розуміємо, який тип нам потрібен у цій ситуації і він ніде далі не повторюватиметься. Реалізується через оператор typeof + сутність.`}, link: {en: '#', ua: '#'}, type: 'typescript', data: 
 `const dataFromControl = {
     water: 200,
     el: 350
@@ -3786,7 +3843,146 @@ console.log(
 
 console.log(
     person["contact"].socialNetworking["facebook"]
-) // alex_official`}
+) // alex_official`},
+{title: {en: `Generics in Functions in TypeScript`, ua: `Generics (Узагальнення) у функціях у TypeScript`}, body: {en: `A major part of software engineering is building components that not only have well-defined and consistent APIs, but are also reusable. Components that are capable of working on the data of today as well as the data of tomorrow will give you the most flexible capabilities for building up large software systems. In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is generics, that is, being able to create a component that can work over a variety of types rather than a single one. This allows users to consume these components and use their own types.`, ua: `Основною частиною розробки програмного забезпечення є створення компонентів, які не тільки мають чітко визначені та узгоджені API, але й придатні для повторного використання. Компоненти, здатні працювати як з даними сьогодні, так і з даними завтрашнього дня, нададуть вам найбільш гнучкі можливості для створення великих програмних систем. У таких мовах, як C# і Java, одним із основних інструментів у наборі інструментів для створення повторно використовуваних компонентів є generics (узагальнення), тобто можливість створювати компонент, який може працювати над різними типами, а не з одним. Це дозволяє користувачам споживати ці компоненти та використовувати власні типи.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
+`function printMessage<T>(message: T): T {
+    switch (typeof message) {
+        case "string":
+            console.log(message.toUpperCase())
+            return message
+        case "number":
+            console.log(message.toString(2))
+            break;
+        default:
+            break;
+    }
+
+    return message
+}
+
+console.log(
+    printMessage('Hello World')
+)
+// HELLO WORLD
+// Hello World
+
+function getUserCursor<X, Y>(x: X, y: Y): string {
+    return "The user's cursor is located at coordinates: (" + x + "; " + y + ")"
+}
+
+console.log(
+    getUserCursor(5, '10')
+) // The user's cursor is located at coordinates: (5; 10)
+
+console.log(
+    getUserCursor('-7', 10)
+) // The user's cursor is located at coordinates: (-7; 10)
+
+function getUsers<T, S>(userArray: T[], hasInvited: S): [T[], S] {
+    if (hasInvited) console.log('All users has invited!')
+
+    if (userArray.length < 4) console.log('Not enough people for a party.')
+
+    return [userArray, hasInvited]
+}
+
+console.log(
+    getUsers(
+        ['Alex', 'Tom', 'Fred', 'Kate'],
+        true
+    )
+)
+// All users has invited!
+// [['Alice', 'Anna', 'John'], true]
+
+console.log(
+    getUsers(
+        ['Alice', 'Anna', 'John'],
+        false
+    )
+)
+// Not enough people for a party.
+// [['Alice', 'Anna', 'John'], false]
+
+type NumberOeString = number | string
+function generateFigure<
+    L extends NumberOeString, 
+    W extends NumberOeString, 
+    H extends NumberOeString> (length: L, width: W, height: H): [L, W, H] {
+    if (+length === +width && +width === +height) {
+        console.log("It's a cube.")
+    } else {
+        console.log("It's a parallelepiped.")
+    }
+    return [length, width, height]
+}
+
+console.log(
+    generateFigure('300', '100', '800')
+)
+// It's a parallelepiped.
+// ['300', '100', '800']
+
+console.log(
+    generateFigure(350, 350, 350)
+)
+// It's a cube.
+// [350, 350, 350]
+
+// console.log(generateFigure(350, true, false)) // Error! Argument of type 'boolean' is not assignable to parameter of type 'NumberOeString'.`},
+{title: {en: `Generics for Type Aliases in TypeScript`, ua: `Generics (Узагальнення) для Type Aliases у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`}, type: 'typescript', data:
+`type Type<T> = T
+const num: Type<number> = 5
+
+type User<T> = {
+    login: T,
+    age: number
+}
+
+const user: User<string> = {
+    login: 'str',
+    age: 23
+}
+
+type OrNull<Type> = Type | null
+type OrArray<Type> = Type | Type[]
+
+const data1: OrArray<number> = 42
+const data2: OrArray<string[]> = ['hello', 'world']`},
+{title: {en: `Generics for Interfaces in TypeScript`, ua: `Generics (Узагальнення) для Інтерфейсів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
+`interface IParentsOfUser {
+    mother: string;
+    father: string
+}
+
+interface IUser<T, ParentsData extends IParentsOfUser> {
+    login: T;
+    age: number;
+    parents: ParentsData
+}
+
+const user: IUser<string, {mother: string; father: string; hasMaried: boolean}>  = {
+    login: 'the_tom',
+    age: 23,
+    parents: {
+        mother: 'Anna',
+        father: 'Alex',
+        hasMaried: true
+    }
+}
+
+console.log(user)
+/* 
+{
+    login: 'the_tom',
+    age: 23,
+    parents: {
+        mother: 'Anna',
+        father: 'Alex',
+        hasMaried: true
+    }
+}
+*/`},
 ]
 
 export default content
