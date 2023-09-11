@@ -648,3 +648,7 @@ Some addictions
 ### `v26.0.6`
 
 Some addictions
+
+### `v27.0`
+
+Destructuring the code

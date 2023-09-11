@@ -38,6 +38,16 @@ export interface IMainProps {
     content: IContentItem[];
 }
 
+export interface ISearcherProps {
+    setValue: (prop: string) => void
+}
+
+export interface IFilterProps {
+    activeType: number;
+    setActiveType: (prop: number) => void;
+    types: ITypeCategory[]
+}
+
 export interface IContentItemProps {
     data: string | string[];
     title: string;
