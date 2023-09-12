@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useDebounce from '../utils/useDebouce';
+import useDebounce from '../utils/useDebounce';
 
 import { IMainProps, ITypeCategory } from '../utils/Interfaces';
 
