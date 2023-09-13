@@ -656,3 +656,7 @@ Destructuring the code
 ### `v27.0.1`
 
 Some addictions
+
+### `v27.0.2`
+
+Some addictions

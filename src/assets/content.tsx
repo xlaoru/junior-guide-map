@@ -3783,14 +3783,14 @@ export default function Demo({}: Props) {
 }
 
 export default translation`,
-`export default function getText(text: object) {
-    const getText = (text: any) => {
-        const lang = localStorage.getItem("lang");
-        return text[lang || "en"];
-    }
+`
+const getText = (text: any) => {
+    const lang = localStorage.getItem("lang");
+    return text[lang || "en"];
+}
 
-    return getText(text)
-}`,
+export default getText
+`,
 ]},
 {title: {en: `Possibilities of calling object options`, ua: `Можливості виклику опцій об'єкта`}, body: {en: `A variant of calling the internal options of an object using square brackets and the option name in quotes.`, ua: `Варіант виклику внутрішніх опцій об'єкта за допомогою квадратних дужок та назви опції в лапках.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics`, ua: `https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics`}, type: 'typescript',data: 
 `interface IPerson {
