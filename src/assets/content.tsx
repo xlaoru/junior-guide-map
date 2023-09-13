@@ -3783,8 +3783,7 @@ export default function Demo({}: Props) {
 }
 
 export default translation`,
-`
-const getText = (text: any) => {
+`const getText = (text: any) => {
     const lang = localStorage.getItem("lang");
     return text[lang || "en"];
 }
