@@ -5,6 +5,7 @@ import { ICarouselProps } from '../utils/Interfaces';
 import {Light as SyntaxHighlighter} from 'react-syntax-highlighter'
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
 import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { memo } from 'react';
 
 function CarouselItem ({data, setShow, activeIndex, setActiveIndex, setImgData}: ICarouselProps) {
   SyntaxHighlighter.registerLanguage('javascript', js)
@@ -24,4 +25,4 @@ function CarouselItem ({data, setShow, activeIndex, setActiveIndex, setImgData}:
   )
 }
 
-export default CarouselItem
+export default memo(CarouselItem)

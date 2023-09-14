@@ -664,3 +664,7 @@ Some addictions
 ### `v27.0.3`
 
 Some addictions
+
+### `v28.0`
+
+Bug with freezing was destroyed

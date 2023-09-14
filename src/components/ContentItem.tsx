@@ -1,7 +1,7 @@
 import getText from '../utils/getText';
 import translation from '../assets/translation';
 
-import {useState} from 'react';
+import {memo, useState} from 'react';
 import {Card, Button} from 'react-bootstrap'
 import CarouselItem from '../components/CarouselItem';
 import ModalWindow from '../components/ModalWindow';
@@ -98,4 +98,4 @@ function ContentItem ({data, title, body, link, type}: IContentItemProps) {
     )    
 };
 
-export default ContentItem;
+export default memo(ContentItem);
