@@ -3982,6 +3982,149 @@ console.log(user)
     }
 }
 */`},
+{title: {en: `Generic Classe in TypeScript`, ua: `Generic (Узагальнення) для класів у TypeScript`}, body: {en: `TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods. In the above example, we created a generic class named User with a type variable in the angle brackets <T, S> .`, ua: `TypeScript підтримує generic (загальні) класи. Параметр загального типу вказується в кутових дужках після імені класу. Загальний клас може мати загальні поля (змінні-члени) або методи. У наведеному вище прикладі ми створили загальний клас під назвою User зі змінною типу в кутових дужках <T, S>.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
+`class User<T, S>/* global type T */{
+	name: T;
+	age: S
+
+	constructor(name: T, age: S) {
+		this.name = name;
+		this.age = age
+	}
+
+	sayMyFullName<T>/* local type T */(surname: T): string { 
+        /* Type T for function sayMyFullName() is local and it's 
+        only for this function. It's means, that global type T 
+        isn't taken into count */
+		
+		if (typeof surname !== "string") {
+			return "I have only name: " + this.name
+		}
+		else {
+			return this.name + ' ' + surname
+		}
+	}
+}
+
+class AdminUser<T, S> extends User<string, number> {
+	rights: T;
+	access: S
+
+    constructor(name: string, age: number, rights: T, access: S) {
+        super(name, age);
+        this.rights = rights;
+		this.access = access
+    }
+}
+
+const ilya = new User("Ilya", 16)
+console.log(ilya.sayMyFullName('Sokolov')) // Ilya Sokolov
+
+const nameData = "Alex"
+const ageData = 32
+
+const alex = new User<string, number>(nameData, ageData)
+
+const tom = new AdminUser("Tom", 24, ["pin messages", "ban users"], true)`},
+{title: {en: `Good Example of using generics, enum and interfaces for building your apps in TypeScript`, ua: `Гарний приклад використання generic, enum та interface для ваших застосунків у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data: [
+`Task:
+/* 
+    A data array with shapes contains objects, each of which must have a name property.
+    Each object can still contain additional properties in a random form.
+    The name property can have only 4 options.
+    The calculateAmountOfFigures function must accept an array with objects that must have 
+    a name property.
+    It returns an instance object of AmountOfFigures.
+    It internally calculates how many figures were in the array and records the results 
+    in AmountOfFigures.
+    With the current data, the following should appear in the console:
+    { squares: 3, circles: 2, triangles: 2, others: 1 }. 
+*/
+`,
+`enum FigureNames {
+    RECT = "rect",
+    CIRCLE = "circle",
+    TRIANGLE = "triangle",
+    LINE = "line"
+}
+
+interface Figure {
+    name: FigureNames;
+}
+
+interface CustomFigure extends Figure {
+    data?: {}
+}
+
+interface AmountOfFigures {
+	squares: number;
+	circles: number;
+	triangles: number;
+	others: number;
+}
+
+function calculateAmountOfFigures<T extends Figure>(figure: T[]): AmountOfFigures {
+    const amount: AmountOfFigures = {
+        squares: 0,
+        circles: 0,
+        triangles: 0,
+        others: 0
+    }
+
+	figure.forEach((fig) => {
+		switch (fig.name) {
+			case FigureNames.RECT:
+				amount.squares++;
+				break;
+			case FigureNames.CIRCLE:
+				amount.circles++;
+				break;
+			case FigureNames.TRIANGLE:
+				amount.triangles++;
+				break;
+			default:
+				amount.others++;
+		}
+	});
+
+    return amount
+}
+
+const data: CustomFigure[] = [
+	{
+		name: FigureNames.RECT,
+		data: { a: 5, b: 10 },
+	},
+	{
+		name: FigureNames.RECT,
+		data: { a: 6, b: 11 },
+	},
+	{
+		name: FigureNames.TRIANGLE,
+		data: { a: 5, b: 10, c: 14 },
+	},
+	{
+		name: FigureNames.LINE,
+		data: { l: 15 },
+	},
+	{
+		name: FigureNames.CIRCLE,
+		data: { r: 10 },
+	},
+	{
+		name: FigureNames.CIRCLE,
+		data: { r: 5 },
+	},
+	{
+		name: FigureNames.RECT,
+		data: { a: 15, b: 7 },
+	},
+	{
+		name: FigureNames.TRIANGLE,
+	},
+];
+
+console.log(calculateAmountOfFigures(data)); // { squares: 3, circles: 2, triangles: 2, others: 1 }`]},
 ]
 
 export default content
