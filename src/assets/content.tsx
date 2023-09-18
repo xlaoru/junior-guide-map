@@ -4125,6 +4125,116 @@ const data: CustomFigure[] = [
 ];
 
 console.log(calculateAmountOfFigures(data)); // { squares: 3, circles: 2, triangles: 2, others: 1 }`]},
+{title: {en: `Builder Pattern`, ua: `Builder Pattern`}, body: {en: `Builder Pattern is a design pattern used to construct complex objects by separating the construction process from the actual representation. It allows you to create an object step by step and produce different types and representation of an object with the same construction code. This pattern is particularly useful when you have a class with many optional parameters or configurations.`, ua: `Builder Pattern — це шаблон проектування, який використовується для створення складних об’єктів шляхом відокремлення процесу будівництва від фактичного представлення. Це дозволяє створювати об’єкт крок за кроком і створювати різні типи та представлення об’єкта з однаковим кодом конструкції. Цей шаблон особливо корисний, коли у вас є клас із багатьма необов’язковими параметрами чи конфігураціями.`}, link: {en: `#`, ua: `#`}, type: 'OOP', data:[
+`class Person {
+    name?: string;
+    age?: number;
+    email?: string;
+    address?: string;
+
+    constructor() {}
+}`,
+`class PersonBuilder {
+    private person: Person
+
+    constructor() {
+        this.person = new Person()
+    }
+
+    withName(name: string): PersonBuilder {
+        this.person.name = name;
+        return this
+    }
+
+    withAge(age: number): PersonBuilder {
+        this.person.age = age;
+        return this
+    }
+
+    withEmail(email: string): PersonBuilder {
+        this.person.email = email;
+        return this
+    }
+
+    withAddress(address: string): PersonBuilder {
+        this.person.address = address;
+        return this
+    }
+
+    build(): Person {
+        return this.person
+    }
+}`,
+`const person1 = new PersonBuilder()
+    .withEmail("Alex")
+    .withEmail('alex@example.com')
+    .withAge(23)
+    .build()
+
+const person2 = new PersonBuilder()
+    .withName("Tom")
+    .withAge(34)
+    .withEmail('tom@example.com')
+    .withAddress("123 Main St")
+    .build()
+
+console.log(person1)
+/* 
+Person {
+    name: undefined,
+    age: 23,
+    email: 'alex@example.com',
+    address: undefined
+}
+*/
+
+console.log(person2)
+/* 
+Person {
+    name: 'Tom',
+    age: 34,
+    email: 'tom@example.com',
+    address: '123 Main St'
+}
+*/`,
+]},
+{title: {en: `All about useRef()`, ua: `Все про useRef()`}, body: {en: `useRef is a React hook that allows you to refer to a value that is not needed for rendering. It is usually used to easily obtain the values of one or another value for the input. To use the DOM Api built-in React etc.`, ua: `useRef — це хук React, який дозволяє посилатися на значення, непотрібне для рендерингу. Зазвичай його використовують для легкого отримання значень того чи іншого значення для інпута. Для використання DOM Api всередені React тощо.`}, link: {en: `https://react.dev/reference/react/useRef`, ua: `https://react.dev/reference/react/useRef`}, type: 'React', data:
+`import { useEffect, useRef } from "react";
+
+export default function Demo() {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  function getValue() {
+    console.log(inputRef.current?.value);
+  }
+
+  return (
+    <>
+      <input ref={inputRef} />
+      <button onClick={getValue}>get value</button>
+    </>
+  );
+}
+`},
+{title: {en: `Key attribute in React`, ua: `Атрибут Key у React`}, body: {en: `A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. Keys are used to give an identity to the elements in the lists.`, ua: `Key — це спеціальний рядковий атрибут, який потрібно включити під час створення списків елементів у React. Ключі використовуються в React, щоб визначити, які елементи в списку змінено, оновлено або видалено. Ключі використовуються для ідентифікації елементів у списках.`}, link: {en: `https://vm.tiktok.com/ZMjFY9CaJ/`, ua: `https://vm.tiktok.com/ZMjFY9CaJ/`}, type: 'React', data:
+`import { useState } from "react";
+
+export default function Demo() {
+  const [count, setCount] = useState<number>(0);
+
+  return (
+    <>
+      <button onClick={() => setCount(count + 1)}>Update Count</button>
+      <br />
+      Count - <strong key={count}>{count}</strong>
+    </>
+  );
+}
+`},
 ]
 
 export default content
