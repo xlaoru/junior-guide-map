@@ -500,111 +500,119 @@ console.log(getDirection('JS'))
 console.log(getDirection('Python')) 
 console.log(getDirection('Dart'))`},
 {title: {en: 'React Search Pattern', ua: 'Зразок (паттерн) Пошуковику у Реакт'}, body: {en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query.', ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-`import {useState} from 'react' 
+`import { useState } from "react";
 
-const Filter = ({content = []}) => { 
-const [value, setValue] = useState('') 
-const filteredContent = content.filter( 
-    item => { 
-    return item.caption.toLowerCase().includes(value.toLowerCase()) 
-    } 
-) 
-
-return ( 
-    <div className='Filter'> 
-    <input 
-        type='text' 
-        onChange={(event) => setValue(event.target.value)} 
-    /> 
-    
-    <div className='output'> 
-        <ul> 
-        {filteredContent.length === 0 
-            ? <h4>Nothing has found</h4> 
-            : filteredContent.map( item => <li key={item.caption}>{item.caption} {item.text}</li> 
-        )} 
-        </ul> 
-    </div> 
-    </div> 
-) 
-} 
-
-export default Filter`},
-{title: {en: 'React Categories Pattern', ua: 'Зарозок (паттерн) Категорій у Реакт'}, body: {en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written.', ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-`import {useState} from 'react' 
-import './Categories.css' 
-
-const categories = [ 
-'all', 
-'filter', 
-'map', 
-'reduce' 
-] 
-
-const Categories = ({content = []}) => { 
-const [activeCategory, setActiveCategory] = useState(0) 
-const categoriesButtons = categories.map( 
-    (item, index) => 
-    <button 
-        key={item} 
-        className={activeCategory === index 
-        ? 'active' 
-        : ''} 
-        onClick={() => setActiveCategory(index)} 
-    > 
-    {item} 
-    </button> 
-) 
-
-const categoriedContent = content.filter( 
-    contentItem => { 
-    if (activeCategory === 0) return contentItem 
-    if (categories[activeCategory] === contentItem.category) return true 
-    } 
-) 
-
-return ( 
-    <div className="Categories"> 
-    <div className="categories-buttons"> {categoriesButtons} </div> 
-    <div className="output"> 
-        {categoriedContent.map( 
-        item => <h2 key={item.category}>{item.text}</h2> 
-        )} 
-    </div> 
-    </div> 
-)
+interface IContentItem {
+  title: string;
+  body: string;
 }
 
-export default Categories`},
+interface IDemoProps {
+  content: IContentItem[];
+}
+
+export default function Demo({ content }: IDemoProps) {
+  const [value, setValue] = useState("");
+
+  const searchedContent = content.filter((item) => {
+    return item.title.toLowerCase().includes(value.toLowerCase());
+  });
+
+  return (
+    <>
+      <input
+        onChange={(event) => setValue(event.target.value)}
+        placeholder="Search..."
+      />
+      <ul>
+        {searchedContent.length === 0 ? (
+          <h4>Nothing has found</h4>
+        ) : (
+          searchedContent.map((item, index) => (
+            <li key={index}>
+              {item.title}. {item.body}
+            </li>
+          ))
+        )}
+      </ul>
+    </>
+  );
+}`},
+{title: {en: 'React Filter Pattern', ua: 'Зарозок (паттерн) Категорій у Реакт'}, body: {en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written.', ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
+`import { useState } from "react";
+
+const filters: string[] = ["all", "phone", "tablet", "laptop"];
+
+interface IContentItem {
+  title: string;
+  body: string;
+  filter: "all" | "phone" | "tablet" | "laptop";
+}
+
+interface IDemoProps {
+  content: IContentItem[];
+}
+
+export default function Demo({ content }: IDemoProps) {
+  const [activeFilter, setActiveFilter] = useState(0);
+
+  const filterMenu = filters.map((item, index) => (
+    <button
+      key={item}
+      onClick={() => setActiveFilter(index)}
+      className={activeFilter === index ? "active" : ""}
+    >
+      {item}
+    </button>
+  ));
+
+  const filteredContent = content.filter((item) => {
+    if (activeFilter === 0) return item;
+    if (filters[activeFilter] === item.filter) return true;
+  });
+
+  return (
+    <>
+      {filterMenu}
+      <ul>
+        {filteredContent.map((item, index) => (
+          <li key={index}>
+            {item.title} | {item.body}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}`},
 
 {title: {en: 'All about useEffect()', ua: 'Все про UseEffect()'}, body: {en: 'An effect hook allows you to perform side effects in a functional component.', ua: 'Хук ефектів дозволяє виконувати побічні ефекти у функціональному компоненті.'}, link: {en: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', ua: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/'}, type: 'React', data: 
 `// componentDidMount
 useEffect(() => {
-console.log('components did mount')
+    console.log('components did mount')
 }, [])
 
 // componentDidUpdate (only for currentVariable)
 useEffect(() => {
-console.log('currentVariable did update')
+    console.log('currentVariable did update')
 }, [currentVariable])
 
 // componentDidUpdate (for all components)
 useEffect(() => {
-console.log('components did update')
+    console.log('components did update')
 })
 
 // componentDidMount + componentWillUnmount
 useEffect(() => {
-console.log('component did mount')
-return () => {
-    console.log('component will unmount')
-}
+    console.log('component did mount')
+    return () => {
+        console.log('component will unmount')
+    }
 }, [])`},
 
 {title: {en: 'Getting info from API', ua: 'Отримуємо інформацію з API серверу'}, body: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use.', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
 `import {useState, useEffect} from 'react'
 
-const UserList = () => {
+const Demo = () => {
     let [users, setUsers] = useState([])
     useEffect(() => getUsers, [])
 
@@ -627,41 +635,7 @@ const UserList = () => {
     )
 }
 
-export default UserList`},
-
-{title: {en: 'Getting info from API by KY.js library', ua: 'Отримуємо інформацію з API серверу за допомогою KY.js бібліотеки'}, body: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use. And the information itself can be taken using the KY.js library.', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування. А саму інформацію можно взяти за допомогою бібліотеки KY.js.'}, link: {en: 'https://github.com/sindresorhus/ky', ua: 'https://github.com/sindresorhus/ky'}, type: 'React', data: 
-`import {useState, useEffect} from 'react'
-import ky from 'ky'
-
-const api = ky.create({
-    prefixUrl: "https://jsonplaceholder.typicode.com/"
-})
-
-const UserListKY = () => {
-    const [users, setUsers] = useState([])
-    useEffect(() => getUsers, [])
-
-    async function getUsers () {
-        try {
-            const arrayOfUsers = await api.get('users').json()
-            setUsers(arrayOfUsers)
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
-
-    return (
-        <div>
-            <button onClick={getUsers}>Get Users by KY</button>
-            <ul>
-                {users.map(user => <li key={user.id}>{user.name}</li>)}
-            </ul>
-        </div>
-    )
-}
-
-export default UserListKY`},
-
+export default Demo;`},
 {title: {en: 'React Redux-Toolkit mini form app', ua: 'Робимо міні проект Форми за допомогою біліотеки Реакт Redux-Toolkit'}, body: {en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is output).', ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось).'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', data: [
 `/* index.js */
 import React from 'react'
@@ -761,36 +735,49 @@ const Output = () => {
 export default Output`,
 ]},
 
-{title: {en: 'React props destructurization', ua: "Деструктурізація props об'єктів у Реакті"}, body: {en: 'Destructuring props objects in React is a very important part. Destructuring is used to make the code easier to read.', ua: "Деструктурізація props об'єктів у Реакті дуже важлива частина. Щоб полегшити читабельність коду застосовують деструктурізацію."}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', data: 
-`// <Destructurization skills={['Frontend', 'DevOps', 'Project Manager]} id='1' name='Alex' />
-const Destructurization = ({skills, ...userInfo}) => {
-return <ul><li>{userInfo.id}. {userInfo.name} is a {skills.join(', ')} developer</li></ul>
-}
+{title: {en: 'React props destructurization', ua: "Деструктурізація props об'єктів у Реакті"}, body: {en: 'Destructuring props objects in React is a very important part. Destructuring is used to make the code easier to read.', ua: "Деструктурізація props об'єктів у Реакті дуже важлива частина. Щоб полегшити читабельність коду застосовують деструктурізацію."}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', data: [
+`import Demo from "./Demo";
 
-export default Destructurization`
-},
+export default function App() {
+  return (
+    <div className="App">
+      <Demo
+        skills={["Front-End", "DevOps", "Project Manager"]}
+        id={1}
+        name={"Alex"}
+      />
+    </div>
+  );
+}
+`,
+`export default function Demo({ skills, ...userInfo }) {
+    return (
+      <ul>
+        <li>
+          {userInfo.id}. {userInfo.name} is a {skills.join(", ")} developer
+        </li>
+      </ul>
+    );
+  }
+  `
+]},
 
 {title: {en: 'Conditional rendering', ua: 'Умовний рендеринг'}, body: {en: 'Conditional rendering is a special syntax in React, where there are conditions under which it is possible to adjust the rendering of individual parts of the code.', ua: 'Умовний рендеринг - це спеціальний синтаксис у Реакті, де є умови при яких можливо регулювати рендеринг окремих частин коду.'}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', data: 
-`const ConditionalRendering = () => {
-return (
-    <div>
-        {5 > 3 && <span>Rendered when 'truthy'</span>} {/* if */}
-        {5 < 3 || <span>Rendered when 'falsy'</span>} {/* unless */}
-        {
-            5 > 3 
-                ? (<span>Rendered when 'truthy'</span>) // if
-                : (<span>Rendered when 'falsy'</span>) // else
-        }
-        {
-            5 < 3
-                ? (<span>Rendered when 'truthy'</span>) // if
-                : (<span>Rendered when 'falsy'</span>) // else
-        }
-    </div>
-)
-}
+`export default function Demo() {
+  return (
+    <>
+      {5 > 3 && <span>Renders when 'truthy'</span>}
 
-export default ConditionalRendering`
+      {5 < 3 || <span>Renders when 'falsy'</span>}
+
+      {5 > 3 ? (
+        <span>Rendered when 'truthy'</span> // if
+      ) : (
+        <span>Rendered when 'falsy'</span> // else
+      )}
+    </>
+  );
+}`
 },
 
 {title: {en: 'Discriminant Formula', ua: 'Формула Дискримінанту'}, body: {en: 'The function for finding the roots of a quadratic equation using the Discriminant Formula is made using the methods of the Math class. Namely Math.pow() - power (numbers), Math.sqrt() - root (numbers).', ua: 'Функція для знаходження коренів квадратного рівняння за допомогою Формула Дискримінанту зробленна за допомогою методів класа Math. А саме Math.pow() - степінь(числа), Math.sqrt() - корінь(числа).'}, link: {en: 'https://en.wikipedia.org/wiki/Discriminant', ua: 'https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82'}, type: 'task', data: 
@@ -890,77 +877,59 @@ console.log(array.pop())
 console.log(array)`},
 
 {title: {en: 'Children props in React', ua: 'Children props у Реакті'}, body: {en: 'Children lets you manipulate and transform the JSX you received as the children prop.', ua: 'Children дозволяють вам маніпулювати та перетворювати JSX, який ви отримали як дочірню props.'}, link: {en: 'https://react.dev/reference/react/Children', ua: 'https://react.dev/reference/react/Children'}, type: 'React', data:
-`import React from 'react'
-import {Container, Row, Col} from 'react-bootstrap'
+`import React from "react";
 
-const DynamicGreeting = (props) => {
-    return (
-    <div className={'mb-3 p-3 border border-' + props.color}>
-        {props.children}
-    </div>
-    )
+function Greeting({ children }) {
+  return <>{children}</>;
 }
 
-const AdvancedDynamicGreeting = (props) => {
-    return (
-    <div className={'mb-3 p-3 border border-' + props.color}>
-        {
-        React.Children.map(props.children, child => {
-            return React.cloneElement(child, {className: 'shadow p-3 m-3 border rounded'})
-        })
+function Alert({ children }) {
+  return (
+    <>
+      {React.Children.map(children, (child) => {
+        return React.cloneElement(child, { className: "alert" });
+      })}
+    </>
+  );
+}
+
+function Table({ leftColumn, rightColumn }) {
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col">{leftColumn}</div>
+        <div className="col">{rightColumn}</div>
+      </div>
+    </div>
+  );
+}
+
+export default function Demo() {
+  return (
+    <>
+      <Greeting>
+        <h1>Welcome!</h1>
+      </Greeting>
+
+      <Alert>
+        <h2>Today we have some special presents only for you!</h2>
+      </Alert>
+
+      <Table
+        leftColumn={
+          <Greeting>
+            <p>Nice to meet you!</p>
+          </Greeting>
         }
-    </div>
-    )
-}
-
-const ColumnStyle = (props) => {
-    return (
-        <Container className='mt-5 mb-5'>
-            <Row>
-                <Col>
-                    {props.leftSide}
-                </Col>
-                <Col>
-                    {props.rightSide}
-                </Col>
-            </Row>
-        </Container>
-    )
-}
-
-const PropsChildren = () => {
-    return (
-        <>
-            <DynamicGreeting color={'primary'}>
-                <h2>This weel was hard</h2>
-                <h2>Hello world</h2>
-            </DynamicGreeting>
-
-            <AdvancedDynamicGreeting color={'primary'}>
-                <h2>This weel was hard</h2>
-                <h2>Hello world</h2>
-            </AdvancedDynamicGreeting>
-
-            <ColumnStyle 
-                leftSide = {
-                    <DynamicGreeting color={'primary'}>
-                        <h2>Left side</h2>
-                    </DynamicGreeting>
-                }
-
-                rightSide = {
-                    <AdvancedDynamicGreeting color={'primary'}>
-                        <h2>This weel was hard</h2>
-                        <h2>Hello world</h2>
-                    </AdvancedDynamicGreeting>
-                }
-            />
-
-        </>
-    )
-}
-
-export default PropsChildren`},
+        rightColumn={
+          <Alert>
+            <p>Sign in here and receive your presents!</p>
+          </Alert>
+        }
+      />
+    </>
+  );
+}`},
 {title: {en: 'Rerender props in React', ua: 'Ререндер props у Реакті'}, body: {en: 'The term "render-prop" refers to a technique in which React components share one code (function) among themselves by passing it through a prop. A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.', ua: 'Термін “рендер-проп” відноситься до техніки, в якій React-компоненти розділяють між собою один код (функцію) передаючи її через проп. Компонент з рендер-пропом приймає функцію, яка повертає React-елемент, і викликає її замість реалізації власної рендер-логіки.'}, link: {en: 'https://react.dev/reference/react/cloneElement#passing-data-with-a-render-prop', ua: 'https://uk.legacy.reactjs.org/docs/render-props.html'}, type: 'React', data:
 `import React, {useState} from 'react'
 
@@ -1262,123 +1231,119 @@ return (
 export default TodoItem;`,
 ]},
 {title: {en: 'All about useState()', ua: 'Все про useState()'}, body: {en: 'The useState() hook is a function in React used to add state to functional components. It takes an initial state value and returns an array containing the current state value and a function to update it. When this function is called, the component is re-rendered with the new state value, and state changes can be tracked and handled in the component.', ua: 'Хук useState() — це функція в React, яка використовується для додавання стану до функціональних компонентів. Він приймає початкове значення стану та повертає масив, що містить поточне значення стану та функцію для його оновлення. Коли ця функція викликається, компонент повторно візуалізується з новим значенням стану, і зміни стану можна відстежувати та обробляти в компоненті.'}, link: {en: 'https://legacy.reactjs.org/docs/hooks-state.html', ua: 'https://legacy.reactjs.org/docs/hooks-state.html'}, type: 'React', data:
-`import {useState} from 'react';
+`import { useState } from "react";
 
-const UseStateInfo = () => {
-    const [count, setCount] = useState(0)
-    const [value, setValue] = useState('')
+export default function Demo() {
+  const [count, setCount] = useState(0);
+  const [value, setValue] = useState("");
 
-    function adjustCount(amount) {
-        // Given the past value
-        setCount(
-            prevValue => {
-                return prevValue + amount
-            }
-        )
-    }
+  function adjustCount(amount: number) {
+    // Keeps track of the previous value
+    setCount((prevValue) => {
+      return prevValue + amount;
+    });
+  }
 
-    function valueCatcher(string) {
-        // Ignoring the past value
-        setValue(string)
-    }
+  function valueCatcher(text: string) {
+    // Doesn't keep track of previous value
+    setValue(text);
+  }
 
-    return (
-        <div>
-            <div className='counter'>
-                <button onClick={() => adjustCount(-1)}>-</button>
-                <span>{count}</span>
-                <button onClick={() => adjustCount(1)}>+</button>
-            </div>
-            <div className='form'>
-                <input type="text" onChange={(event) => valueCatcher(event.target.value)} />
-                <h5>{value}</h5>
-            </div>
-        </div>
-    );
-};
-
-export default UseStateInfo;`},
+  return (
+    <>
+      <div className="counter">
+        <button onClick={() => adjustCount(-1)}>-</button>
+        <span>{count}</span>
+        <button onClick={() => adjustCount(1)}>+</button>
+      </div>
+      <div className="form">
+        <input
+          type="text"
+          onChange={(event) => valueCatcher(event.target.value)}
+        />
+        <h5>{value}</h5>
+      </div>
+    </>
+  );
+}`},
 {title: {en: 'Portals in React', ua: 'Портали у Реакті'}, body: {en: 'Portals let your components render some of their children into a different place in the DOM. This lets a part of your component “escape” from whatever containers it may be in. For example, a component can display a modal dialog or a tooltip that appears above and outside of the rest of the page.', ua: 'Портали дозволяють вашим компонентам відтворювати деякі їхні дочірні елементи в іншому місці в DOM. Це дозволяє частині вашого компонента «втекти» з будь-яких контейнерів, у яких він може знаходитися. Наприклад, компонент може відображати модальне діалогове вікно або спливаючу підказку, яка з’являється над і поза межами решти сторінки.'}, link: {en: 'https://react.dev/reference/react-dom/createPortal', ua: 'https://habr.com/ru/companies/smartprogress/articles/306096/'}, type: 'React', data:
-`import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import {Container} from 'react-bootstrap';
-import './App.css';
+`import { useState } from "react";
+import ReactDOM from "react-dom";
 
-class Form extends Component {
-    state = {
-        advOpen: false
-    }
+function Portal({ children }) {
+  const node = document.createElement("div");
+  document.body.appendChild(node);
 
-    componentDidMount() {
-        setTimeout(this.handleClick, 1000)
-    }
-
-    handleClick = () => {
-        this.setState(({advOpen}) => ({
-            advOpen: !advOpen
-        }))        
-    }
-
-    render() {
-        return (
-            <Container>
-                <form onClick={this.handleClick} className="w-50 border mt-5 p-3 m-auto" 
-                style={{'overflow': 'hidden', 
-                        'position': 'relative'}}>
-                    <div className="mb-3">
-                        <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-                        <input  type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    {
-                        this.state.advOpen 
-                            ? (
-                                <Portal>
-                                    <Msg/>
-                                </Portal>
-                            ) 
-                            
-                            : null
-                    }
-                </form>
-            </Container>
-        )
-    }
+  return ReactDOM.createPortal(children, node);
 }
 
-const Portal = (props) => {
-    const node = document.createElement('div')
-    document.body.appendChild(node)
+function Form() {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+    name: ""
+  });
 
-    return ReactDOM.createPortal(props.children, node)
+  function loadData(event) {
+    event.preventDefault();
+
+    let userEmail = event.target.elements.email.value;
+    let userPassword = event.target.elements.password.value;
+    let userName = event.target.elements.name.value;
+
+    setUser({
+      email: userEmail,
+      password: userPassword,
+      name: userName
+    });
+  }
+
+  return (
+    <div className="Form">
+      <div className="container">
+        <form onSubmit={(event) => loadData(event)}>
+          <h1>Sign In</h1>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="Email..." />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="Password..." />
+          </label>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Name..." />
+          </label>
+          <button type="submit" className="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+      {user.email !== "" && user.name !== "" && user.password !== "" ? (
+        <Portal>
+          <Alert />
+        </Portal>
+      ) : null}
+    </div>
+  );
 }
 
-const Msg = () => {
-    return (
-        <div 
-            style={{'width': '500px', 
-                'height': '150px', 
-                'backgroundColor': 'red', 
-                'position': 'absolute', 
-                'right': '0', 
-                'bottom': '0'
-            }}
-        >
-            Hello
-        </div>
-    )
+function Alert() {
+  return (
+    <>
+      <h1>Sign In was successful</h1>
+    </>
+  );
 }
 
-function App() {
-    return (
-        <Form/>
-    );
-}
-
-export default App;`},
+export default function Demo() {
+  return (
+    <>
+      <Form />
+    </>
+  );
+}`},
 {title: {en: 'Responsive Screen Size Breakpoints', ua: 'Точки зупинки розміру адаптивного екрана'}, body: {en: 'Here is a nice illustration of setting breakpoints for your application.', ua: 'Ось гарна ілюстрація з встановленням брєйкпоінтів для вашого застосунку.'}, link: {en: '#', ua: '#'}, type: 'markup', data: responsiveBreakpoints},
 {title: {en: 'Markup tips', ua: 'Поради щодо верстки'}, body: {en: 'Here are a bunch of markup tips for people looking to improve their experience.', ua: 'Ось багато порад щодо ведення верстки для людей, що прагунть покращити свій досвід.'}, link: {en: '#', ua: '#'}, type: 'markup', data: [markup1, markup2, markup3, markup4]},
 {title: {en: 'Guard clause example', ua: 'Приклад вкорочення коду'}, body: {en: 'Here is an easy example for applying code shortening via an empty return.', ua: 'Ось легкий приклад для застосування вкорочення коду через порожній return.'}, link: {en: '#', ua: '#'}, type: 'function', data: 
@@ -3032,6 +2997,7 @@ console.log(name) // Alex
 console.log(otherData) // { age: 28, isStudent: false }`},
 {title: {en: 'An example of using enum in React.js', ua: 'Приклад використання enum у React.js'}, body: {en: 'It is in this example that enum is used to check whether the page for the user or the page for the administrator should be displayed.', ua: 'Саме у цьому прикладі enum використовується як перевірити, що саме треба виводити на екран: сторінку для користувача чи сторінку для адміністратора.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
 [`import MainView from "./MainView";
+
 export default function App() {
   return (
     <div className="App">
@@ -3205,7 +3171,6 @@ export default Demo;
 `},
 {title: {en: 'An example of a good use of conditional statements when rendering a page', ua: 'Приклад гарного використання умовних операторів при рендері сторінки'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'React', data: 
 [`import Demo from './Demo'
-import "./styles.css";
 
 export default function App() {
   return (
