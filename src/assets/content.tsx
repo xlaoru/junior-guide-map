@@ -80,7 +80,7 @@ console.log(Object.keys(object))`},
 let splitedString = string.split(' ') 
 
 console.log(splitedString)`},
-{title: {en: 'Spread syntax', ua: 'Spread синтаксис'}, body: {en: 'spread (...) is an operator that allows you to expand the elements available for iteration.', ua: 'spread (...) - це оператор, що дозволяє розширити доступні для ітерації елементи.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_syntax', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Spread_syntax'}, type: 'operator', data: 
+{title: {en: 'Spread operator', ua: 'Spread оператор'}, body: {en: 'spread (...) is an operator that allows you to expand the elements available for iteration.', ua: 'spread (...) - це оператор, що дозволяє розширити доступні для ітерації елементи.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_syntax', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Spread_syntax'}, type: 'operator', data: 
 `const array = [1, 1, 2, 3, 5, 8] 
 const object = {name: 'Alex', age: '20'} 
 const string = 'Hello World' 
