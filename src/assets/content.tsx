@@ -909,6 +909,7 @@ export default function Demo() {
     <>
       <Greeting>
         <h1>Welcome!</h1>
+        <h3>I hope we will be friends!</h3>
       </Greeting>
 
       <Alert>
@@ -918,12 +919,17 @@ export default function Demo() {
       <Table
         leftColumn={
           <Greeting>
-            <p>Nice to meet you!</p>
+            <p>How do you do?</p>
           </Greeting>
         }
         rightColumn={
           <Alert>
-            <p>Sign in here and receive your presents!</p>
+            <p>Sign in here and receive your presents:</p>
+            <ul>
+              <li>Exclusive 3 month subscription package</li>
+              <li>Fully mentorship</li>
+              <li>Unique development approaches</li>
+            </ul>
           </Alert>
         }
       />
@@ -931,40 +937,37 @@ export default function Demo() {
   );
 }`},
 {title: {en: 'Rerender props in React', ua: 'Ререндер props у Реакті'}, body: {en: 'The term "render-prop" refers to a technique in which React components share one code (function) among themselves by passing it through a prop. A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.', ua: 'Термін “рендер-проп” відноситься до техніки, в якій React-компоненти розділяють між собою один код (функцію) передаючи її через проп. Компонент з рендер-пропом приймає функцію, яка повертає React-елемент, і викликає її замість реалізації власної рендер-логіки.'}, link: {en: 'https://react.dev/reference/react/cloneElement#passing-data-with-a-render-prop', ua: 'https://uk.legacy.reactjs.org/docs/render-props.html'}, type: 'React', data:
-`import React, {useState} from 'react'
+`import { useState } from "react";
 
-const Message = (props) => {
-    return (
-        <h2>The counter is {props.counter}</h2>
-    )
+function Alert({ count }) {
+  return <h1>Count: {count}</h1>;
 }
 
-const Counter = (props) => {
-    const [counter, setCounter] = useState(0)
+function Counter({ render }) {
+  const [count, setCount] = useState(0);
 
-    function changeCounter() {
-        setCounter(count => count + 1)
-    }
+  function adjustCount(amount) {
+    setCount((prevCount) => {
+      return prevCount + amount;
+    });
+  }
 
-    return (
-        <div>
-            <button onClick={changeCounter}>Click me</button>
-            {props.render(counter)}
-        </div>
-    )
+  return (
+    <>
+      <button onClick={() => adjustCount(1)}>+</button>
+      <button onClick={() => adjustCount(-1)}>-</button>
+      {render(count)}
+    </>
+  );
 }
 
-const RerenderProps = () => {
-    return (
-        <div>
-            <Counter render={counter => (
-                <Message counter={counter}/>
-            )}/>
-        </div>
-    )
-}
-
-export default RerenderProps`},
+export default function Demo() {
+  return (
+    <>
+      <Counter render={(count) => <Alert count={count} />} />
+    </>
+  );
+}`},
 {title: {en: 'Array.isArray()', ua: 'Array.isArray()'}, body: {en: 'The Array.isArray() static method determines whether the passed value is an Array.', ua: 'Статичний метод Array.isArray() визначає, чи є передане значення масивом.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray'}, type: 'method', data:
 `const list1 = ['banana', 'apple', 'orange']
 const list2 = 'banana, apple, orange'
