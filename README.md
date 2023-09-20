@@ -688,3 +688,7 @@ Some addictions
 ### `v28.0.5`
 
 Some addictions
+
+### `v28.0.6`
+
+Some addictions

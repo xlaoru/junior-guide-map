@@ -26,6 +26,7 @@ import glassmorphism from './images/glassmorphism.jpg'
 import gridlayout from './images/gridlayout.jpg'
 import easyLoader from './images/easy-loader.jpg'
 import InterfaceVSTypeAlias from './images/interface-vs-type-alias.jpg'
+import awesomeForm from './images/awesome-form.png'
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -4201,8 +4202,223 @@ export default function Demo() {
       Count - <strong key={count}>{count}</strong>
     </>
   );
+}`},
+{title: {en: `A complete search engine with filters. The values of which can be seen in the search field of the search engine`, ua: `Повний пошуковик із фільтрами. Значеннями з якого можно побачити в пошуковому полі пошуковику`}, body: {en: `The menu with search settings is made entirely without native React hooks. Only the react-router-dom library and its typed form @types/react-router-dom are used. Plus added debounce function for search optimization.`, ua: `Меню з налаштуваннями пошуку зроблене повністю без нативних хуків Реакту. Лише використовуються бібліотека react-router-dom та її типізована форма @types/react-router-dom. Плюс додана функція debounce для оптимізації пошуку.`}, link: {en: `https://youtu.be/oZZEI23Ri6E?si=X51p_FwwHjNgJRoe`, ua: `https://youtu.be/oZZEI23Ri6E?si=X51p_FwwHjNgJRoe`}, type: 'React', data: [
+`import { useSearchParams } from "react-router-dom";
+import useDebounce from "./useDebounce";
+
+const filters: string[] = ["all", "phone", "tablet", "laptop"];
+
+interface IContentItem {
+  title: string;
+  body: string;
+  filter: "all" | "phone" | "tablet" | "laptop";
 }
-`},
+
+interface IDemoProps {
+  content: IContentItem[];
+}
+
+export default function Demo({ content }: IDemoProps) {
+  const [searchParams, setSearchParams] = useSearchParams({
+    value: "",
+    filter: "all"
+  });
+
+  const value = searchParams.get("value");
+  const filter = searchParams.get("filter");
+
+  const debouncedValue = useDebounce(value);
+  const debouncedFilter = useDebounce(filter);
+
+  const searchedContent = content.filter((item) => {
+    return item.title.toLowerCase().includes(debouncedValue!.toLowerCase());
+  });
+
+  const filteredContent = searchedContent.filter((item) => {
+    if (debouncedFilter === "all") return true;
+    if (debouncedFilter === item.filter) return true;
+
+    return false;
+  });
+
+  return (
+    <>
+      <div className="menu">
+        <input
+          onChange={(event) =>
+            setSearchParams(
+              (prev) => {
+                prev.set("value", event.target.value);
+                return prev;
+              },
+              { replace: true }
+            )
+          }
+          placeholder="Search..."
+          defaultValue={value}
+        />
+        <br />
+        {filters.map((item) => (
+          <button
+            key={item}
+            onClick={() =>
+              setSearchParams((prev) => {
+                prev.set("filter", item);
+                return prev;
+              })
+            }
+          >
+            {item === filter ? <b>{item}</b> : <span>{item}</span>}
+          </button>
+        ))}
+      </div>
+      <ul>
+        {filteredContent.length === 0 ? (
+          <h3>Nothing has found</h3>
+        ) : (
+          filteredContent.map((item, index) => (
+            <li key={index}>
+              <b>{item.title}</b>.<br /> {item.body}
+            </li>
+          ))
+        )}
+      </ul>
+    </>
+  );
+}`,
+`import { useState, useEffect } from "react";
+
+export default function useDebounce<T>(value: T, delay: number = 250): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}`]},
+{title: {en: `Awesome Form on React + TypeScript`, ua: `Гарна Форма для вводу даних на Реакті + TypeScript`}, body: {en: `This Form is made on React and TypesScript, where there is normal validation at the level of types in the data field.`, ua: `Ця Форма зроблена на Реакті і TypesScript де є звичайна валідація на рівні типів у полі даних.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
+awesomeForm,
+`import { useState } from "react";
+
+interface IUser {
+  email: string;
+  password: string;
+  name: string;
+}
+
+export default function Demo() {
+  const [user, setUser] = useState<IUser>({
+    email: "",
+    password: "",
+    name: ""
+  });
+
+  function loadData(event): void {
+    event.preventDefault();
+
+    let userEmail = event.target.elements.email.value;
+    let userPassword = event.target.elements.password.value;
+    let userName = event.target.elements.name.value;
+
+    setUser({
+      email: userEmail,
+      password: userPassword,
+      name: userName
+    });
+
+    // console.log(user)
+  }
+
+  return (
+    <div className="Form">
+      <div className="container">
+        <form onSubmit={(event): void => loadData(event)}>
+          <h1>Sign In</h1>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="Email..." />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="Password..." />
+          </label>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Name..." />
+          </label>
+          <button type="submit" className="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}`,
+`body {
+  font-size: 15px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form {
+  padding: 1.5rem;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  display: flex block;
+  flex-direction: column;
+  gap: 1rem 0;
+  font-family: "Golos Text", sans-serif;
+}
+
+form h1 {
+  margin: 0;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.05rem;
+}
+
+form input {
+  height: 1.25rem;
+  border: 1.5px solid #121212;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form .submit {
+  height: 2.5rem;
+  background-color: #121212;
+  color: #fff;
+  font-size: 1rem;
+  border: 1.5px solid #121212;
+  border-radius: 5px;
+}
+
+form .submit:hover {
+  color: #121212;
+  background-color: #fff;
+}`
+]},
 ]
 
 export default content
