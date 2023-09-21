@@ -4221,8 +4221,8 @@ interface IDemoProps {
 
 export default function Demo({ content }: IDemoProps) {
   const [searchParams, setSearchParams] = useSearchParams({
-    value: "",
-    filter: "all"
+    filter: "all",
+    value: ""
   });
 
   const value = searchParams.get("value");
