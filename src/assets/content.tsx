@@ -2327,34 +2327,34 @@ interface ISpaceshipSide {
 
 // interface ISpaceshipInfo extends ISpaceship, ISpaceshipSide {} // correct
 interface ISpaceshipInfo extends ISpaceship, ISpaceshipSide {
-    isStolen: boolean
+    wasStolen: boolean
 }
 
 const spaceship1: ISpaceshipInfo = {
     id: 1,
     name: 'Star Destroyer',
     side: 'empire',
-    isStolen: false
+    wasStolen: false
 }
 
 const spaceship2: ISpaceshipInfo = {
     id: 2,
     name: 'Ghost',
     side: 'rebels',
-    isStolen: true
+    wasStolen: true
 }
 
 const spaceship3: ISpaceshipInfo = {
     id: 3,
     name: 'Tie Fighter',
     side: 'empire',
-    isStolen: true
+    wasStolen: true
 }`,
 `/* Case 2. Inserting interfaces for typing arguments of function. */
 function checkSpaceship(spaceship: ISpaceshipInfo): string {
     if (spaceship.side === 'rebels') {
         return "Rebel's spaceship: " + spaceship.name + ' does not get access to the seat.'
-    } else if (spaceship.isStolen) {
+    } else if (spaceship.wasStolen) {
         return 'Spaceship: ' + spaceship.name + ' was stolen.'
     } else {
         return 'Spaceship: ' + spaceship.name + ' has access to boarding.'
@@ -2378,18 +2378,18 @@ const newSpaceship: ISpaceship = {
     name: 'Y-Wing'
 }
 
-function createSpaceshipInfo(spaceship: ISpaceship, side: 'empire' | 'rebels', isStolen: boolean): ISpaceshipInfo {
+function createSpaceshipInfo(spaceship: ISpaceship, side: 'empire' | 'rebels', wasStolen: boolean): ISpaceshipInfo {
     return {
         id: spaceship.id,
         name: spaceship.name,
         side: side,
-        isStolen: isStolen
+        wasStolen: wasStolen
     }
 }
 
 const spaceship4 = createSpaceshipInfo(newSpaceship, 'rebels', false)
 
-console.log(spaceship4) // { id: 4, name: 'Y-Wing', side: 'rebels', isStolen: false }`,
+console.log(spaceship4) // { id: 4, name: 'Y-Wing', side: 'rebels', wasStolen: false }`,
 `/* Case 4. Inserting interfaces to typing a variable. */
 const spaceshipList: ISpaceshipInfo[] = [
     spaceship1,
@@ -2400,7 +2400,7 @@ const spaceshipList: ISpaceshipInfo[] = [
         id: 5,
         name: 'Millenium Falcon',
         side: 'rebels',
-        isStolen: false
+        wasStolen: false
     }
 ]
 console.log(spaceshipList)
@@ -2410,49 +2410,64 @@ console.log(spaceshipList)
         "id": 1,
         "name": "Star Destroyer",
         "side": "empire",
-        "isStolen": false
+        "wasStolen": false
     }, {
         "id": 2,
         "name": "Ghost",
         "side": "rebels",
-        "isStolen": true
+        "wasStolen": true
     }, {
         "id": 3,
         "name": "Tie Fighter",
         "side": "empire",
-        "isStolen": true
+        "wasStolen": true
     }, {
         "id": 4,
         "name": "Y-Wing",
         "side": "rebels",
-        "isStolen": false
+        "wasStolen": false
     }, {
         "id": 5,
         "name": "Millenium Falcon",
         "side": "rebels",
-        "isStolen": false
+        "wasStolen": false
     }
 ] 
 */`,
 `/* Case 5. Inserting interfaces to typing a function. */
-interface ILogSpaceshipName {
-    (name: string): void
+interface ILogSpaceshipInfo {
+    (spaceshipInfo: ISpaceshipInfo): void
 }
 
-const logSpaceshipName: ILogSpaceshipName = (name: string) => {
-    console.log('Welocome ' + name + '.')
-}
-
-const logSpaceshipInfo = (spaceship: ISpaceshipInfo, logSpacecraftName: ILogSpaceshipName): void => {
-    if (spaceship.side === 'empire') {
-        logSpacecraftName(spaceship.name)
+const logSpaceshipInfo: ILogSpaceshipInfo = (spaceshipInfo: ISpaceshipInfo) => {
+    if (spaceshipInfo.side === 'empire') {
+        console.log('Welcome, ' + spaceshipInfo.name + '.')
     } else {
         console.log('Go head of here rebel scum.')
     }
 }
 
-logSpaceshipInfo(spaceship1, logSpaceshipName) // Welcome Star Destroyer.
-logSpaceshipInfo(spaceship2, logSpaceshipName) // Go head of here rebel scum.
+logSpaceshipInfo(spaceship1) // Welcome, Star Destroyer.
+logSpaceshipInfo(spaceship2) // Go head of here rebel scum.
+
+interface IRegisterSpaceship {
+    (spaceshipInfo: ISpaceshipInfo, logSpaceshipInfo: ILogSpaceshipInfo): string
+}
+
+const registerSpaceship: IRegisterSpaceship = (spaceshipInfo: ISpaceshipInfo, logSpaceshipInfo: ILogSpaceshipInfo) => {
+    logSpaceshipInfo(spaceshipInfo)
+    return "Register went successful."
+}
+
+registerSpaceship(spaceship3, logSpaceshipInfo) // Welcome, Tie Fighter.
+
+console.log(
+    registerSpaceship(spaceship3, logSpaceshipInfo)
+)
+/* 
+    Welcome, Tie Fighter.
+    Register went successful.
+*/
 
 interface ISecretSpaceship {
     id: number
@@ -2463,17 +2478,17 @@ interface ISecretSpaceship {
 const secretSpaceship1: ISecretSpaceship = {
     id: 1,
     name: 'Tie Interceptor',
-    specialIntroduction: (pilotName: string) => {return pilotName + ', 65780923'}
+    specialIntroduction: (pilotName: string) => {return 'Pilot name: ' + pilotName + ', code: 823714'}
 }
 
 console.log(
     secretSpaceship1.specialIntroduction('Grand Inquisitor')
-) // Grand Inquisitor, 65780923
+) // Pilot name: Grand Inquisitor, code: 14
 
 function checkSecretSpaceship(
     {id, name, specialIntroduction}: ISecretSpaceship, pilotName: string
     ): void {
-    if (specialIntroduction(pilotName) === 'Grand Inquisitor, 65780923') {
+    if (specialIntroduction(pilotName) === 'Pilot name: Grand Inquisitor, code: 823714') {
         console.log('Spaceship: ' + name + ', with id: ' + id + ' has got access to boarding.')
     } else {
         console.log("Spaceship hasn't got acess to boarding.")
