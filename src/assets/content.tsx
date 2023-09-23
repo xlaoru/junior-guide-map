@@ -637,43 +637,38 @@ const Demo = () => {
 }
 
 export default Demo;`},
-{title: {en: 'React Redux-Toolkit mini form app', ua: 'Робимо міні проект Форми за допомогою біліотеки Реакт Redux-Toolkit'}, body: {en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is output).', ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось).'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', data: [
-`/* index.js */
+{title: {en: 'React Redux-Toolkit mini form app', ua: 'Робимо міні проект Форми за допомогою біліотеки Реакт Redux-Toolkit'}, body: {en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is outputed).', ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось).'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', data: [
+`/* root index.js */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'
 
 import App from './App'
-import reportWebVitals from './reportWebVitals'
-import './index.css'
 import store from './store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-<React.StrictMode>
+  <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <App />
     </Provider>
-</React.StrictMode>
-)
-
-reportWebVitals()
-`,
+  </React.StrictMode>
+)`,
 `/* App.js */
 import Input from './components/Input'
 import Output from './components/Output'
 
 const App = () => {
-return (
+  return (
     <div>
-    <Input />
-    <Output />
+      <Input />
+      <Output />
     </div>
-)
+  )
 }
 
 export default App`,
-` /* store index.js */
+`/* store index.js */
 import {configureStore} from '@reduxjs/toolkit'
 import TextReducer from './TextSlice'
 
@@ -691,14 +686,23 @@ export const TextSlice = createSlice({
     },
     reducers: {
         textAdditor: (state, action) => {
+            // ! State
+            console.log('state:', state) // ? State itself.
+            console.log('state.value:', state.value) // ? What is already stored in State.
+
+            // * Reducer
+            console.log('action:', action) // ? An object with a choice between a reducer type and a reducer value.
+            console.log('action.type:', action.type) // ? The reducer itself, namely its name and type.
+            console.log('action.payload:', action.payload) // ? What we get from the input using a reducer.
+            
             return {...state, value: action.payload}
         }
     }
 })
 
-export const {textAdditor} = TextSlice.actions
-export const selectText = state => state.text.value
-export default TextSlice.reducer`,
+export const {textAdditor} = TextSlice.actions // ? Export of all action reducers.
+export const selectText = state => state.text.value // ? Export of result value of State.
+export default TextSlice.reducer // ? Export of all Slice.`,
 `/* Input.js */
 import {createRef} from 'react'
 import {useDispatch} from 'react-redux'
@@ -723,9 +727,10 @@ const Input = () => {
 export default Input`,
 `/* Output.js */
 import {useSelector} from "react-redux"
+import {selectText} from "../store/TextSlice"
 
 const Output = () => {
-    const value = useSelector(state => state.text.value)
+    const value = useSelector(selectText)
     return (
         <div>
             {value}
