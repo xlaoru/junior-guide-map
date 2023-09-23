@@ -2314,8 +2314,9 @@ console.log(
 console.log(
     exprortControl(false, 'USA', 4)
 ) // Car have not permission for export.`},
-{title: {en: 'Interfaces in TypeScript', ua: 'Interfaces (Інтерфейси) у TypeScript'}, body: {en: 'One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.', ua: `Одним із основних принципів TypeScript є те, що перевірка типу зосереджена на формі, яку мають значення. Це іноді називають «качиним типом» або «структурним підтипом». У TypeScript інтерфейси виконують роль імен цих типів і є потужним способом визначення контрактів у вашому коді, а також контрактів із кодом за межами вашого проекту.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/interfaces.html', ua: 'https://www.typescriptlang.org/docs/handbook/interfaces.html'}, type: 'typescript', data: 
-`interface ISpaceship {
+{title: {en: 'Interfaces in TypeScript', ua: 'Interfaces (Інтерфейси) у TypeScript'}, body: {en: 'One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.', ua: `Одним із основних принципів TypeScript є те, що перевірка типу зосереджена на формі, яку мають значення. Це іноді називають «качиним типом» або «структурним підтипом». У TypeScript інтерфейси виконують роль імен цих типів і є потужним способом визначення контрактів у вашому коді, а також контрактів із кодом за межами вашого проекту.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/interfaces.html', ua: 'https://www.typescriptlang.org/docs/handbook/interfaces.html'}, type: 'typescript', data: [
+`/* Case 1. Announcement of interfaces. */
+interface ISpaceship {
     id: number
     name: string
 }
@@ -2348,8 +2349,8 @@ const spaceship3: ISpaceshipInfo = {
     name: 'Tie Fighter',
     side: 'empire',
     isStolen: true
-}
-
+}`,
+`/* Case 2. Inserting interfaces for typing arguments of function. */
 function checkSpaceship(spaceship: ISpaceshipInfo): string {
     if (spaceship.side === 'rebels') {
         return "Rebel's spaceship: " + spaceship.name + ' does not get access to the seat.'
@@ -2370,8 +2371,8 @@ console.log(
 
 console.log(
     checkSpaceship(spaceship3)
-) // Spaceship: Tie Fighter was stolen.
-
+) // Spaceship: Tie Fighter was stolen.`,
+`/* Case 3. Inserting interfaces to typing the result of a function's output. */
 const newSpaceship: ISpaceship = {
     id: 4,
     name: 'Y-Wing'
@@ -2388,8 +2389,8 @@ function createSpaceshipInfo(spaceship: ISpaceship, side: 'empire' | 'rebels', i
 
 const spaceship4 = createSpaceshipInfo(newSpaceship, 'rebels', false)
 
-console.log(spaceship4) // { id: 4, name: 'Y-Wing', side: 'rebels', isStolen: false }
-
+console.log(spaceship4) // { id: 4, name: 'Y-Wing', side: 'rebels', isStolen: false }`,
+`/* Case 4. Inserting interfaces to typing a variable. */
 const spaceshipList: ISpaceshipInfo[] = [
     spaceship1,
     spaceship2,
@@ -2432,8 +2433,8 @@ console.log(spaceshipList)
         "isStolen": false
     }
 ] 
-*/
-
+*/`,
+`/* Case 5. Inserting interfaces to typing a function. */
 interface ILogSpaceshipName {
     (name: string): void
 }
@@ -2479,61 +2480,8 @@ function checkSecretSpaceship(
     }
 }
 
-checkSecretSpaceship(secretSpaceship1, 'Grand Inquisitor') // Spaceship: Tie Interceptor, with id: 1 has got access to boarding.
-
-interface ISpaceshipInfoState {
-    spaceship: ISpaceshipInfo
-    hasRegistered: boolean 
-    error: Error | null
-}
-
-function createSpaceshipRegister(spaceship: ISpaceshipInfo): ISpaceshipInfoState {
-    if(spaceship.side === 'empire') {
-        return {
-            spaceship: spaceship,
-            hasRegistered: true,
-            error: null
-        }
-    } else {
-        return {
-            spaceship: spaceship,
-            hasRegistered: false,
-            error: new Error()
-        }
-    }
-}
-console.log(
-    createSpaceshipRegister(spaceship1)
-)
-/*
-{
-    "spaceship": {
-        "id": 1,
-        "name": "Star Destroyer",
-        "side": "empire",
-        "isStolen": false
-    },
-    "hasRegistered": true,
-    "error": null
-} 
-*/
-
-console.log(
-    createSpaceshipRegister(spaceship2)
-)
-/*
-{
-    "spaceship": {
-        "id": 2,
-        "name": "Ghost",
-        "side": "rebels",
-        "isStolen": true
-    },
-    "hasRegistered": false,
-    "error": {}
-} 
-*/
-
+checkSecretSpaceship(secretSpaceship1, 'Grand Inquisitor') // Spaceship: Tie Interceptor, with id: 1 has got access to boarding.`,
+`/* Case 6. Inserting interfaces to typing a function with generics. */
 const message: string = 'Obi Wan you are my only hope.'
 const executeOrder: number = 66
 
@@ -2589,7 +2537,21 @@ console.log(
     message3(67)
 )
 // Binary Code of Order: 1000011
-// 67`},
+// 67`,
+`/* Case 7. Assignment an undefined key with a current value.*/
+interface IBase {
+    [key: string]: string
+}
+
+const hothBase: IBase = {
+    name: 'Hoth',
+    side: 'rebels'
+} 
+
+const undefinedBase: IBase = {
+    name: 'Takaro'
+}`,
+]},
 {title: {en: 'Interfaces VS Type Alias in TypeScript', ua: 'Interfaces VS Type Alias у TypeScript'}, body: {en: 'Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable. For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.', ua: `Type Alias та Interface дуже схожі, і в багатьох випадках ви можете вільно вибирати між ними. Майже всі функції Interface доступні в Type Alias, ключовою відмінністю є те, що Type Alias не можна повторно відкрити для додавання нових властивостей проти Interface, який завжди розширюється. Здебільшого ви можете вибрати на основі особистих уподобань, і TypeScript підкаже вам, чи потрібно щось, щоб бути іншим типом оголошення. Якщо вам потрібна евристика, використовуйте Interface, доки вам не знадобиться використовувати функції Type Alias.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces'}, type: 'typescript', data: InterfaceVSTypeAlias},
 {title: {en: 'Property Modifiers (Optional Properties) in TypeScript', ua: 'Модифікатори властивостей (Додаткові властивості) у TypeScript'}, body: {en: 'Property modifiers are usually used when we have a clear form, but it has some optional fields. For example, the user can enter his name, but if he does not want to do this, then we will call him by his login, since the login is a mandatory input field for us.', ua: `Модифікатори властивостей зазвичай використовують, коли в нас є чітка форма, але у неї є декілька не обов'язкових полей. Наприклад користувач може ввести своє ім'я, але якщо він цього не хоче робити, то ми його будем називати за логіном, оскільки логін в нас обов'язкове поле для вводу.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties'}, type: 'typescript', data: 
 `interface IUser {
@@ -4419,6 +4381,155 @@ form .submit:hover {
   background-color: #fff;
 }`
 ]},
+{title: {en: `keyof operator in TypeScript`, ua: `Оператор keyof у Typescript`}, body: {en: `The first time we use the keyof operator is when we need to find keys as Type Unions from an interface or Type Aliases and insert them into Type Aliases or a variable. The second case where we use the keyof operator is when we need to take specific keys from Type Generic for function arguments. The third case when we use the keyof operator is when we need to take the keys in the form of a Type Union from an object, but for this we must first use the typeof operator to convert from a regular ready-made object to an interface object.`, ua: `Перший випадок, коли ми використовуємо оператор keyof - це коли нам треба знайти ключі у вигляді Type Union із інтерфейсу чи Type Aliases та вставити їх до Type Aliases або змінної. Другий випадок, коли ми використовуємо оператор keyof - це коли нам треба взяти конкретні ключі із Type Generic для аргументів функції. Третій випадок, коли ми використовуємо оператор keyof - це коли нам треба взяти ключі у вигляді Type Union з об'єкту, але для цього нам треба спочатку використати оператор typeof для переведення зі звичайного готового об'єкта до об'єкта-інтрефейсу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/keyof-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/keyof-types.html`}, type: 'typescript', data: [
+`/* Case 1. Using "keyof" operator when we want to receive interface's or Type Aliases keys in Type Aliases or variable. */
+interface ICompany {
+    name: string;
+    debts: number
+}
+
+type CompanyKeys = keyof ICompany // 'name' | 'debts'
+
+const nameKey: CompanyKeys = 'name'
+const debtsKey: CompanyKeys = 'debts'
+
+type ICompanyValues = ICompany[keyof ICompany] // 'string' | 'number'
+
+// const namKey: CompanyKeys = 'nam' // Error! Type '"nam"' is not assignable to type 'keyof ICompany'. Did you mean '"name"'?
+
+type companyInfo = {
+    name: string;
+    isBigCompany: boolean
+}
+
+type CompanyInfoKeys = keyof companyInfo // 'name' | 'isBigCompany'
+
+const amazon: CompanyInfoKeys = 'isBigCompany'`,
+`/* Case 2. Using "keyof" operator when we want to receive object's keys from Type Generic in function arguments. */
+function printDebts<
+    TCompany, 
+    TName extends keyof TCompany, 
+    TDebts extends keyof TCompany
+> (
+    company: TCompany,
+    name: TName,
+    debts: TDebts
+) {
+    console.log(
+        'Company: ' + company[name] + '; Debts: ' + company[debts]
+    )
+}
+
+const google: ICompany = {
+    name: 'google',
+    debts: 5000000
+}
+
+const apple = {
+    name: 'apple',
+    chalks: 3500000
+}
+
+printDebts(
+    google, 'name', 'debts'
+) // Company: google; Debts: 5000000
+
+printDebts(
+    apple, 'name', 'chalks'
+) // Company: apple; Debts: 3500000`,
+`/* Case 3. Using keyof operator when we want to receive keys from object to Type Aliases. */
+type GoogleKeys = keyof typeof google // 'name' | 'open'
+const googleKeys: GoogleKeys = 'name'
+
+// type GoogleKeys = keyof google // Error! 'google' refers to a value, but is being used as a type here. Did you mean 'typeof google'?`
+]},
+{title: {en: `Indexed Access Types`, ua: `Індексовані типи доступу`}, body: {en: `Indexed Access Types is a mechanism used to find the type of keys in interfaces. Very similar to finding meaning in ordinary objects.`, ua: `Indexed Access Types - це механізм, що використовується для знаходження типу серез ключів у інтерфейсів. Дуже схожий із знаходженням значення у звичайних об'єктах.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html`}, type: 'typescript', data:
+`interface ICompany {
+    name: string;
+    debts: number;
+    departments: IDepartment[];
+    managment: {
+        owner: string
+    };
+    suppliers: ISupplier[]
+}
+
+interface IDepartment {
+    [key: string]: string
+}
+
+interface ISupplier {
+    name: string;
+    goods: string
+}
+
+// type CompanyDebtsType = ICompany['debts'] // Correct!
+
+let debts = 'debts' as "debts" // Correct! debts: "debts"
+type CompanyDebtsType = ICompany[typeof debts]
+
+type CompanyDepartmentsTypes = ICompany['departments'] // IDepartment[]
+type CompanyOwnerType = ICompany['managment']['owner'] // string
+type CompanySuppliersType = ICompany['suppliers'][number] // ISupplier
+type CompanyKeys = ICompany[keyof ICompany] // CompanyKeys = string | number | IDepartment[] | {owner: string} | ISupplier[]
+
+const google: ICompany = {
+    name: 'google',
+    debts: 5000000,
+    departments: [
+        {sales: 'sales'},
+        {developer: 'dev'}
+    ],
+    managment: {
+        owner: 'John'
+    },
+    suppliers: [
+        {name: 'Meta', goods: 'Ads'},
+        {name: 'Android', goods: 'IT soft'}
+    ]
+}`},
+{title: {en: `"as" keyword in TypeScript`, ua: `Ключове слово "as" у TypeScript`}, body: {en: `The first time we use the "as" keyword is when we need to type a variable declared via "let". The second case where we use the "as" keyword is when we need to type a variable declared via "let" with the output value of a non-typed function. The third case where we use the "as" keyword is when we need to type a variable with an HTML element.`, ua: `Перший випадок, коли ми використовуємо ключове слово "as" - це коли нам треба затипізувати змінну задекларовану через "let". Другий випадок, коли ми використовуємо ключове слово "as" - це коли нам треба затипізувати змінну задекларовану через "let" із значенням вивода не типізованої функції. Третій випадок, коли ми використовуємо ключове слово "as" - це коли нам треба затипізувати змінну із HTML елементом.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`}, type: 'typescript', data: [
+`/* Case 1. Inserting operator "as" when we using "let" variable declaration. */
+let message = 'Hello World' as string
+
+let path = './src/App' as './src/App'
+
+let id: unknown = 25
+
+let userId = id as number`,
+`/* Case 2. Inserting operator "as" when we want typing "let" variable declaration with result of non-typing function. */
+interface IStudent {
+    name: string;
+    grade: number;
+}
+
+function registerStudent({name, grade}: IStudent) {
+    return {
+        name: name,
+        grade: grade
+    }
+}
+
+let student1 = registerStudent({
+    name: 'Alex',
+    grade: 8
+}) as IStudent`,
+`/* Case 3. Inserting operator "as" when we want typing declaration of HTML Element. */
+
+const input = document.querySelector('input') as HTMLElement`,
+]},
+{title: {en: `Nullish coalescing operator (??)`, ua: `Оператор для перевірки на нульове значення`}, body: {en: `The Nullish coalescing (??) operator is an operator that checks values to see if they are false. If the values are zero (falsy), then the operator will output the previously specified alternative value.`, ua: `Оператор Nullish coalescing (??) - це оператор, що перевіряє значення на те, чи не нульові (falsy) вони є. Якщо значення нульові (falsy), то оператор виведе, попередньо зазначене, альтернативне значення.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`}, type: 'operator', data:
+`const nullValue = null;
+const emptyText = ""; // falsy
+const someNumber = 42;
+
+const valA = nullValue ?? "default for A";
+const valB = emptyText ?? "default for B";
+const valC = someNumber ?? 0;
+
+console.log(valA); // "default for A"
+console.log(valB); // "" (as the empty string is not null or undefined)
+console.log(valC); // 42`},
 ]
 
 export default content
