@@ -2483,7 +2483,7 @@ const secretSpaceship1: ISecretSpaceship = {
 
 console.log(
     secretSpaceship1.specialIntroduction('Grand Inquisitor')
-) // Pilot name: Grand Inquisitor, code: 14
+) // Pilot name: Grand Inquisitor, code: 823714
 
 function checkSecretSpaceship(
     {id, name, specialIntroduction}: ISecretSpaceship, pilotName: string
