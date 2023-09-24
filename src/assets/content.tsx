@@ -4426,7 +4426,7 @@ type CompanyInfoKeys = keyof companyInfo // 'name' | 'isBigCompany'
 
 const amazon: CompanyInfoKeys = 'isBigCompany'`,
 `/* Case 2. Using "keyof" operator when we want to receive object's keys from Type Generic in function arguments. */
-function printDebts<
+function printDebts <
     TCompany, 
     TName extends keyof TCompany, 
     TDebts extends keyof TCompany

@@ -39,12 +39,13 @@ export interface IMainProps {
 }
 
 export interface ISearcherProps {
-    setValue: (prop: string) => void
+    value: string
+    setSearchParams: (prop: any) => void
 }
 
 export interface IFilterProps {
-    activeType: number;
-    setActiveType: (prop: number) => void;
+    filter: string;
+    setSearchParams: (prop: any) => void;
     types: ITypeCategory[]
 }
 

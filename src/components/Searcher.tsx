@@ -3,13 +3,19 @@ import translation from '../assets/translation';
 
 import {ISearcherProps} from "../utils/Interfaces"
 
-export default function Searcher({setValue}: ISearcherProps) {
+export default function Searcher({value, setSearchParams}: ISearcherProps) {
   return (
     <input 
         className='searcher'
         type="text" 
         placeholder={getText(translation.main.searcher)}
-        onChange={(event) => setValue(event.target.value)} 
+        defaultValue={value}
+        onChange={(event) => {
+          setSearchParams((prev: any) => {
+            prev.set("value", event.target.value);
+            return prev;
+          })
+        }}
     />
   )
 }

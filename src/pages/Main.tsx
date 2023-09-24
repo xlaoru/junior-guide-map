@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import useDebounce from '../utils/useDebounce';
 
 import { IMainProps, ITypeCategory } from '../utils/Interfaces';
@@ -30,11 +30,16 @@ enum Debounce {
 }
 
 function Main({content}: IMainProps) {
-    const [activeType, setActiveType] = useState<number>(0)
-    const [value, setValue] = useState<string>('')
+    const [searchParams, setSearchParams] = useSearchParams({
+        type: "all",
+        value: "",
+    })
 
-    const debouncedValue = useDebounce<string>(value)
-    const debouncedType = useDebounce<number>(activeType)
+    const value = searchParams.get("value")
+    const type = searchParams.get("type")
+
+    const debouncedValue = useDebounce<string>(value ?? "", 800)
+    const debouncedType = useDebounce<string>(type ?? "all", 800)
 
     const searchedContent = () => {
         return content.filter(
@@ -45,19 +50,20 @@ function Main({content}: IMainProps) {
     }
 
     const filteredContent = () => {
+        if (debouncedType[Debounce.DATA] === "all") return searchedContent()
         return searchedContent().filter( 
             searchedContent => { 
-                if (debouncedType[Debounce.DATA] === 0) return searchedContent
-                if (types[debouncedType[Debounce.DATA]].en === searchedContent.type) return true
+                if (debouncedType[Debounce.DATA] === searchedContent.type) return true
+                return false
             }
         )
     }
-    
+
     return (
         <div className='Main'>
             <div className='form'>
-                <Searcher setValue={setValue} />
-                <Filter activeType={activeType} setActiveType={setActiveType} types={types} />
+                <Searcher value={value ?? ""} setSearchParams={setSearchParams} />
+                <Filter filter={type ?? "all"} setSearchParams={setSearchParams} types={types} />
             </div>
             {
                 !debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]
