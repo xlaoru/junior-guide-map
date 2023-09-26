@@ -885,11 +885,15 @@ console.log(array)`},
 {title: {en: 'Children props in React', ua: 'Children props у Реакті'}, body: {en: 'Children lets you manipulate and transform the JSX you received as the children prop.', ua: 'Children дозволяють вам маніпулювати та перетворювати JSX, який ви отримали як дочірню props.'}, link: {en: 'https://react.dev/reference/react/Children', ua: 'https://react.dev/reference/react/Children'}, type: 'React', data:
 `import React from "react";
 
-function Greeting({ children }) {
+interface IChildrenProps {
+  children: React.ReactNode;
+}
+
+function Greeting({ children }: IChildrenProps) {
   return <>{children}</>;
 }
 
-function Alert({ children }) {
+function Alert({ children }: IChildrenProps) {
   return (
     <>
       {React.Children.map(children, (child) => {
@@ -899,7 +903,11 @@ function Alert({ children }) {
   );
 }
 
-function Table({ leftColumn, rightColumn }) {
+interface ITableProps {
+  [key: string]: React.ReactNode;
+}
+
+function Table({ leftColumn, rightColumn }: ITableProps) {
   return (
     <div className="container">
       <div className="row">
@@ -1771,23 +1779,22 @@ printUsers(getUsers())`},
 const age: number = 16
 const isStudent: boolean = true
 
-if (isStudent) console.log(userName + ' is ' + age + ' years old and he is a student')
-// Ilya is 16 years old and he is a student`},
-{title: {en: 'Typing a function and what exactly it should return', ua: 'Типізація функції та що саме вона має повертати'}, body: {en: 'The function has the ability to specify what exactly it should return. If the current function does not have a return or the function returns undefind, then void must be written. Because this function returns void. If we need the function to return something specific, for example a clear answer as a string, then we need to write type string. This notation is the same in normal functions and in arrow functions.', ua: 'У функції є можливість прописати, що саме вона має повертати. Якщо усередені функції нема return або функція повертаю undefind, то треба прописати void. Оскільки ця функція повертає порожнечу. Якщо нам треба аби функція повертала конкретно щось, наприклад чітку відповідь у форматі строки, то нам треба це прописати. У звичайних функціях та у стрілочних функціях це прописування є однаковим.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html'}, type: 'typescript', data: 
+if (isStudent) console.log(userName + ' is ' + age + ' years old and he is a student.')
+// Ilya is 16 years old and he is a student.`},
+{title: {en: 'Typing a function and what exactly it should return', ua: 'Типізація функції та що саме вона має повертати'}, body: {en: 'The function has the ability to specify what exactly it should return. If the current function does not have a return or the function returns undefind, then void must be written. Because this function returns void. If we need the function to return something specific, for example a clear answer as a string, then we need to write type string. This notation is the same in normal functions and in arrow functions.', ua: 'У функції є можливість прописати, що саме вона має повертати. Якщо усередені функції нема return або функція повертаю undefind, то треба прописати void. Оскільки ця функція повертає порожнечу. Якщо нам треба аби функція повертала конкретно щось, наприклад чітку відповідь у форматі строки, то нам треба це прописати. У звичайних функціях та у стрілочних функціях це прописування є однаковим.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html'}, type: 'typescript', data: [
 `const isBirthdayData: boolean = true
 const userNameData: string = 'John'
 const ageData: number = 40
 
 /* if function has nothing to return or this function returns undefind, then function must has type void */
-function logBrtMsgVoid(isBirthday: boolean, userName: string, age: number): void {
+function logBirthdayCongrats(isBirthday: boolean, userName: string, age: number): void {
     if (isBirthday) console.log('Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1))
     // return undefind // this return is possible for void function
 }
 
-logBrtMsgVoid(isBirthdayData, userNameData, ageData) // Congrats JOHN, age: 41
-
-/* if function has something to return, then function must has current type */
-function logBrtMsgFunctional(isBirthday: boolean, userName: string, age: number): string {
+logBirthdayCongrats(isBirthdayData, userNameData, ageData) // Congrats JOHN, age: 41`,
+`/* if function has something to return, then function must has current type */
+function logBirthdayCongrats(isBirthday: boolean, userName: string, age: number): string {
     if (isBirthday) {
         return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
     } else {
@@ -1796,59 +1803,65 @@ function logBrtMsgFunctional(isBirthday: boolean, userName: string, age: number)
 }
 
 console.log(
-    logBrtMsgFunctional(isBirthdayData, userNameData, ageData)
-) // Congrats JOHN, age: 41
-
-const logBrtMsgArrow = (isBirthday: boolean, userName: string, age: number): string => {
-    if (isBirthday) {
-        return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
-    } else {
-        return 'Error'
-    }
+  logBirthdayCongrats(isBirthdayData, userNameData, ageData)
+) // Congrats JOHN, age: 41`,
+`const logBirthdayCongrats = (
+  isBirthday: boolean, 
+  userName: string, 
+  age: number
+): string => {
+  if (isBirthday) {
+      return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
+  } else {
+      return 'Error'
+  }
 }
 
 console.log(
-    logBrtMsgArrow(isBirthdayData, userNameData, ageData)
-) // Congrats JOHN, age: 41
-
-`},
+  logBirthdayCongrats(isBirthdayData, userNameData, ageData)
+) // Congrats JOHN, age: 41`,
+]},
 {title: {en: 'The never type in functions and where it is used', ua: 'Тип never у функціях та де він використовується'}, body: {en: 'The never type is usually used when we need to write an error output. Another never type can occur when we have an infinite while loop or an infinite recursion. In general, we need the never type as a stopgap when we have a possible error when processing its arguments in the function.', ua: 'Тип never зазвичай використовується, коли нам треба прописати вивід помилки. Ще тип never може виникнути, коли в нас є безкінечний цикл while або безкінечна рекурсія. Взагалом тип never нам потрібен, як затичка, коли в нас можлива помилка при обробці у функції її аргументів.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/basic-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/basic-types.html'}, type: 'typescript', data: 
-`const isBirthdayData: boolean = true
-let ageData: number = 40
-const userNameData: string = 'John'
-
-/* The never type is used when something in the function will never be returned in time. That is, the difference between void and never is that void returns undefind, and never returns nothing at all */
-const createError = (msg: string): never => {
-    throw new Error(msg)
+`/* The never type is used when something in the function will never be returned in time. That is, the difference between void and never is that void returns undefind, and never returns nothing at all */
+const createError = (error: string): never => {
+    throw new Error(error)
 }
 
-function logBrtMsg(isBirthday: boolean, userName: string, age: number): string {
-    if (isBirthday == true) {
-        return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
-    } 
+function checkViruses(protocol: 0 | 1 | number): string {
+    if (protocol === 0) return 'No viruses.'
     
-    else if (isBirthday === false) {
-        return 'Too bad'
-    }
-    
-    return createError("Error")
+    if (protocol === 1) return 'Danger!'
+
+    return createError("Wrong protocol numbers")
 }
 
-logBrtMsg(isBirthdayData, userNameData, ageData)`},
+console.log(
+    checkViruses(1)
+) // Danger!
+
+console.log(
+    checkViruses(13)
+)
+/* 
+    index.js:4 Uncaught Error: Wrong protocol numbers
+    at createError (index.js:4:11)
+    at checkViruses (index.js:11:12)
+    at index.js:14:13 
+*/`},
 {title: {en: 'The null and undefined types in TypeScript', ua: 'Типи null та undefined у TypeScript'}, body: {en: '"undefined" values have not been defined yet, whereas "null" values indicate intentional absence of a value.', ua: '"undefined" значення ще не визначені, тоді як "null" значення вказують на навмисну відсутність значення.'}, link: {en: 'https://basarat.gitbook.io/typescript/recap/null-undefined', ua: 'https://basarat.gitbook.io/typescript/recap/null-undefined'}, type: 'typescript', data: 
 `/* null is the absence of anything at all */
 /* undefined is a type that says something doesn't exist */
 
-const test: null = null // correct
-const test2: any = null // correct
-// const test3: string = null // not correct
-// const test4: number = null // not correct
+const T1: null = null // correct
+const T2: any = null // correct
+// const T3: string = null // not correct
+// const T4: number = null // not correct
 
-const test5: undefined = undefined // correct
-const test6: any = undefined // correct
-// const test7: string = undefined // not correct
+const T5: undefined = undefined // correct
+const T6: any = undefined // correct
+// const T7: string = undefined // not correct
 
-let smth // type any
+let anyVar // type any
 
 function getRandomData() {
     if (Math.random() < 0.5) {
@@ -1957,7 +1970,7 @@ const FiboLoopTuple: [...number[], boolean, string] = [1, 1, 2, 3, 5, 8, 13, tru
 
 const res = userDataTuple.map((t) => t + ' - data') // res array will be string[] type
 
-const [bthd, age, userName] = userDataTuple // tuple destructuring`},
+const [birthday, age, userName] = userDataTuple // tuple destructuring`},
 {title: {en: 'Union type in TypeScript', ua: "Тип Union (Об'єднаний) у TypeScript"}, body: {en: 'Typically, the Union type is used by developers to record undefined information in advance. For example: we have an error output and we do not know what it will give us, whether it is a 404 number or a "not found" notification, and for this we need a Union type. But there is also a downside to the use of this technology, namely uncertainty. Because if we have variants of string or number types, then we definitely cannot apply methods for this information. For example: we have a choice between a string and a number, and in the function we need to output information from the argument, but we cannot apply the toUpperCase() method to this information, because the information can be a number, and numbers do not have the toUpperCase() method .', ua: "Зазвичай тип Union використовується розробниками для запису невизначеної заздалегідь інформації. Наприклад: в нас є вивід помилки і ми не знаємо, що саме нам видасть, чи число 404, чи сповіщення ''не знайдено'' і ось для цього нам потрібен тип Union. Але є і мінус застосування цієї технології, а саме невизначеність. Бо якщо в нас є варіанти типів строки чи числу, то ми однозначно не можемо застосувати методи для цієї інформації. Наприклад: в нас є вибір між строкою та числом і у фінкції нам треба вивести інформацію з аргументу, але ми не можемо застосувати метод toUpperCase() до цієї інформації, оскільки інформація може бути і числом, а вже у числа не має методу toUpperCase()."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html', ua: 'https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html'}, type: 'typescript', data: 
 `let message: string | number = 5
 // message = 'hello' // correct
@@ -1965,137 +1978,166 @@ const [bthd, age, userName] = userDataTuple // tuple destructuring`},
 let messages: string[] | number[] = ['a', 'b']
 // messages = [1, 1, 2, 3, 5, 8] // correct
 
-function printMsg(msg: string | number): void {
+function printMessage(msg: string | number): void {
     console.log(msg)
     // console.log(msg.toLowerCase()) // Error! Property 'toLowerCase' does not exist on type 'string | number'. Property 'toLowerCase' does not exist on type 'number'.
 }
 
-printMsg(4) // 4
-printMsg('hello') // hello`},
-{title: {en: 'Narrowing Union type and Type Guard in TypeScript', ua: "Narrowing (Звуження) типу Union (Об'єднаний) та Type Guard у TypeScript"}, body: {en: 'Commonly, data type narrowing for Union type is used to use specific methods for specific data types. For this, commands such as Array.isArray() are used for arrays, "in" for objects, instanceof for classes, etc.', ua: "Зазвичай для використання конкретних методів для конкретних типів даних використовуються Narrowing (Звуження) типів даних для типу Union. Для цього використовують такі команди, як Array.isArray() для масивів, ''in'' для об'єктів, instanceof для класів тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html'}, type: 'typescript', data: 
-`function printMsg(msg: string[] | number | boolean): void {
-    if (Array.isArray(msg)) {
-        msg.forEach(m => console.log(m)) // (parameter) msg: string[]
-    } else if (typeof msg === 'number') {
-        console.log(msg.toFixed()) // (parameter) msg: number
+printMessage(4) // 4
+printMessage('hello') // hello`},
+{title: {en: 'Narrowing Union type using Type Guard and Type Flow methods in TypeScript', ua: "Narrowing (Звуження) типу Union (Об'єднаний) та Type Guard у TypeScript"}, body: {en: 'Commonly, data type narrowing for Union type is used to use specific methods for specific data types. For this, commands such as Array.isArray() are used for arrays, "in" for objects, instanceof for classes, etc.', ua: "Зазвичай для використання конкретних методів для конкретних типів даних використовуються Narrowing (Звуження) типів даних для типу Union. Для цього використовують такі команди, як Array.isArray() для масивів, ''in'' для об'єктів, instanceof для класів тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html'}, type: 'typescript', data: [
+`/* Case 1. Narrowing Union type using conditions. */
+function typeOfValue(value: string[] | number | boolean): void {
+    if (Array.isArray(value)) {
+        console.log("It's String Array type.")
+    } else if (typeof value === "number") {
+      console.log("It's Number type.")
     } else {
-        console.log(msg) // (parameter) msg: boolean
+      console.log("It's Boolean type.")
     }
 }
 
-printMsg(4) // 4
-
-const printReadings = (a: number | string, b: number | boolean) => {
-    if (a === b) console.log(a, b)
-}
-
-const printReadings2 = (a: number[] | string) => {
-    console.log(a.slice(0, 3))
-}
-
-const checkReadings = (readings: {system: number} | {user: number}): void => {
-    if('system' in readings) {
-        console.log(readings.system)
-    } else {
-        console.log(readings.user)
+typeOfValue(4); // It's Number type.
+typeOfValue(false); // It's Boolean type.
+typeOfValue(['hello', 'world!', 'how', 'are', 'you?']); // It's String Array type.`,
+`/* Case 2. Narrowing Union type using switch/case. */
+function typeOfValue(value: object | number | boolean): void {
+    switch (typeof value) { 
+        case 'boolean':
+            console.log("It's Boolean type.")
+            break
+        case 'number':
+            console.log("It's Number type.")
+            break
+        default: 
+            console.log("It's Object type.")   
+            break
     }
 }
 
-function logValue(x: string | Date) {
+typeOfValue(4); // It's Number type.
+typeOfValue({}); // It's Object type.
+typeOfValue(false); // It's Boolean type.`,
+`/* Case 3. Narrowing Union type using generic methods. */
+const removeLastValue = (n: number[] | string) => {
+    console.log(n.slice(0, -1));
+};
+
+removeLastValue([1, 1, 2, 3, 5]) // (4) [1, 1, 2, 3]
+removeLastValue('Hello World!') // Hello World`,
+`/* Case 4. Narrowing Union type using operator "in" for objects' comparison. */
+const checkReadings = (
+    readings: { system: number } | { user: number }
+): void => {
+    if ("system" in readings) {
+        console.log(readings.system);
+    } else {
+        console.log(readings.user);
+    }
+};
+
+checkReadings({system: 32}) // 32
+checkReadings({user: 1}) // 1`,
+`/* Case 5. Narrowing Union type using operator instanceof for objects' and Classes comparison. */
+function isDate(x: string | Date) {
     if (x instanceof Date) {
-        console.log(x.getDate())
+        console.log("It's Date class type.");
     } else {
-        console.log(x.toUpperCase())
+        console.log("It's String type.");
     }
 }
 
+isDate('18.09.2000') // It's String type.
+isDate(new Date()) // It's Date class type.`,
+`/* Case 7. Narrowing Union type using Type Flow method. */
 interface ICar {
-    name: 'car'
-    engine: string
+    name: "car";
+    engine: string;
     wheels: {
-        number: number,
-        type: string
-    }
+        number: number;
+        type: string;
+    };
 }
 
 interface IShip {
-    name: 'ship'
-    engine: string
-    sail: string
+    name: "ship";
+    engine: string;
+    sail: string;
 }
 
 interface IAirplane {
-    name: 'airplane'
-    engine: string
-    wings: number
+    name: "airplane";
+    engine: string;
+    wings: number;
 }
 
 const car: ICar = {
-    name: 'car',
-    engine: 'M57',
+    name: "car",
+    engine: "M57",
     wheels: {
         number: 4,
-        type: 'Composite wheels'
+        type: "Composite wheels"
     }
-}
+};
 
 const ship: IShip = {
-    name: 'ship',
-    engine: 'Yamaha 9.9 GMHS',
-    sail: 'Default'
-}
+    name: "ship",
+    engine: "Yamaha 9.9 GMHS",
+    sail: "Default"
+};
 
 const airplane: IAirplane = {
-    name: 'airplane',
-    engine: 'Rocket engines',
+    name: "airplane",
+    engine: "Rocket engines",
     wings: 2
-}
+};
 
-// Type Flow method
+// Type Flow method:
 function isCar(car: ICar | IShip): car is ICar {
-    return (car as ICar).wheels !== undefined
+    return (car as ICar).wheels !== undefined;
 }
 
 function isShip(ship: ICar | IShip): ship is IShip {
-    return "sail" in ship
+    return "sail" in ship;
 }
 
 function repairVehicle(vehicle: ICar | IShip): void {
     if (isCar(vehicle)) {
-        console.log(vehicle.wheels)
+        console.log(vehicle.wheels);
     } else if (isShip(vehicle)) {
-        console.log(vehicle.sail)
+        console.log(vehicle.sail);
     } else {
-        console.log(vehicle) // vehicle: never
+        console.log(vehicle); // vehicle: never
     }
 }
 
-repairVehicle(car) // { number: 4, type: 'Composite wheels' }
-repairVehicle(ship) // Default
+repairVehicle(car); // { number: 4, type: 'Composite wheels' }
+repairVehicle(ship); // Default
 
 function sellVehicle(vehicle: ICar | IShip | IAirplane): void {
     switch (vehicle.name) {
-        case 'car':
-            console.log('I have ' + vehicle.wheels.number + ' wheels for sell')
-            break
-        case 'ship':
-            console.log('I have ' + vehicle.sail + ' sail for sell')
-            break
-        case 'airplane':
-            console.log('I have ' + vehicle.wings + ' wings for sell')
-            break
+        case "car":
+        console.log("I have " + vehicle.wheels.number + " wheels for sell.");
+        break;
+        case "ship":
+        console.log("I have " + vehicle.sail + " sail for sell.");
+        break;
+        case "airplane":
+        console.log("I have " + vehicle.wings + " wings for sell.");
+        break;
         default:
-            const remainder = vehicle // vehicle: never
+        const remainder = vehicle; // vehicle: never
     }
 }
 
-sellVehicle(car) // I have 4 wheels for sell
-sellVehicle(ship) // I have Default sail for sell
-sellVehicle(airplane) // I have 2 wings for sell`},
+sellVehicle(car); // I have 4 wheels for sell.
+sellVehicle(ship); // I have Default sail for sell.
+sellVehicle(airplane); // I have 2 wings for sell.`
+]},
 {title: {en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript"}, body: {en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html'}, type: 'typescript', data: 
-`let msg: 'Hello' = 'Hello' 
-msg = 'Hello' // correct
-// msg = 'hello' // Error! Type '"hello"' is not assignable to type '"Hello"'.
+`let message: 'Hello' = 'Hello' 
+message = 'Hello' // correct
+// message = 'hello' // Error! Type '"hello"' is not assignable to type '"Hello"'.
 
 function createAnimation(
     id: string | number, 
@@ -2104,7 +2146,7 @@ function createAnimation(
     duration: number,
     iterCount: 'infinite' | number
 ): void {
-    console.log(msg)
+    console.log(message)
     const elem = document.querySelector('#' + id) as HTMLElement
     if (elem) {
         console.log(animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount)

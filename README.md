@@ -716,3 +716,7 @@ Some addictions
 ### `v29.0`
 
 New Routing for more comfortable content filtration
+
+### `v29.0.1`
+
+Some addictions
