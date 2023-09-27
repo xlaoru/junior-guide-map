@@ -27,6 +27,11 @@ import gridlayout from './images/gridlayout.jpg'
 import easyLoader from './images/easy-loader.jpg'
 import InterfaceVSTypeAlias from './images/interface-vs-type-alias.jpg'
 import awesomeForm from './images/awesome-form.png'
+import fs_1 from "./images/folder-struct_1.jpg"
+import fs_2 from "./images/folder-struct_2.jpg"
+import fs_3 from "./images/folder-struct_3.jpg"
+import fs_4 from "./images/folder-struct_4.jpg"
+import apiArchitectural from './images/api-architectural.jpg'
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -3062,7 +3067,7 @@ const T0: React.FC = ({children}) => {
   })
   
   return (
-    <div ref={element => console.log (5)}>
+    <div ref={element => console.log(5)}>
       {children}
     </div>
   );
@@ -4590,6 +4595,379 @@ const valC = someNumber ?? 0;
 console.log(valA); // "default for A"
 console.log(valB); // "" (as the empty string is not null or undefined)
 console.log(valC); // 42`},
+{title: {en: `Using enum for React Components narorwing`, ua: `Використання enum для звуження компонентів React`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data: [
+`import Demo from "./Demo";
+
+export default function App() {
+  return (
+    <div className="App">
+      <Demo user={{ plan: "pro" }} />
+    </div>
+  );
+}`,
+`import PremiumView from "./PremiumView";
+import ProView from "./ProView";
+import FreeView from "./FreeView";
+
+enum views {
+  premium = PremiumView,
+  pro = ProView,
+  free = FreeView
+}
+
+interface DemoProps {
+  user: {
+    plan: "premium" | "pro" | "free";
+  };
+}
+
+export default function Demo({ user }: DemoProps) {
+  const CurrentView = views[user.plan];
+  return (
+    <>
+      <CurrentView />
+    </>
+  );
+}`
+]},
+{title: {en: `Folder Structure in React`, ua: `Структура папок у Реакті`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'React', data: [
+fs_1,
+fs_2,
+fs_3,
+fs_4,
+]},
+{title: {en: `Function Curring in React`, ua: `Куріювання функцій у Реакті`}, body: {en: `By breaking down functions into smaller, curried versions, you can dynamically generate new functions, customize behavior, and compose complex logic effortlessly.`, ua: `Розбиваючи функції на менші версії карі, ви можете динамічно генерувати нові функції, налаштовувати поведінку та створювати складну логіку без зусиль.`}, link: {en: `https://vm.tiktok.com/ZMjYTyKP2/`, ua: `https://vm.tiktok.com/ZMjYTyKP2/`}, type: 'React', data:
+`import React, { useState } from "react";
+
+export default function Demo() {
+  const [formState, setFormState] = useState({
+    email: "",
+    password: ""
+  });
+  const handleChange = (field: keyof typeof formState) => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFormState({
+      ...formState,
+      [field]: event.target.value
+    });
+  };
+
+  console.log(formState);
+
+  return (
+    <>
+      <input
+        type="text"
+        value={formState.email}
+        onChange={handleChange("email")}
+      />
+      <input
+        type="text"
+        value={formState.password}
+        onChange={handleChange("password")}
+      />
+      <br />
+    </>
+  );
+}`},
+{title: {en: `Operator "satisfies" in TypeScript`, ua: `Оператор "satisfies" у TypeScript`}, body: {en: `The satisfies operator tells you whether a given type satisfies a particular condition – and it provides this information before running your code. Also, when you're using it, you can declare a new variable to verify if an expression's type matches another type. In this article, you will learn all about this useful TypeScript operator. I'll explain how things were before this operator was available, and why we need it. We'll also explore real-life scenarios where you can use satisfies and the benefits it offers.`, ua: `Оператор satisfies повідомляє вам, чи задовольняє даний тип певній умові, і він надає цю інформацію перед виконанням вашого коду. Крім того, коли ви використовуєте його, ви можете оголосити нову змінну, щоб перевірити, чи тип виразу відповідає іншому типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html`, ua: `https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html`}, type: 'typescript', data:
+`type MyError = {
+  code: string | number;
+  message: string
+}
+
+const error = {
+  code: 404,
+  message: "Error"
+} satisfies MyError
+
+if (error.code === 400) {
+  console.log("Bad Request Error!")
+}`},
+{title: {en: `var VS let VS const`, ua: `var VS let VS const`}, body: {en: `"let", "const", and "var" are all used to declare variables in JavaScript, but they differ in their behavior and scope. "var" declares a variable with function scope or global scope, meaning it can be accessed anywhere within the function or program respectively. var declarations are also hoisted to the top of the function or global scope. "let" declares a variable with block scope, meaning it can only be accessed within the block it was declared in (i.e. within curly braces {}). let declarations are not hoisted. "const" is similar to let in that it declares a block-scoped variable, but once it's assigned a value, it cannot be reassigned.`, ua: `Усі "let", "const" і "var" використовуються для оголошення змінних у JavaScript, але вони відрізняються своєю поведінкою та областю. "var" оголошує змінну з областю видимості функції або глобальною областю видимості, тобто до неї можна отримати доступ будь-де в межах функції або програми відповідно. Оголошення var також піднімаються на початок функції або глобальної області. "let" оголошує змінну з блочною областю, тобто до неї можна отримати доступ лише в межах блоку, у якому її було оголошено (тобто у фігурних дужках {}). нехай декларації не піднімаються. "const" схожий на let тим, що він оголошує блочну змінну, але після того, як їй присвоєно значення, воно не може бути перепризначено.`}, link: {en: `#`, ua: `#`}, type: 'all', data: [
+`// Scope
+if (true) {
+    var T0 = 10
+    let T1 = 20
+    const T2 = 30
+}
+
+console.log(T0) // 10
+console.log(T1) // T1 is not defined
+console.log(T2) // T2 is not defined`,
+`// Hoisting
+console.log(T0) // undefined
+var T0 = 10
+
+// console.log(T1)
+let T1 = 20
+// Error! Cannot access 'T1' before initialization
+
+console.log(T2)
+const T2 = 30
+// Error! Cannot access 'T2' before initialization`,
+`// Editable
+var T0 = 10
+let T1 = 20
+const T2 = 30
+
+T0 = 1 
+// Correct! 
+
+T1 = 2 
+// Correct! 
+
+T2 = 3 
+// Error! Assignment to constant variable.`,
+]},
+{title: {en: `Top 8 API Architectural styles`, ua: `Топ 8 архітектурних стилів API`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data:
+apiArchitectural},
+{title: {en: `All about useTransition()`, ua: `Все про useTransition()`}, body: {en: `useTransition is a React Hook that lets you update the state without blocking the UI.`, ua: `useTransition — це хук React, який дозволяє оновлювати стан, не блокуючи інтерфейс користувача.`}, link: {en: `https://react.dev/reference/react/useTransition`, ua: `https://react.dev/reference/react/useTransition`}, type: 'React', data: [
+`import { useState } from "react";
+
+import AboutTab from "./AboutTab";
+import ContactTab from "./ContactTab";
+import PostsTab from "./PostsTab";
+import TabButton from "./TabButton";
+
+type Tab = "about" | "posts" | "contact";
+
+const Demo = () => {
+  const [tab, setTab] = useState<Tab>("about");
+
+  const selectTab = (tab: Tab) => {
+    setTab(tab);
+  };
+
+  return (
+    <>
+      <div>
+        <TabButton
+          text="About"
+          onClick={() => selectTab("about")}
+          className={tab === "about" ? "primary" : "secondary"}
+        />
+        <TabButton
+          text="Posts"
+          onClick={() => selectTab("posts")}
+          className={tab === "posts" ? "primary" : "secondary"}
+        />
+        <TabButton
+          text="Contact"
+          onClick={() => selectTab("contact")}
+          className={tab === "contact" ? "primary" : "secondary"}
+        />
+      </div>
+
+      {tab === "about" && <AboutTab />}
+      {tab === "posts" && <PostsTab />}
+      {tab === "contact" && <ContactTab />}
+    </>
+  );
+};
+
+export default Demo;`,
+`import { useTransition } from "react";
+
+interface ITabButtonProps {
+  onClick: () => void;
+  text: string;
+  className: string;
+}
+
+export default function TabButton({
+  onClick,
+  className,
+  text
+}: ITabButtonProps) {
+  const [isPending, startTransition] = useTransition();
+
+  const handleClick = () => {
+    startTransition(() => {
+      onClick?.();
+    });
+  };
+
+  if (isPending) return <p>Loading...</p>;
+
+  return (
+    <button className={className} onClick={handleClick}>
+      {text}
+    </button>
+  );
+}`,
+`const AboutTab = () => {
+  return <p>Welcome to my profile!</p>;
+};
+
+export default AboutTab;`,
+`import { memo } from "react";
+
+const SlowPost = ({ index }: { index: number }) => {
+  let startTime = performance.now();
+  while (performance.now() - startTime < 1) {
+    // Do nothing for 1 ms per item to emulate extremely slow code
+  }
+
+  return <li className="item">Post #{index + 1}</li>;
+};
+const PostsTab = () => {
+  console.log("[ARTIFICIALLY SLOW] Rendering 500 <SlowPost />");
+
+  let items = [];
+  for (let i = 0; i < 2500; i++) {
+    items.push(<SlowPost key={i} index={i} />);
+  }
+  return <ul className="items">{items}</ul>;
+};
+
+export default memo(PostsTab);`,
+`const ContactTab = () => {
+  return (
+    <>
+      <p>You can find me online here:</p>
+      <ul>
+        <li>admin@mysite.com</li>
+        <li>+123456789</li>
+      </ul>
+    </>
+  );
+};
+
+export default ContactTab;`,
+]},
+{title: {en: `All about useDeferredValue()`, ua: `Все про useDeferredValue()`}, body: {en: `useDeferredValue is a React Hook that lets you defer updating a part of the UI.`, ua: `useDeferredValue — це хук React, який дозволяє відкласти оновлення частини інтерфейсу користувача.`}, link: {en: `https://react.dev/reference/react/useDeferredValue`, ua: `https://react.dev/reference/react/useDeferredValue`}, type: 'React', data: [
+`import { useDeferredValue, useState } from "react";
+
+import SlowList from "./SlowList";
+
+const Demo = () => {
+  const [query, setQuery] = useState("");
+  const deferredQuery = useDeferredValue(query);
+
+  return (
+    <div className="tutorial">
+      <SlowList text={deferredQuery} />
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search..."
+      />
+    </div>
+  );
+};
+
+export default Demo;`,
+`import { memo } from "react";
+
+const SlowItem = ({ text }: { text: string }) => {
+  let startTime = performance.now();
+  while (performance.now() - startTime < 1) {
+    // Do nothing for 1 ms per item to emulate extremely slow code
+  }
+
+  return <li className="item">Text: {text}</li>;
+};
+
+const SlowList = memo(({ text }: { text: string }) => {
+  const items = [];
+  for (let i = 0; i < 250; i++) {
+    items.push(<SlowItem key={i} text={text} />);
+  }
+  return <ul className="items">{items}</ul>;
+});
+
+export default SlowList;`
+]},
+{title: {en: `All about useImperativeHandle()`, ua: `Все про useImperativeHandle()`}, body: {en: `useImperativeHandle is a React Hook that lets you customize the handle exposed as a ref. Call useImperativeHandle at the top level of your component to customize the ref handle it exposes.`, ua: `useImperativeHandle — це хук React, який дозволяє налаштувати дескриптор, представлений як ref. Викличте useImperativeHandle на верхньому рівні вашого компонента, щоб налаштувати дескриптор ref, який він показує.`}, link: {en: `https://react.dev/reference/react/useImperativeHandle`, ua: `https://react.dev/reference/react/useImperativeHandle`}, type: 'React', data: [
+`import { useRef } from "react";
+
+import TextInput, { TextInputRef } from "./TextInput";
+import Counter from "./Counter";
+
+function Demo() {
+  const inputRef = useRef<TextInputRef>(null);
+
+  return (
+    <>
+      <Counter />
+      <TextInput ref={inputRef} />
+      <button onClick={() => inputRef.current?.reset()}>
+        Reset From Parent
+      </button>
+    </>
+  );
+}
+
+export default Demo;`,
+`import { forwardRef, Ref, useImperativeHandle, useState } from "react";
+
+export type CounterRef = {
+  checkSubscibed: (value: boolean) => void;
+  reset: () => void;
+};
+
+interface CounterProps {}
+
+function Counter(props: CounterProps, ref: Ref<CounterRef>) {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    setCount(count - 1);
+  };
+
+  // We want to expose this to the parent
+  const reset = () => {
+    setCount(0);
+  };
+
+  useImperativeHandle(ref, () => ({
+    checkSubscibed: (value) => console.log(value),
+    reset
+  }));
+
+  return (
+    <div>
+      <h1 className="text-2xl">Count: {count}</h1>
+      <button onClick={decrement}>Decrement</button>
+      <button onClick={increment}>Increment</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+
+export default forwardRef(Counter);`,
+`import { forwardRef, Ref, useImperativeHandle, useRef } from "react";
+
+export interface TextInputRef {
+  reset: () => void;
+}
+
+interface TextInputProps {}
+
+function TextInput(props: TextInputProps, ref: Ref<TextInputRef>) {
+  const localRef = useRef<HTMLInputElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    reset: () => {
+      if (!localRef.current) return;
+
+      localRef.current.value = "";
+      localRef.current?.focus();
+    }
+  }));
+
+  return <input type="text" ref={localRef} />;
+}
+
+export default forwardRef(TextInput);`,
+]},
 ]
 
 export default content
