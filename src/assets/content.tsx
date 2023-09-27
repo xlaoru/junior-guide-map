@@ -3836,28 +3836,24 @@ console.log(
 console.log(
     person["contact"].socialNetworking["facebook"]
 ) // alex_official`},
-{title: {en: `Generics in Functions in TypeScript`, ua: `Generics (Узагальнення) у функціях у TypeScript`}, body: {en: `A major part of software engineering is building components that not only have well-defined and consistent APIs, but are also reusable. Components that are capable of working on the data of today as well as the data of tomorrow will give you the most flexible capabilities for building up large software systems. In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is generics, that is, being able to create a component that can work over a variety of types rather than a single one. This allows users to consume these components and use their own types.`, ua: `Основною частиною розробки програмного забезпечення є створення компонентів, які не тільки мають чітко визначені та узгоджені API, але й придатні для повторного використання. Компоненти, здатні працювати як з даними сьогодні, так і з даними завтрашнього дня, нададуть вам найбільш гнучкі можливості для створення великих програмних систем. У таких мовах, як C# і Java, одним із основних інструментів у наборі інструментів для створення повторно використовуваних компонентів є generics (узагальнення), тобто можливість створювати компонент, який може працювати над різними типами, а не з одним. Це дозволяє користувачам споживати ці компоненти та використовувати власні типи.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
-`function printMessage<T>(message: T): T {
-    switch (typeof message) {
-        case "string":
-            console.log(message.toUpperCase())
-            return message
-        case "number":
-            console.log(message.toString(2))
-            break;
-        default:
-            break;
+{title: {en: `Generics in Functions in TypeScript`, ua: `Generics (Узагальнення) у функціях у TypeScript`}, body: {en: `A major part of software engineering is building components that not only have well-defined and consistent APIs, but are also reusable. Components that are capable of working on the data of today as well as the data of tomorrow will give you the most flexible capabilities for building up large software systems. In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is generics, that is, being able to create a component that can work over a variety of types rather than a single one. This allows users to consume these components and use their own types.`, ua: `Основною частиною розробки програмного забезпечення є створення компонентів, які не тільки мають чітко визначені та узгоджені API, але й придатні для повторного використання. Компоненти, здатні працювати як з даними сьогодні, так і з даними завтрашнього дня, нададуть вам найбільш гнучкі можливості для створення великих програмних систем. У таких мовах, як C# і Java, одним із основних інструментів у наборі інструментів для створення повторно використовуваних компонентів є generics (узагальнення), тобто можливість створювати компонент, який може працювати над різними типами, а не з одним. Це дозволяє користувачам споживати ці компоненти та використовувати власні типи.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data: [
+`/* Case 1. An example of using a regular generic to type an argument and output data to a function. */
+function printUserInfo<T>(login: string, password: number, info: T): T {
+    if (login.length !== 0 && password > 9999999) {
+        console.log('User is registered!')
+    } else {
+        console.log('Please register!')
     }
 
-    return message
+    return info
 }
 
 console.log(
-    printMessage('Hello World')
+    printUserInfo<string>('Kehaar', 43289723, "I'm from Ukraine.")
 )
-// HELLO WORLD
-// Hello World
-
+// User is registered!
+// I'm from Ukraine.`,
+`/* Case 2. An example of using several generics to type arguments. */
 function getUserCursor<X, Y>(x: X, y: Y): string {
     return "The user's cursor is located at coordinates: (" + x + "; " + y + ")"
 }
@@ -3868,14 +3864,14 @@ console.log(
 
 console.log(
     getUserCursor('-7', 10)
-) // The user's cursor is located at coordinates: (-7; 10)
-
-function getUsers<T, S>(userArray: T[], hasInvited: S): [T[], S] {
-    if (hasInvited) console.log('All users has invited!')
-
+) // The user's cursor is located at coordinates: (-7; 10)`,
+`/* Case 3. An example of using several generics to type arguments as an array of one of the generics and a regular second generic and output the function data. */
+function getUsers<T, S>(userArray: T[], hasPartyStarted: S): [T[], S] {
+    if (hasPartyStarted) console.log('Party has started!')
+    
     if (userArray.length < 4) console.log('Not enough people for a party.')
 
-    return [userArray, hasInvited]
+    return [userArray, hasPartyStarted]
 }
 
 console.log(
@@ -3884,7 +3880,7 @@ console.log(
         true
     )
 )
-// All users has invited!
+// Party has started!
 // [['Alice', 'Anna', 'John'], true]
 
 console.log(
@@ -3894,13 +3890,14 @@ console.log(
     )
 )
 // Not enough people for a party.
-// [['Alice', 'Anna', 'John'], false]
-
+// [['Alice', 'Anna', 'John'], false]`,
+`/* Case 4. An example of narrowing a data type for generics using Type Aliases. */
 type NumberOrString = number | string
 function generateFigure<
     L extends NumberOrString, 
     W extends NumberOrString, 
-    H extends NumberOrString> (length: L, width: W, height: H): [L, W, H] {
+    H extends NumberOrString
+> (length: L, width: W, height: H): [L, W, H] {
     if (+length === +width && +width === +height) {
         console.log("It's a cube.")
     } else {
@@ -3921,7 +3918,8 @@ console.log(
 // It's a cube.
 // [350, 350, 350]
 
-// console.log(generateFigure(350, true, false)) // Error! Argument of type 'boolean' is not assignable to parameter of type 'NumberOeString'.`},
+// console.log(generateFigure(350, true, false)) // Error! Argument of type 'boolean' is not assignable to parameter of type 'NumberOeString'.`,
+]},
 {title: {en: `Generics for Type Aliases in TypeScript`, ua: `Generics (Узагальнення) для Type Aliases у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`}, type: 'typescript', data:
 `type Type<T> = T
 const num: Type<number> = 5

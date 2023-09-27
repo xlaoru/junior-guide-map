@@ -720,3 +720,7 @@ New Routing for more comfortable content filtration
 ### `v29.0.1`
 
 Some addictions
+
+### `v29.0.2`
+
+Some addictions
