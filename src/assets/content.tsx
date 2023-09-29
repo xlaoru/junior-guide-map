@@ -4968,6 +4968,78 @@ function TextInput(props: TextInputProps, ref: Ref<TextInputRef>) {
 
 export default forwardRef(TextInput);`,
 ]},
+{title: {en: `Condition Types and infer in TypeScript`, ua: `Типи умов і висновок у TypeScript`}, body: {en: `Types can be formulated using the ternary operator, where we ask: "Is this type inherited from (or from) what?" If yes, then there will be this type, if not, then there will be another.” Conditional types always require the use of a constraint, that is, the extends keyword. The type being checked must be limited to something that needs to be checked. In general, this is the state. We work with types. An error will occur if you use a literal. Concrete values must first be converted to a type using the typeof operator.`, ua: `Типи можна формулювати за допомогою тернарного оператора, де ми запитуємо: Цей тип успадкований від (або від) чого? Якщо так, то буде цей тип, якщо ні, буде інший». Умовні типи завжди потребують обмеження, тобто ключового слова extends. Тип, що перевіряється, повинен бути обмежений чимось, що потрібно перевірити. Загалом такий стан. Ми працюємо з типами. З використанням літералу виникне помилка. Конкретні значення спочатку необхідно перетворити на тип за допомогою оператора типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/conditional-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/conditional-types.html`}, type: 'typescript', data: [
+`/* Case 1. Condition types in Type Aliases. */
+type NotFoundError = "not found" extends string ? string : number; // notFoundError = string
+type BadRequestError = 400 extends string ? string : number; // BadRequestError = number
+
+const error400: number = 400;
+type Error400 = 400 extends typeof error400 ? number : string; // Error400 = number`,
+`/* Case 2. Condition types in Interfaces with Generic Types. */
+interface IUserName {
+  name: string;
+}
+
+interface IUserID {
+  id: number;
+}
+
+type NameOrID<T extends string | number> = T extends string
+  ? IUserName
+  : IUserID;
+
+const userName: NameOrID<number> = {
+  id: 42
+}; // userName: NameOrID`,
+`/* Case 3. Condition types in Interfaces with Union Types and Generic Types. */
+interface IUser<T extends "registered" | Date> {
+  registered: T extends "registered" ? "registered" : Date;
+}
+
+const user1: IUser<Date> = {
+  registered: new Date()
+}; // user1: IUser<Date>
+
+const user2: IUser<"registered"> = {
+  registered: "registered"
+}; // user2: IUser<"registered">`,
+`/* Case 4. Typing functions using Union Types with Generic Types. */
+function createUserNameOrID<T extends string | number>(
+  nameOrID: T
+): T extends string ? IUserName : IUserID {
+  if (typeof nameOrID === "string") {
+    const obj: IUserName = {
+      name: nameOrID
+    };
+    return obj as NameOrID<T>;
+  } else {
+    const obj: IUserID = {
+      id: nameOrID
+    };
+    return obj as NameOrID<T>;
+  }
+}
+
+console.log(createUserNameOrID<number>(42)); // { id: 42 }`,
+`/* Case 5. Condition types with nested conditions in Type Aliases with Generic Types. */
+type ErrorMessage<T extends 400 | 404 | string> = T extends 400
+  ? 400
+  : T extends 404
+    ? 404
+    : "Something went wrong.";
+
+const error404: ErrorMessage<404> = 404; // error404: 404`,
+`/* Case 6. Keyword infer in Generic Types for type of array item. */
+type GetArrayItemType<T> = T extends Array<infer First> ? First : T;
+
+type PORT = GetArrayItemType<number>; // PORT = number
+type PORTS = GetArrayItemType<number[]>; // numArray = number`,
+`/* Case 7. Converting from a primitive type to an array from a primitive type. */
+type ToArray<Type> = Type extends any ? Type[] : never;
+
+type StringArray = ToArray<string>; // StringArray = string[]
+type NumberOrStringArray = ToArray<number | string>; // NumberOrStringArray = number[] | string[]`,
+]},
 ]
 
 export default content
