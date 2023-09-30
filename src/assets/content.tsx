@@ -5168,6 +5168,169 @@ const user: IUser<IAlex> = {
 	userIsStudent: 'false'
 }`,
 ]},
+{title: {en: `Factorial Formula`, ua: `Формула Факторіалу`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`function factorial(n: number): number {
+  if (n === 0) return 1
+  return n * factorial(n - 1)
+}
+
+console.log(
+  factorial(5)
+) // 120
+
+console.log(
+  factorial(3)
+) // 6
+
+console.log(
+  factorial(1)
+) // 1`},
+{title: {en: `Poligram Checker`, ua: `Перевірка на Поліграму`}, body: {en: `A polygram is a word or phrase that is read the same way from left to right.`, ua: `Поліграма це слово або вислів, що чиатється однаково як і злів, так і зправо.`}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`function isEquals(char1, char2) {
+  return char1.toLowerCase() === char2.toLowerCase()
+}
+
+function isLetter(char) {
+  return char.toLowerCase() !== char.toUpperCase()
+}
+
+function isPoligram(string) {
+  let start = 0
+  let end = string.length - 1
+  
+  while (start < end) {
+    const firstChar = string[start]
+    const lastChar = string[end]
+    
+    if(!isLetter(firstChar)) {
+      start += 1 
+      continue
+    }
+    
+    if(!isLetter(lastChar)) {
+      end -= 1
+      continue
+    }
+    
+    if(!isEquals(firstChar, lastChar)) {
+      return false
+    }
+    
+    start += 1
+    end -= 1
+  }
+  
+  return true
+}
+
+console.log(
+  isPoligram('Last')
+) // false
+
+console.log(
+  isPoligram("Madam, I'm Adam")
+) // true`},
+{title: {en: `Collecting Object Values ​​in a Structure`, ua: `Збір значень об'єктів у структурі`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`const tree = {
+  value: 1,
+  children: [
+    {
+      value: 2,
+      children: [
+        {value: 3}
+      ]
+    },
+    {
+      value: 4,
+      children: [
+        {value: 5},
+        {value: 6}
+      ]
+    }
+  ]
+}
+
+function getTreeValues(tree) {
+  let stack = [tree]
+  let result = []
+  
+  while (stack.length > 0) {
+    const node = stack.pop()
+    
+    if (node.value !== undefined) {
+      result.push(node.value)
+    }
+    
+    if (node.children?.length) {
+      stack.push(...node.children)
+    }
+  }
+  
+  return result
+}
+
+console.log(getTreeValues(tree)) // [1, 4, 6, 5, 2, 3]`},
+{title: {en: `Checking for odd parentheses in a string`, ua: `Перевірка на непарність дужок у строці`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data: 
+`function checkBrackets(string) {
+  let openedBracket = 0
+  let closedBracket = 0
+  
+  let openedSquareBracket = 0
+  let closedSquareBracket = 0
+  
+  let openedFigureBracket = 0
+  let closedFigureBracket = 0
+  
+  for (let i = 0; i < string.length; i++) {
+    if(string[i] === '(') openedBracket += 1
+    if (string[i] === ')') closedBracket += 1
+    
+    if (string[i] === '[') openedSquareBracket += 1
+    if (string[i] === ']') closedSquareBracket += 1
+    
+    if (string[i] === '{') openedFigureBracket += 1
+    if (string[i] === '}') closedFigureBracket += 1
+  }
+  
+  return openedBracket === closedBracket && openedSquareBracket === closedSquareBracket && openedFigureBracket === closedFigureBracket
+}
+
+console.log(
+  checkBrackets('{){})[[]') // false
+)
+
+console.log(
+  checkBrackets('{{((}][)})')  // true
+)`},
+{title: {en: `Search and filter only unique numbers`, ua: `Пошук та фільтрація тільки неповторюваних чисел`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`function findDuplcateNumbers(arr) {
+  let newArr = []
+  let object = {}
+
+  for (let i = 0; i < arr.length; i++) {
+    const currentItem = arr[i]
+    if (!(currentItem in object)) {
+      object[currentItem] = 1
+    } else {
+      object[currentItem] += 1
+    }
+  }
+  
+  const keys = Object.keys(object)
+  keys.forEach((key) => {
+    if (object[key] === 1) {
+      newArr.push(key)
+    }
+  })
+  
+  return newArr
+}
+
+console.log(
+  findDuplcateNumbers(
+    [1, 1, 2, 3, 4, 4, 5]
+  ) 
+) // ["2", "3", "5"]`},
 ]
 
 export default content
