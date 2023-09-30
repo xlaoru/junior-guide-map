@@ -2288,42 +2288,55 @@ export default Buttons;
     }
 }`]},
 {title: {en: 'Custom useLocalStorage() hook', ua: 'Зроблений власноруч хук useLocalStorage()'}, body: {en: 'This useLocalStorage() hook is made using LocalStorage technology and its capabilities. This hook will come in handy when developing your applications.', ua: 'Цей хук useLocalStorage() зроблений за допомогою технології LocalStorage та її можливостей. Цей хук буде внагоді при розробці своїх застоснунків.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[`import { useState, useCallback } from "react";
-
-function useLocalStorage<T>(key: string, initialValue: T) {
-  const [storedValue, setStoredValue] = useState(() => {
-    const item = window.localStorage.getItem(key);
-    return item ? JSON.parse(item) : initialValue;
-  });
-
-  const setValue = useCallback(
-    (value: T) => {
-      setStoredValue(value);
+[`export function useLocalStorage(key: string) {
+  function setItem(value: string) {
+    try {
       window.localStorage.setItem(key, JSON.stringify(value));
-    },
-    [key]
-  );
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-  return [storedValue, setValue];
-}
+  function getItem() {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.stringify(item) : undefined;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-export default useLocalStorage;
-`,
-`import useLocalStorage from "./useLocalStorage";
+  function removeItem() {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-const App = () => {
-  const [storedValue, setValue] = useLocalStorage("Test", "");
+  return { setItem, getItem, removeItem };
+}`,
+`import { useState } from "react";
+
+import { useLocalStorage } from "./useLocalStorage";
+
+export default function Demo() {
+  const [value, setValue] = useState("");
+  const { setItem, getItem, removeItem } = useLocalStorage("value");
+
   return (
-    <div>
-      <h1>{storedValue}</h1>
-      <br />
-      <button onClick={() => setValue("Hello World!")}>Push</button>
-    </div>
-  );
-};
+    <>
+      <input
+        defaultValue={value}
+        onChange={(event) => setValue(event.target.value)}
+      />
 
-export default App;
-`]},
+      <button onClick={() => setItem(value)}>Set</button>
+      <button onClick={() => console.log(getItem())}>Get</button>
+      <button onClick={removeItem}>Remove</button>
+    </>
+  );
+}`]},
 {title: {en: 'Advanced Type Aliases in TypeScript', ua: 'Продвинутий Type Aliases у TypeScript'}, body: {en: 'Advanced "Aliases" Type in TypeScript can contain not only basic types or "Union" Type, but also entire Objects or annotations for functions.', ua: `Продвинутий "Aliases" Type у TypeScript може в собі вмістити не тільки базові типи чи "Union" Type, а й цілі Об'єкти чи анотації для функцій.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data: 
 `type Car = {
     id: number,
@@ -5039,6 +5052,121 @@ type ToArray<Type> = Type extends any ? Type[] : never;
 
 type StringArray = ToArray<string>; // StringArray = string[]
 type NumberOrStringArray = ToArray<number | string>; // NumberOrStringArray = number[] | string[]`,
+]},
+{title: {en: `Mapped Types with Type Aliases and Interfaces in TypeScript`, ua: `Mapped Types з Type Aliases і Interfaces у TypeScrip`}, body: {en: `When you don’t want to repeat yourself, sometimes a type needs to be based on another type. Mapped types build on the syntax for index signatures, which are used to declare the types of properties which have not been declared ahead of time. A mapped type is a generic type which uses a union of PropertyKeys (frequently created via a keyof) to iterate through keys to create a type.`, ua: `Якщо ви не хочете повторюватися, інколи тип потрібно базувати на іншому типі. Відображені типи будуються на основі синтаксису для підписів індексів, які використовуються для оголошення типів властивостей, які не були оголошені заздалегідь. Відображений тип — це загальний тип, який використовує об’єднання PropertyKeys (часто створюється за допомогою keyof) для перебору ключів для створення типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`}, type: 'typescript', data: [
+`/* Example 1 of Mapped Types. */
+type ComparableType = {
+  [arbitraryID in Plurality]: CustomDataType
+}
+
+/* Example 2 of Mapped Types. */
+type ComparableType = {
+  [arbitraryID in keyof ObjectPlurality]: CustomDataType
+}`,
+`/* Case 1. Pure Mapped Types using. */
+type Currencies = {
+	usa: 'uds';
+	china: 'cny';
+	ukraine: 'uah';
+	kz: 'tenge'
+}
+
+type CreateCustomCurrencies<T> = {
+	[P in keyof T]: string
+}
+
+type CustomCurrencies = CreateCustomCurrencies<Currencies> // CustomCurrencies = {usa: string; china: string; ukraine: string; kz: string;}
+
+/* 
+    // Same as prev code line:
+    type CustomCurrencies = {
+		usa: string;
+		china: string;
+		ukraine: string;
+		kz: string;
+	}
+*/`,
+`/* Case 2. Mapped Types using Readonly variant. */
+type CreateCustomCurrencies<T> = {
+    readonly [P in keyof T]: string
+}
+
+// type CreateCustomCurrencies<T> = { readonly [P in keyof T]: string; }`,
+`/* Case 3. Mapped Types using Optional + Readonly variant. */
+type CreateCustomCurrencies<T> = {
+    readonly [P in keyof T]?: string
+}
+
+// type CreateCustomCurrencies<T> = { readonly [P in keyof T]?: string | undefined; }`,
+`/* Case 4. Mapped Types using Optional + Readonly variant using "+" operator. We use it when we want assumed all other properties. */
+type CreateCustomCurrencies<T> = {
+    +readonly [P in keyof T]+?: string
+}
+
+// type CreateCustomCurrencies<T> = { +readonly [P in keyof T]+?: string | undefined; }`,
+`/* Case 5. Mapped Types using Optional + Readonly variant using "-" operator. We use it when we want romeve all other properties. */
+type CreateCustomCurrencies<T> = {
+    -readonly [P in keyof T]-?: string
+}
+
+// type CreateCustomCurrencies<T> = { -readonly [P in keyof T]-?: string; }`,
+`/* Case 6. Mapped Types using Plurality with Union Types. */
+type Keys = 'name' | 'age' | 'role'
+
+type User = {
+	[K in Keys]: string
+}
+
+const Alex: User = {
+	name: "alex",
+	age: '24',
+	role: 'adimn'
+}`,
+`/* Case 6. Using Mapped Types with Interfaces. */
+interface ICurrencies {
+    usa: 'uds';
+    china: 'cny';
+    ukraine: 'uah';
+    kz: 'tenge'
+}
+
+type CreateCustomCurrencies<T> = {
+    [P in keyof T]: string
+}
+
+type CustomCurrencies = CreateCustomCurrencies<ICurrencies>`
+]},
+{title: {en: `Template Literal Types in TypeScript`, ua: `Template Literal Types у TypeScript`}, body: {en: `Template Literal Types are required to recalculate valid Literal Types.`, ua: `Template Literal Types потрібні для того, щоб зробити перерахунок допустимих Literal Types.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html`}, type: 'typescript', data: [
+`/* Case 1. Using Template Literal Types with a simple Literal Types. */
+type Greeting = 'Hello'
+type AlexGreeting = \`\${Greeting}, Alex!\` // type AlexGreeting = "Hello, Alex!"`,
+`/* Case 2. Using Template Literal Types with a Union Literal Types. */
+type MyAnimation = 'fade' | 'swipe'
+type Direction = 'in' | 'out'
+
+type SlideAnimation = \`\${MyAnimation} \${Direction}\` // type SlideAnimation = "fade in" | "fade out" | "swipe in" | "swipe out"`,
+`/* Case 3. Using Template Literal Types with a Union Literal Types with string Generic Types. */
+type Port = 3000 | 3001
+type Logger = "Server works on"
+
+/* Uppercase, Lowercase, Capitalize */
+type PortLogger = \`\${Uppercase<Logger>}: \${Port}\` // type PortLogger = "SERVER WORKS ON: 3000" | "SERVER WORKS ON: 3001"`,
+`/* Case 4. Using Template Literal Types with Mapped Types. */
+interface IAlex {
+	name: "Alex";
+	age: '24';
+	isStudent: 'false'
+}
+
+type IUser<T> = {
+	[K in keyof T as \`user\${Capitalize<string & K>}\`]: string
+} // type IUser<T> = { [K in keyof T as \`user\${Capitalize<string & K>}\`]: string; }
+
+const user: IUser<IAlex> = {
+	userName: 'Tom',
+	userAge: '32',
+	userIsStudent: 'false'
+}`,
 ]},
 ]
 
