@@ -740,3 +740,7 @@ Some addictions
 ### `v29.0.6`
 
 Some addictions
+
+### `v29.0.7`
+
+Some addictions

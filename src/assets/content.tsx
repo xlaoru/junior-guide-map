@@ -3660,52 +3660,79 @@ console.log(
 */
 `,
 `interface IPerson {
-    name: string;
-    age: number;
-    address: string
+  name: string;
+  age: number;
+  address: string
 }
 
 type PersonBasicInfo = Pick<IPerson, 'name' | 'age'>
+type PersonName = Pick<IPerson, 'name'>
 
 const basicInfo: PersonBasicInfo = {
-    name: 'Alice',
-    age: 30
+  name: 'Alice',
+  age: 30
 }
 
 console.log(
-    basicInfo
+  basicInfo
 ) // {name: 'Alice', age: 30}
 
-/* 
-    Pick<Type, Keys> constructs a type by picking
-    only the specified keys from Type.
-*/`,
-`interface IProduct {
-    id: string;
-    name: string;
-    price: number
-}
-
-type ProductWithId = Omit<IProduct, 'id'>
-
-const productWithId: ProductWithId = {
-    name: 'Phone',
-    price: 1000
+const alex: PersonName = {
+  name: 'Alex'
 }
 
 console.log(
-    productWithId
-) // {name: 'Phone', price: 1000}
+  alex
+) // {name: 'Alex'}
 
 /* 
-    Omit<Type, Keys> constructs a type by omiting
-    the specified keys from Type.
+  Pick<Type, Keys> constructs a type by picking
+  only the specified keys from Type.
+*/`,
+`interface IProduct {
+  id: string;
+  name: string;
+  price: number
+}
+
+type ProductWithoutID = Omit<IProduct, 'id'>
+type ProductID = Omit<IProduct, 'name' | 'price'>
+
+const productWithoutID: ProductWithoutID = {
+  name: 'Phone',
+  price: 1000
+}
+
+console.log(
+  productWithoutID
+) // {name: 'Phone', price: 1000}
+
+const productID: ProductID = {
+  id: '32'
+}
+
+console.log(
+  productID
+) // {id: '32'}
+
+/* 
+  Omit<Type, Keys> constructs a type by omiting
+  the specified keys from Type.
 */`,
 `type Colors = 'red' | 'green' | 'blue'
 type NonRed = Exclude<Colors, 'red'>
 
+interface IColors {
+    red: "red";
+    blue: "blue";
+    green: "green"
+}
+
+type nonBlue = Exclude<keyof IColors, "blue"> // "red" | "green"
+
 // const red: NonRed = 'red' // Error! Type '"red"' is not assignable to type 'NonRed'.
 const green: NonRed = 'green'
+const red: nonBlue = "red"
 
 /* 
     Exclude<Type, ExcludedUnion> constructs a type
@@ -3713,13 +3740,17 @@ const green: NonRed = 'green'
     ExcludedUnion from Type.
 */`,
 `type Colors = 'red' | 'green' | 'blue'
+type Figures = "circle" | "cude" | "triangle"
+
 type RedAndGreen = Extract<Colors, 'red' | 'green'>
+type Blue = Extract<Colors | Figures, 'blue'>
 
 // const blue: RedAndGreen = 'blue' // Error! Type '"blue"' is not assignable to type 'RedAndGreen'.
 const green: RedAndGreen = 'green'
+const blue: Blue = "blue"
 
 /* 
-    Exclude<Type, Union> constructs a type by 
+    Extract<Type, Union> constructs a type by 
     selection types from Type that are assignable to
     Union.
 */`]},
@@ -5331,6 +5362,190 @@ console.log(
     [1, 1, 2, 3, 4, 4, 5]
   ) 
 ) // ["2", "3", "5"]`},
+{title: {en: `3 interesting tasks for typing objects using Utility Types and Mapped Types`, ua: `3 цікавих задачки для типізації об'єктів за допомогою Utility Types та Mapped Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data: [
+`// We need to type this large object
+// The futureClasses property should depend on classes by type
+// The exClients and futureClients properties must also depend on currClients
+// OR all three depend on a common parent
+
+// In simple words: when adding properties to the target object they must be
+// automatically added to dependent ones (immediately a hint from TS)
+
+interface IFitnessClass {
+	name: string;
+	startsAt: string;
+	duration: number;
+}
+
+interface IFutureClass extends Omit<IFitnessClass, "startsAt"> {
+	willStartsAt: string;
+}
+
+interface IClient {
+	name: string;
+	age: string | number;
+	gender: "male" | "female";
+	timeLeft: string;
+	makeCallFor: Date;
+}
+
+type currentClient = Omit<IClient, "makeCallFor">;
+type ExClient = Omit<IClient, "timeLeft">;
+type FutureClient = Pick<IClient, "name" | "makeCallFor">;
+
+interface IFitnessClub {
+	clubName: string;
+	location: string;
+	classes: IFitnessClass[];
+	futureClasses: IFutureClass[];
+	currentClients: currentClient[];
+	exClients: ExClient[];
+	futureClients: FutureClient[];
+}
+
+const fitnessClubCenter: IFitnessClub = {
+	clubName: "Fitness club Center",
+	location: "central ave. 45, 5th floor",
+	classes: [
+		{
+			name: "yoga",
+			startsAt: "8:00 AM",
+			duration: 60,
+		},
+		{
+			name: "trx",
+			startsAt: "11:00 AM",
+			duration: 45,
+		},
+		{
+			name: "swimming",
+			startsAt: "3:00 PM",
+			duration: 70,
+		},
+	],
+	futureClasses: [
+		{
+			name: "boxing",
+			willStartsAt: "6:00 PM",
+			duration: 40,
+		},
+		{
+			name: "breath training",
+			willStartsAt: "8:00 PM",
+			duration: 30,
+		},
+	],
+	currentClients: [
+		{
+			name: "John Smith",
+			age: "-",
+			gender: "male",
+			timeLeft: "1 month",
+		},
+		{
+			name: "Alise Smith",
+			age: 35,
+			gender: "female",
+			timeLeft: "3 month",
+		},
+		{
+			name: "Ann Sonne",
+			age: 24,
+			gender: "female",
+			timeLeft: "5 month",
+		},
+	],
+	exClients: [
+		{
+			name: "Tom Smooth",
+			age: 50,
+			gender: "male",
+			makeCallFor: new Date("2023-08-12"),
+		},
+	],
+	futureClients: [
+		{
+			name: "Maria",
+			makeCallFor: new Date("2023-07-10"),
+		},
+	],
+};`,
+`interface ISlider {
+	container?: string;
+	numberOfSlides?: number;
+	speed?: 300 | 500 | 700;
+	direction?: "horizontal" | "vertical";
+	dots?: boolean;
+	arrows?: boolean;
+	animationName?: string;
+}
+
+function createSlider({
+	container = "",
+	numberOfSlides = 1,
+	speed = 300,
+	direction = "horizontal",
+	dots = true,
+	arrows = true,
+}: ISlider = {}): void {
+	console.log(container, numberOfSlides, speed, direction, dots, arrows);
+}
+
+createSlider(); // 1 300 horizontal true true
+
+// It is necessary to type the settings object that will be dependent
+// from the ISlider interface
+// All fields in it are required
+
+type CustomSliderOptions = Required<Omit<ISlider, 'speed' | 'animationName'>>
+interface ICustomSlider extends CustomSliderOptions {
+	speed: number
+}
+
+const customSliderOptions: ICustomSlider = {
+	container: "id",
+	numberOfSlides: 4,
+	speed: 1100,
+	direction: "horizontal",
+	dots: true,
+	arrows: true,
+};
+
+function createCustomSlider(options: ICustomSlider): void {
+	if ("container" in options) {
+		console.log(options);
+	}
+}
+
+createCustomSlider(customSliderOptions)
+/* 
+    {
+        container: 'id',
+        numberOfSlides: 4,
+        speed: 1100,
+        direction: 'horizontal',
+        dots: true,
+        arrows: true
+    }
+*/`,
+`interface IForm {
+	login: string;
+	password: string;
+}
+
+// It is necessary to type the validation object
+// Please note that the data in the form can expand and these fields
+// must also appear in the validation object
+
+type FormValidation = {
+	[P in keyof IForm]: {isValid: boolean} | {isValid: boolean, errorMsg: string}
+}
+
+const validationData: FormValidation = {
+	login: { isValid: false, errorMsg: "At least 3 characters" },
+	password: { isValid: true },
+};`,
+]},
 ]
 
 export default content
