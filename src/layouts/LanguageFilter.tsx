@@ -10,17 +10,17 @@ export default function LanguageFilter({activePage, language, setENLanguage, set
     <div className="language-option" id='main' style={activePage === 1 ? {'marginTop': '3rem'} : {}}>
         {
           isPendingEN 
-            ? <span><Spinner />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            : <button className={"en" === language ? `language-button selected` : 'language-button'} onClick={() => startTransitionEn(() => {
-              setENLanguage()
-            })}>en</button>
+            ? <span style={{marginRight: '25px'}}><Spinner /></span>
+            : isPendingUA
+              ? <button className='language-button'>en</button>
+              : <button className={language === "en" ? 'language-button selected' : 'language-button'} onClick={() => startTransitionEn(() => {setENLanguage()})}>en</button>
         }
         {
           isPendingUA 
-            ? <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Spinner /></span>
-            : <button className={"ua" === language ? `language-button selected` : 'language-button'} onClick={() => startTransitionUA(() => {
-              setUALanguage()
-            })}>ua</button>
+            ? <span style={{marginLeft: '25px'}}><Spinner /></span>
+            : isPendingEN 
+              ? <button className='language-button'>ua</button>
+              : <button className={language === "ua" ? 'language-button selected' : 'language-button'} onClick={() => startTransitionUA(() => {setUALanguage()})}>ua</button>
         }
     </div>
   )
