@@ -5018,7 +5018,34 @@ type NotFoundError = "not found" extends string ? string : number; // notFoundEr
 type BadRequestError = 400 extends string ? string : number; // BadRequestError = number
 
 const error400: number = 400;
-type Error400 = 400 extends typeof error400 ? number : string; // Error400 = number`,
+type Error400 = 400 extends typeof error400 ? number : string; // Error400 = number
+
+type LogIn = {
+  name: string
+} & (Male | Female)
+
+type Male = {
+  gender: 'male';
+  salary: number
+}
+
+type Female = {
+  gender: 'female';
+  weight: number
+}
+
+const user1: LogIn = {
+  name: 'Alex',
+  gender: 'male',
+  salary: 3000, // Correct!
+  // weight: 70 // Error!
+}
+
+const user2: LogIn = {
+  name: 'Jane',
+  gender: 'female',
+  weight: 50 // Correct!
+}`,
 `/* Case 2. Condition types in Interfaces with Generic Types. */
 interface IUserName {
   name: string;
@@ -5046,7 +5073,23 @@ const user1: IUser<Date> = {
 
 const user2: IUser<"registered"> = {
   registered: "registered"
-}; // user2: IUser<"registered">`,
+}; // user2: IUser<"registered">
+
+type ApiResponse<T> = 
+    | {status: 'success'; data: T; timestamp: Date}
+    | {status: 'error'; message: string; timestamp: Date}
+
+let response1: ApiResponse<number> = {
+    status: 'success',
+    data: 100,
+    timestamp: new Date()
+}
+
+let response2: ApiResponse<string> = {
+    status: 'error',
+    message: 'Bad request.',
+    timestamp: new Date()
+}`,
 `/* Case 4. Typing functions using Union Types with Generic Types. */
 function createUserNameOrID<T extends string | number>(
   nameOrID: T
@@ -5084,7 +5127,7 @@ type ToArray<Type> = Type extends any ? Type[] : never;
 type StringArray = ToArray<string>; // StringArray = string[]
 type NumberOrStringArray = ToArray<number | string>; // NumberOrStringArray = number[] | string[]`,
 ]},
-{title: {en: `Mapped Types with Type Aliases and Interfaces in TypeScript`, ua: `Mapped Types з Type Aliases і Interfaces у TypeScrip`}, body: {en: `When you don’t want to repeat yourself, sometimes a type needs to be based on another type. Mapped types build on the syntax for index signatures, which are used to declare the types of properties which have not been declared ahead of time. A mapped type is a generic type which uses a union of PropertyKeys (frequently created via a keyof) to iterate through keys to create a type.`, ua: `Якщо ви не хочете повторюватися, інколи тип потрібно базувати на іншому типі. Відображені типи будуються на основі синтаксису для підписів індексів, які використовуються для оголошення типів властивостей, які не були оголошені заздалегідь. Відображений тип — це загальний тип, який використовує об’єднання PropertyKeys (часто створюється за допомогою keyof) для перебору ключів для створення типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`}, type: 'typescript', data: [
+{title: {en: `Mapped Types with Type Aliases and Interfaces in TypeScript`, ua: `Mapped Types з Type Aliases і Interfaces у TypeScript`}, body: {en: `When you don’t want to repeat yourself, sometimes a type needs to be based on another type. Mapped types build on the syntax for index signatures, which are used to declare the types of properties which have not been declared ahead of time. A mapped type is a generic type which uses a union of PropertyKeys (frequently created via a keyof) to iterate through keys to create a type.`, ua: `Якщо ви не хочете повторюватися, інколи тип потрібно базувати на іншому типі. Відображені типи будуються на основі синтаксису для підписів індексів, які використовуються для оголошення типів властивостей, які не були оголошені заздалегідь. Відображений тип — це загальний тип, який використовує об’єднання PropertyKeys (часто створюється за допомогою keyof) для перебору ключів для створення типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`}, type: 'typescript', data: [
 `/* Example 1 of Mapped Types. */
 type ComparableType = {
   [arbitraryID in Plurality]: CustomDataType
@@ -5165,7 +5208,30 @@ type CreateCustomCurrencies<T> = {
     [P in keyof T]: string
 }
 
-type CustomCurrencies = CreateCustomCurrencies<ICurrencies>`
+type CustomCurrencies = CreateCustomCurrencies<ICurrencies>`,
+`/* Case 7. Prettifying nested types using Mapped Types. */
+interface IInfo {
+    title: string;
+    body: string
+}
+
+type NestedTodo = IInfo & {
+    hasCompleted: boolean
+}
+
+type Prettify<T> = {
+    [K in keyof T]: T[K]
+}
+
+type Todo = Prettify<NestedTodo>
+/* 
+    // Same as prev code.
+    type Todo = {
+        title: string;
+        body: string;
+        hasCompleted: boolean;
+    }
+*/`
 ]},
 {title: {en: `Template Literal Types in TypeScript`, ua: `Template Literal Types у TypeScript`}, body: {en: `Template Literal Types are required to recalculate valid Literal Types.`, ua: `Template Literal Types потрібні для того, щоб зробити перерахунок допустимих Literal Types.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html`}, type: 'typescript', data: [
 `/* Case 1. Using Template Literal Types with a simple Literal Types. */
@@ -5546,6 +5612,33 @@ const validationData: FormValidation = {
 	password: { isValid: true },
 };`,
 ]},
+{title: {en: `An example of using Partial Utility Type working with statement`, ua: `Приклад використовування Partial Utility Type для роботи зі стейтами`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`interface ITodo {
+  title: string;
+  body: string
+}
+
+function updateTodo(todo: ITodo, fieldsToUpdate: Partial<ITodo>) {
+  return {
+      ...todo,
+      fieldsToUpdate
+  }
+}
+
+const initialTodo: ITodo = {
+  title: 'Clean the dishes.',
+  body: 'Do it right now!'
+}
+
+const updatedTodo1 = updateTodo(initialTodo, {})
+
+const updatedTodo2 = updateTodo(initialTodo, {
+  body: 'You can do it till 6pm'
+})
+
+const updatedTodo3 = updateTodo(initialTodo, {
+  title: 'Vacuum the floor.'
+})`},
 ]
 
 export default content
