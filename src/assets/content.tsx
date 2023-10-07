@@ -2857,7 +2857,7 @@ let movement: boolean | string = false // let movement: string | boolean
 if (isOkay) {
     movement = 'moving'
 }`},
-{title: {en: 'Type Assertions in TypeScript', ua: 'Type Assertions (Утвердження Типу) у Typescript'}, body: {en: 'Typically, Type Assertions are used to specify Union type annotations in a function argument when we accept an Object or Literal type assertion for a variable. As well as specification of the Element in the DOM tree, namely what properties it will have.', ua: `Зазвичай Type Assertions (Утвердження Типу) використовують для конкретизації анотацій Union типу в аргументі функції, коли ми приймаємо об'єкт чи затвердження типу Literal для змінної. А також конкретезації Елементу в DOM дереві, а саме які властивості воно матиме.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions'}, type: 'typescript', data: 
+{title: {en: 'Type Assertions in TypeScript', ua: 'Type Assertions (Утвердження Типу) у Typescript'}, body: {en: 'Typically, Type Assertions are used to specify Union type annotations in a function argument when we accept an Object or Literal type assertion for a variable. As well as specification of the Element in the DOM tree, namely what properties it will have.', ua: `Зазвичай Type Assertions (Утвердження Типу) використовують для конкретизації анотацій Union типу в аргументі функції, коли ми приймаємо об'єкт чи затвердження типу Literal для змінної. А також конкретезації Елементу в DOM дереві, а саме які властивості воно матиме.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions'}, type: 'typescript', data: [
 `function fetchData(url: string, method: "GET" | "POST"): void {
     console.log({
         to: url,
@@ -2865,41 +2865,37 @@ if (isOkay) {
     })
 }
 
-/*
+
 const requestOptions = {
     url: 'https://web-app.com',
     method: "GET"
 }
 
-fetchData(requestOptions.url, requestOptions.method) // Error! Argument of type 'string' is not assignable to parameter of type '"GET" | "POST"'.
-*/
-
-// Case 1. Using "as const" to show, that you have Union type
+// fetchData(requestOptions.url, requestOptions.method) // Error! Argument of type 'string' is not assignable to parameter of type '"GET" | "POST"'.
+`,
+`// Case 1. Using "as const" to show, that you have Union type
 const requestOptions1 = {
     url: 'https://webapp.com', // url: "https://webapp.com"
     method: "GET" // method: "GET"
 } as const
 
-fetchData(requestOptions1.url, requestOptions1.method) // {to: 'https://webapp.com', mathod: 'GET'}
-
-// Case 2. Using "as VALUE" inside object
+fetchData(requestOptions1.url, requestOptions1.method) // {to: 'https://webapp.com', mathod: 'GET'}`,
+`// Case 2. Using "as VALUE" inside object
 
 const requestOptions2 = {
     url: 'https://some.com', // url: string
     method: "POST" as "POST" // method: "POST"
 }
 
-fetchData(requestOptions2.url, requestOptions2.method) // {to: 'https://some.com', mathod: 'POST'}
-
-// Case 3. Using "as VALUE" inside function arguments
+fetchData(requestOptions2.url, requestOptions2.method) // {to: 'https://some.com', mathod: 'POST'}`,
+`// Case 3. Using "as VALUE" inside function arguments
 const requestOptions3 = {
     url: 'https://helloworld.io', // url: string
     method: "GET" // method: string
 }
 
-fetchData(requestOptions3.url, requestOptions3.method as "GET") // {to: 'https://helloworld.io', mathod: 'GET'}
-
-// Case 4. Using triangular brackets
+fetchData(requestOptions3.url, requestOptions3.method as "GET") // {to: 'https://helloworld.io', mathod: 'GET'}`,
+`// Case 4. Using triangular brackets
 const requestOptions4 = {
     url: 'https://xlaoruweb.info', // url: string
     method: "POST" // method: string
@@ -2914,8 +2910,8 @@ const output = document.querySelector('.output') as HTMLElement // output: HTMLE
 output.textContent = 'Hello World'
 
 const input = <HTMLInputElement>document.querySelector('input') // input: HTMLInputElement
-const someNumber: number = +input.value // someNumber: number`},
-{title: {en: 'Function overloads in TypeScript', ua: 'Перегрузки функції (functionoverloads) у Typescript'}, body: {en: 'Some JavaScript functions can be called in a variety of argument counts and types. For example, you might write a function to produce a Date that takes either a timestamp (one argument) or a month/day/year specification (three arguments). In TypeScript, we can specify a function that can be called in different ways by writing overload signatures. To do this, write some number of function signatures (usually two or more), followed by the body of the function.', ua: `Деякі функції JavaScript можна викликати з різною кількістю аргументів і різними типами. Наприклад, ви можете написати функцію для отримання дати, яка приймає позначку часу (один аргумент) або специфікацію місяця/дня/ріку (три аргументи). У TypeScript ми можемо вказати функцію, яку можна викликати різними способами, написавши підписи перевантаження. Для цього напишіть певну кількість сигнатур функції (зазвичай дві або більше), а потім тіло функції.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads'}, type: 'typescript', data: 
+const someNumber: number = +input.value // someNumber: number`]},
+{title: {en: 'Function overloads in TypeScript', ua: 'Перегрузки функції (Functiono verloads) у Typescript'}, body: {en: 'Some JavaScript functions can be called in a variety of argument counts and types. For example, you might write a function to produce a Date that takes either a timestamp (one argument) or a month/day/year specification (three arguments). In TypeScript, we can specify a function that can be called in different ways by writing overload signatures. To do this, write some number of function signatures (usually two or more), followed by the body of the function.', ua: `Деякі функції JavaScript можна викликати з різною кількістю аргументів і різними типами. Наприклад, ви можете написати функцію для отримання дати, яка приймає позначку часу (один аргумент) або специфікацію місяця/дня/ріку (три аргументи). У TypeScript ми можемо вказати функцію, яку можна викликати різними способами, написавши підписи перевантаження. Для цього напишіть певну кількість сигнатур функції (зазвичай дві або більше), а потім тіло функції.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads'}, type: 'typescript', data: 
 `interface ISquare {
     side: number
     area: number
@@ -4000,7 +3996,7 @@ interface IUser<T, ParentsData extends IParentsOfUser> {
     parents: ParentsData
 }
 
-const user: IUser<string, {mother: string; father: string; hasMaried: boolean}>  = {
+const user: IUser<string, {mother: string; father: string; hasMaried: boolean}> = {
     login: 'the_tom',
     age: 23,
     parents: {
@@ -5724,7 +5720,11 @@ promise.then((value) => {
 type PromiseType = Awaited<Promise<number>> // type PromiseType = number
 
 // Nested Promise Type
-type PromiseTypeNested = Awaited<Promise<Promise<number>>> // type PromiseType = number`,
+type PromiseTypeNested = Awaited<Promise<Promise<number>>> // type PromiseType = number
+
+// Union Promise Type
+type PromiseUnionType = Awaited<boolean | Promise<number>> // type PromiseUnionType =  boolean | number
+`,
 `/* Case 2. Using Utility Type Awaited for getting type of Promise from function. */
 interface ITodo {
     title: string;
