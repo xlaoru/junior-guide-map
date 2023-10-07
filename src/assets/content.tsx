@@ -2772,7 +2772,7 @@ function logDrawShape(shape: Shape, shapeType: ShapeType): void {
 logDrawShape(circle, ShapeType.CIRCLE) // Drawing a CIRCLE with color #0000FF and size 10 in
 logDrawShape(square, ShapeType.SQUARE) // Drawing a SQUARE with color #00FF00 and size 5 cm
 logDrawShape(circle, ShapeType.SQUARE) // Error! Shape types do not match`},
-{title: {en: 'Type Unknown in TypeScript', ua: 'Тип Unknown (Невизначений) у TypeScript'}, body: {en: 'The unknown type represents any value. This is similar to the any type, but is safer because it’s not legal to do anything with an unknown value. This is useful when describing function types because you can describe functions that accept any value without having any values in your function body. Conversely, you can describe a function that returns a value of unknown type.', ua: `Тип Unknown представляє будь-яке значення. Це схоже на тип Any, але безпечніше, оскільки заборонено робити щось із Unknown значенням. Це корисно під час опису типів функцій, оскільки ви можете описати функції, які приймають будь-які значення, не маючи жодних значень у вашому тілі функції. І навпаки, ви можете описати функцію, яка повертає значення типу Unknown.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown'}, type: 'typescript', data:
+{title: {en: 'Type Unknown in TypeScript', ua: 'Тип Unknown (Невизначений) у TypeScript'}, body: {en: 'The unknown type represents any value. This is similar to the any type, but is safer because it’s not legal to do anything with an unknown value. This is useful when describing function types because you can describe functions that accept any value without having any values in your function body. Conversely, you can describe a function that returns a value of unknown type.', ua: `Тип Unknown представляє будь-яке значення. Це схоже на тип Any, але безпечніше, оскільки заборонено робити щось із Unknown значенням. Це корисно під час опису типів функцій, оскільки ви можете описати функції, які приймають будь-які значення, не маючи жодних значень у вашому тілі функції. І навпаки, ви можете описати функцію, яка повертає значення типу Unknown.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown'}, type: 'typescript', data: [
 `/* Case 1 */
 const userData = '{"isBirthday": true, "ageData": 40, "userName": "John"}'
 
@@ -2792,9 +2792,9 @@ function transferData(data: unknown): void {
     }
 }
 
-transferData(parsedData)
+transferData(parsedData)`,
 
-/* Case 2 */
+`/* Case 2 */
 try {
     if (true) {
         throw new Error('error')
@@ -2805,14 +2805,14 @@ try {
     } else if (typeof e === 'string') {
         console.log(e)
     }
-}
+}`,
 
-/* Case 3 */
+`/* Case 3 */
 type T0 = any | unknown // type T0 = any
 type T1 = number | unknown // type T1 = unknown
 
 type T2 = any & unknown // type T0 = any
-type T3 = number & unknown // type T1 = number`},
+type T3 = number & unknown // type T1 = number`]},
 {title: {en: 'Type Query in TypeScript', ua: 'Type Query (Запит Типів) у TypeScript'}, body: {en: 'The mechanism that allows you to get the type of a particular entity is called a type query. Most often, it is necessary when we clearly understand what type we need in this situation and it will not be repeated anywhere else. Implemented via the typeof + entity operator.', ua: `Механізм, який дозволяє отримати тип певної сутності, називається запит типу (type query). Найчастіше він необхідний, коли ми чітко розуміємо, який тип нам потрібен у цій ситуації і він ніде далі не повторюватиметься. Реалізується через оператор typeof + сутність.`}, link: {en: '#', ua: '#'}, type: 'typescript', data: 
 `const dataFromControl = {
     water: 200,
@@ -3537,7 +3537,7 @@ function findUser() {}
 function findUserById() {}
 function countRating() {}
 function fetchPosts() {}`},
-{title: {en: `Utility types in TypeScript`, ua: `Utility типи у TypeScript`}, body: {en: `In TypeScript, utility types are built-in type transformations that allow you to manipulate and transform types easily. These utility types help you manipulate and transform types in various ways, making it easier to work with complex data structures and ensuring type safety.`, ua: `У TypeScript службові типи — це вбудовані перетворення типів, які дозволяють легко маніпулювати типами та перетворювати їх. Ці типи утиліт допомагають маніпулювати типами та перетворювати їх різними способами, полегшуючи роботу зі складними структурами даних і забезпечуючи безпеку типів.`}, link: {en: `#`, ua: `#`}, type: 'typescript', data: [
+{title: {en: `Utility types in TypeScript`, ua: `Utility типи у TypeScript`}, body: {en: `In TypeScript, utility types are built-in type transformations that allow you to manipulate and transform types easily. These utility types help you manipulate and transform types in various ways, making it easier to work with complex data structures and ensuring type safety.`, ua: `У TypeScript службові типи — це вбудовані перетворення типів, які дозволяють легко маніпулювати типами та перетворювати їх. Ці типи утиліт допомагають маніпулювати типами та перетворювати їх різними способами, полегшуючи роботу зі складними структурами даних і забезпечуючи безпеку типів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/utility-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html`}, type: 'typescript', data: [
 `interface IUser {
     id: number;
     name: string;
@@ -5639,6 +5639,122 @@ const updatedTodo2 = updateTodo(initialTodo, {
 const updatedTodo3 = updateTodo(initialTodo, {
   title: 'Vacuum the floor.'
 })`},
+{title: {en: `Utility Types for functions in TypeScript`, ua: `Utility Types для функцій у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/utility-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html`}, type: 'typescript', data: [
+`/* Case 1. ReturnType Generic Type is used to find the type that a function should return. */
+type DiscriminantReturnType = ReturnType<typeof discriminantFormula> // type DiscriminantReturnType = string
+
+function discriminantFormula(a: number, b: number, c: number): string {
+    let D = Math.pow(b, 2) - 4 * a * c
+    let x1
+    let x2
+    
+    if (D < 0) {
+        return 'x1 = ∅; x2 = ∅'
+    } 
+    
+    else {
+        x1 = (-b + Math.sqrt(D)) / (2 * a)
+        x2 = (-b - Math.sqrt(D)) / (2 * a)
+        return "x1 = " + x1 + "; x2 = " + x2
+    }
+}`,
+`/* Case 2. Parameters Generic Type is used to find the types of function arguments/parameters. Usually, this Generic Type returns a tuple, but if you explicitly specify that the type should be returned according to the index, then it will return the type according to the index. */
+type XMultipliers = Parameters<typeof discriminantFormula> // type XMultipliers = [a: number, b: number, c: number]
+type AMultiplier = Parameters<typeof discriminantFormula>[0] // type AMultiplier = number
+
+type T0 = Parameters<(n: number) => number> // type T0 = [n: number]
+type T1 = Parameters<<T>(arg: T) => T> // type T1 = [arg: unknown]`,
+`/* Case 3. ConstructorParameters Generic Type is used to find the types of arguments/parameters in a class constructor. */
+class Demo {
+    constructor(
+        a: number,
+        b: string
+    ) {}
+}
+
+type T2 = ConstructorParameters<typeof Demo> // type T2 = [a: number, b: string]
+type T3 = ConstructorParameters<typeof Demo>[1] // type T3 = string`
+]},
+{title: {en: `Working with server requests, Promise and JSON`, ua: `Робота з серверними запитами, Promise і JSON`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/microsoft/TypeScript/blob/main/src/lib/es2015.promise.d.ts`, ua: `https://github.com/microsoft/TypeScript/blob/main/src/lib/es2015.promise.d.ts`}, type: 'typescript', data: [
+`/* Case 1. Working with ready JSON structure. */
+const user = '{"name": "Alex", "id": 1}'
+
+interface IUser {
+    name: string;
+    id: number
+}
+
+const parseUser: IUser = JSON.parse(user) // parseUser: any`,
+`/* Case 2. Using Fetch API for fetching async data. */
+interface ITodo {
+    userId: number,
+    id: number,
+    title: string,
+    completed: boolean
+}
+
+let todoList: ITodo[] = []
+
+fetch('https://jsonplaceholder.typicode.com/todos')
+    .then((res) => res.json())
+    .then((json) => {
+        if ('id' in json && 'userId' in json) {
+            todoList.push(json)
+            todoList[0].id
+        } else if (Array.isArray(json)) {
+            todoList = json
+        } else {
+            console.log(\`\${json} is a string.\`)
+        }
+        console.log(todoList)
+    })`,
+`/* Case 3. Using Promises for getting "async" data. */
+const promise = new Promise<string>((resolve, reject) => {
+    resolve('test')
+}) // promise: Promise<string>
+
+promise.then((value) => {
+    console.log(value.toLowerCase())
+})`,
+]},
+{title: {en: `Utility Type Awaited and Promise in TypeScript`, ua: `Utility Type Awaited і Promise у TypeScript`}, body: {en: `Utility Type Awaited is required so that the type held by the Promise can be understood and recorded. It works recursively, so with nesting it should work well because of its recursion.`, ua: `Utility Type Awaited потрібен для того, щоб можна було зрозуміти та записати тип, що мається у Promise. Він працює рекурсивно, то із вкладеністю він має працювати добре через свою рекурсивність.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype`}, type: 'typescript', data: [
+`/* Case 1. Using Utility Type Awaited for getting type of Promise. */
+
+// Basic Promise Type
+type PromiseType = Awaited<Promise<number>> // type PromiseType = number
+
+// Nested Promise Type
+type PromiseTypeNested = Awaited<Promise<Promise<number>>> // type PromiseType = number`,
+`/* Case 2. Using Utility Type Awaited for getting type of Promise from function. */
+interface ITodo {
+    title: string;
+    body: string;
+    completed: boolean
+}
+
+async function fetchTodos(): Promise<ITodo[]> {
+    const todos: ITodo[] = [
+        {
+            title: 'Wash the dishes',
+            body: 'Do it immediately!',
+            completed: false
+        },
+        {
+            title: 'Vacuum the floor',
+            body: 'Vaccum the floor only in your room tonight.',
+            completed: true
+        },
+    ]
+
+    return todos
+}
+
+const currentTodos = fetchTodos() // currentTodos: Promise<ITodo[]>
+type FetchTodosReturnType = Awaited<ReturnType<typeof fetchTodos>> // type FetchTodosReturnType = ITodo[]`,
+`/* Case 3. Legacy example of replacing Utility Type Awaited with infer. */
+type UnwrappedPromise<T> = T extends Promise<infer Return> ? Return : T
+type FetchDataReturnType = UnwrappedPromise<ReturnType<typeof fetchTodos>> // type FetchDataReturnType = ITodo[]`,
+]},
 ]
 
 export default content
