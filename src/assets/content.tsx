@@ -5723,7 +5723,7 @@ type PromiseType = Awaited<Promise<number>> // type PromiseType = number
 type PromiseTypeNested = Awaited<Promise<Promise<number>>> // type PromiseType = number
 
 // Union Promise Type
-type PromiseUnionType = Awaited<boolean | Promise<number>> // type PromiseUnionType =  boolean | number
+type PromiseUnionType = Awaited<boolean | Promise<number>> // type PromiseUnionType = boolean | number
 `,
 `/* Case 2. Using Utility Type Awaited for getting type of Promise from function. */
 interface ITodo {
