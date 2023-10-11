@@ -4619,14 +4619,14 @@ let student1 = registerStudent({
     name: 'Alex',
     grade: 8
 }) as IStudent`,
-`/* Case 4. Using the as keyword when we need to make an object immutable. */
+`/* Case 3. Using the as keyword when we need to make an object immutable. */
 const request = {
     url: 'https://web-app.com',
     method: 'POST'
 } as const
 
 // request.method = 'GET' // Error! Cannot assign to 'method' because it is a read-only property.`,
-`/* Case 3. Inserting operator "as" when we want typing declaration of HTML Element. */
+`/* Case 4. Inserting operator "as" when we want typing declaration of HTML Element. */
 const input = document.querySelector('input') as HTMLElement`,
 ]},
 {title: {en: `Nullish coalescing operator (??)`, ua: `Оператор для перевірки на нульове значення`}, body: {en: `The Nullish coalescing (??) operator is an operator that checks values to see if they are false. If the values are zero (falsy), then the operator will output the previously specified alternative value.`, ua: `Оператор Nullish coalescing (??) - це оператор, що перевіряє значення на те, чи не нульові (falsy) вони є. Якщо значення нульові (falsy), то оператор виведе, попередньо зазначене, альтернативне значення.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`}, type: 'operator', data:
