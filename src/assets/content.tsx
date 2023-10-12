@@ -1941,10 +1941,10 @@ const department: string = departments[0]
 
 const report = departments
     .filter((d: string) => 
-        d !== 'dev'
+      d !== 'dev'
     )
     .map((d: string) => 
-    d + ' - done'
+      d + ' - done'
     )
 
 const nums: number[][] = [[3, 5, 6], [1, 2, 4]] // multidimensional array
@@ -5761,6 +5761,65 @@ type FetchTodosReturnType = Awaited<ReturnType<typeof fetchTodos>> // type Fetch
 type UnwrappedPromise<T> = T extends Promise<infer Return> ? Return : T
 type FetchDataReturnType = UnwrappedPromise<ReturnType<typeof fetchTodos>> // type FetchDataReturnType = ITodo[]`,
 ]},
+{title: {en: `An Alternative Approach for Creating Literal Types`, ua: `Альтернативний підхід для створення Literal Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`// 🚫 Bad practice
+type ReviewMark = 1 | 2 | 3
+
+type Result = {
+    mark: ReviewMark
+}
+
+// ✅ Good practice
+const reviewMarkMap = {
+    bad: 1,
+    normal: 2,
+    good: 3
+} as const
+
+type ReviewMark =
+    typeof reviewMarkMap [
+        keyof typeof reviewMarkMap
+    ]`},
+{title: {en: `A good way to refactor a large collection of ternary expressions in React`, ua: `Хороший спосіб рефакторингу великої колекції потрійних виразів у React`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'React', data:
+`import React from "react";
+
+import FreeView from "./FreeView";
+import ProView from "./ProView";
+import PremiumView from "./PremiumView";
+
+type Plan = "free" | "pro" | "premium";
+
+interface IDemoProps {
+  plan: Plan;
+}
+
+const PlanViews: Record<Plan, React.FC> = {
+  free: FreeView,
+  pro: ProView,
+  premium: PremiumView
+};
+
+export default function Demo({ plan }: IDemoProps) {
+  const PlanView = PlanViews[plan];
+  return <PlanView />;
+}
+`},
+{title: {en: `A cool way to shorten your code using the table method`, ua: `Класний спосіб скоротити код за допомогою табличного методу`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`type errorList = 400 | 401 | 404
+
+function detectError(error: errorList): string {
+    const errors = {
+        400: "Bad Request",
+        401: "Unauthorized",
+        404: "Not Found",
+    }
+
+    return errors[error]
+}
+
+console.log(
+    detectError(400)
+) // Bad Request`},
 ]
 
 export default content
