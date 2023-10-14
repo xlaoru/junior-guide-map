@@ -5845,7 +5845,7 @@ ilya.name = 'Ilya'
 
 console.log(ilya) // User { name: 'Ilya' }`
 ]},
-{title: {en: `Generics and Constructor Overloading for classes in TypeScript`, ua: `Дженерики та перенавантаження конструкторів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: 'typescript', data:
+{title: {en: `Generics, Constructor Overloading for classes in TypeScript`, ua: `Дженерики, Перенавантаження Конструкторів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: 'typescript', data:
 `class Figure<TName extends string | symbol> {
   width: number
   height: number
