@@ -2665,7 +2665,7 @@ console.log(
 )
 // Xlaoru is student
 // Hello, Xlaoru! Nice to meet you! You are 16, but you already know React.js`},
-{title: {en: 'Non-null Assertion Operator (Postfix !) in TypeScript', ua: 'Non-null Assertion Operator (Postfix !) у TypeScript'}, body: {en: 'TypeScript also has a special syntax for removing null and undefined from a type without doing any explicit checking. Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined.', ua: `TypeScript також має спеціальний синтаксис для видалення null і undefined з типу без виконання будь-якої явної перевірки. Написання ! після будь-якого виразу фактично є твердженням типу, що значення не є null або undefined.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-'}, type: 'typescript', data: 
+{title: {en: 'Non-null assertion operator (!) in TypeScript', ua: 'Ненулевий оператор утвердження (!) у TypeScript'}, body: {en: 'TypeScript also has a special syntax for removing null and undefined from a type without doing any explicit checking. Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined.', ua: `TypeScript також має спеціальний синтаксис для видалення null і undefined з типу без виконання будь-якої явної перевірки. Написання ! після будь-якого виразу фактично є твердженням типу, що значення не є null або undefined.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-'}, type: 'typescript', data: 
 `interface IRequest {
     requestType: 'get' | 'post'
     requestText?: {
@@ -4018,7 +4018,7 @@ console.log(user)
     }
 }
 */`},
-{title: {en: `Generic Classe in TypeScript`, ua: `Generic (Узагальнення) для класів у TypeScript`}, body: {en: `TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods. In the above example, we created a generic class named User with a type variable in the angle brackets <T, S> .`, ua: `TypeScript підтримує generic (загальні) класи. Параметр загального типу вказується в кутових дужках після імені класу. Загальний клас може мати загальні поля (змінні-члени) або методи. У наведеному вище прикладі ми створили загальний клас під назвою User зі змінною типу в кутових дужках <T, S>.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
+{title: {en: `Generics for classes in TypeScript`, ua: `Generics (Узагальнення) для класів у TypeScript`}, body: {en: `TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods. In the above example, we created a generic class named User with a type variable in the angle brackets <T, S> .`, ua: `TypeScript підтримує generic (загальні) класи. Параметр загального типу вказується в кутових дужках після імені класу. Загальний клас може мати загальні поля (змінні-члени) або методи. У наведеному вище прикладі ми створили загальний клас під назвою User зі змінною типу в кутових дужках <T, S>.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
 `class User<T, S>/* global type T */{
 	name: T;
 	age: S
@@ -5820,6 +5820,135 @@ function detectError(error: errorList): string {
 console.log(
     detectError(400)
 ) // Bad Request`},
+{title: {en: `Working with base classes in TypeScript`, ua: `Робота з базовими класами у TypeScript`}, body: {en: `We declare class properties outside the constructor.`, ua: `Декларуємо властивості класа поза конструктора.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html`}, type: 'typescript', data: [
+`/* Case 1. Working with tsconfig.json and his properties. We create properties without declaring a constructor using the non-null (!) operator or changing the strictPropertyInitialization parameter. */
+class Box {
+    // width!: number; // Correct!
+    width: number // Correct after changing the strictPropertyInitialization field from true to false.
+    height: number // Correct after changing the strictPropertyInitialization field from true to false.
+
+    constructor(width: number) {
+        this.width = width
+        this.height = 500
+    }
+}
+
+const firstBox = new Box(200) // const firstBox: Box
+console.log(firstBox) // Box { width: 200, height: 500 }`,
+`/* Case 2. Create a primitive class without a constructor. */
+class User {
+    name: string // Correct after changing the strictPropertyInitialization field from true to false.
+}
+
+const ilya = new User()
+ilya.name = 'Ilya'
+
+console.log(ilya) // User { name: 'Ilya' }`
+]},
+{title: {en: `Generics and Constructor Overloading for classes in TypeScript`, ua: `Дженерики та перенавантаження конструкторів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: 'typescript', data:
+`class Figure<TName extends string | symbol> {
+  width: number
+  height: number
+  name: TName
+
+  /* Constructor overloading */
+  constructor(width: number, height: number, name: string)
+  constructor(width: number, height: number, name: symbol)
+
+  constructor(width: number, height: number, name: TName) {
+      this.width = width
+      this.height = height
+      this.name = name
+
+      // super() // Error! 'super' can only be referenced in a derived class
+      // return 'figure' // Error! Type 'string' is not assignable to type 'Figure<TName>'
+  }
+}
+
+const rectangle = new Figure<string>(500, 100, 'rect')
+console.log(rectangle) // Figure { width: 500, height: 100, name: 'rect' }`},
+{title: {en: `Methods, Accessors (getter, setter), Method Overloading for classes in TypeScript`, ua: `Methods, Accessors (getter, setter), Перегрузка Методів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: 'typescript', data:
+`class Package {
+  width: number;
+  height: number;
+  volume: number | undefined;
+  _content: string | undefined;
+
+  constructor(width: number, volume?: number, content?: string) {
+      this.width = width;
+      this.height = 500;
+      this.volume = volume;
+      this._content = content;
+  };
+
+  calculateVolume(): number | undefined {
+      if (!this.volume) {
+          this.volume = this.width * this.height
+          console.log(\`Package volume: \${this.volume}\`)
+      } else {
+          console.log(\`Package volume:\${this.volume}\`)
+      }
+
+      return this.volume
+  }
+
+  /* Class method overload */
+  checkPackageSize(transport: number): string
+  checkPackageSize(transport: number[]): string
+
+  checkPackageSize(transport: number | number[]): string {
+      if (typeof transport === 'number') {
+          return transport >= this.width
+              ? 'ok'
+              : 'not ok'
+      } else {
+          return transport.some(item => item >= this.width)
+              ? 'ok'
+              : 'not ok'
+      }
+  }
+
+  /* Accessors */
+  get content() {
+      return this._content
+  }
+
+  set content(value) {
+      this._content = \`Date: \${new Date().toTimeString()}, Content: \${value}\`
+  }
+
+  /* We cannot use accessors for asynchronous operations. So we should just create a new async method */
+  async getDateForContent(value: string) {
+      const date = await new Date()
+      this._content = \`Date: \${date}, Content: \${value}\`
+  }
+}
+
+const package1 = new Package(250);
+// package1.volume = 50000 // Correct! 
+
+console.log(
+  package1.calculateVolume() // Package volume: 125000
+); // 125000
+
+console.log(
+  package1.checkPackageSize(240)
+); // not ok
+
+console.log(
+  package1.checkPackageSize(270)
+); // ok
+
+console.log(
+  package1.checkPackageSize([200, 500])
+); // ok
+
+/* If we don't have a setter in our class, then the corresponding property will become read-only */
+console.log(package1.content = 'bicycle'); // bicycle
+
+console.log(package1.content); // Date: 13:31:26 GMT+0300 (Eastern Europe, summer time), Content: bicycle
+
+console.log(package1._content) // Date: 13:31:26 GMT+0300 (Eastern Europe, summer time), Content: bicycle`},
 ]
 
 export default content
