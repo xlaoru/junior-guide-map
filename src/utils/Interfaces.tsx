@@ -38,6 +38,11 @@ export interface IMainProps {
     content: IContentItem[];
 }
 
+export interface IListProps {
+    value: string;
+    content: IContentItem[];
+}
+
 export interface ISearcherProps {
     value: string
     setSearchParams: (prop: any) => void
@@ -50,6 +55,7 @@ export interface IFilterProps {
 }
 
 export interface IContentItemProps {
+    value: string;
     data: string | string[];
     title: string;
     body: string;

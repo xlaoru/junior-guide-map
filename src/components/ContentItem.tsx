@@ -12,7 +12,7 @@ import {Light as SyntaxHighlighter} from 'react-syntax-highlighter'
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
 import { monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-function ContentItem ({data, title, body, link, type}: IContentItemProps) {
+function ContentItem ({value, data, title, body, link, type}: IContentItemProps) {
     SyntaxHighlighter.registerLanguage('javascript', js)
 
     const [show, setShow] = useState(false)
@@ -57,6 +57,36 @@ function ContentItem ({data, title, body, link, type}: IContentItemProps) {
         )
     }
 
+    const renderTitle = () => {
+        return (
+            <span>
+                {title.split('').map((item, index) => (
+                    <span
+                        style={value.toLowerCase().includes(item.toLowerCase()) ? { backgroundColor: 'rgba(255,255,0,0.5)' } : {}}
+                        key={index}
+                    >
+                        {item}
+                    </span>
+                ))}
+            </span>
+        );
+    }
+
+    const renderBody = () => {
+        return (
+            <span>
+                {body.split('').map((item, index) => (
+                    <span
+                        style={value.toLowerCase().includes(item.toLowerCase()) ? { backgroundColor: 'rgba(255,255,0,0.5)' } : {}}
+                        key={index}
+                    >
+                        {item}
+                    </span>
+                ))}
+            </span>
+        );
+    }
+
     return (
         <div className='ContentItem'>
             <Card style={{'borderRadius': '10px'}} className="card-item">
@@ -84,9 +114,9 @@ function ContentItem ({data, title, body, link, type}: IContentItemProps) {
                 </div>
                 {renderContent(data)}
                 <Card.Body className="card-body">
-                    <Card.Title className='card-title'>{title}</Card.Title>
+                    <Card.Title className='card-title'>{renderTitle()}</Card.Title>
                     <Card.Text className='card-text'>
-                        {body}
+                        {renderBody()}
                     </Card.Text>
                     <Button variant="primary" id='doc-button' className='card-button'><a href={link} target='_blank' className='doc-link'>{getText(translation.contentItem.documentation)}</a></Button>
                 </Card.Body>

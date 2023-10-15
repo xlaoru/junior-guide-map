@@ -792,3 +792,7 @@ Some addictions
 ### `v29.0.19`
 
 Some addictions
+
+### `v30.0`
+
+Now you can see the selection of the text that you entered into the search + the search is carried out not only by title, but also by body

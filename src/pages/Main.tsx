@@ -44,7 +44,10 @@ function Main({content}: IMainProps) {
     const searchedContent = () => {
         return content.filter(
             content => {
-                return content.title.en.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase()) || content.title.ua.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase())
+                return content.title.en.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase()) 
+                    || content.title.ua.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase())
+                    || content.body.en.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase())
+                    || content.body.ua.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase())
             }
         )
     }
@@ -68,7 +71,7 @@ function Main({content}: IMainProps) {
             {
                 !debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]
                     ? <div style={{'display': 'flex', 'justifyContent': 'center', 'margin': '50px 0'}}><Spinner /></div> 
-                    : <List content={filteredContent()}/>
+                    : <List value={debouncedValue[Debounce.DATA] ?? ""} content={filteredContent()}/>
             }
         </div>
     );
