@@ -5949,6 +5949,100 @@ console.log(package1.content = 'bicycle'); // bicycle
 console.log(package1.content); // Date: 13:31:26 GMT+0300 (Eastern Europe, summer time), Content: bicycle
 
 console.log(package1._content) // Date: 13:31:26 GMT+0300 (Eastern Europe, summer time), Content: bicycle`},
+{title: {en: `Immediately Invoked Function Expression (IIFE)`, ua: `Вираз функції, що негайно викликається (IIFE)`}, body: {en: `IIFE is a function that fires without being called. That is, immediately.`, ua: `IIFE - це функція, що спрацьовує без виклику. Тобто одразу.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#using_an_immediately_invoked_function_expression_iife`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#using_an_immediately_invoked_function_expression_iife`}, type: 'function', data: [
+`/* Case 1 */
+(function() {
+    console.log("Logged!")
+})()
+
+// Logged!`,
+`/* Case 2 */
+!function() {
+    console.log("Logged!")
+}()
+
+// Logged!`
+]},
+{title: {en: `void operator`, ua: `Оператор void`}, body: {en: `The void operator is an operator that helps replace the value or result in a variable or function with the value undefined.`, ua: `Оператор void - це оператор, що допомагає замінити значення або результат у змінній чи у функції на значення undefined.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/void`}, type: 'operator', data: [
+`/* Case 1. "void" operator in variables. */
+const error = void 400
+console.log(
+    error
+) // undefined`,
+`/* Case 2. "void" operator in function calls. */
+
+function Demo() {
+    return [1, 1, 2, 3, 5]
+}
+
+console.log(
+    Demo()
+) // [ 1, 1, 2, 3, 5 ]
+
+console.log(
+    void Demo()
+) // undefined`,
+`/* Case 3. "void" operator in IIFE function declaration. */
+void function () {
+    console.log("Logged!")
+}()
+
+// Logged!`,
+`/* Case 4. "void" operator in expression. */
+console.log(
+    void 404 === "404"
+) // false
+
+console.log(
+    void (404 === "404")
+) // undefined`,
+]},
+{title: {en: `Call limit function`, ua: `Функція з лімітом викликів`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`function limitedCall(fn: Function, limit: number) {
+  let count = 0
+
+  return function<T>(...args: T[]) {
+      if (count < limit) {
+          count++
+          return fn(...args)
+      }
+  }
+}
+
+let greetingLog = limitedCall(function<T>(name: T) {
+  console.log(\`Hello, \${name}!\`)
+}, 3)
+
+greetingLog('Alex') // Hello, Alex!
+greetingLog('Tom') // Hello, Tom!
+greetingLog('John') // Hello, John!
+greetingLog('Harry')`},
+{title: {en: `An interesting way to adhere to the DRY principle is with the keyof operator`, ua: `Цікавий спосіб притримуватися принципу DRY за допомогою оператора keyof`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`interface IFormValues {
+  name: string;
+  email: string;
+  password: string;
+}
+
+const inputs: Record <
+  keyof IFormValues, {
+      initialValue: string;
+      label: string
+  }
+> = {
+  name: {
+      initialValue: "",
+      label: "Name"
+  },
+  email: {
+      initialValue: "example@mail.com",
+      label: "Email"
+  },
+  password: {
+      initialValue: "",
+      label: "Password"
+  }
+}`},
 ]
 
 export default content
