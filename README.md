@@ -800,3 +800,7 @@ Now you can see the selection of the text that you entered into the search + the
 ### `v30.0.1`
 
 Some addictions
+
+### `v30.0.2`
+
+Some addictions

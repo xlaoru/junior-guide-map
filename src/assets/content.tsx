@@ -2160,26 +2160,60 @@ function createAnimation(
 }
 
 createAnimation('id', 'fade', 'ease-in', 5, 'infinite') // fade ease-in 5 infinite`}, 
-{title: {en: 'Type Aliases in TypeScript', ua: "Тип Aliases у TypeScript"}, body: {en: 'Type "Aliases" create a new name for a type. Type "Aliases" are sometimes similar to "Interfaces", but can name primitives, "Unions", "Tuples", and any other types that you’d otherwise have to write by hand.', ua: "Тип ''Aliases'' створює нову назву для типу. Тип ''Aliases'' іноді схожий на ''Interfaces'', але може іменувати примітиви, ''Unions'', ''Tuples'' та будь-які інші типи, які інакше вам довелося б писати вручну."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data: 
-`type AnimationTimingFunc = 'ease' | 'ease-out' | 'ease-in'
-type AnimationID = string | number
-type AnimationIterCount = 'infinite' | number
+{title: {en: 'Type Aliases in TypeScript', ua: "Тип Aliases у TypeScript"}, body: {en: 'Type "Aliases" create a new name for a type. Type "Aliases" are sometimes similar to "Interfaces", but can name primitives, "Unions", "Tuples", and any other types that you’d otherwise have to write by hand.', ua: "Тип ''Aliases'' створює нову назву для типу. Тип ''Aliases'' іноді схожий на ''Interfaces'', але може іменувати примітиви, ''Unions'', ''Tuples'' та будь-які інші типи, які інакше вам довелося б писати вручну."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data:  [
+`/* Case 1. Primitive Type Aliases. */
+type PORT = number
 
-function createAnimation(
-    id: AnimationID, 
-    animationName: string, 
-    timingFunc: AnimationTimingFunc = 'ease',
-    duration: number,
-    iterCount: AnimationIterCount
-): void {
-    const elem = document.querySelector('#' + id) as HTMLElement
-    if (elem) {
-        console.log(animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount)
-        elem.style.animation = animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount
-    }
+type LogMessage = string
+
+type ErrorMessage = Error
+
+type Methods = 'GET' | 'POST'
+
+type NotFoundError = 404 | "Not Found" | string`,
+`/* Case 2. Type Aliases for objects. */
+type Car = {
+    id: number,
+    name: string,
+    spareParts: string[]
 }
 
-createAnimation('id', 'fade', 'ease-in', 5, 'infinite') // fade ease-in 5 infinite`},
+type Region = {
+    country: string
+}
+
+// Type intersection
+type CarWithRegion = Car & Region
+
+const Audi: Car = {
+    id: 1,
+    name: 'A6',
+    spareParts: ['steering wheel', 'motor', 'carburetor']
+}
+
+const AudiToUkraine: CarWithRegion = {
+    id: 2,
+    name: 'A100',
+    spareParts: ['suspension', 'brake system', 'engine'],
+    country: 'Ukraine'
+}`,
+`/* Case 3. Type Aliases for functions. */
+type StartExprort = (permission: boolean, region: string, exportId: number) => string
+
+// Function annotation
+const exprortControl: StartExprort = (permission: boolean, region: string, exportId: number): string => {
+    if (permission) return 'Car will go to ' + region + ' region with export id: ' + exportId + '.'
+    else return "Car have not permission for export."
+}
+
+console.log(
+    exprortControl(true, 'Canada', 3)
+) // Car will go to Canada region with export id: 3.
+
+console.log(
+    exprortControl(false, 'USA', 4)
+) // Car have not permission for export.`,
+]},
 {title: {en: 'Object Literals and Function Annotations in TypeScript', ua: "Об'єктні Literals (Літерали) та анотації функцій"}, body: {en: 'Usually, object "Literals" and function annotations are not used very much in future developments due to their inconvenience, unreadability and non-reusability, but the realization that this way of typing objects and function annotations is definitely worth it.', ua: "Зазвичай об'єктні Literals (Літерали) та анотації функцій не дуже використовуються при будених розробках через свою незручніть, нечитабельність та неперевикористовуванність, але усвідомлення про те, що такий спосіб типізації об'єктів та анотацій до функцій однозначно вартую того."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
 `const serverConfig: {
     protocol: 'http' | 'https';
@@ -2337,48 +2371,6 @@ export default function Demo() {
     </>
   );
 }`]},
-{title: {en: 'Advanced Type Aliases in TypeScript', ua: 'Продвинутий Type Aliases у TypeScript'}, body: {en: 'Advanced "Aliases" Type in TypeScript can contain not only basic types or "Union" Type, but also entire Objects or annotations for functions.', ua: `Продвинутий "Aliases" Type у TypeScript може в собі вмістити не тільки базові типи чи "Union" Type, а й цілі Об'єкти чи анотації для функцій.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data: 
-`type Car = {
-    id: number,
-    name: string,
-    spareParts: string[]
-}
-
-type Region = {
-    country: string
-}
-
-// Type intersection
-type CarWithRegion = Car & Region
-
-const Audi: Car = {
-    id: 1,
-    name: 'A6',
-    spareParts: ['steering wheel', 'motor', 'carburetor']
-}
-
-const AudiToUkraine: CarWithRegion = {
-    id: 2,
-    name: 'A100',
-    spareParts: ['suspension', 'brake system', 'engine'],
-    country: 'Ukraine'
-}
-
-type StartExprort = (permission: boolean, region: string, exportId: number) => string
-
-// Function annotation
-const exprortControl: StartExprort = (permission: boolean, region: string, exportId: number): string => {
-    if (permission) return 'Car will go to ' + region + ' region with export id: ' + exportId + '.'
-    else return "Car have not permission for export."
-}
-
-console.log(
-    exprortControl(true, 'Canada', 3)
-) // Car will go to Canada region with export id: 3.
-
-console.log(
-    exprortControl(false, 'USA', 4)
-) // Car have not permission for export.`},
 {title: {en: 'Interfaces in TypeScript', ua: 'Interfaces (Інтерфейси) у TypeScript'}, body: {en: 'One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.', ua: `Одним із основних принципів TypeScript є те, що перевірка типу зосереджена на формі, яку мають значення. Це іноді називають «качиним типом» або «структурним підтипом». У TypeScript інтерфейси виконують роль імен цих типів і є потужним способом визначення контрактів у вашому коді, а також контрактів із кодом за межами вашого проекту.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/interfaces.html', ua: 'https://www.typescriptlang.org/docs/handbook/interfaces.html'}, type: 'typescript', data: [
 `/* Case 1. Announcement of interfaces. */
 interface ISpaceship {
@@ -6043,6 +6035,55 @@ const inputs: Record <
       label: "Password"
   }
 }`},
+{title: {en: `Finding the sum of diagonals in a matrix`, ua: `Пошук суми діагоналей у матриці`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'task', data:
+`function diagonalSum(matrix: number[][]) {
+  let sum = 0;
+  const n = matrix.length;
+
+  for (let i = 0; i < n; i++) {
+      sum += matrix[i][i];
+      sum += matrix[i][n - i - 1];
+  }
+
+  if (n % 2 === 1) {
+      const middle = Math.floor(n / 2);
+      sum -= matrix[middle][middle];
+  }
+
+  return sum;
+}
+
+console.log(
+  diagonalSum(
+      [
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9],
+      ]
+  )
+) // 25`},
+{title: {en: `Move all zeros to the end of the array`, ua: `Переміщуємо всі нулі в кінець масиву`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'task', data:
+`function moveZeroes(nums: number[]) {
+  let index = 0
+
+  for (let i = 0; i < nums.length; i++) {
+      if (nums[i] !== 0) {
+          nums[index++] = nums[i]
+      }
+  }
+
+  while (index < nums.length) {
+      nums[index++] = 0
+  }
+
+  return nums
+}
+
+console.log(
+  moveZeroes(
+      [1, 0, 2, 3, 0]
+  )
+) // [ 1, 2, 3, 0, 0 ]`},
 ]
 
 export default content
