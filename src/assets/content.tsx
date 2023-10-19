@@ -2863,12 +2863,9 @@ const routes = {
     home: '/',
     admin: '/admin',
     users: '/users',
-    newUser: '/users/new'
 } as const
 
-type Route = (typeof routes)[keyof typeof routes]
-
-function goToRoute(route: Route) {}
+function goToRoute(route: '/' | '/admin' | 'users') {}
 
 goToRoute(routes.admin)`,
 `/* Case 3. Using "as VALUE" inside object. */

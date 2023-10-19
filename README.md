@@ -816,3 +816,7 @@ Test
 ### `v30.0.5`
 
 Some addictions
+
+### `v30.0.6`
+
+Some addictions
