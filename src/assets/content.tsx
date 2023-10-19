@@ -2849,60 +2849,76 @@ let movement: boolean | string = false // let movement: string | boolean
 if (isOkay) {
     movement = 'moving'
 }`},
-{title: {en: 'Type Assertions in TypeScript', ua: 'Type Assertions (Утвердження Типу) у Typescript'}, body: {en: 'Typically, Type Assertions are used to specify Union type annotations in a function argument when we accept an Object or Literal type assertion for a variable. As well as specification of the Element in the DOM tree, namely what properties it will have.', ua: `Зазвичай Type Assertions (Утвердження Типу) використовують для конкретизації анотацій Union типу в аргументі функції, коли ми приймаємо об'єкт чи затвердження типу Literal для змінної. А також конкретезації Елементу в DOM дереві, а саме які властивості воно матиме.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions'}, type: 'typescript', data: [
-`function fetchData(url: string, method: "GET" | "POST"): void {
+{title: {en: 'Type Assertions using "as" keyword in TypeScript', ua: 'Type Assertions (Утвердження Типу) використовуючи ключове слово "as" у Typescript'}, body: {en: 'Typically, Type Assertions are used to specify Union type annotations in a function argument when we accept an Object or Literal type assertion for a variable. As well as specification of the Element in the DOM tree, namely what properties it will have.', ua: `Зазвичай Type Assertions (Утвердження Типу) використовують для конкретизації анотацій Union типу в аргументі функції, коли ми приймаємо об'єкт чи затвердження типу Literal для змінної. А також конкретезації Елементу в DOM дереві, а саме які властивості воно матиме.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions'}, type: 'typescript', data: [
+`/* Case 1. Using operator "as" when we want typing "let" variable declaration with result of non-typing function. */
+let message = 'Hello World' as string
+
+let path = './src/App' as './src/App'
+
+let id: unknown = 25
+
+let userId = id as number`,
+`/* Case 2. Using "as const" to show, that you have Union type. */
+const routes = {
+    home: '/',
+    admin: '/admin',
+    users: '/users',
+    newUser: '/users/new'
+} as const
+
+type Route = (typeof routes)[keyof typeof routes]
+
+function goToRoute(route: Route) {}
+
+goToRoute(routes.admin)`,
+`/* Case 3. Using "as VALUE" inside object. */
+function fetchData(url: string, method: "GET" | "POST"): void {
     console.log({
         to: url,
-        mathod: method
+        method: method
     })
 }
 
-
 const requestOptions = {
     url: 'https://web-app.com',
+    method: "GET" as "GET"
+}
+
+fetchData(requestOptions.url, requestOptions.method) // { to: 'https://web-app.com', method: 'GET' }`,
+`/* Case 4. Using "as VALUE" inside function arguments. */
+const requestOptions = {
+    url: 'https://google.com',
     method: "GET"
 }
 
-// fetchData(requestOptions.url, requestOptions.method) // Error! Argument of type 'string' is not assignable to parameter of type '"GET" | "POST"'.
-`,
-`// Case 1. Using "as const" to show, that you have Union type
-const requestOptions1 = {
-    url: 'https://webapp.com', // url: "https://webapp.com"
-    method: "GET" // method: "GET"
-} as const
-
-fetchData(requestOptions1.url, requestOptions1.method) // {to: 'https://webapp.com', mathod: 'GET'}`,
-`// Case 2. Using "as VALUE" inside object
-
-const requestOptions2 = {
-    url: 'https://some.com', // url: string
-    method: "POST" as "POST" // method: "POST"
+fetchData(requestOptions.url, requestOptions.method as "GET") // { to: 'https://google.com', method: 'GET' }`,
+`/* Case 5. Using triangular brackets. */
+const requestOptions = {
+    url: 'https:///xlaoru.info',
+    method: "POST"
 }
 
-fetchData(requestOptions2.url, requestOptions2.method) // {to: 'https://some.com', mathod: 'POST'}`,
-`// Case 3. Using "as VALUE" inside function arguments
-const requestOptions3 = {
-    url: 'https://helloworld.io', // url: string
-    method: "GET" // method: string
+fetchData(requestOptions.url, <'POST'>requestOptions.method) // { to: 'https:///xlaoru.info', method: 'POST' }`,
+`/* Case 6. Using operator "as" when we want typing declaration of HTML Element. */
+const input = document.querySelector('input') as HTMLElement`,
+`/* Case 7. Using operator "as" when we want typing "let" variable declaration with result of non-typing function. */
+interface IStudent {
+    name: string;
+    grade: number;
 }
 
-fetchData(requestOptions3.url, requestOptions3.method as "GET") // {to: 'https://helloworld.io', mathod: 'GET'}`,
-`// Case 4. Using triangular brackets
-const requestOptions4 = {
-    url: 'https://xlaoruweb.info', // url: string
-    method: "POST" // method: string
+function registerStudent({name, grade}: IStudent) {
+    return {
+        name: name,
+        grade: grade
+    }
 }
 
-fetchData(requestOptions4.url, <"POST">requestOptions4.method) // to: 'https://xlaoruweb.info', mathod: 'POST'}
-
-let T0 = 'hello world' // T0: string
-let T1 = 'bye world' as const // T1: "bye world"
-
-const output = document.querySelector('.output') as HTMLElement // output: HTMLElement
-output.textContent = 'Hello World'
-
-const input = <HTMLInputElement>document.querySelector('input') // input: HTMLInputElement
-const someNumber: number = +input.value // someNumber: number`]},
+let student1 = registerStudent({
+    name: 'Alex',
+    grade: 8
+}) as IStudent`
+]},
 {title: {en: 'Function overloads in TypeScript', ua: 'Перегрузки функції (Functiono verloads) у Typescript'}, body: {en: 'Some JavaScript functions can be called in a variety of argument counts and types. For example, you might write a function to produce a Date that takes either a timestamp (one argument) or a month/day/year specification (three arguments). In TypeScript, we can specify a function that can be called in different ways by writing overload signatures. To do this, write some number of function signatures (usually two or more), followed by the body of the function.', ua: `Деякі функції JavaScript можна викликати з різною кількістю аргументів і різними типами. Наприклад, ви можете написати функцію для отримання дати, яка приймає позначку часу (один аргумент) або специфікацію місяця/дня/ріку (три аргументи). У TypeScript ми можемо вказати функцію, яку можна викликати різними способами, написавши підписи перевантаження. Для цього напишіть певну кількість сигнатур функції (зазвичай дві або більше), а потім тіло функції.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads'}, type: 'typescript', data: 
 `interface ISquare {
     side: number
@@ -4585,42 +4601,6 @@ const google: ICompany = {
         {name: 'Android', goods: 'IT soft'}
     ]
 }`},
-{title: {en: `"as" keyword in TypeScript`, ua: `Ключове слово "as" у TypeScript`}, body: {en: `The first time we use the "as" keyword is when we need to type a variable declared via "let". The second case where we use the "as" keyword is when we need to type a variable declared via "let" with the output value of a non-typed function. The third case where we use the "as" keyword is when we need to type a variable with an HTML element.`, ua: `Перший випадок, коли ми використовуємо ключове слово "as" - це коли нам треба затипізувати змінну задекларовану через "let". Другий випадок, коли ми використовуємо ключове слово "as" - це коли нам треба затипізувати змінну задекларовану через "let" із значенням вивода не типізованої функції. Третій випадок, коли ми використовуємо ключове слово "as" - це коли нам треба затипізувати змінну із HTML елементом.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`}, type: 'typescript', data: [
-`/* Case 1. Inserting operator "as" when we using "let" variable declaration. */
-let message = 'Hello World' as string
-
-let path = './src/App' as './src/App'
-
-let id: unknown = 25
-
-let userId = id as number`,
-`/* Case 2. Inserting operator "as" when we want typing "let" variable declaration with result of non-typing function. */
-interface IStudent {
-    name: string;
-    grade: number;
-}
-
-function registerStudent({name, grade}: IStudent) {
-    return {
-        name: name,
-        grade: grade
-    }
-}
-
-let student1 = registerStudent({
-    name: 'Alex',
-    grade: 8
-}) as IStudent`,
-`/* Case 3. Using the as keyword when we need to make an object immutable. */
-const request = {
-    url: 'https://web-app.com',
-    method: 'POST'
-} as const
-
-// request.method = 'GET' // Error! Cannot assign to 'method' because it is a read-only property.`,
-`/* Case 4. Inserting operator "as" when we want typing declaration of HTML Element. */
-const input = document.querySelector('input') as HTMLElement`,
-]},
 {title: {en: `Nullish coalescing operator (??)`, ua: `Оператор для перевірки на нульове значення`}, body: {en: `The Nullish coalescing (??) operator is an operator that checks values to see if they are false. If the values are zero (falsy), then the operator will output the previously specified alternative value.`, ua: `Оператор Nullish coalescing (??) - це оператор, що перевіряє значення на те, чи не нульові (falsy) вони є. Якщо значення нульові (falsy), то оператор виведе, попередньо зазначене, альтернативне значення.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`}, type: 'operator', data:
 `const nullValue = null;
 const emptyText = ""; // falsy
@@ -6084,6 +6064,13 @@ console.log(
       [1, 0, 2, 3, 0]
   )
 ) // [ 1, 2, 3, 0, 0 ]`},
+{title: {en: `The correct way to read files in Node.js`, ua: `Правильний шлях для читання файлів у Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data:
+`import fs from 'fs'
+
+const res = await fs
+    .promises
+    .readFile('./video.mp4')`
+},
 ]
 
 export default content

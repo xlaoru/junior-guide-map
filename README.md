@@ -812,3 +812,7 @@ Test
 ### `v30.0.4`
 
 Test
+
+### `v30.0.5`
+
+Some addictions
