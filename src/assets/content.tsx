@@ -5612,23 +5612,13 @@ const updatedTodo3 = updateTodo(initialTodo, {
 })`},
 {title: {en: `Utility Types for functions in TypeScript`, ua: `Utility Types для функцій у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/utility-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html`}, type: 'typescript', data: [
 `/* Case 1. ReturnType Generic Type is used to find the type that a function should return. */
-type DiscriminantReturnType = ReturnType<typeof discriminantFormula> // type DiscriminantReturnType = string
+function goToRoute(
+    domain: string, route: string
+): string {
+   return \`\${domain}/\${route}\` 
+}
 
-function discriminantFormula(a: number, b: number, c: number): string {
-    let D = Math.pow(b, 2) - 4 * a * c
-    let x1
-    let x2
-    
-    if (D < 0) {
-        return 'x1 = ∅; x2 = ∅'
-    } 
-    
-    else {
-        x1 = (-b + Math.sqrt(D)) / (2 * a)
-        x2 = (-b - Math.sqrt(D)) / (2 * a)
-        return "x1 = " + x1 + "; x2 = " + x2
-    }
-}`,
+type GoToRouteReturnType = ReturnType<typeof goToRoute> // type GoToRouteReturnType = string`,
 `/* Case 2. Parameters Generic Type is used to find the types of function arguments/parameters. Usually, this Generic Type returns a tuple, but if you explicitly specify that the type should be returned according to the index, then it will return the type according to the index. */
 type XMultipliers = Parameters<typeof discriminantFormula> // type XMultipliers = [a: number, b: number, c: number]
 type AMultiplier = Parameters<typeof discriminantFormula>[0] // type AMultiplier = number
