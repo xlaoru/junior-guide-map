@@ -824,3 +824,7 @@ Some addictions
 ### `v30.0.7`
 
 Some addictions
+
+### `v31.0`
+
+Now it is possible to sort not only by one type, but also by several

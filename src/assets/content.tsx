@@ -993,7 +993,7 @@ const list2 = 'banana, apple, orange'
 
 console.log(Array.isArray(list1))
 console.log(Array.isArray(list2))`},
-{title: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, body: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less.', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.'}, link: {en: '#', ua: '#'}, type: 'task', data:
+{title: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, body: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less.', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.'}, link: {en: '#', ua: '#'}, type: ['React', 'task'], data:
 `import React, { useState } from 'react'
 
 const HungerGamesApp = () => {
@@ -3263,7 +3263,7 @@ const activate = true
 const isAdmin = true
 const hasFailed = false
 const canActivate = true`},
-{title: {en: `A function that has a fully typed ability to extract nested keys from an object using generics and keyof`, ua: `Функція, що має повністю типізовану змогу на витягання вкладених ключів з об'єкту за допомогою generics і keyof`}, body: {en: `An example of a function that can retrieve the value of nested keys, while being fully protected from the point of view of Type Guard.`, ua: `Приклад функції, яка може отримувати значення вкладених ключів, будучи при цьому повністю захищеною з точки зору Type Guard.`}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+{title: {en: `A function that has a fully typed ability to extract nested keys from an object using generics and keyof`, ua: `Функція, що має повністю типізовану змогу на витягання вкладених ключів з об'єкту за допомогою generics і keyof`}, body: {en: `An example of a function that can retrieve the value of nested keys, while being fully protected from the point of view of Type Guard.`, ua: `Приклад функції, яка може отримувати значення вкладених ключів, будучи при цьому повністю захищеною з точки зору Type Guard.`}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data:
 `const menu = {
     analytics: {
         business: "For Business",
@@ -4067,7 +4067,7 @@ const ageData = 32
 const alex = new User<string, number>(nameData, ageData)
 
 const tom = new AdminUser("Tom", 24, ["pin messages", "ban users"], true)`},
-{title: {en: `Good Example of using generics, enum and interfaces for building your apps in TypeScript`, ua: `Гарний приклад використання generic, enum та interface для ваших застосунків у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data: [
+{title: {en: `Good Example of using generics, enum and interfaces for building your apps in TypeScript`, ua: `Гарний приклад використання generic, enum та interface для ваших застосунків у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data: [
 `Task:
 /* 
     A data array with shapes contains objects, each of which must have a name property.
@@ -4610,7 +4610,7 @@ const valC = someNumber ?? 0;
 console.log(valA); // "default for A"
 console.log(valB); // "" (as the empty string is not null or undefined)
 console.log(valC); // 42`},
-{title: {en: `Using enum for React Components narorwing`, ua: `Використання enum для звуження компонентів React`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data: [
+{title: {en: `Using enum for React Components narorwing`, ua: `Використання enum для звуження компонентів React`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data: [
 `import Demo from "./Demo";
 
 export default function App() {
@@ -5399,7 +5399,7 @@ console.log(
     [1, 1, 2, 3, 4, 4, 5]
   ) 
 ) // ["2", "3", "5"]`},
-{title: {en: `3 interesting tasks for typing objects using Utility Types and Mapped Types`, ua: `3 цікавих задачки для типізації об'єктів за допомогою Utility Types та Mapped Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data: [
+{title: {en: `3 interesting tasks for typing objects using Utility Types and Mapped Types`, ua: `3 цікавих задачки для типізації об'єктів за допомогою Utility Types та Mapped Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data: [
 `// We need to type this large object
 // The futureClasses property should depend on classes by type
 // The exClients and futureClients properties must also depend on currClients

@@ -1,3 +1,5 @@
+type Types = 'all' | 'markup' | 'method' | 'operator' | 'function' | 'cycle' | 'request' | 'task' | 'OOP' | 'React' | 'Node.js' | 'typescript'
+
 export interface IContentItem {
     title: {
         en: string,
@@ -11,7 +13,7 @@ export interface IContentItem {
         en: string,
         ua: string
     };
-    type: 'all' | 'markup' | 'method' | 'operator' | 'function' | 'cycle' | 'request' | 'task' | 'OOP' | 'React' | 'Node.js' | 'typescript';
+    type: Types | Types[]
     data: string | string[]
 }
 

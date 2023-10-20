@@ -16,7 +16,7 @@ const List = memo(({value, content}: IListProps) => {
                     ? <h2 className='error-caption'>{getText(translation.list.error)}</h2> 
                     : content.map((item: IContentItem, index: number) => <Col key={index} className='mt-2 mb-2'><ContentItem value={value} data={item.data} title={localStorage.getItem("language") === "en" 
                         ? item.title.en : item.title.ua} body={localStorage.getItem("language") === "en" ? item.body.en : item.body.ua} link={localStorage.getItem("language") === "en" ? item.link.en 
-                        : item.link.ua} type={item.type}/></Col>)
+                        : item.link.ua} type={Array.isArray(item.type) ? item.type.join(', ') : item.type}/></Col>)
                 }
             </Row>
         </Container>

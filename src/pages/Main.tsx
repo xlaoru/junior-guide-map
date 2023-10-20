@@ -53,13 +53,15 @@ function Main({content}: IMainProps) {
     }
 
     const filteredContent = () => {
-        if (debouncedType[Debounce.DATA] === "all") return searchedContent()
-        return searchedContent().filter( 
-            searchedContent => { 
-                if (debouncedType[Debounce.DATA] === searchedContent.type) return true
-                return false
+        if (debouncedType[Debounce.DATA].includes("all")) return searchedContent();
+    
+        return searchedContent().filter(contentItem => {
+            if (Array.isArray(contentItem.type)) {
+                return contentItem.type.some(type => debouncedType[Debounce.DATA].includes(type))
+            } else {
+                return debouncedType[Debounce.DATA].includes(contentItem.type);
             }
-        )
+        })
     }
 
     return (
