@@ -2865,9 +2865,9 @@ const routes = {
     users: '/users',
 } as const
 
-function goToRoute(route: '/' | '/admin' | 'users') {}
+function goToRoute(domain: string, route: '/' | '/admin' | '/users') {}
 
-goToRoute(routes.admin)`,
+goToRoute('junior-guide-map.com', routes.admin)`,
 `/* Case 3. Using "as VALUE" inside object. */
 function fetchData(url: string, method: "GET" | "POST"): void {
     console.log({
