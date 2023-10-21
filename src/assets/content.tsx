@@ -4023,7 +4023,7 @@ console.log(user)
     }
 }
 */`},
-{title: {en: `Generics for classes in TypeScript`, ua: `Generics (Узагальнення) для класів у TypeScript`}, body: {en: `TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods. In the above example, we created a generic class named User with a type variable in the angle brackets <T, S> .`, ua: `TypeScript підтримує generic (загальні) класи. Параметр загального типу вказується в кутових дужках після імені класу. Загальний клас може мати загальні поля (змінні-члени) або методи. У наведеному вище прикладі ми створили загальний клас під назвою User зі змінною типу в кутових дужках <T, S>.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
+{title: {en: `Generics for classes in TypeScript`, ua: `Generics (Узагальнення) для класів у TypeScript`}, body: {en: `TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods. In the above example, we created a generic class named User with a type variable in the angle brackets <T, S> .`, ua: `TypeScript підтримує generic (загальні) класи. Параметр загального типу вказується в кутових дужках після імені класу. Загальний клас може мати загальні поля (змінні-члени) або методи. У наведеному вище прикладі ми створили загальний клас під назвою User зі змінною типу в кутових дужках <T, S>.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: ['typescript', 'OOP'], data:
 `class User<T, S>/* global type T */{
 	name: T;
 	age: S
@@ -5779,7 +5779,7 @@ function detectError(error: errorList): string {
 console.log(
     detectError(400)
 ) // Bad Request`},
-{title: {en: `Working with base classes in TypeScript`, ua: `Робота з базовими класами у TypeScript`}, body: {en: `We declare class properties outside the constructor.`, ua: `Декларуємо властивості класа поза конструктора.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html`}, type: 'typescript', data: [
+{title: {en: `Working with base classes in TypeScript`, ua: `Робота з базовими класами у TypeScript`}, body: {en: `We declare class properties outside the constructor.`, ua: `Декларуємо властивості класа поза конструктора.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html`}, type: ['typescript', 'OOP'], data: [
 `/* Case 1. Working with tsconfig.json and his properties. We create properties without declaring a constructor using the non-null (!) operator or changing the strictPropertyInitialization parameter. */
 class Box {
     // width!: number; // Correct!
@@ -5804,7 +5804,7 @@ ilya.name = 'Ilya'
 
 console.log(ilya) // User { name: 'Ilya' }`
 ]},
-{title: {en: `Generics, Constructor Overloading for classes in TypeScript`, ua: `Дженерики, Перенавантаження Конструкторів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: 'typescript', data:
+{title: {en: `Generics, Constructor Overloading for classes in TypeScript`, ua: `Дженерики, Перенавантаження Конструкторів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: ['typescript', 'OOP'], data:
 `class Figure<TName extends string | symbol> {
   width: number
   height: number
@@ -5826,7 +5826,7 @@ console.log(ilya) // User { name: 'Ilya' }`
 
 const rectangle = new Figure<string>(500, 100, 'rect')
 console.log(rectangle) // Figure { width: 500, height: 100, name: 'rect' }`},
-{title: {en: `Methods, Accessors (getter, setter), Method Overloading for classes in TypeScript`, ua: `Methods, Accessors (getter, setter), Перегрузка Методів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: 'typescript', data:
+{title: {en: `Methods, Accessors (getter, setter), Method Overloading for classes in TypeScript`, ua: `Methods, Accessors (getter, setter), Перегрузка Методів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: ['typescript', 'OOP'], data:
 `class Package {
   width: number;
   height: number;
@@ -5905,9 +5905,9 @@ console.log(
 /* If we don't have a setter in our class, then the corresponding property will become read-only */
 console.log(package1.content = 'bicycle'); // bicycle
 
-console.log(package1.content); // Date: 13:31:26 GMT+0300 (Eastern Europe, summer time), Content: bicycle
+console.log(package1.content); // Date: 13:31:26 GMT+0300 (Western European Standart Time), Content: bicycle
 
-console.log(package1._content) // Date: 13:31:26 GMT+0300 (Eastern Europe, summer time), Content: bicycle`},
+console.log(package1._content) // Date: 13:31:26 GMT+0300 (Western European Standart Time), Content: bicycle`},
 {title: {en: `Immediately Invoked Function Expression (IIFE)`, ua: `Вираз функції, що негайно викликається (IIFE)`}, body: {en: `IIFE is a function that fires without being called. That is, immediately.`, ua: `IIFE - це функція, що спрацьовує без виклику. Тобто одразу.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#using_an_immediately_invoked_function_expression_iife`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#using_an_immediately_invoked_function_expression_iife`}, type: 'function', data: [
 `/* Case 1 */
 (function() {
@@ -6058,6 +6058,100 @@ const res = await fs
     .promises
     .readFile('./video.mp4')`
 },
+{title: {en: `Initial value and Index Signature for classes in TypeScript`, ua: `Початкове значення та Index Signature для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#index-signatures`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#index-signatures`}, type: ['typescript', 'OOP'], data: [
+`/* Initial Value */
+class Rect {
+    width: number
+    height: number | undefined = 500
+
+    constructor(width: number) {
+        this.width = width
+    }
+}
+
+const rect = new Rect(700)
+console.log(rect) // Rect { width: 700, height: 500 }`,
+`/* Index Signature */
+class Styles {
+    [style: string]: string
+}
+
+const style = new Styles()
+style.color = 'red'
+// style.fontWeight = 500 // Error! Type 'number' is not assignable to type 'string'.`,
+`/* Index Signature with method (bad practise) */
+class Routes {
+    [route: string]: string | ((route: string) => string)
+
+    goToRoute(route: string): string {
+        return \`https://shop.com/\${route}\`
+    }
+}
+
+const shopRoute = new Routes()
+
+shopRoute.users = 'users'
+
+const adminRoute = shopRoute.adminRoute = 'admin'
+
+console.log(
+    shopRoute.goToRoute(adminRoute)
+) // https://shop.com/admin`,
+]},
+{title: {en: `Class extendings in TypeScript`, ua: `Розширення класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#extends-clauses`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#extends-clauses`}, type: ['typescript', 'OOP'], data:
+`class Box {
+  width: number;
+  height: number = 500;
+  _content: string | undefined
+
+  constructor(width: number, content?: string) {
+      this.width = width;
+      this._content = content
+  };
+
+  async content(value: string) {
+      const date = await new Date().toTimeString()
+      this._content = \`Date: \${date}, Content: \${value}\`
+
+      console.log(this._content );
+  }
+}
+
+const box = new Box(250)
+console.log(box) // Box { width: 250, height: 500, _content: undefined }
+
+class PresentBox extends Box {
+  wrap: string;
+  height: number = 400;
+
+  constructor(wrap: string, width: number) {
+      super(width)
+      this.wrap = wrap
+  }
+
+  /* override - is a modifier, that helps you notice 
+  whether a method is inherited from the parent class 
+  or not, and if there is no such method in the parent 
+  class, it will throw an error. */
+
+  override async content(value: string, text?: string) {
+      const date = await new Date().toTimeString()
+
+      if (!text) {
+          super.content(value)
+      } else {
+          this._content = \`Date: \${date}, Content: \${value}, Text: \${text}\`
+      }
+
+      console.log(this._content);
+  }
+}
+
+const gift = new PresentBox('Green Gift Wrap', 500)
+
+console.log(gift) // PresentBox { width: 500, height: 400, _content: undefined, wrap: 'Green Gift Wrap' }
+
+gift.content('Car', 'Gift') // Date: 12:46:49 GMT+0300 (Western European Standart Time), Content: Car, Text: Gift`},
 ]
 
 export default content
