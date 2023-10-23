@@ -32,6 +32,7 @@ import fs_2 from "./images/folder-struct_2.jpg"
 import fs_3 from "./images/folder-struct_3.jpg"
 import fs_4 from "./images/folder-struct_4.jpg"
 import apiArchitectural from './images/api-architectural.jpg'
+import restApiRequests from './images/rest-api_request.jpg'
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -6152,6 +6153,56 @@ const gift = new PresentBox('Green Gift Wrap', 500)
 console.log(gift) // PresentBox { width: 500, height: 400, _content: undefined, wrap: 'Green Gift Wrap' }
 
 gift.content('Car', 'Gift') // Date: 12:46:49 GMT+0300 (Western European Standart Time), Content: Car, Text: Gift`},
+{title: {en: `Rest API Requests`, ua: `Запити Rest API`}, body: {en: `REST API is a set of rules for system interaction over HTTP using various HTTP methods, such as GET (data retrieval), POST (resource creation), PUT (resource update), PATCH (partial update), and DELETE (resource deletion).`, ua: `REST API - це набір правил для взаємодії систем через HTTP з використанням різних HTTP-методів, таких як GET (отримання даних), POST (створення ресурсу), PUT (оновлення ресурсу), PATCH (часткове оновлення) та DELETE (видалення ресурсу).`}, link: {en: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`, ua: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`}, type: 'all', data: [
+restApiRequests,
+`/* GET Request */
+async function getData() {
+    try {
+        const request = await fetch("http://localhost:3002?action=get_data")
+        if (request.ok) {
+            const response = await request.text()
+            console.log('response:', response)
+        } else {
+            console.error('Request Error:', request.status)
+        }
+    } catch (error) {
+        console.error('Error:', error)
+        
+    }
+}
+
+getData()`,
+`/* POST Request */
+const user = {
+    firstname: 'Harry',
+    lastname: 'Doe',
+    email: 'harry@gmail.com',
+    reg_date: 'NOW()'
+}
+
+async function postData() {
+    try {
+        const request = await fetch("http://localhost:3002", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ data: user })
+        });
+
+        if (request.ok) {
+            const response = await request.text()
+            console.log('response:', response)
+        } else {
+            console.error('Request Error:', request.status)
+        }
+    } catch (error) {
+        console.error('Error:', error)
+    }
+}
+
+postData()`,
+]},
 ]
 
 export default content
