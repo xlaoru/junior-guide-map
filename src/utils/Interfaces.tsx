@@ -1,4 +1,4 @@
-type Types = 'all' | 'markup' | 'method' | 'operator' | 'function' | 'cycle' | 'request' | 'task' | 'OOP' | 'React' | 'Node.js' | 'typescript'
+type Types = 'all' | 'markup' | 'method' | 'operator' | 'function' | 'cycle' | 'request' | 'task' | 'OOP' | 'React' | 'Node.js' | 'typescript' | 'MySQL'
 
 export interface IContentItem {
     title: {

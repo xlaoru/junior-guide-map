@@ -2868,7 +2868,11 @@ const routes = {
 
 function goToRoute(domain: string, route: '/' | '/admin' | '/users') {}
 
-goToRoute('junior-guide-map.com', routes.admin)`,
+goToRoute('junior-guide-map.com', routes.admin)
+
+const routeList = [
+    '/main', '/aboutus', '/payment'
+] as const`,
 `/* Case 3. Using "as VALUE" inside object. */
 function fetchData(url: string, method: "GET" | "POST"): void {
     console.log({
@@ -6153,56 +6157,290 @@ const gift = new PresentBox('Green Gift Wrap', 500)
 console.log(gift) // PresentBox { width: 500, height: 400, _content: undefined, wrap: 'Green Gift Wrap' }
 
 gift.content('Car', 'Gift') // Date: 12:46:49 GMT+0300 (Western European Standart Time), Content: Car, Text: Gift`},
-{title: {en: `Rest API Requests`, ua: `Запити Rest API`}, body: {en: `REST API is a set of rules for system interaction over HTTP using various HTTP methods, such as GET (data retrieval), POST (resource creation), PUT (resource update), PATCH (partial update), and DELETE (resource deletion).`, ua: `REST API - це набір правил для взаємодії систем через HTTP з використанням різних HTTP-методів, таких як GET (отримання даних), POST (створення ресурсу), PUT (оновлення ресурсу), PATCH (часткове оновлення) та DELETE (видалення ресурсу).`}, link: {en: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`, ua: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`}, type: 'all', data: [
+{title: {en: `Rest API Requests`, ua: `Запити Rest API`}, body: {en: `REST API is a set of rules for system interaction over HTTP using various HTTP methods, such as GET (data retrieval), POST (resource creation), PUT (resource update), PATCH (partial update), and DELETE (resource deletion).`, ua: `REST API - це набір правил для взаємодії систем через HTTP з використанням різних HTTP-методів, таких як GET (отримання даних), POST (створення ресурсу), PUT (оновлення ресурсу), PATCH (часткове оновлення) та DELETE (видалення ресурсу).`}, link: {en: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`, ua: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`}, type: ['request', 'function'], data: [
 restApiRequests,
 `/* GET Request */
-async function getData() {
+async function getData(id) {
     try {
-        const request = await fetch("http://localhost:3002?action=get_data")
+        const request = await fetch(\`http://example.com/api/users/\${id}\`);
         if (request.ok) {
-            const response = await request.text()
-            console.log('response:', response)
+            const response = await request.text();
+            console.log('response:', response);
         } else {
-            console.error('Request Error:', request.status)
+            console.error('Request Error:', request.status);
         }
     } catch (error) {
-        console.error('Error:', error)
-        
+        console.error('Error:', error);
     }
 }
 
-getData()`,
+getData(1);`,
 `/* POST Request */
-const user = {
-    firstname: 'Harry',
-    lastname: 'Doe',
-    email: 'harry@gmail.com',
-    reg_date: 'NOW()'
-}
-
-async function postData() {
+async function postData(data) {
     try {
-        const request = await fetch("http://localhost:3002", {
+        const request = await fetch(\`http://example.com/api/users\`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ data: user })
+            body: JSON.stringify(data)
         });
 
         if (request.ok) {
-            const response = await request.text()
-            console.log('response:', response)
+            const response = await request.text();
+            console.log('response:', response);
         } else {
-            console.error('Request Error:', request.status)
+            console.error('Request Error:', request.status);
         }
     } catch (error) {
-        console.error('Error:', error)
+        console.error('Error:', error);
     }
 }
 
-postData()`,
+postData({ key: 'value' });`,
+`/* PUT Request */
+async function putData(id, data) {
+    try {
+        const request = await fetch(\`http://example.com/api/users/\${id}\`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data)
+        });
+        
+        if (request.ok) {
+            const response = await request.text();
+            console.log('response:', response);
+        } else {
+            console.error('Request Error:', request.status);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+putData(3, { key: 'value' });`,
+`/* PATCH Request */
+async function patchRequest(id, data) {
+    try {
+        const request = await fetch(\`http://example.com/api/users/\${id}\`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data)
+        });
+        
+        if (request.ok) {
+            const response = await request.text();
+            console.log('response:', response);
+        } else {
+            console.error('Request Error:', request.status);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+patchRequest(5, { key: 'value' });`,
+`/* DELETE Request */
+async function deleteRequest(id) {
+    try {
+        const request = await fetch(\`http://example.com/api/users/\${id}\`, {
+            method: 'DELETE',
+            /* Correct! 
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data) 
+            */
+        });
+        
+        if (request.ok) {
+            const response = await request.text();
+            console.log('response:', response);
+        } else {
+            console.error('Request Error:', request.status);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+deleteRequest(4);`,
 ]},
+{title: {en: `Processing REST Api requests on Node.js`, ua: `Обробка REST Api запитів на Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['Node.js', 'request'], data:
+`const http = require('http')
+const url = require('url')
+const { parse } = require('querystring')
+
+// Creating a server
+http.createServer((request, response) => {
+    let urlRequest = url.parse(request.url, true)
+    
+    // Processing requests
+    if (request.method === 'GET') {
+        if (urlRequest.query.action === "get") {
+            response.end(JSON.stringify(['Alex', 'Tom', 'Anna'])) // Response from the server
+        }
+    }
+
+    if (request.method === "POST") {
+        let body = '' // Body of POST Request
+    
+        request.on('data', (chunk) => {
+            body += chunk.toString()
+        }) // Processing the body of a POST request
+
+        request.on('end', () => {
+            let params = parse(body)
+            if (params.action === 'post') {
+                response.end('Users posted!')
+            }
+        })
+    }
+
+    if (request.method === "PUT") {
+        let body = '' // Body of PUT Request
+    
+        request.on('data', (chunk) => {
+            body += chunk.toString()
+        }) // Processing the body of a PUT request
+
+        request.on('end', () => {
+            let params = parse(body)
+            if (params.action === 'put') {
+                response.end(\`User \${params.id} updated!\`)
+            }
+        })
+    }
+
+    if (request.method === "PATCH") {
+        let body = '' // Body of PATCH Request
+    
+        request.on('data', (chunk) => {
+            body += chunk.toString()
+        }) // Processing the body of a PATCH request
+
+        request.on('end', () => {
+            let params = parse(body)
+            if (params.action === 'patch') {
+                response.end(\`User \${params.id} partially updated!\`)
+            }
+        })
+    }
+
+    if (request.method === "DELETE") {
+        let body = '' // Body of DELETE Request
+    
+        request.on('data', (chunk) => {
+            body += chunk.toString()
+        }) // Processing the body of a DELETE request
+
+        request.on('end', () => {
+            let params = parse(body)
+            if (params.action === 'delete') {
+                response.end(\`User \${params.id} deleted!\`)
+            }
+        })
+    }
+}).listen(3002) // Server PORT`},
+{title: {en: `Replacing the nodemon library for a pure Node.js application`, ua: `Заміна бібліотеки nodemon для чистого Node.js додатку`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'Node.js', data:
+`{
+  "name": "fake_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --watch app.js" // watch mode
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mysql": "^2.18.1"
+  }
+}`},
+{title: {en: `Find contexts`, ua: `Знайдіть контексти`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['function', 'task'], data:
+`function x() {
+  return {
+      a: {
+          b: function() {
+              console.log(1, this)
+          }
+      },
+      b: {
+          c: () => {
+              console.log(2, this)
+          }
+      }
+  }
+}
+
+function b() {
+  console.log(3, this)
+}
+
+x().a.b() // 1 {b: f}
+x().b.c() // 2 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+b() // 3 Window {window: Window, self: Window, document: document, name: '', location: Location, …}`},
+{title: {en: `Variables in CSS`, ua: `Змінні у CSS`}, body: {en: ``, ua: ``}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties`, ua: `https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties`}, type: 'markup', data:
+`:root {
+  --main-black-text: #1e1e1e;
+  --secondary-grey-bg: #bbbbbb; 
+}
+
+.out {
+  background-color: var(--secondary-grey-bg);
+  color: var(--main-black-text);
+}`},
+{title: {en: `Interaction between Node.js and MySQL`, ua: `Взаємодія між Node.js та MySQL`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['Node.js', 'MySQL'], data:
+`const http = require('http')
+const url = require('url')
+
+const mysql = require('mysql') // npm i mysql
+
+const conn = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'root',
+    database: 'your_db',
+    password: ''
+}) // initialization with database
+
+conn.connect((err) => {
+    if (err) {
+        console.log(err)
+        return err
+    } else {
+        console.log('Database ---- OK')
+    }
+}) // Connection to the database
+
+const query = 'SELECT * FROM DB' // MySQL query request
+
+http.createServer((request, response) => {
+    if (request.method === "GET") {
+        let urlRequest = url.parse(request.url, true)
+
+        if(urlRequest.query.action === 'get') {
+            let userArray = []
+
+            // Receiving data from the database
+            conn.query(query, (err, result) => {
+                if (err) {
+                    console.log(err)
+                    response.end(JSON.stringify({error: 'Bad Request!'}))
+                } else {
+                    for (let i = 0; i < result.length; i++) {
+                        userArray.push(result[i].firstname)
+                    }
+                    response.end(JSON.stringify(userArray))
+                }
+            })
+        }
+    }
+}).listen(3002)`},
 ]
 
 export default content
