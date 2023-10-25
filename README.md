@@ -844,3 +844,7 @@ Some addictions
 ### `v31.0.4`
 
 Some addictions
+
+### `v31.0.5`
+
+Some addictions

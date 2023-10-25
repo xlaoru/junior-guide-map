@@ -2140,27 +2140,35 @@ sellVehicle(car); // I have 4 wheels for sell.
 sellVehicle(ship); // I have Default sail for sell.
 sellVehicle(airplane); // I have 2 wings for sell.`
 ]},
-{title: {en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript"}, body: {en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html'}, type: 'typescript', data: 
-`let message: 'Hello' = 'Hello' 
-message = 'Hello' // correct
-// message = 'hello' // Error! Type '"hello"' is not assignable to type '"Hello"'.
+{title: {en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript"}, body: {en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html'}, type: 'typescript', data: [
+`/* Case 1. Literal Types for Type Aliases. */
+type Categories = 'React' | 'Angular' | 'Vue' | 'Node' | 'Nest'
+const ReactCourse: Categories = 'React'`,
+`/* Case 2. Literal Types for Interfaces. */
+interface IUser {
+    nickname: string;
+    role: 'Admin' | 'User'
+}
 
-function createAnimation(
-    id: string | number, 
-    animationName: string, 
-    timingFunc: 'ease' | 'ease-out' | 'ease-in' = 'ease',
-    duration: number,
-    iterCount: 'infinite' | number
-): void {
-    console.log(message)
-    const elem = document.querySelector('#' + id) as HTMLElement
-    if (elem) {
-        console.log(animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount)
-        elem.style.animation = animationName + ' ' + timingFunc + ' ' + duration + ' ' + iterCount
+const user: IUser = {
+    nickname: 'Xlaoru',
+    role: 'Admin'
+}`,
+`/* Case 3. Literal Types for functions. */
+function logCourse(course: Categories, receiver: 'registered' | 'not registered'): void {
+    if (receiver === 'registered') {
+        console.log(\`You chose a course with \${course}.\`)
     }
 }
 
-createAnimation('id', 'fade', 'ease-in', 5, 'infinite') // fade ease-in 5 infinite`}, 
+logCourse(
+    'Nest',
+    'registered'
+) // You chose a course with Nest.`,
+`/* Case 4. Array of Literal Types. */
+type CategoriesArray = Categories[]
+const cart: CategoriesArray = ['Angular', 'Nest']`,
+]}, 
 {title: {en: 'Type Aliases in TypeScript', ua: "Тип Aliases у TypeScript"}, body: {en: 'Type "Aliases" create a new name for a type. Type "Aliases" are sometimes similar to "Interfaces", but can name primitives, "Unions", "Tuples", and any other types that you’d otherwise have to write by hand.', ua: "Тип ''Aliases'' створює нову назву для типу. Тип ''Aliases'' іноді схожий на ''Interfaces'', але може іменувати примітиви, ''Unions'', ''Tuples'' та будь-які інші типи, які інакше вам довелося б писати вручну."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data:  [
 `/* Case 1. Primitive Type Aliases. */
 type PORT = number
@@ -6441,6 +6449,222 @@ http.createServer((request, response) => {
         }
     }
 }).listen(3002)`},
+{title: {en: `Filter method on the type level`, ua: `Метод filter на рівні типізації`}, body: {en: `The filter method at the typing level is completely based on the working logic of the usual filter array method, but the role of this method differs in that this method filters the types that are in the given Type Alias. So it is Utility Type Exclude that helps to achieve the desired result.`, ua: `Метод filter на рівні типізації створений повність на основі логіки працювання звичайного метода масивів filter, але роль цього метода відрізнаяється тим, що цей метод фільтрує типи, що мається у даному Type Alias. Отже саме Utility Type Exclude допомагає добитися бажаного результата.`}, link: {en: ``, ua: ``}, type: ['typescript', 'task'], data:
+`const array = [1, 2, 3, '']
+
+type Arr = typeof array
+
+/* Filter method on the type level */
+type ExcludeFromArray<T extends any[], ToExlude> = Exclude<
+    T[number],
+    ToExlude
+>[]
+
+type NumArr = ExcludeFromArray<Arr, string> // type NumArr = number[]`},
+{title: {en: `Object.freeze()`, ua: `Object.freeze()`}, body: {en: `The Object.freeze() static method freezes an object. Freezing an object prevents extensions and makes existing properties non-writable and non-configurable.`, ua: `Статичний метод Object.freeze() заморожує об’єкт. Заморожування об’єкта запобігає розширенню та робить існуючі властивості неможливими для перезапису та налаштування.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze`}, type: 'method', data:
+`const fiboArr = [1, 1, 2, 3, 5]
+const colors = {
+    black: '#1e1e1e',
+    grey: '#bbbbbb',
+    red: '#d65241'
+}
+
+Object.freeze(fiboArr)
+Object.freeze(colors)
+
+// fiboArr[2] = 0 // Error!
+// colors.red = 'eb5757' // Error!
+
+console.log(fiboArr) // [ 1, 1, 2, 3, 5 ]
+console.log(colors) // { black: '#1e1e1e', grey: '#bbbbbb', red: '#d65241'`},
+{title: {en: `Object.values()`, ua: `Object.values()`}, body: {en: `The Object.values() static method returns an array of a given object's own enumerable string-keyed property values.`, ua: `Статичний метод Object.values() повертає масив власних перелічуваних значень властивості даного об’єкта з рядковим ключем.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/values`}, type: 'method', data:
+`const routes = ['/main', '/products', '/aboutus']
+const errors = {
+    badRequest: 400,
+    notFound: 404,
+    internalError: 500
+}
+
+console.log(
+    Object.values(routes)
+) // [ '/main', '/products', '/aboutus' ]
+
+console.log(
+    Object.values(errors)
+) // [ 400, 404, 500 ]`},
+{title: {en: `Object.entries()`, ua: `Object.entries()`}, body: {en: `The Object.entries() static method returns an array of a given object's own enumerable string-keyed property key-value pairs.`, ua: `Статичний метод Object.entries() повертає масив власних перелічуваних пар властивостей ключ-значення з рядковими ключами.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/entries`}, type: 'method', data:
+`const users = ['Jane', 'Jake', 'John']
+const person = {
+  name: 'Alex',
+  age: 26,
+  gender: 'male'
+}
+
+console.log(
+    Object.entries(users)
+) // [ [ '0', 'Jane' ], [ '1', 'Jake' ], [ '2', 'John' ] ]
+
+console.log(
+  Object.entries(person)
+) // [ [ 'name', 'Alex' ], [ 'age', 26 ], [ 'gender', 'male' ] ]`},
+{title: {en: `Object.assign()`, ua: `Object.assign()`}, body: {en: `The Object.assign() static method copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.`, ua: `Статичний метод Object.assign() копіює всі перелічувані власні властивості з одного або кількох вихідних об’єктів у цільовий об’єкт. Він повертає змінений цільовий об’єкт.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/assign`}, type: 'method', data:
+`const target = { a: 1, b: 2 }
+const source = { b: 4, c: 5 }
+
+const returnedTarget = Object.assign(target, source)
+
+console.log(
+    target
+) // { a: 1, b: 4, c: 5 }
+
+console.log(
+    returnedTarget === target
+) // true`},
+{title: {en: `Correct way to handle large amounts of memory when interacting with media data using the createReadStream() method`, ua: `Коректний спосіб обробки великого об'єму пам'яті при взаємодії із медіа даними за допомогою метода createReadStream()`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data:
+`import fs from 'fs'
+
+const stream = fs.createReadStream(
+    './6GB_video.mp4',
+    {
+        highWaterMark: 1000000
+    }
+)
+
+for await (const data of stream) {
+    // Use your data...
+}`},
+{title: {en: `instanceof operator`, ua: `Оператор instanceof`}, body: {en: `The instanceof operator tests to see if the prototype property of a constructor appears anywhere in the prototype chain of an object.`, ua: `Оператор instanceof перевіряє, чи з’являється властивість прототипу конструктора будь-де в ланцюжку прототипів об’єкта.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/instanceof`}, type: 'operator', data:
+`function Car(make, model, year) {
+  this.make = make
+  this.model = model
+  this.year = year
+}
+
+const auto = new Car('Mitsubishi', 'Lancer', 2007)
+
+console.log(
+  auto instanceof Car
+) // true
+
+console.log(
+  auto instanceof Object
+) // true`},
+{title: {en: `Scope in JavaScript`, ua: `Область Видимості у JavaScript`}, body: {en: `The scope is the current context of execution in which values and expressions are "visible" or can be referenced. If a variable or expression is not in the current scope, it will not be available for use. Scopes can also be layered in a hierarchy, so that child scopes have access to parent scopes, but not vice versa.`, ua: `Область — це поточний контекст виконання, у якому значення та вирази «видимі» або на які можна посилатися. Якщо змінна або вираз не входять до поточної області, вони будуть недоступні для використання. Області також можна роз’єднати в ієрархію, щоб дочірні області мали доступ до батьківських областей, але не навпаки.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Glossary/Scope`, ua: `https://developer.mozilla.org/en-US/docs/Glossary/Scope`}, type: 'all', data:
+`// global scope
+const currentDay = 14
+
+function foo() {
+    console.log(currentDay) // 14
+
+    /* function scope */
+    const currentMonth = 'October'
+    console.log(currentMonth) // 'October'
+}
+
+/* block scope */
+if (true) {
+    const currentYear = 2023
+    console.log(currentYear) // 2023
+}
+
+console.log(currentDay) // 14
+// console.log(currentMonth) // Error! currentMonth is not defined
+// console.log(currentYear) // Error! currentYear is not defined`},
+{title: {en: ``, ua: ``}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['typescript', 'React'], data:
+`import { ChangeEvent } from "react";
+
+export default function Demo() {
+  /* Use your HTML Generic Type  */
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    console.log(event.currentTarget.value);
+  }
+  return <input onChange={handleChange} />;
+}`},
+{title: {en: `Optimizing Code with Map`, ua: `Оптимізація коду за допомогою Map`}, body: {en: ``, ua: ``}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`}, type: 'all', data:
+`function getDayNum(day) {
+  const dayMap = new Map([
+      ['monday', 1],
+      ['tuesday', 2],
+      ['wednesday', 3],
+      ['thursday', 4],
+      ['friday', 5],
+      ['saturday', 6],
+      ['sunday', 7],
+  ])
+
+  return dayMap.get(day)
+}
+
+console.log(
+  getDayNum('thursday')
+) // 4`},
+{title: {en: `Comparison of Map and Object`, ua: `Порівняння Map та Об'єкта`}, body: {en: `Use Map when you need to take a large amount of data with nested keys and values. If you just need to transfer data, then it is better to use a regular object.`, ua: `Використовуй Map, коли потрібно брати великий обсяг даних із вкладеними ключами та значеннями. Якщо потрібно просто передавати дані, краще використовувати звичайний об'єкт.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`}, type: 'all', data: [
+`/* Case 1. Map accepts anything as a key to its value, but object only accepts a string or symbol. */
+
+// The key is a string or a symbol
+const sym = Symbol('s')
+
+const obj = {
+    key: 1,
+    sym: 4
+}
+
+// The key is a object, array...
+const arr = [1, 2]
+
+const map = new Map()
+map.set(arr, 2)`,
+`/* Case 2. Iteration. */
+
+// Iterate over keys
+for (const elem in obj) {
+    // ...
+}
+
+// Convenient iteration
+for (const [key, value] of map) {
+    // ...
+}`,
+`/* Case 3. Automatic length calculation in Map. */
+
+// Map size is always calculated
+map.size`,
+`/* Case 4. Convenient API for checking ownership of something in Map. */
+
+map.has('1')
+map.has('2')`,
+]},
+{title: {en: `Cleanup function example`, ua: `Приклад самоочіщення функції`}, body: {en: `React’s useEffect cleanup function saves applications from unwanted behaviors like memory leaks by cleaning up effects. In doing so, we can optimize our application’s performance.`, ua: `Функція очищення useEffect від React рятує програми від небажаної поведінки, як-от витік пам’яті, очищаючи ефекти. Таким чином ми можемо оптимізувати продуктивність нашої програми.`}, link: {en: `https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/`, ua: `https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/`}, type: ['typescript', 'React'], data:
+`import { useState, useEffect } from "react";
+
+function Child() {
+  useEffect(() => {
+    let i = 0;
+
+    const intervalID = setInterval(() => {
+      console.log("rendered-" + i);
+      i++;
+    }, 1000);
+
+    return () => {
+      // Cleanup function
+      clearInterval(intervalID);
+    };
+  }, []);
+  return <>Child</>;
+}
+
+function Demo() {
+  const [show, setShow] = useState(false);
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>Toggle</button>
+      {show && <Child />}
+    </>
+  );
+}
+
+export default Demo;`},
 ]
 
 export default content
