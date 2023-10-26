@@ -6414,7 +6414,7 @@ const conn = mysql.createConnection({
     user: 'root',
     database: 'your_db',
     password: ''
-}) // initialization with database
+}) // Initialization with database
 
 conn.connect((err) => {
     if (err) {
@@ -6570,7 +6570,7 @@ if (true) {
 console.log(currentDay) // 14
 // console.log(currentMonth) // Error! currentMonth is not defined
 // console.log(currentYear) // Error! currentYear is not defined`},
-{title: {en: `Type event for React TypeScript`, ua: `Типізуєм event для React TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
+{title: {en: `Typing event in React and TypeScript`, ua: `Типізуєм event для React TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
 `import { ChangeEvent } from "react";
 
 export default function Demo() {
