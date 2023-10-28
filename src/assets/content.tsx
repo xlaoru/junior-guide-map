@@ -6285,6 +6285,11 @@ const { parse } = require('querystring')
 
 // Creating a server
 http.createServer((request, response) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    response.setHeader('Access-Control-Allow-Credentials', true);
+
     let urlRequest = url.parse(request.url, true)
     
     // Processing requests
@@ -6428,6 +6433,11 @@ conn.connect((err) => {
 const query = 'SELECT * FROM DB' // MySQL query request
 
 http.createServer((request, response) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'GET');
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    response.setHeader('Access-Control-Allow-Credentials', true);
+
     if (request.method === "GET") {
         let urlRequest = url.parse(request.url, true)
 
@@ -6665,11 +6675,16 @@ function Demo() {
 }
 
 export default Demo;`},
-{title: {en: `Routing in Node.js`, ua: `Роутінг у Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data:
+{title: {en: `Routing in Node.js`, ua: `Роутінг у Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['Node.js', 'request'], data:
 `const http = require('http')
 const url = require('url')
 
 http.createServer(function(request, response) {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'GET');
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    response.setHeader('Access-Control-Allow-Credentials', true);
+
     let urlParts = url.parse(request.url) // Your url request like "/", "/about", "/users?user=1" etc.
     if (request.method === "GET") {
         switch(urlParts.path) {

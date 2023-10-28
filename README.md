@@ -868,3 +868,7 @@ Some addictions
 ### `v32.0`
 
 Now when you switch categories, the searcher is disabled. And if you enter something into the searcher, then the categories become disabled
+
+### `v32.0.1`
+
+Some addictions
