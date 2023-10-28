@@ -6665,6 +6665,63 @@ function Demo() {
 }
 
 export default Demo;`},
+{title: {en: `Routing in Node.js`, ua: `Роутінг у Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data:
+`const http = require('http')
+const url = require('url')
+
+http.createServer(function(request, response) {
+    let urlParts = url.parse(request.url) // Your url request like "/", "/about", "/users?user=1" etc.
+    if (request.method === "GET") {
+        switch(urlParts.path) {
+            case "/": 
+                homePage(response)
+                break
+            case "/about": 
+                aboutPage(response)
+                break
+            case "/users?user=1":
+                userPage(response)
+                break
+            default: 
+                // For other url pathes
+                page404(response)
+                break
+        }
+    } else if(request.method === "POST") {
+        switch(urlParts.path) {
+            case "/users?add=newuser": 
+                newUser(response)
+                break
+            default: 
+                // For other url pathes
+                page404(response)
+                break
+        }
+    } else {
+        // For other request methods
+        page404(response)
+    }
+}).listen(3000)
+
+function homePage(response) {
+    response.end("home page")
+}
+
+function aboutPage(response) {
+    response.end("about page")
+}
+
+function userPage(response) {
+    response.end('user 1 page')
+}
+
+function newUser(response) {
+    response.end('new user')
+}
+
+function page404(response) {
+    response.end("404")
+}`},
 ]
 
 export default content

@@ -860,3 +860,7 @@ Some addictions
 ### `v31.0.8`
 
 Test
+
+### `v31.0.9`
+
+Some addictions
