@@ -164,6 +164,10 @@ nav.navbar {
   width: 300px;
 }
 
+.searcher:disabled {
+  border: 5px solid rgb(176, 187, 195);
+}
+
 .types-bar {
   display: grid;
   grid-template-columns: repeat(4, auto);

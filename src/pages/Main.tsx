@@ -67,8 +67,8 @@ function Main({content}: IMainProps) {
     return (
         <div className='Main'>
             <div className='form'>
-                <Searcher value={value ?? ""} setSearchParams={setSearchParams} />
-                <Filter filter={type ?? "all"} setSearchParams={setSearchParams} types={types} />
+                <Searcher value={value ?? ""} setSearchParams={setSearchParams} disabled={!debouncedType[Debounce.ISSPINER]} />
+                <Filter filter={type ?? "all"} setSearchParams={setSearchParams} types={types} disabled={!debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]} />
             </div>
             {
                 !debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]

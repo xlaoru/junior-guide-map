@@ -3,9 +3,10 @@ import translation from '../assets/translation';
 
 import {ISearcherProps} from "../utils/Interfaces"
 
-export default function Searcher({value, setSearchParams}: ISearcherProps) {
+export default function Searcher({value, setSearchParams, disabled}: ISearcherProps) {
   return (
     <input 
+        disabled={disabled}
         className='searcher'
         type="text" 
         placeholder={getText(translation.main.searcher)}
