@@ -6680,62 +6680,62 @@ export default Demo;`},
 const url = require('url')
 
 http.createServer(function(request, response) {
-    response.setHeader('Access-Control-Allow-Origin', '*');
-    response.setHeader('Access-Control-Allow-Methods', 'GET');
-    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    response.setHeader('Access-Control-Allow-Credentials', true);
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', 'GET');
+  response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  response.setHeader('Access-Control-Allow-Credentials', true);
 
-    let urlParts = url.parse(request.url) // Your url request like "/", "/about", "/users?user=1" etc.
-    if (request.method === "GET") {
-        switch(urlParts.path) {
-            case "/": 
-                homePage(response)
-                break
-            case "/about": 
-                aboutPage(response)
-                break
-            case "/users?user=1":
-                userPage(response)
-                break
-            default: 
-                // For other url pathes
-                page404(response)
-                break
-        }
-    } else if(request.method === "POST") {
-        switch(urlParts.path) {
-            case "/users?add=newuser": 
-                newUser(response)
-                break
-            default: 
-                // For other url pathes
-                page404(response)
-                break
-        }
-    } else {
-        // For other request methods
+  let urlParts = url.parse(request.url) // Your url request like "/", "/about" etc.
+  if (request.method === "GET") {
+    switch(urlParts.path) {
+      case "/": 
+        homePage(response)
+        break
+      case "/about": 
+        aboutPage(response)
+        break
+      case "/posts?lang=ua":
+        postsPage(response)
+        break
+      default: 
+        // For other url pathes
         page404(response)
+        break
     }
-}).listen(3000)
+  } else if(request.method === "POST") {
+    switch(urlParts.path) {
+      case "/cart?payment=card": 
+        paymentPage(response)
+        break
+      default: 
+        // For other url pathes
+        page404(response)
+        break
+    }
+  } else {
+    // For other request methods
+    page404(response)
+  }
+}).listen(3001)
 
 function homePage(response) {
-    response.end("home page")
+  response.end("home page")
 }
 
 function aboutPage(response) {
-    response.end("about page")
+  response.end("about page")
 }
 
-function userPage(response) {
-    response.end('user 1 page')
+function postsPage(response) {
+  response.end('ua posts page')
 }
 
-function newUser(response) {
-    response.end('new user')
+function paymentPage(response) {
+  response.end('card payment page')
 }
 
 function page404(response) {
-    response.end("404")
+  response.end("404")
 }`},
 {title: {en: `Implementation in TypeScript`, ua: `Імплементація (реалізація) у TypeScript`}, body: {en: `You can use an implements clause to check that a class satisfies a particular interface. An error will be issued if a class fails to correctly implement it.`, ua: `Ви можете використовувати пропозицію implements, щоб перевірити, чи клас задовольняє певний інтерфейс. Помилка буде видана, якщо клас не вдасться його правильно реалізувати.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses`}, type: ['typescript', 'OOP'], data:
 `interface IUser {
