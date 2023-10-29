@@ -6824,6 +6824,61 @@ class SingleFileTransfer implements ITransfer, TransferError {
   }
 }
 `},
+{title: {en: `Property visibility modifiers (public, private, protected)`, ua: `Модифікатори видимості властивостей (public, private, protected)`}, body: {en: `Property visibility modifiers are used to assert whether this or that value can be changed outside the class or in subclasses. For example, public allows a value or method to be modified or used anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method everywhere except subclasses. Property visibility modifiers are used to assert whether a particular value can be changed outside the class or in subclasses. For example, public allows the value to change anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method anywhere except subclasses.`, ua: `Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися чи використовуватися значенню чи методу будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися значенню будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`}, type: ['typescript', 'OOP'], data:
+`class Player {
+  /* Property visibility modifier: "public" are used when we do not care whether it will be changed outside the specific class. */
+  public nickname: string
+  public server: string;
+
+  /* Property visibility modifier: "private" is used when we need to protect an internal property of a certain class from being changed. For example, login or password. */
+  private login: string;
+  private _password: string;
+
+  /* Property visibility modifier: "protected" is used when we need to protect specific information from editing outside a specific class and for reuse in other subclasses. */
+  protected consent: boolean
+
+  public greetPlayer() {
+    return \`Hello, \${this.nickname}!\`
+  }
+
+  get password() {
+      return this._password
+  }
+
+  set password(newPassword: string) {
+      if (newPassword !== this._password) {
+      this._password = newPassword
+      }
+  }
+}
+
+const player = new Player()
+// player.login = 'Alex' // Error! Property 'login' is private and only accessible within class 'Player'.
+player.server = '127.0.0.1' // Correct!
+
+player.password = 'holaW0rl6'
+// player._password = 'gsl34#p' // Error! Property '_password' is private and only accessible within class 'Player'.
+
+class CommetitivePlayer extends Player {
+  rank: number // Same property as private, but without explicit declaration
+  protected application: boolean
+
+  private isConsented() {
+      return this.consent ? 'Yes' : 'No'
+  }
+
+  protected filingAnApplication() {
+      this.application = true
+  }
+}
+
+const commetitivePlayer = new CommetitivePlayer()
+// commetitivePlayer.filingAnApplication() // Error! Property 'filingAnApplication' is protected and only accessible within class 'CommetitivePlayer' and its subclasses.`},
 ]
 
 export default content
+
+/* 
+{title: {en: ``, ua: ``}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: '', data:
+``},
+*/
