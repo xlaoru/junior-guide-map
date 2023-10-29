@@ -64,17 +64,21 @@ function Main({content}: IMainProps) {
         })
     }
 
+    function renderList() {
+        if (!debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]) {
+            return <div style={{'display': 'flex', 'justifyContent': 'center', 'margin': '50px 0'}}><Spinner /></div> 
+        } else {
+            return <List value={debouncedValue[Debounce.DATA] ?? ""} content={filteredContent()}/>
+        }
+    }
+
     return (
         <div className='Main'>
             <div className='form'>
                 <Searcher value={value ?? ""} setSearchParams={setSearchParams} disabled={!debouncedType[Debounce.ISSPINER]} />
                 <Filter filter={type ?? "all"} setSearchParams={setSearchParams} types={types} disabled={!debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]} />
             </div>
-            {
-                !debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]
-                    ? <div style={{'display': 'flex', 'justifyContent': 'center', 'margin': '50px 0'}}><Spinner /></div> 
-                    : <List value={debouncedValue[Debounce.DATA] ?? ""} content={filteredContent()}/>
-            }
+            {renderList()}
         </div>
     );
 };

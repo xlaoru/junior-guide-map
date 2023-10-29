@@ -6737,6 +6737,93 @@ function newUser(response) {
 function page404(response) {
     response.end("404")
 }`},
+{title: {en: `Implementation in TypeScript`, ua: `Імплементація (реалізація) у TypeScript`}, body: {en: `You can use an implements clause to check that a class satisfies a particular interface. An error will be issued if a class fails to correctly implement it.`, ua: `Ви можете використовувати пропозицію implements, щоб перевірити, чи клас задовольняє певний інтерфейс. Помилка буде видана, якщо клас не вдасться його правильно реалізувати.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses`}, type: ['typescript', 'OOP'], data:
+`interface IUser {
+  login: string;
+  password: string;
+  token?: number
+}
+
+interface IValidation {
+  valid: boolean;
+  isValid: (data: string) => boolean
+} 
+
+/* Implementation from two interfaces */
+class UserForm implements IUser, IValidation {
+  login: string;
+  password: string;
+  valid: boolean = false
+  
+  isValid(login: string) {
+      return login.length > 3
+  }
+}
+`},
+{title: {en: `An interesting problem to practice implementing interfaces for classes in TypeScript`, ua: `Цікаве завдання на тренування в імплементації інтерфейсів для класів в ТайпСкрипт`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP', 'task'], data:
+`enum TransferStatus {
+  Pending = "pending",
+  Rejected = "rejected",
+  Completed = "completed",
+}
+
+enum ErrorMessages {
+  NotFound = "Not found: 404",
+  NotEnoughSpace = "Not enough space: 507",
+  Forbidden = "Forbidden: 403",
+}
+
+interface ITransfer {
+  path: string;
+  data: string[];
+  date?: Date;
+  start: (p: string, d: string[]) => string;
+  stop: (reason: string) => string;
+}
+
+interface TransferError {
+  message: ErrorMessages;
+}
+
+// The class must implement ITransfer and TransferError.
+class SingleFileTransfer implements ITransfer, TransferError {
+  // Place for implementations
+  path: string;
+  data: string[];
+  date?: Date | undefined;
+  start: (p: string, d: string[]) => string;
+  stop: (reason: string) => string;
+  message: ErrorMessages;
+  transferStatus: TransferStatus
+
+  constructor(status: TransferStatus) {
+      this.transferStatus = status;
+  }
+
+  startTransfer(status: TransferStatus): string {
+      return this.transferStatus = status
+  }
+
+  // You need to create a checkTransferStatus method that checks the data transfer status
+  // you can output data to the console, you can return a string.
+  checkTransferStatus(): string {
+      return this.transferStatus
+  }
+
+  // It is necessary to create a method that will stop data transfer
+  // and return a string with the reason and date of the stop (Date in any format).
+  stopTransfer(reason: string): string {
+      return \`Transfer stopped, reason: \${reason}, Date: \${new Date().toLocaleString()}\`
+  }
+
+  // You need to create a method that will return a string containing
+  // transfer status and any error message. Your choice or build on the incoming argument
+  // the method may seem strange, but can be used for tests, for example.
+  createError(): string {
+      return \`Status: \${TransferStatus.Rejected}, error message: \${ErrorMessages.Forbidden}\`
+  }
+}
+`},
 ]
 
 export default content

@@ -872,3 +872,7 @@ Now when you switch categories, the searcher is disabled. And if you enter somet
 ### `v32.0.1`
 
 Some addictions
+
+### `v32.0.2`
+
+Some addictions
