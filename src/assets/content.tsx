@@ -6824,7 +6824,7 @@ class SingleFileTransfer implements ITransfer, TransferError {
   }
 }
 `},
-{title: {en: `Property visibility modifiers (public, private, protected)`, ua: `Модифікатори видимості властивостей (public, private, protected)`}, body: {en: `Property visibility modifiers are used to assert whether this or that value can be changed outside the class or in subclasses. For example, public allows a value or method to be modified or used anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method everywhere except subclasses. Property visibility modifiers are used to assert whether a particular value can be changed outside the class or in subclasses. For example, public allows the value to change anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method anywhere except subclasses.`, ua: `Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися чи використовуватися значенню чи методу будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися значенню будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`}, type: ['typescript', 'OOP'], data:
+{title: {en: `Property visibility modifiers (public, private, protected) in TypeScript`, ua: `Модифікатори видимості властивостей (public, private, protected) у TypeScript`}, body: {en: `Property visibility modifiers are used to assert whether this or that value can be changed outside the class or in subclasses. For example, public allows a value or method to be modified or used anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method everywhere except subclasses. Property visibility modifiers are used to assert whether a particular value can be changed outside the class or in subclasses. For example, public allows the value to change anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method anywhere except subclasses.`, ua: `Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися чи використовуватися значенню чи методу будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися значенню будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`}, type: ['typescript', 'OOP'], data:
 `class Player {
   /* Property visibility modifier: "public" are used when we do not care whether it will be changed outside the specific class. */
   public nickname: string
@@ -6874,6 +6874,150 @@ class CommetitivePlayer extends Player {
 
 const commetitivePlayer = new CommetitivePlayer()
 // commetitivePlayer.filingAnApplication() // Error! Property 'filingAnApplication' is protected and only accessible within class 'CommetitivePlayer' and its subclasses.`},
+{title: {en: `Private field modifier "#"`, ua: `Модифікатор приватного поля "#"`}, body: {en: `Typing a private field with "#" is not purely a TypeScript feature. Since this is in ES2022, however, there is no difference with the functionality of declaring a private field, as in TypeScript, through the "private" keyword.`, ua: `Типізація приватного поля через "#" не є суто фішкою TypeScript. Оскільки це є у ES2022, проте відмінності з функціоналом об'яви приватного поля, як у TypeScript, через ключове слово "private" немає.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes/Private_class_fields`}, type: ['typescript', 'OOP'], data:
+`class User {
+  // Private class features "#"
+  #login: string;
+  #password: number
+
+  name: string;
+  age: number
+}
+
+const Alex = new User()
+
+// Alex.#login // Error! Property '#login' is not accessible outside class 'User' because it has a private identifier.
+// Alex.login // Error! Property 'login' does not exist on type 'User'.
+// Alex.#password // Error! Property '#password' is not accessible outside class 'User' because it has a private identifier.
+// Alex.password // Error! Property 'password' does not exist on type 'User'.
+
+Alex.name // Correct!
+Alex.age // Correct!`},
+{title: {en: `Property modifier "static" in TypeScript`, ua: `Модифікатор властивості "static" у TypeScript`}, body: {en: `Static initialization blocks are declared within a class. It contains statements to be evaluated during class initialization. This permits more flexible initialization logic than static properties, such as using try...catch or setting multiple fields from a single value. Initialization is performed in the context of the current class declaration, with access to private state, which allows the class to share information of its private properties with other classes or functions declared in the same scope.`, ua: `Блоки статичної ініціалізації оголошуються в межах класу. Він містить оператори, які потрібно оцінити під час ініціалізації класу. Це дозволяє більш гнучку логіку ініціалізації, ніж статичні властивості, такі як використання try...catch або встановлення кількох полів з одного значення. Ініціалізація виконується в контексті поточної декларації класу з доступом до приватного стану, що дозволяє класу ділитися інформацією про свої приватні властивості з іншими класами або функціями, оголошеними в тій же області.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members`}, type: ['typescript', 'OOP'], data: [
+`/* Case 1. Static variables and methods. */
+class Cat {
+    static animal: string = "cat"
+    private static animalName = "Michelle"
+
+    static getAnimalName() {
+        return Cat.animalName
+    }
+}
+
+Cat.animal // Correct!
+// Cat.animalName // Error! Property 'animalName' is private and only accessible within class 'Cat'.
+Cat.getAnimalName() // Correct!
+
+console.log(Cat.getAnimalName()) // Michelle`,
+`/* Case 2. Static classes (non-reusable classes) without the ability to create new instances. */
+class MusicAlbum {
+    private static albumName: string
+    private constructor () {}
+}
+
+// const queenAlbum = new MusicAlbum() // Error! Constructor of class 'MusicAlbum' is private and only accessible within the class declaration.
+
+// class QueenAlbum extends MusicAlbum {} // Error! Cannot extend a class 'MusicAlbum'. Class constructor is marked as private.`,
+`/* Case 3. Static classes (non-reusable classes), but with the ability to create subclasses. */
+class XWing {
+    static type: string
+    protected constructor() {}
+}
+
+// const xWing = new XWing() // Error! Constructor of class 'XWing' is protected and only accessible within the class declaration.
+
+class AWing extends XWing {
+    static type: string
+}`,
+`/* Case 4. Static Block. */
+class Ports {
+    static defaultPort: number = 3000
+    static portList: number[] = []
+
+    static {
+        for (let i = 0; i < 3; i++) {
+            this.portList.push(this.defaultPort)
+            this.defaultPort++
+        }
+    }
+}
+
+console.log(Ports.portList) // [ 3000, 3001, 3002 ]`,
+]},
+{title: {en: `"this" and context typing`, ua: `"this" і типізація контекста`}, body: {en: `When functionality becomes more complex, you can always lose context in classes. In TS there is an opportunity to clearly say what the context should be and not get such situations. The problem can be solved using bind or an arrow function. But you won't know about the error until you run the code. Therefore, in TS there is an option to immediately say what the context will be as the first argument in the function. And you will see an error at the development stage. Sometimes we return context from a method, that is, a reference to an instance of an object. In such cases, you should not strictly type the return value, as it may break the logic. Using the context, we can check which class the instance belongs to and write our own type protector.`, ua: `При ускладненні функціоналу можна втратити контекст у класах. У TS існує можливість чітко сказати, чим має бути контекст і не набувати таких ситуацій. Проблему можна вирішити за допомогою bind або стрілочної функції. Але до запуску коду ви не дізнаєтесь про помилку. Тому в TS є варіант відразу сказати, чим буде контекст прямо першим аргументом функції. І ви побачите помилку на етапі розробки. Іноді ми з методу повертаємо контекст, тобто посилання на екземпляр об'єкта. У таких випадках не варто жорстко типізувати значення, що повертається, так як воно може зламати логіку. За допомогою контексту ми можемо перевірити, до якого класу належить екземпляр та написати свій захисник типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`}, type: ['typescript', 'OOP'], data: [
+`/* Case 1. We use the "bind" method to assert the context. */
+class Pilot {
+    name: string
+    isRegistered: boolean
+
+    constructor(name: string, isRegistered: boolean) {
+        this.name = name
+        this.isRegistered = isRegistered
+    }
+
+    checkInfo() {
+        if (this.isRegistered) {
+            return \`\${this.name} is registered.\`
+        } else {
+            return \`\${this.name} isn't registered.\`
+        }
+    }
+
+    pilotInfo() {
+        return this
+    }
+
+    isMilitary(): this is MilitaryPilot {
+        return this instanceof MilitaryPilot
+    }
+}
+
+const Alex = new Pilot('Alex', true)
+console.log(Alex.checkInfo()) // Alex is registered.
+
+const AlexRecheck = Alex.checkInfo.bind(Alex)
+console.log(AlexRecheck()) // Alex is registered.
+
+console.log(Alex.pilotInfo().name) // Alex`,
+`/* Case 2. Context inheritance in subclasses. */
+class MilitaryPilot extends Pilot {
+    static callsign: string
+    planeType: string
+
+    constructor(name: string, isRegistered: boolean, planeType: string) {
+        super(name, isRegistered)
+        this.planeType = planeType
+    }
+
+    checkMilitaryInfo() {
+        return {
+            registration: this.checkInfo(),
+            planeType: this.planeType
+        }
+    }
+}
+
+const Tom = new MilitaryPilot('Tom', true, 'F-16')
+console.log(Tom.checkMilitaryInfo()) // { registration: 'Tom is registered.', planeType: 'F-16' }
+
+const John: Pilot | MilitaryPilot = new MilitaryPilot('John', true, 'F-35')
+console.log(John.isMilitary()) // true`,
+`/* Case 3. We use the arrow function to assert the context. */
+class Trooper {
+    callsign: string
+
+    constructor(callsign: string) {
+        this.callsign = callsign
+    }
+
+    logCallsign = () => {
+        return \`\${this.callsign} is a trooper.\`
+    }
+}
+
+const Datsik = new Trooper('Datsik')
+console.log(Datsik.logCallsign()) // Datsik is a trooper.`,
+]},
 ]
 
 export default content
