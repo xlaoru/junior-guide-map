@@ -616,30 +616,31 @@ useEffect(() => {
     }
 }, [])`},
 
-{title: {en: 'Getting info from API', ua: 'Отримуємо інформацію з API серверу'}, body: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use.', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-`import {useState, useEffect} from 'react'
+{title: {en: 'Fetching info from API', ua: 'Отримуємо інформацію з API серверу'}, body: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use.', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
+`import { useState, useEffect } from "react";
 
-const Demo = () => {
-    let [users, setUsers] = useState([])
-    useEffect(() => getUsers, [])
+function Demo() {
+  const [data, setData] = useState([]);
 
-    const getUsers = () => {
-        let link = 'https://jsonplaceholder.typicode.com/users'
-        fetch(link)
-        .then((response) => {
-            return response.json()
-        })
-        .then((response) => setUsers(response))
+  useEffect(() => {
+    async function fetchData() {
+      const request = await fetch("https://jsonplaceholder.typicode.com/users");
+      const response = await request.json();
+      setData(response);
     }
+    fetchData();
+  }, []);
 
-    return (
-        <div>
-            <button onClick={getUsers}>Get Users</button>
-            <ul>
-                {users.map(user => <li key={user.id}>{user.name}</li>)}
-            </ul>
-        </div>
-    )
+  return (
+    <>
+      {data.map((item, index) => (
+        <span key={index}>
+          {item.name}
+          <br />
+        </span>
+      ))}
+    </>
+  );
 }
 
 export default Demo;`},
