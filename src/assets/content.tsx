@@ -4005,82 +4005,84 @@ const data1: OrArray<number> = 42
 const data2: OrArray<string[]> = ['hello', 'world']`},
 {title: {en: `Generics for Interfaces in TypeScript`, ua: `Generics (Узагальнення) для Інтерфейсів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
 `interface IParentsOfUser {
-    mother: string;
-    father: string
+  mother: string;
+  father: string;
 }
 
 interface IUser<T, ParentsData extends IParentsOfUser> {
-    login: T;
-    age: number;
-    parents: ParentsData
+  login: T;
+  age: number;
+  parents: ParentsData;
 }
 
-const user: IUser<string, {mother: string; father: string; hasMaried: boolean}> = {
-    login: 'the_tom',
-    age: 23,
-    parents: {
-        mother: 'Anna',
-        father: 'Alex',
-        hasMaried: true
-    }
-}
+const user: IUser<
+  string,
+  { mother: string; father: string; hasMaried: boolean }
+> = {
+  login: "the_tom",
+  age: 23,
+  parents: {
+    mother: "Anna",
+    father: "Alex",
+    hasMaried: true
+  }
+};
 
-console.log(user)
+console.log(user);
 /* 
 {
-    login: 'the_tom',
-    age: 23,
-    parents: {
-        mother: 'Anna',
-        father: 'Alex',
-        hasMaried: true
-    }
+  login: 'the_tom',
+  age: 23,
+  parents: {
+      mother: 'Anna',
+      father: 'Alex',
+      hasMaried: true
+  }
 }
 */`},
 {title: {en: `Generics for classes in TypeScript`, ua: `Generics (Узагальнення) для класів у TypeScript`}, body: {en: `TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods. In the above example, we created a generic class named User with a type variable in the angle brackets <T, S> .`, ua: `TypeScript підтримує generic (загальні) класи. Параметр загального типу вказується в кутових дужках після імені класу. Загальний клас може мати загальні поля (змінні-члени) або методи. У наведеному вище прикладі ми створили загальний клас під назвою User зі змінною типу в кутових дужках <T, S>.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: ['typescript', 'OOP'], data:
-`class User<T, S>/* global type T */{
-	name: T;
-	age: S
+`class User<T, S> /* global type T */ {
+  name: T;
+  age: S;
 
-	constructor(name: T, age: S) {
-		this.name = name;
-		this.age = age
-	}
+  constructor(name: T, age: S) {
+    this.name = name;
+    this.age = age;
+  }
 
-	sayMyFullName<T>/* local type T */(surname: T): string { 
-        /* Type T for function sayMyFullName() is local and it's 
+  sayMyFullName<T> /* local type T */(surname: T): string {
+    /* Type T for function sayMyFullName() is local and it's 
         only for this function. It's means, that global type T 
         isn't taken into count */
-		
-		if (typeof surname !== "string") {
-			return "I have only name: " + this.name
-		}
-		else {
-			return this.name + ' ' + surname
-		}
-	}
+
+    if (typeof surname !== "string") {
+      return "I have only name: " + this.name;
+    } else {
+      return this.name + " " + surname;
+    }
+  }
 }
 
 class AdminUser<T, S> extends User<string, number> {
-	rights: T;
-	access: S
+  rights: T;
+  access: S;
 
-    constructor(name: string, age: number, rights: T, access: S) {
-        super(name, age);
-        this.rights = rights;
-		this.access = access
-    }
+  constructor(name: string, age: number, rights: T, access: S) {
+    super(name, age);
+    this.rights = rights;
+    this.access = access;
+  }
 }
 
-const ilya = new User("Ilya", 16)
-console.log(ilya.sayMyFullName('Sokolov')) // Ilya Sokolov
+const ilya = new User("Ilya", 16);
+console.log(ilya.sayMyFullName("Sokolov")); // Ilya Sokolov
 
-const nameData = "Alex"
-const ageData = 32
+const nameData = "Alex";
+const ageData = 32;
 
-const alex = new User<string, number>(nameData, ageData)
+const alex = new User<string, number>(nameData, ageData);
 
-const tom = new AdminUser("Tom", 24, ["pin messages", "ban users"], true)`},
+const tom = new AdminUser("Tom", 24, ["pin messages", "ban users"], true);`},
 {title: {en: `Good Example of using generics, enum and interfaces for building your apps in TypeScript`, ua: `Гарний приклад використання generic, enum та interface для ваших застосунків у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data: [
 `Task:
 /* 
@@ -4097,86 +4099,88 @@ const tom = new AdminUser("Tom", 24, ["pin messages", "ban users"], true)`},
 */
 `,
 `enum FigureNames {
-    RECT = "rect",
-    CIRCLE = "circle",
-    TRIANGLE = "triangle",
-    LINE = "line"
+  RECT = "rect",
+  CIRCLE = "circle",
+  TRIANGLE = "triangle",
+  LINE = "line"
 }
 
 interface Figure {
-    name: FigureNames;
+  name: FigureNames;
 }
 
 interface CustomFigure extends Figure {
-    data?: {}
+  data?: {};
 }
 
 interface AmountOfFigures {
-	squares: number;
-	circles: number;
-	triangles: number;
-	others: number;
+  squares: number;
+  circles: number;
+  triangles: number;
+  others: number;
 }
 
-function calculateAmountOfFigures<T extends Figure>(figure: T[]): AmountOfFigures {
-    const amount: AmountOfFigures = {
-        squares: 0,
-        circles: 0,
-        triangles: 0,
-        others: 0
+function calculateAmountOfFigures<T extends Figure>(
+  figure: T[]
+): AmountOfFigures {
+  const amount: AmountOfFigures = {
+    squares: 0,
+    circles: 0,
+    triangles: 0,
+    others: 0
+  };
+
+  figure.forEach((fig) => {
+    switch (fig.name) {
+      case FigureNames.RECT:
+        amount.squares++;
+        break;
+      case FigureNames.CIRCLE:
+        amount.circles++;
+        break;
+      case FigureNames.TRIANGLE:
+        amount.triangles++;
+        break;
+      default:
+        amount.others++;
     }
+  });
 
-	figure.forEach((fig) => {
-		switch (fig.name) {
-			case FigureNames.RECT:
-				amount.squares++;
-				break;
-			case FigureNames.CIRCLE:
-				amount.circles++;
-				break;
-			case FigureNames.TRIANGLE:
-				amount.triangles++;
-				break;
-			default:
-				amount.others++;
-		}
-	});
-
-    return amount
+  return amount;
 }
 
 const data: CustomFigure[] = [
-	{
-		name: FigureNames.RECT,
-		data: { a: 5, b: 10 },
-	},
-	{
-		name: FigureNames.RECT,
-		data: { a: 6, b: 11 },
-	},
-	{
-		name: FigureNames.TRIANGLE,
-		data: { a: 5, b: 10, c: 14 },
-	},
-	{
-		name: FigureNames.LINE,
-		data: { l: 15 },
-	},
-	{
-		name: FigureNames.CIRCLE,
-		data: { r: 10 },
-	},
-	{
-		name: FigureNames.CIRCLE,
-		data: { r: 5 },
-	},
-	{
-		name: FigureNames.RECT,
-		data: { a: 15, b: 7 },
-	},
-	{
-		name: FigureNames.TRIANGLE,
-	},
+  {
+    name: FigureNames.RECT,
+    data: { a: 5, b: 10 }
+  },
+  {
+    name: FigureNames.RECT,
+    data: { a: 6, b: 11 }
+  },
+  {
+    name: FigureNames.TRIANGLE,
+    data: { a: 5, b: 10, c: 14 }
+  },
+  {
+    name: FigureNames.LINE,
+    data: { l: 15 }
+  },
+  {
+    name: FigureNames.CIRCLE,
+    data: { r: 10 }
+  },
+  {
+    name: FigureNames.CIRCLE,
+    data: { r: 5 }
+  },
+  {
+    name: FigureNames.RECT,
+    data: { a: 15, b: 7 }
+  },
+  {
+    name: FigureNames.TRIANGLE
+  }
 ];
 
 console.log(calculateAmountOfFigures(data)); // { squares: 3, circles: 2, triangles: 2, others: 1 }`]},
@@ -5423,21 +5427,21 @@ console.log(
 // automatically added to dependent ones (immediately a hint from TS)
 
 interface IFitnessClass {
-	name: string;
-	startsAt: string;
-	duration: number;
+  name: string;
+  startsAt: string;
+  duration: number;
 }
 
 interface IFutureClass extends Omit<IFitnessClass, "startsAt"> {
-	willStartsAt: string;
+  willStartsAt: string;
 }
 
 interface IClient {
-	name: string;
-	age: string | number;
-	gender: "male" | "female";
-	timeLeft: string;
-	makeCallFor: Date;
+  name: string;
+  age: string | number;
+  gender: "male" | "female";
+  timeLeft: string;
+  makeCallFor: Date;
 }
 
 type currentClient = Omit<IClient, "makeCallFor">;
@@ -5445,101 +5449,101 @@ type ExClient = Omit<IClient, "timeLeft">;
 type FutureClient = Pick<IClient, "name" | "makeCallFor">;
 
 interface IFitnessClub {
-	clubName: string;
-	location: string;
-	classes: IFitnessClass[];
-	futureClasses: IFutureClass[];
-	currentClients: currentClient[];
-	exClients: ExClient[];
-	futureClients: FutureClient[];
+  clubName: string;
+  location: string;
+  classes: IFitnessClass[];
+  futureClasses: IFutureClass[];
+  currentClients: currentClient[];
+  exClients: ExClient[];
+  futureClients: FutureClient[];
 }
 
 const fitnessClubCenter: IFitnessClub = {
-	clubName: "Fitness club Center",
-	location: "central ave. 45, 5th floor",
-	classes: [
-		{
-			name: "yoga",
-			startsAt: "8:00 AM",
-			duration: 60,
-		},
-		{
-			name: "trx",
-			startsAt: "11:00 AM",
-			duration: 45,
-		},
-		{
-			name: "swimming",
-			startsAt: "3:00 PM",
-			duration: 70,
-		},
-	],
-	futureClasses: [
-		{
-			name: "boxing",
-			willStartsAt: "6:00 PM",
-			duration: 40,
-		},
-		{
-			name: "breath training",
-			willStartsAt: "8:00 PM",
-			duration: 30,
-		},
-	],
-	currentClients: [
-		{
-			name: "John Smith",
-			age: "-",
-			gender: "male",
-			timeLeft: "1 month",
-		},
-		{
-			name: "Alise Smith",
-			age: 35,
-			gender: "female",
-			timeLeft: "3 month",
-		},
-		{
-			name: "Ann Sonne",
-			age: 24,
-			gender: "female",
-			timeLeft: "5 month",
-		},
-	],
-	exClients: [
-		{
-			name: "Tom Smooth",
-			age: 50,
-			gender: "male",
-			makeCallFor: new Date("2023-08-12"),
-		},
-	],
-	futureClients: [
-		{
-			name: "Maria",
-			makeCallFor: new Date("2023-07-10"),
-		},
-	],
+  clubName: "Fitness club Center",
+  location: "central ave. 45, 5th floor",
+  classes: [
+    {
+      name: "yoga",
+      startsAt: "8:00 AM",
+      duration: 60
+    },
+    {
+      name: "trx",
+      startsAt: "11:00 AM",
+      duration: 45
+    },
+    {
+      name: "swimming",
+      startsAt: "3:00 PM",
+      duration: 70
+    }
+  ],
+  futureClasses: [
+    {
+      name: "boxing",
+      willStartsAt: "6:00 PM",
+      duration: 40
+    },
+    {
+      name: "breath training",
+      willStartsAt: "8:00 PM",
+      duration: 30
+    }
+  ],
+  currentClients: [
+    {
+      name: "John Smith",
+      age: "-",
+      gender: "male",
+      timeLeft: "1 month"
+    },
+    {
+      name: "Alise Smith",
+      age: 35,
+      gender: "female",
+      timeLeft: "3 month"
+    },
+    {
+      name: "Ann Sonne",
+      age: 24,
+      gender: "female",
+      timeLeft: "5 month"
+    }
+  ],
+  exClients: [
+    {
+      name: "Tom Smooth",
+      age: 50,
+      gender: "male",
+      makeCallFor: new Date("2023-08-12")
+    }
+  ],
+  futureClients: [
+    {
+      name: "Maria",
+      makeCallFor: new Date("2023-07-10")
+    }
+  ]
 };`,
 `interface ISlider {
-	container?: string;
-	numberOfSlides?: number;
-	speed?: 300 | 500 | 700;
-	direction?: "horizontal" | "vertical";
-	dots?: boolean;
-	arrows?: boolean;
-	animationName?: string;
+  container?: string;
+  numberOfSlides?: number;
+  speed?: 300 | 500 | 700;
+  direction?: "horizontal" | "vertical";
+  dots?: boolean;
+  arrows?: boolean;
+  animationName?: string;
 }
 
 function createSlider({
-	container = "",
-	numberOfSlides = 1,
-	speed = 300,
-	direction = "horizontal",
-	dots = true,
-	arrows = true,
+  container = "",
+  numberOfSlides = 1,
+  speed = 300,
+  direction = "horizontal",
+  dots = true,
+  arrows = true
 }: ISlider = {}): void {
-	console.log(container, numberOfSlides, speed, direction, dots, arrows);
+  console.log(container, numberOfSlides, speed, direction, dots, arrows);
 }
 
 createSlider(); // 1 300 horizontal true true
@@ -5548,27 +5552,27 @@ createSlider(); // 1 300 horizontal true true
 // from the ISlider interface
 // All fields in it are required
 
-type CustomSliderOptions = Required<Omit<ISlider, 'speed' | 'animationName'>>
+type CustomSliderOptions = Required<Omit<ISlider, "speed" | "animationName">>;
 interface ICustomSlider extends CustomSliderOptions {
-	speed: number
+  speed: number;
 }
 
 const customSliderOptions: ICustomSlider = {
-	container: "id",
-	numberOfSlides: 4,
-	speed: 1100,
-	direction: "horizontal",
-	dots: true,
-	arrows: true,
+  container: "id",
+  numberOfSlides: 4,
+  speed: 1100,
+  direction: "horizontal",
+  dots: true,
+  arrows: true
 };
 
 function createCustomSlider(options: ICustomSlider): void {
-	if ("container" in options) {
-		console.log(options);
-	}
+  if ("container" in options) {
+    console.log(options);
+  }
 }
 
-createCustomSlider(customSliderOptions)
+createCustomSlider(customSliderOptions);
 /* 
     {
         container: 'id',
@@ -5580,8 +5584,8 @@ createCustomSlider(customSliderOptions)
     }
 */`,
 `interface IForm {
-	login: string;
-	password: string;
+  login: string;
+  password: string;
 }
 
 // It is necessary to type the validation object
@@ -5589,12 +5593,14 @@ createCustomSlider(customSliderOptions)
 // must also appear in the validation object
 
 type FormValidation = {
-	[P in keyof IForm]: {isValid: boolean} | {isValid: boolean, errorMsg: string}
-}
+  [P in keyof IForm]:
+    | { isValid: boolean }
+    | { isValid: boolean; errorMsg: string };
+};
 
 const validationData: FormValidation = {
-	login: { isValid: false, errorMsg: "At least 3 characters" },
-	password: { isValid: true },
+  login: { isValid: false, errorMsg: "At least 3 characters" },
+  password: { isValid: true }
 };`,
 ]},
 {title: {en: `An example of using Partial Utility Type working with statement`, ua: `Приклад використовування Partial Utility Type для роботи зі стейтами`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
@@ -5796,50 +5802,50 @@ console.log(
 {title: {en: `Working with base classes in TypeScript`, ua: `Робота з базовими класами у TypeScript`}, body: {en: `We declare class properties outside the constructor.`, ua: `Декларуємо властивості класа поза конструктора.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html`}, type: ['typescript', 'OOP'], data: [
 `/* Case 1. Working with tsconfig.json and his properties. We create properties without declaring a constructor using the non-null (!) operator or changing the strictPropertyInitialization parameter. */
 class Box {
-    // width!: number; // Correct!
-    width: number // Correct after changing the strictPropertyInitialization field from true to false.
-    height: number // Correct after changing the strictPropertyInitialization field from true to false.
+  // width!: number; // Correct!
+  width: number; // Correct after changing the strictPropertyInitialization field from true to false.
+  height: number; // Correct after changing the strictPropertyInitialization field from true to false.
 
-    constructor(width: number) {
-        this.width = width
-        this.height = 500
-    }
-}
-
-const firstBox = new Box(200) // const firstBox: Box
-console.log(firstBox) // Box { width: 200, height: 500 }`,
-`/* Case 2. Create a primitive class without a constructor. */
-class User {
-    name: string // Correct after changing the strictPropertyInitialization field from true to false.
-}
-
-const ilya = new User()
-ilya.name = 'Ilya'
-
-console.log(ilya) // User { name: 'Ilya' }`
-]},
-{title: {en: `Generics, Constructor Overloading for classes in TypeScript`, ua: `Дженерики, Перенавантаження Конструкторів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: ['typescript', 'OOP'], data:
-`class Figure<TName extends string | symbol> {
-  width: number
-  height: number
-  name: TName
-
-  /* Constructor overloading */
-  constructor(width: number, height: number, name: string)
-  constructor(width: number, height: number, name: symbol)
-
-  constructor(width: number, height: number, name: TName) {
-      this.width = width
-      this.height = height
-      this.name = name
-
-      // super() // Error! 'super' can only be referenced in a derived class
-      // return 'figure' // Error! Type 'string' is not assignable to type 'Figure<TName>'
+  constructor(width: number) {
+    this.width = width;
+    this.height = 500;
   }
 }
 
-const rectangle = new Figure<string>(500, 100, 'rect')
-console.log(rectangle) // Figure { width: 500, height: 100, name: 'rect' }`},
+const firstBox = new Box(200); // const firstBox: Box
+console.log(firstBox); // Box { width: 200, height: 500 }`,
+`/* Case 2. Create a primitive class without a constructor. */
+class User {
+  name: string; // Correct after changing the strictPropertyInitialization field from true to false.
+}
+
+const ilya = new User();
+ilya.name = "Ilya";
+
+console.log(ilya); // User { name: 'Ilya' }`
+]},
+{title: {en: `Generics, Constructor Overloading for classes in TypeScript`, ua: `Дженерики, Перенавантаження Конструкторів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: ['typescript', 'OOP'], data:
+`class Figure<TName extends string | symbol> {
+  width: number;
+  height: number;
+  name: TName;
+
+  /* Constructor overloading */
+  constructor(width: number, height: number, name: string);
+  constructor(width: number, height: number, name: symbol);
+
+  constructor(width: number, height: number, name: TName) {
+    this.width = width;
+    this.height = height;
+    this.name = name;
+
+    // super() // Error! 'super' can only be referenced in a derived class
+    // return 'figure' // Error! Type 'string' is not assignable to type 'Figure<TName>'
+  }
+}
+
+const rectangle = new Figure<string>(500, 100, "rect");
+console.log(rectangle); // Figure { width: 500, height: 100, name: 'rect' }`},
 {title: {en: `Methods, Accessors (getter, setter), Method Overloading for classes in TypeScript`, ua: `Methods, Accessors (getter, setter), Перегрузка Методів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: ['typescript', 'OOP'], data:
 `class Package {
   width: number;
@@ -6075,42 +6081,41 @@ const res = await fs
 {title: {en: `Initial value and Index Signature for classes in TypeScript`, ua: `Початкове значення та Index Signature для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#index-signatures`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#index-signatures`}, type: ['typescript', 'OOP'], data: [
 `/* Initial Value */
 class Rect {
-    width: number
-    height: number | undefined = 500
+  width: number;
+  height: number | undefined = 500;
 
-    constructor(width: number) {
-        this.width = width
-    }
+  constructor(width: number) {
+    this.width = width;
+  }
 }
 
-const rect = new Rect(700)
-console.log(rect) // Rect { width: 700, height: 500 }`,
+const rect = new Rect(700);
+console.log(rect); // Rect { width: 700, height: 500 }`,
 `/* Index Signature */
 class Styles {
-    [style: string]: string
+  [style: string]: string;
 }
 
-const style = new Styles()
-style.color = 'red'
+const style = new Styles();
+style.color = "red";
 // style.fontWeight = 500 // Error! Type 'number' is not assignable to type 'string'.`,
 `/* Index Signature with method (bad practise) */
 class Routes {
-    [route: string]: string | ((route: string) => string)
+  [route: string]: string | ((route: string) => string);
 
-    goToRoute(route: string): string {
-        return \`https://shop.com/\${route}\`
-    }
+  goToRoute(route: string): string {
+    return \`https://shop.com/\${route}\`;
+  }
 }
 
-const shopRoute = new Routes()
+const shopRoute = new Routes();
 
-shopRoute.users = 'users'
+shopRoute.users = "users";
 
-const adminRoute = shopRoute.adminRoute = 'admin'
+const adminRoute = (shopRoute.adminRoute = "admin");
 
-console.log(
-    shopRoute.goToRoute(adminRoute)
-) // https://shop.com/admin`,
+console.log(shopRoute.goToRoute(adminRoute)); // https://shop.com/admin
+`,
 ]},
 {title: {en: `Class extendings in TypeScript`, ua: `Розширення класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#extends-clauses`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#extends-clauses`}, type: ['typescript', 'OOP'], data:
 `class Box {
@@ -6897,23 +6902,23 @@ Alex.age // Correct!`},
 {title: {en: `Property modifier "static" in TypeScript`, ua: `Модифікатор властивості "static" у TypeScript`}, body: {en: `Static initialization blocks are declared within a class. It contains statements to be evaluated during class initialization. This permits more flexible initialization logic than static properties, such as using try...catch or setting multiple fields from a single value. Initialization is performed in the context of the current class declaration, with access to private state, which allows the class to share information of its private properties with other classes or functions declared in the same scope.`, ua: `Блоки статичної ініціалізації оголошуються в межах класу. Він містить оператори, які потрібно оцінити під час ініціалізації класу. Це дозволяє більш гнучку логіку ініціалізації, ніж статичні властивості, такі як використання try...catch або встановлення кількох полів з одного значення. Ініціалізація виконується в контексті поточної декларації класу з доступом до приватного стану, що дозволяє класу ділитися інформацією про свої приватні властивості з іншими класами або функціями, оголошеними в тій же області.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members`}, type: ['typescript', 'OOP'], data: [
 `/* Case 1. Static variables and methods. */
 class Cat {
-    static animal: string = "cat"
-    private static animalName = "Michelle"
+  static animal: string = "cat";
+  private static animalName = "Michelle";
 
-    static getAnimalName() {
-        return Cat.animalName
-    }
+  static getAnimalName() {
+    return Cat.animalName;
+  }
 }
 
-Cat.animal // Correct!
+Cat.animal; // Correct!
 // Cat.animalName // Error! Property 'animalName' is private and only accessible within class 'Cat'.
-Cat.getAnimalName() // Correct!
+Cat.getAnimalName(); // Correct!
 
-console.log(Cat.getAnimalName()) // Michelle`,
+console.log(Cat.getAnimalName()); // Michelle`,
 `/* Case 2. Static classes (non-reusable classes) without the ability to create new instances. */
 class MusicAlbum {
-    private static albumName: string
-    private constructor () {}
+  private static albumName: string;
+  private constructor() {}
 }
 
 // const queenAlbum = new MusicAlbum() // Error! Constructor of class 'MusicAlbum' is private and only accessible within the class declaration.
@@ -6921,26 +6926,26 @@ class MusicAlbum {
 // class QueenAlbum extends MusicAlbum {} // Error! Cannot extend a class 'MusicAlbum'. Class constructor is marked as private.`,
 `/* Case 3. Static classes (non-reusable classes), but with the ability to create subclasses. */
 class XWing {
-    static type: string
-    protected constructor() {}
+  static type: string;
+  protected constructor() {}
 }
 
 // const xWing = new XWing() // Error! Constructor of class 'XWing' is protected and only accessible within the class declaration.
 
 class AWing extends XWing {
-    static type: string
+  static type: string;
 }`,
 `/* Case 4. Static Block. */
 class Ports {
-    static defaultPort: number = 3000
-    static portList: number[] = []
+  static defaultPort: number = 3000
+  static portList: number[] = []
 
-    static {
-        for (let i = 0; i < 3; i++) {
-            this.portList.push(this.defaultPort)
-            this.defaultPort++
-        }
-    }
+  static {
+      for (let i = 0; i < 3; i++) {
+          this.portList.push(this.defaultPort)
+          this.defaultPort++
+      }
+  }
 }
 
 console.log(Ports.portList) // [ 3000, 3001, 3002 ]`,
@@ -6948,77 +6953,285 @@ console.log(Ports.portList) // [ 3000, 3001, 3002 ]`,
 {title: {en: `"this" and context typing`, ua: `"this" і типізація контекста`}, body: {en: `When functionality becomes more complex, you can always lose context in classes. In TS there is an opportunity to clearly say what the context should be and not get such situations. The problem can be solved using bind or an arrow function. But you won't know about the error until you run the code. Therefore, in TS there is an option to immediately say what the context will be as the first argument in the function. And you will see an error at the development stage. Sometimes we return context from a method, that is, a reference to an instance of an object. In such cases, you should not strictly type the return value, as it may break the logic. Using the context, we can check which class the instance belongs to and write our own type protector.`, ua: `При ускладненні функціоналу можна втратити контекст у класах. У TS існує можливість чітко сказати, чим має бути контекст і не набувати таких ситуацій. Проблему можна вирішити за допомогою bind або стрілочної функції. Але до запуску коду ви не дізнаєтесь про помилку. Тому в TS є варіант відразу сказати, чим буде контекст прямо першим аргументом функції. І ви побачите помилку на етапі розробки. Іноді ми з методу повертаємо контекст, тобто посилання на екземпляр об'єкта. У таких випадках не варто жорстко типізувати значення, що повертається, так як воно може зламати логіку. За допомогою контексту ми можемо перевірити, до якого класу належить екземпляр та написати свій захисник типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`}, type: ['typescript', 'OOP'], data: [
 `/* Case 1. We use the "bind" method to assert the context. */
 class Pilot {
-    name: string
-    isRegistered: boolean
+  name: string;
+  isRegistered: boolean;
 
-    constructor(name: string, isRegistered: boolean) {
-        this.name = name
-        this.isRegistered = isRegistered
-    }
+  constructor(name: string, isRegistered: boolean) {
+    this.name = name;
+    this.isRegistered = isRegistered;
+  }
 
-    checkInfo() {
-        if (this.isRegistered) {
-            return \`\${this.name} is registered.\`
-        } else {
-            return \`\${this.name} isn't registered.\`
-        }
+  checkInfo() {
+    if (this.isRegistered) {
+      return \`\${this.name} is registered.\`;
+    } else {
+      return \`\${this.name} isn't registered.\`;
     }
+  }
 
-    pilotInfo() {
-        return this
-    }
+  pilotInfo() {
+    return this;
+  }
 
-    isMilitary(): this is MilitaryPilot {
-        return this instanceof MilitaryPilot
-    }
+  isMilitary(): this is MilitaryPilot {
+    return this instanceof MilitaryPilot;
+  }
 }
 
-const Alex = new Pilot('Alex', true)
-console.log(Alex.checkInfo()) // Alex is registered.
+const Alex = new Pilot("Alex", true);
+console.log(Alex.checkInfo()); // Alex is registered.
 
-const AlexRecheck = Alex.checkInfo.bind(Alex)
-console.log(AlexRecheck()) // Alex is registered.
+const AlexRecheck = Alex.checkInfo.bind(Alex);
+console.log(AlexRecheck()); // Alex is registered.
 
-console.log(Alex.pilotInfo().name) // Alex`,
+console.log(Alex.pilotInfo().name); // Alex`,
 `/* Case 2. Context inheritance in subclasses. */
 class MilitaryPilot extends Pilot {
-    static callsign: string
-    planeType: string
+  static callsign: string;
+  planeType: string;
 
-    constructor(name: string, isRegistered: boolean, planeType: string) {
-        super(name, isRegistered)
-        this.planeType = planeType
-    }
+  constructor(name: string, isRegistered: boolean, planeType: string) {
+    super(name, isRegistered);
+    this.planeType = planeType;
+  }
 
-    checkMilitaryInfo() {
-        return {
-            registration: this.checkInfo(),
-            planeType: this.planeType
-        }
-    }
+  checkMilitaryInfo() {
+    return {
+      registration: this.checkInfo(),
+      planeType: this.planeType
+    };
+  }
 }
 
-const Tom = new MilitaryPilot('Tom', true, 'F-16')
-console.log(Tom.checkMilitaryInfo()) // { registration: 'Tom is registered.', planeType: 'F-16' }
+const Tom = new MilitaryPilot("Tom", true, "F-16");
+console.log(Tom.checkMilitaryInfo()); // { registration: 'Tom is registered.', planeType: 'F-16' }
 
-const John: Pilot | MilitaryPilot = new MilitaryPilot('John', true, 'F-35')
-console.log(John.isMilitary()) // true`,
+const John: Pilot | MilitaryPilot = new MilitaryPilot("John", true, "F-35");
+console.log(John.isMilitary()); // true`,
 `/* Case 3. We use the arrow function to assert the context. */
 class Trooper {
-    callsign: string
+  callsign: string;
 
-    constructor(callsign: string) {
-        this.callsign = callsign
-    }
+  constructor(callsign: string) {
+    this.callsign = callsign;
+  }
 
-    logCallsign = () => {
-        return \`\${this.callsign} is a trooper.\`
-    }
+  logCallsign = () => {
+    return \`\${this.callsign} is a trooper.\`;
+  };
 }
 
-const Datsik = new Trooper('Datsik')
-console.log(Datsik.logCallsign()) // Datsik is a trooper.`,
+const Datsik = new Trooper("Datsik");
+console.log(Datsik.logCallsign()); // Datsik is a trooper.`,
 ]},
+{title: {en: `Abstract classes in TypeScript`, ua: `Абстрактні класи у TypeScript`}, body: {en: `Classes, methods, and fields in TypeScript may be abstract. An abstract method or abstract field is one that hasn’t had an implementation provided. These methods must exist inside an abstract class, which cannot be directly instantiated. The role of abstract classes is to serve as a base class for subclasses which do implement all the abstract members. When a class doesn’t have any abstract members, it is said to be concrete.`, ua: `Класи, методи та поля в TypeScript можуть бути абстрактними. Абстрактний метод або абстрактне поле — це те, яке не має реалізації. Ці методи повинні існувати всередині абстрактного класу, екземпляр якого неможливо створити безпосередньо. Роль абстрактних класів полягає в тому, щоб служити базовим класом для підкласів, які реалізують усі абстрактні члени. Якщо клас не має абстрактних членів, він називається конкретним.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#abstract-classes-and-members`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#abstract-classes-and-members`}, type: ['typescript', 'OOP'], data:
+`interface IEngine {
+  model: string;
+  capacity: number;
+  startEngine: (time: Date) => string;
+}
+
+abstract class AbstractVehicle {
+  model: string;
+  capacity: number;
+
+  abstract startEngine: (time: Date) => string;
+
+  stopEngine(time: Date): string {
+    this.startEngine(new Date()); // Correct!
+    return \`Engine stoped at \${time}.\`;
+  }
+}
+
+// const abstractVehicle = new AbstractVehicle() // Error! Cannot create an instance of an abstract class.
+
+class Vehicle extends AbstractVehicle {
+  startEngine = (time: Date) => {
+    return \`Engine started at \${time}\`;
+  };
+}
+
+const vehicle = new Vehicle();
+
+console.log(vehicle.startEngine(new Date("2023-11-01T12:33:53"))); // Engine started at Wed Nov 01 2023 12:33:53 GMT+0200...
+console.log(vehicle.stopEngine(new Date("2023-11-01T12:50:12"))); // Engine stoped at Wed Nov 01 2023 12:50:12 GMT+0200...
+`},
+{title: {en: `An interesting task for practicing classes, implementations and understanding queues and stacks`, ua: `Цікава задачка для практикування класів, імплемінтацій та розуміння черг та стеків`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP', 'task'], data: [
+`interface Queue<T> {
+  enqueue(item: T): void; // enqueue
+  dequeue(): T | undefined; // dequeue
+  peek(): T | undefined | null; // see first element
+  isEmpty(): boolean; // checking for "emptiness" of an entity
+  length(): number; // length check
+}
+
+// Implementing a queue via an array
+// The ArrayQueue class must implement the Queue interface
+// The class can work with any data type, that is, place any data in an array <-- Important
+
+// A queue is a data structure that looks like a real queue in a store
+// The first one to approach the counter will be the first to leave. It’s the same in code when performing tasks.
+// A little more detail can be found on Wikipedia or on other sites by searching for “Queue data structure”
+
+class ArrayQueue<T> implements Queue<T> {
+  // Create a private property queue, which is an array by default and contains an array of any type
+  // Method hint:
+  // When adding to the queue, you can execute the push method
+  // When deleting - shift, since you need to delete the first element.
+  // Pay attention to the return value
+  // isEmpty can be used in other methods
+
+  private queue: T[] = [];
+
+  enqueue(this: ArrayQueue<T>, item: T): void {
+    this.queue.push(item);
+  }
+
+  dequeue(this: ArrayQueue<T>): T | undefined {
+    if (!this.isEmpty()) {
+      throw new Error("Queue Underflow!");
+    }
+
+    return this.queue.shift() as T;
+  }
+
+  peek(this: ArrayQueue<T>): T | undefined | null {
+    if (!this.isEmpty()) {
+      return null;
+    }
+    return this.queue[0];
+  }
+
+  isEmpty(this: ArrayQueue<T>): boolean {
+    return this.queue.length !== 0;
+  }
+
+  length(this: ArrayQueue<T>): number {
+    return this.queue.length;
+  }
+}`,
+`// A stack is another data structure. The easiest way to imagine it is as a stack of sheets on a table.
+// The last one you put on top is the first one you take.
+// A little more detail can be found on Wikipedia or on other sites by searching “Stack data structure”
+// The Stack class contains other methods, so you don't need to implement anything
+// The class can work with any type of data, that is, place any data in an array and contains an array of any type <-- Important
+
+class Stack<T> {
+  // Create a private property stack, which is an array by default and contains an array of any type
+  // Create a private property limit, which will be of type number
+
+  private stack: T[] = [];
+  private limit: number;
+
+  // Here we will set a limit on the stack of sheets.
+  // On stack overflow, the program freezes and a very tall stack of tiles falls over
+  // So there should always be a limit
+
+  constructor(limit: number = Number.MAX_VALUE) {
+    this.limit = limit;
+  }
+
+  push(this: Stack<T>, value: T) {
+    // Adds an element to the stack
+    // If the stack is full, throws an error (throw new Error)
+
+    if (this.stack.length + 1 > this.limit) {
+      throw new Error("Stack is overload!");
+    }
+
+    this.stack.push(value);
+  }
+
+  pop(this: Stack<T>) {
+    // Removes the last element of an array
+    // If the stack is empty, it throws an error (throw new Error)
+    // When an element is removed, returns it
+    // In simple terms: you take the top sheet in the stack and use it
+    // If there are no sheets on the table, there is an error, there is nothing to take
+
+    if (this.isEmpty()) {
+      throw new Error("Stack is empty!");
+    }
+
+    return this.stack.pop() as T;
+  }
+
+  length(this: Stack<T>): number {
+    // Returns the number of elements in the stack
+    return this.stack.length;
+  }
+
+  isEmpty(this: Stack<T>) {
+    // Checks the stack for emptiness
+    return this.length() === 0;
+  }
+
+  top(this: Stack<T>) {
+    // Returns the last (top) element of the stack, but does not remove it
+    // You just read what's written on the top sheet
+    // If the stack is empty, null will be returned
+
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    return this.stack[this.length() - 1];
+  }
+}`,
+`// For tests
+const arrTest1 = new ArrayQueue<number>();
+arrTest1.enqueue(5);
+arrTest1.enqueue(10);
+console.log(arrTest1.peek()); // 5
+console.log(arrTest1.dequeue()); // 5
+console.log(arrTest1.length()); // 1
+
+const arrTest2 = new ArrayQueue<string>();
+arrTest2.enqueue("5");
+arrTest2.enqueue("10");
+console.log(arrTest2.peek()); // 5
+console.log(arrTest2.dequeue()); // 5
+console.log(arrTest2.length()); // 1
+
+const stackTest1 = new Stack<number>(10);
+stackTest1.push(20);
+stackTest1.push(50);
+console.log(stackTest1.top()); // 50
+console.log(stackTest1.pop()); // 50
+console.log(stackTest1.length()); // 1
+
+const stackTest2 = new Stack<string>(10);
+stackTest2.push("20");
+stackTest2.push("50");
+console.log(stackTest2.top()); // 50
+console.log(stackTest2.pop()); // 50
+console.log(stackTest2.length()); // 1`]},
+{title: {en: `Implementation with Generics in TypeScript`, ua: `Реалізація за допомогою Generics у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
+`interface IQueue<T> {
+  enqueue(item: T): void;
+  dequeue(): T | undefined;
+}
+
+class Queue<T> implements IQueue<T> {
+  private queue: T[] = [];
+
+  enqueue(this: Queue<T>, item: T): void {
+    this.queue.push(item);
+  }
+
+  dequeue(this: Queue<T>): T | undefined {
+    if (this.queue.length === 0) {
+      throw new Error("Queue Underflow!");
+    }
+
+    return this.queue.shift() as T;
+  }
+}
+
+const queue = new Queue();
+
+queue.enqueue(1);
+console.log(queue.dequeue());`},
 ]
 
 export default content
