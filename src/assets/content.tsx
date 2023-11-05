@@ -7232,6 +7232,45 @@ const queue = new Queue();
 
 queue.enqueue(1);
 console.log(queue.dequeue());`},
+{title: {en: `Synchronous queries in Node.js on MySQL`, ua: `Синхронні запити у Node.js на MySQL`}, body: {en: ``, ua: ``}, link: {en: `https://www.npmjs.com/package/mysql2`, ua: `https://www.npmjs.com/package/mysql2`}, type: ['Node.js', 'MySQL'], data:
+`const mysql = require('mysql2/promise') // npm i mysql2
+
+const db ={
+    host: '127.0.0.1',
+    user: 'root',
+    database: 'node_test',
+    password: ''
+} // DB info
+
+// Function for DRY principe
+async function connection() {
+    return await mysql.createConnection(db)
+}
+
+async function getUserName() {
+    const conn = await connection()
+
+    const [currUserName, _1] = await conn.execute('SELECT firstname FROM user WHERE lastname="Bro"')
+
+    console.log(currUserName[0]['firstname']) // alex
+
+    conn.end()
+
+    return currUserName
+}
+
+async function updateUser() {
+    const conn = await connection()
+
+    const userName = await getUserName()
+    console.log(userName[0]['firstname']) // alex
+
+    await conn.execute(\`UPDATE user SET firstname="\${userName[0]['firstname']}" WHERE lastname="Potter"\`) // Correct!
+    
+    conn.end()
+}
+
+updateUser()`},
 ]
 
 export default content
