@@ -900,3 +900,7 @@ Some addictions
 ### `v32.0.8`
 
 Some addictions
+
+### `v32.0.9`
+
+Some addictions

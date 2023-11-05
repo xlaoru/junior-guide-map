@@ -7271,6 +7271,59 @@ async function updateUser() {
 }
 
 updateUser()`},
+{title: {en: `Modules in Node.js`, ua: `Модулі у Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data: [
+`// ROOT index.js
+
+/* Case 1. Module with object */
+const config = require('./config');
+console.log(config) // { protocol: 'https', port: 3001 }
+
+/* Case 2. Module with array */
+const userArray = require('./userArray')
+console.log(userArray) // [ 'Alex', 'Tom', 'John', 'Anna' ]
+
+/* Case 3. Module with function */
+const connect = require('./connect')
+console.log(connect('https://gameshop.com')) // https://gameshop.com/main
+
+/* Case 4. Module with function in folder with another module */
+const hash = require('./folder') // ./folder/index.js
+console.log(hash(5)) // efznp
+
+/* Case 5. Module from npm. */
+const mysql = require('mysql') // npm i mysql`,
+`// ./config
+module.exports = {
+    protocol: 'https',
+    port: 3001,
+}`,
+`// ./userArray
+module.exports = [
+    'Alex',
+    'Tom',
+    'John',
+    'Anna'
+]`,
+`// ./connect
+module.exports = function(url) {
+    return \`\${url}/main\`
+}`,
+`// ./folder/index
+const config = require('./config')
+
+module.exports = function(length) {
+    let out = ''
+
+    for (let i = 0; i < length; i++) {
+        const rand = Math.floor(Math.random() * config.length)
+        out += config[rand]
+    }
+
+    return out
+}`,
+`// ./folder/config
+module.exports = [1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','p','q','r','s','t','u','v','x','y','z','w']`,
+]},
 ]
 
 export default content
