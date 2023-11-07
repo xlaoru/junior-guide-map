@@ -7324,6 +7324,71 @@ module.exports = function(length) {
 `// ./folder/config
 module.exports = [1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','p','q','r','s','t','u','v','x','y','z','w']`,
 ]},
+{title: {en: `lazy loading in React`, ua: `lazy loading у React`}, body: {en: `lazy lets you defer loading component’s code until it is rendered for the first time.`, ua: `lazy дозволяє відкласти завантаження коду компонента, поки він не буде відображено вперше.`}, link: {en: `https://react.dev/reference/react/lazy`, ua: `https://react.dev/reference/react/lazy`}, type: 'React', data: [
+`import { useState, Suspense, lazy } from "react";
+
+const Demo = lazy(() => import("./Demo"));
+
+export default function App() {
+  const [isShowed, setShow] = useState<boolean>(false);
+
+  function handleClick() {
+    setShow((prev) => {
+      return !prev;
+    });
+  }
+
+  return (
+    <>
+      <button onClick={handleClick}>Load Demo</button>
+      <Suspense fallback={<div>Loading...</div>}>
+        {isShowed && <Demo />}
+      </Suspense>
+    </>
+  );
+}`,
+`import { useState, useEffect } from "react";
+
+function Demo() {
+  return (
+    <ul>
+      <li>Post 1</li>
+      <li>Post 2</li>
+      <li>Post 3</li>
+      <li>Post 4</li>
+      <li>Post 5</li>
+      <li>Post 6</li>
+      <li>Post 7</li>
+      <li>Post 8</li>
+      <li>Post 9</li>
+      <li>Post 10</li>
+      <li>Post 11</li>
+      <li>Post 12</li>
+      <li>Post 13</li>
+      <li>Post 14</li>
+      <li>Post 15</li>
+      <li>Post 16</li>
+      <li>Post 17</li>
+      <li>Post 18</li>
+      <li>Post 19</li>
+      <li>Post 20</li>
+      <li>Post 21</li>
+      <li>Post 22</li>
+      <li>Post 23</li>
+      <li>Post 24</li>
+      <li>Post 25</li>
+      <li>Post 26</li>
+      <li>Post 27</li>
+      <li>Post 28</li>
+      <li>Post 29</li>
+      <li>Post 30</li>
+      {/* ... */}
+    </ul>
+  );
+}
+
+export default Demo;`,
+]},
 ]
 
 export default content
