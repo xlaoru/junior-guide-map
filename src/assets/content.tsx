@@ -7389,6 +7389,107 @@ function Demo() {
 
 export default Demo;`,
 ]},
+{title: {en: `Basic example of Decorators' work`, ua: `Базовий приклад Декораторів`}, body: {en: `Decorators are a declarative programming tool. They allow you to easily and elegantly add metadata to classes and class members. Based on this metadata, you can extend or change the behavior of classes and class members without changing the code base to which the decorator is applied.`, ua: `Декоратори – інструмент декларативного програмування. З їх допомогою можна легко та елегантно додати до класів та членів класу метадані. На основі цих метаданих можна розширювати або змінювати поведінки класів та членів класу, не змінюючи при цьому кодову базу, до якої застосовано декоратор.`}, link: {en: `#`, ua: `#`}, type: ['OOP'], data:
+`const myCar = {
+  fuel: "50%",
+  isOpen: true,
+  freeSeats: 3,
+  hasOpened() {
+    console.log(this.fuel);
+    return this.isOpen ? "open" : "close";
+  }
+};
+
+function closeCar(car: typeof myCar) {
+  car.isOpen = false;
+  console.log("close car");
+  return car;
+}
+
+function addFuel(car: typeof myCar) {
+  car.fuel = "100%";
+  console.log("add fuel");
+  return car;
+}
+
+addFuel(closeCar(myCar)).hasOpened();
+/* 
+  close car
+  add fuel
+  100%
+*/`},
+{title: {en: `Decorators in TypeScript`, ua: `Декоратори у TypeScript`}, body: {en: `Decorators provide a way to add both annotations and a meta-programming syntax for class declarations and subclasses.`, ua: `Декоратори надають можливість додавати як анотації, так і синтаксис метапрограмування для оголошень класів і підкласів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/decorators.html#introduction`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#introduction`}, type: ['typescript', 'OOP'], data:
+`interface IUser {
+  name: string;
+  id: number;
+  bio: string;
+  role: "user" | "admin";
+}
+
+@makeAdmin
+class User implements IUser {
+  name: string;
+  id: number;
+  bio: string;
+  role: "user" | "admin" = "user";
+  returnRole() {
+    return this.role;
+  }
+}
+
+function makeAdmin<T extends { new (...args: any[]): {} }>(constructor: T) {
+  return class extends constructor {
+    role = "admin";
+  };
+}
+
+const alex = new User();
+
+console.log(alex.returnRole()); // admin`},
+{title: {en: `Composition of Decorators and Decorator Factory in TypeScript`, ua: `Композиція Декораторів та Фабрика Декораторів у TypeScript`}, body: {en: `If we want to customize how a decorator is applied to a declaration, we can write a decorator factory. A Decorator Factory is simply a function that returns the expression that will be called by the decorator at runtime. If we want to set current nesting of decorators, we can use Composition of Decorators. A Composition of Decorators is order of Decorators initialization.`, ua: `Якщо ми хочемо налаштувати спосіб застосування декоратора до декларації, ми можемо написати фабрику декораторів. Фабрика декораторів — це просто функція, яка повертає вираз, викликаний декоратором під час виконання. Якщо ми хочемо встановити поточну вкладеність декораторів, ми можемо використати Композицію декораторів. Композиція декораторів — це порядок ініціалізації декораторів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-factories`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-factories`}, type: ['typescript', 'OOP'], data:
+`interface IPost {
+  id: number;
+  title: string;
+  description: string;
+  rating: "low" | "middle" | "high";
+  extra: string;
+}
+
+// Composition of Decorators
+@changeRating("high")
+@addExtra("Check full receipt on my channel!")
+class Post implements IPost {
+  id: number;
+  title: string;
+  description: string;
+  rating: "low" | "middle" | "high" = "middle";
+  extra: string;
+}
+
+// Decorator Nesting Example:
+// changeRating(addExtra(Post))
+
+// Decorator Factory
+function changeRating(rate: "low" | "middle" | "high") {
+  return <T extends { new (...args: any[]): {} }>(constructor: T) => {
+    return class extends constructor {
+      rating = rate;
+    };
+  };
+}
+
+function addExtra(extra: string) {
+  return <T extends { new (...args: any[]): {} }>(constructor: T) => {
+    return class extends constructor {
+      extra = extra;
+    };
+  };
+}
+
+const cookingPost = new Post();
+
+console.log(cookingPost.rating); // high
+console.log(cookingPost.extra); // Check full receipt on my channel!`},
 ]
 
 export default content
