@@ -7437,8 +7437,11 @@ class User implements IUser {
   }
 }
 
-function makeAdmin<T extends { new (...args: any[]): {} }>(constructor: T) {
-  return class extends constructor {
+function makeAdmin<T extends { new (...args: any[]): {} }>(
+  target: T,
+  context: ClassDecoratorContext<T>
+) {
+  return class extends target {
     role = "admin";
   };
 }
@@ -7471,16 +7474,22 @@ class Post implements IPost {
 
 // Decorator Factory
 function changeRating(rate: "low" | "middle" | "high") {
-  return <T extends { new (...args: any[]): {} }>(constructor: T) => {
-    return class extends constructor {
+  return <T extends { new (...args: any[]): {} }>(
+    target: T,
+    context: ClassDecoratorContext<T>
+  ) => {
+    return class extends target {
       rating = rate;
     };
   };
 }
 
 function addExtra(extra: string) {
-  return <T extends { new (...args: any[]): {} }>(constructor: T) => {
-    return class extends constructor {
+  return <T extends { new (...args: any[]): {} }>(
+    target: T,
+    context: ClassDecoratorContext<T>
+  ) => {
+    return class extends target {
       extra = extra;
     };
   };
@@ -7490,6 +7499,59 @@ const cookingPost = new Post();
 
 console.log(cookingPost.rating); // high
 console.log(cookingPost.extra); // Check full receipt on my channel!`},
+{title: {en: `Decorators for class methods and working with "this" in TypeScript`, ua: `Декоратори для методів класу та робота з "this" у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators`}, type: ['typescript', 'OOP'], data:
+`interface ITodo {
+  id: number;
+  title: string;
+  description: string;
+  isCompleted: boolean;
+}
+
+class Todo implements ITodo {
+  id: number;
+  title: string = "Vacuum the floor";
+  description: string;
+  isCompleted: boolean = false;
+
+  @logTitle
+  changeTodoTitle(value: string) {
+    return (this.description = value);
+  }
+
+  @logMethod
+  returnCompleted() {
+    return this.isCompleted ? "✅" : "❌";
+  }
+}
+
+/* Case 1. A less typed version, but it is used for a more specific purpose. By type of obtaining and logging specific class properties, etc. */
+function logTitle(target: any, context: ClassMethodDecoratorContext) {
+  return function (this: any, ...args: any[]) {
+    console.log(this.title);
+    return target.apply(this, args);
+  };
+}
+
+/* Case 2. Version for reusing Decorators for class methods. Used, for example, for logging before calling the original method, etc. That is, we cannot address anything specific here. */
+function logMethod<T, A extends any[], R>(
+  target: (this: T, ...args: A) => R,
+  context: ClassMethodDecoratorContext<T, (this: T, ...args: A) => R>
+) {
+  return function (this: T, ...args: A): R {
+    console.log(\`\${String(context.name)} started\`);
+    return target.apply(this, args);
+  };
+}
+
+const todo = new Todo();
+
+console.log(
+  todo.changeTodoTitle("Wash the dishes") // Vacuum the floor
+); // Wash the dishes
+
+console.log(
+  todo.returnCompleted() // returnCompleted started
+); // ❌`},
 ]
 
 export default content
