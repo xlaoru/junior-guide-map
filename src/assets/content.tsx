@@ -7509,7 +7509,7 @@ console.log(cookingPost.extra); // Check full receipt on my channel!`},
 
 class Todo implements ITodo {
   id: number;
-  title: string = "Vacuum the floor";
+  title: string = "Example";
   description: string;
   isCompleted: boolean = false;
 
@@ -7546,7 +7546,7 @@ function logMethod<T, A extends any[], R>(
 const todo = new Todo();
 
 console.log(
-  todo.changeTodoTitle("Wash the dishes") // Vacuum the floor
+  todo.changeTodoTitle("Wash the dishes") // Example
 ); // Wash the dishes
 
 console.log(
