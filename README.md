@@ -924,3 +924,7 @@ Some addictions
 ### `v32.0.14`
 
 Some addictions
+
+### `v32.0.15`
+
+Some addictions

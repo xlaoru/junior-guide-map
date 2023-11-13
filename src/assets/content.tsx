@@ -7503,31 +7503,30 @@ console.log(cookingPost.extra); // Check full receipt on my channel!`},
 `interface ITodo {
   id: number;
   title: string;
-  description: string;
   isCompleted: boolean;
 }
 
 class Todo implements ITodo {
   id: number;
-  title: string = "Example";
-  description: string;
+  title: string;
   isCompleted: boolean = false;
 
-  @logTitle
+  @updateTodoID
   changeTodoTitle(value: string) {
-    return (this.description = value);
+    return (this.title = value);
   }
 
   @logMethod
-  returnCompleted() {
-    return this.isCompleted ? "✅" : "❌";
+  setCompleted() {
+    return (this.isCompleted = true);
   }
 }
 
 /* Case 1. A less typed version, but it is used for a more specific purpose. By type of obtaining and logging specific class properties, etc. */
-function logTitle(target: any, context: ClassMethodDecoratorContext) {
+function updateTodoID(target: any, context: ClassMethodDecoratorContext) {
   return function (this: any, ...args: any[]) {
-    console.log(this.title);
+    this.id = new Date();
+    console.log(\`ID: \${this.id}\`);
     return target.apply(this, args);
   };
 }
@@ -7546,12 +7545,12 @@ function logMethod<T, A extends any[], R>(
 const todo = new Todo();
 
 console.log(
-  todo.changeTodoTitle("Wash the dishes") // Example
+  todo.changeTodoTitle("Wash the dishes") // ID: Mon Nov 13 2023 21:12:28 GMT+0200...
 ); // Wash the dishes
 
 console.log(
-  todo.returnCompleted() // returnCompleted started
-); // ❌`},
+  todo.setCompleted() // setCompleted started
+); // true`},
 ]
 
 export default content
