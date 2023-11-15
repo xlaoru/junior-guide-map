@@ -7500,19 +7500,19 @@ const cookingPost = new Post();
 console.log(cookingPost.rating); // high
 console.log(cookingPost.extra); // Check full receipt on my channel!`},
 {title: {en: `Decorators for class methods and working with "this" in TypeScript`, ua: `Декоратори для методів класу та робота з "this" у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators`}, type: ['typescript', 'OOP'], data:
-`interface ITodo {
+`interface IChore {
   id: number;
   title: string;
   isCompleted: boolean;
 }
 
-class Todo implements ITodo {
+class Chore implements IChore {
   id: number;
-  title: string;
+  title: string = "Vacuum the floor";
   isCompleted: boolean = false;
 
-  @updateTodoID
-  changeTodoTitle(value: string) {
+  @updateChoreTitle
+  changeChoreTitle(value: string) {
     return (this.title = value);
   }
 
@@ -7523,10 +7523,13 @@ class Todo implements ITodo {
 }
 
 /* Case 1. A less typed version, but it is used for a more specific purpose. By type of obtaining and logging specific class properties, etc. */
-function updateTodoID(target: any, context: ClassMethodDecoratorContext) {
+function updateChoreTitle(target: any, context: ClassMethodDecoratorContext) {
   return function (this: any, ...args: any[]) {
-    this.id = new Date();
-    console.log(\`ID: \${this.id}\`);
+    if (args[0]) {
+      const value = args[0];
+      this.title = \`UPD: \${value}\`;
+    }
+    console.log(this.title);
     return target.apply(this, args);
   };
 }
@@ -7542,14 +7545,16 @@ function logMethod<T, A extends any[], R>(
   };
 }
 
-const todo = new Todo();
+const chore = new Chore();
+
+console.log(chore.title); // Vacuum the floor
 
 console.log(
-  todo.changeTodoTitle("Wash the dishes") // ID: Mon Nov 13 2023 21:12:28 GMT+0200...
+  chore.changeChoreTitle("Wash the dishes") // UPD: Wash the dishes
 ); // Wash the dishes
 
 console.log(
-  todo.setCompleted() // setCompleted started
+  chore.setCompleted() // setCompleted started
 ); // true`},
 ]
 
