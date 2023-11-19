@@ -7556,6 +7556,146 @@ console.log(
 console.log(
   chore.setCompleted() // setCompleted started
 ); // true`},
+{title: {en: `Handling the problem of slow client Internet when requesting to the server`, ua: `Обробка проблеми повільного інтернету клієнта під час запиту на сервер`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React', 'request'], data:
+`import { useState, useRef } from "react";
+
+type Status = "idle" | "loading" | "delayed" | "success" | "canceled" | "error";
+
+function Demo() {
+  const [users, setUsers] = useState<Array<string>>();
+  const [fetchStatus, setFetchStatus] = useState<Status>("idle");
+  const controllerRef = useRef<AbortController | null>(null);
+
+  async function getUsers() {
+    setFetchStatus("loading");
+    controllerRef.current = new AbortController();
+
+    const timeout = setTimeout(() => {
+      setFetchStatus("delayed");
+    }, 2000);
+
+    fetch("http://localhost:3002/users", {
+      signal: controllerRef.current.signal
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data);
+        setFetchStatus("success");
+      })
+      .catch((e) => {
+        if (e.name === "AbortError") {
+          setFetchStatus("canceled");
+        } else {
+          setFetchStatus("error");
+        }
+      })
+      .finally(() => {
+        clearTimeout(timeout);
+      });
+  }
+
+  console.log(users)
+
+  return (
+    <>
+      <button
+        onClick={getUsers}
+        disabled={fetchStatus === "loading" || fetchStatus === "delayed"}
+      >
+        Load Users
+      </button>
+      {fetchStatus === "delayed" && (
+        <>
+          This response is taking longer than normal. It is still running in the
+          background. If you want you can cancel the request and retry it.
+          <button onClick={() => controllerRef.current && controllerRef.current.abort()}>Cancel</button>
+        </>
+      )}
+      {fetchStatus === "error" && <div>Error!</div>}
+      {fetchStatus === "success" && <div>{JSON.stringify(users, null, 2)}</div>}
+      {fetchStatus === "canceled" && <div>canceled</div>}
+    </>
+  );
+}
+
+export default Demo;`},
+{title: {en: `Property Decorators in TypeScript`, ua: `Декоратори властивостей у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
+`interface IMessage {
+  message: string;
+}
+
+class Message implements IMessage {
+  @validateMessage(100)
+  message: string =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.";
+}
+
+function validateMessage(limit: number) {
+  return function (target: undefined, context: ClassFieldDecoratorContext) {
+    return function (message: string) {
+      if (message.length >= 1 && message.length < limit) {
+        return message;
+      } else {
+        throw Error(
+          \`The message must have more than 1 values and less than \${limit} values\`
+        );
+      }
+    };
+  };
+}
+
+const message = new Message();
+console.log(message); // Message { message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.' }`},
+{title: {en: `Accessors Decorators (get/set) in TypeScript`, ua: `Декоратори аксесорів (get/set) у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
+`interface IBankAccount {
+  _balance: number;
+}
+
+class BankAccount implements IBankAccount {
+  _balance: number = 0;
+
+  @logSetter
+  set balance(amount: number) {
+    if (amount < 0) {
+      throw Error("Warning! Negative balance is not allowed!");
+    } else {
+      this._balance += amount;
+    }
+  }
+
+  @logGetter
+  get balance() {
+    return this._balance;
+  }
+}
+
+function logSetter<T, R>(
+  target: (this: T, amount: number) => R,
+  context: ClassSetterDecoratorContext<T, number>
+) {
+  return function (this: T, ...args: any): R {
+    console.log(\`Balance replenished by \${[...args]}.\`);
+    return target.apply(this, args);
+  };
+}
+
+function logGetter<T, R>(
+  target: (this: T) => R,
+  context: ClassGetterDecoratorContext<T, number>
+) {
+  return function (this: T): R {
+    console.log("Somebody got their balance.");
+    return target.apply(this);
+  };
+}
+
+const alexBankAccount = new BankAccount();
+// Balance replenished by 300.
+alexBankAccount.balance = 300;
+// Balance replenished by 500.
+alexBankAccount.balance = 500;
+// Somebody got their balance.
+console.log(alexBankAccount.balance); // 800`},
 ]
 
 export default content
