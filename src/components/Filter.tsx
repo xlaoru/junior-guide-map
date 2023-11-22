@@ -1,4 +1,4 @@
-import { IFilterProps } from '../utils/Interfaces';
+import { IFilterProps } from '../utils/models';
 
 export default function Filter({filter, setSearchParams, types, disabled}: IFilterProps) {
 

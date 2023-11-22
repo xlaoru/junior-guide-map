@@ -1,7 +1,7 @@
 import getText from '../utils/getText';
 import translation from '../assets/translation';
 
-import {ISearcherProps} from "../utils/Interfaces"
+import {ISearcherProps} from "../utils/models"
 
 export default function Searcher({value, setSearchParams, disabled}: ISearcherProps) {
   return (

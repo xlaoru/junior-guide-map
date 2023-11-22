@@ -6,7 +6,7 @@ import {memo} from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
 import ContentItem from '../components/ContentItem';
 
-import { IContentItem, IListProps } from '../utils/Interfaces';
+import { IContentItem, IListProps } from '../utils/models';
 
 const List = memo(({value, content}: IListProps) => {
     return (

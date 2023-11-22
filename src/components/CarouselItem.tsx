@@ -1,6 +1,6 @@
 import {Carousel} from 'react-bootstrap'
 
-import { ICarouselProps } from '../utils/Interfaces';
+import { ICarouselProps } from '../utils/models';
 
 import {Light as SyntaxHighlighter} from 'react-syntax-highlighter'
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'

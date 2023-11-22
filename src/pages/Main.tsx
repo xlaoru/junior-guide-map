@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import useDebounce from '../utils/useDebounce';
 
-import { IMainProps, ITypeCategory } from '../utils/Interfaces';
+import { IMainProps, ITypeCategory } from '../utils/models';
 
 import Searcher from '../components/Searcher';
 import Filter from '../components/Filter';

@@ -3,7 +3,7 @@ import translation from '../assets/translation';
 
 import { NavLink } from 'react-router-dom'
 
-import { IHeaderProps } from '../utils/Interfaces';
+import { IHeaderProps } from '../utils/models';
 
 function Header({setActivePage}: IHeaderProps) {
     return (

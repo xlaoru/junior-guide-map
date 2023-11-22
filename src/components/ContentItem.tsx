@@ -6,7 +6,7 @@ import {Card, Button} from 'react-bootstrap'
 import CarouselItem from '../components/CarouselItem';
 import ModalWindow from '../components/ModalWindow';
 
-import { IContentItemProps, IItemProp } from '../utils/Interfaces';
+import { IContentItemProps, IItemProp } from '../utils/models';
 
 import {Light as SyntaxHighlighter} from 'react-syntax-highlighter'
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'

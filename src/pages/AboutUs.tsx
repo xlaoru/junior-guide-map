@@ -1,7 +1,7 @@
 import getText from '../utils/getText';
 import translation from '../assets/translation';
 
-import { IAboutUsProps } from "../utils/Interfaces";
+import { IAboutUsProps } from "../utils/models";
 
 function AboutUs({}: IAboutUsProps) {
     return (

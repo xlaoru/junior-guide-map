@@ -1,5 +1,5 @@
 import { useTransition } from "react"
-import { ILanguageFilterProps } from '../utils/Interfaces'
+import { ILanguageFilterProps } from '../utils/models'
 
 import { Spinner } from "react-bootstrap";
 

@@ -1,6 +1,6 @@
 import {Modal, ModalHeader} from 'react-bootstrap'
 
-import { IModalWindow } from '../utils/Interfaces';
+import { IModalWindow } from '../utils/models';
 
 function ModalWindow ({imgData, title, isShowed, setShow}: IModalWindow) {
     return (

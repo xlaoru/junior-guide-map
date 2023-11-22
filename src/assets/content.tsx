@@ -1,4 +1,4 @@
-import { IContentItem } from '../utils/Interfaces'
+import { IContentItem } from '../utils/models'
 
 import responsiveBreakpoints from './images/responsive-breakpoints.png'
 import markup1 from './images/markup_1.jpg'
