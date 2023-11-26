@@ -7696,6 +7696,193 @@ alexBankAccount.balance = 300;
 alexBankAccount.balance = 500;
 // Somebody got their balance.
 console.log(alexBankAccount.balance); // 800`},
+{title: {en: `A complete example of using Decorators in TypeScript below version 5`, ua: `Повний приклад використання Декораторів у TypeScript нижче 5-ої версії`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
+`import "reflect-metadata"
+
+const limitMetadataKey = Symbol('limit')
+
+interface ICar {
+    fuel: string;
+    open: boolean;
+    freeSeats: number;
+}
+
+@changeDoorStatus(false)
+@changeAmountOfFuel(95)
+class myCar implements ICar {
+    fuel: string = "50%";
+    open: boolean = true;
+    _weight: number = 1000
+
+    @checkNumberOfSeats(4)
+    freeSeats: number = 3;
+
+    @checkAmountOfFuel
+    isOpen(value: string) {
+        return this.open ? "open" : \`close \${value}\`;
+    }
+    
+    @log // Correct! But only for one of the accessor in time
+    set weight(num: number) {
+        this._weight = this._weight + num
+    }
+
+    get weight() {
+        return this._weight
+    }
+
+    @validate
+    startTravel(@limit passengers: number) {
+        console.log(\`Started with \${passengers} passengers\`)
+    }
+}
+
+
+// Class Decorator (Decorator Factory)
+function changeDoorStatus(status: boolean) {
+    return <T extends { new(...args: any[]): {} }>(
+        constructor: T,
+    ) => {
+        return class extends constructor {
+            open = status;
+        };
+    };
+}
+
+// Class Decorator (Decorator Factory)
+function changeAmountOfFuel(amount: number) {
+    return <T extends { new(...args: any[]): {} }>(
+        constructor: T,
+    ) => {
+        return class extends constructor {
+            fuel = \`\${amount}%\`;
+        };
+    };
+}
+
+// Class method Decorator
+function checkAmountOfFuel(
+    target: Object,
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor
+): PropertyDescriptor | void {
+    const oldValue = descriptor.value
+    descriptor.value = function (this: any, ...args: any[]) {
+        console.log(this.fuel)
+        return oldValue.apply(this, args)
+    }
+}
+
+// Class property Decorator (Decorator Factory)
+function checkNumberOfSeats(limit: number) {
+    return function (
+        target: Object,
+        propertyKey: string | symbol
+    ) {
+        let symbol = Symbol()
+
+        const getter = function (this: any) {
+            return this[symbol]
+        }
+
+        const setter = function (this: any, newAmount: number) {
+            if (newAmount >= 1 && newAmount < limit) {
+                this[symbol] = newAmount
+            } else {
+                Object.defineProperty(target, 'errors', {
+                    value: \`More than \${limit} seats are not allowed\`
+                })
+            }
+        }
+
+        Object.defineProperty(target, propertyKey, {
+            get: getter,
+            set: setter
+        })
+    }
+}
+
+// Class accessors Decorators (get/set)
+function log(
+    target: Object,
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor
+): PropertyDescriptor | void {
+    const oldValue = descriptor.set
+    const oldGet = descriptor.get
+    descriptor.set = function (this: any, ...args: any) {
+        console.log(\`Changed value to \${[...args]}\`)
+        return oldValue?.apply(this, args)
+    }
+    descriptor.get = function () {
+        console.log(\`Car weight:\`)
+        return oldGet?.apply(this)
+    }
+}
+
+// Class method argument Decorator and Metadata Decorator
+function limit(
+    target: Object,
+    propertyKey: string | symbol,
+    parameterIndex: number
+) {
+    let limitedParametrs: number[] = Reflect.getOwnMetadata(limitMetadataKey, target, propertyKey) || []
+    limitedParametrs.push(parameterIndex)
+    Reflect.defineMetadata(
+        limitMetadataKey,
+        limitedParametrs,
+        target,
+        propertyKey
+    )
+}
+
+// Validator for class method argument Decorator and Metadata Decorator
+function validate(
+    target: Object,
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor
+) {
+    let method = descriptor.value
+    descriptor.value = function (...args: any[]) {
+        let limitedParametrs: number[] = Reflect.getOwnMetadata(limitMetadataKey, target, propertyKey)
+        Reflect.getOwnMetadata(limitMetadataKey, target, propertyKey)
+
+        if (limitedParametrs) {
+            for (let i of limitedParametrs) {
+                if (args[i] > 4) {
+                    throw new Error('Free seats limit is 4')
+                }
+            }
+        }
+
+        return method?.apply(this, args)
+    }
+}
+
+// Example of using:
+const car = new myCar();
+
+console.log(car.freeSeats) // 3
+
+console.log(car.isOpen('car'))
+/* 
+    95%
+    close car
+*/
+
+console.log(car._weight) // 1000
+
+car.weight = 1200 // Changed value to 1200
+
+console.log(car.weight)
+/* 
+    Car weight:
+    2200
+*/
+
+car.startTravel(4) // Started with 4 passengers
+
+// car.startTravel(6) // Error! Free seats limit is 4`},
 ]
 
 export default content
