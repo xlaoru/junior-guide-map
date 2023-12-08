@@ -33,6 +33,19 @@ import fs_3 from "./images/folder-struct_3.jpg"
 import fs_4 from "./images/folder-struct_4.jpg"
 import apiArchitectural from './images/api-architectural.jpg'
 import restApiRequests from './images/rest-api_request.jpg'
+import react_hook_explain_1 from './images/react_hook_explain_1.jpg' 
+import react_hook_explain_2 from './images/react_hook_explain_2.jpg' 
+import react_hook_explain_3 from './images/react_hook_explain_3.jpg' 
+import react_hook_explain_4 from './images/react_hook_explain_4.jpg' 
+import react_hook_explain_5 from './images/react_hook_explain_5.jpg' 
+import sql_cheet_sheet_1 from './images/sql_cheet_sheet_1.jpg'
+import sql_cheet_sheet_2 from './images/sql_cheet_sheet_2.jpg'
+import sql_cheet_sheet_3 from './images/sql_cheet_sheet_3.jpg'
+import sql_cheet_sheet_4 from './images/sql_cheet_sheet_4.jpg'
+import sql_cheet_sheet_5 from './images/sql_cheet_sheet_5.jpg'
+import sql_cheet_sheet_6 from './images/sql_cheet_sheet_6.jpg'
+import sql_cheet_sheet_7 from './images/sql_cheet_sheet_7.jpg'
+import redux_life_cycle from './images/redux_life_cycle.jpg'
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -7883,6 +7896,54 @@ console.log(car.weight)
 car.startTravel(4) // Started with 4 passengers
 
 // car.startTravel(6) // Error! Free seats limit is 4`},
+{title: {en: `Task: Implement the built-in ReturnType<T> generic without using it`, ua: `Завдання: реалізувати вбудований загальний ReturnType<T> без його використання`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`type MyReturnType<T extends Function> = 
+  T extends (...args: any) => infer R
+    ? R
+    : never;
+
+const fn = (v: boolean) => {
+  if (v) return 1;
+  else return 2;
+};
+
+type FnType = MyReturnType<typeof fn>; // type FnType = 1 | 2`},
+{title: {en: `React's 6 Main Hooks Explained`, ua: `Пояснення 6 головних хуків у Реакті`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'React', data: 
+[react_hook_explain_1, react_hook_explain_2, react_hook_explain_3, react_hook_explain_4, react_hook_explain_5]},
+{title: {en: `MySQL cheet sheet`, ua: `Підсказник MySQL`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'MySQL', data:
+[sql_cheet_sheet_1, sql_cheet_sheet_2, sql_cheet_sheet_3, sql_cheet_sheet_4, sql_cheet_sheet_5, sql_cheet_sheet_6, sql_cheet_sheet_7]},
+{title: {en: `Bug fix in JSON.stringify`, ua: `Фікс багу у JSON.stringify`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'request', data:
+`JSON.stringify({ data: undefined, req: 1 }, (key, value) => {
+  if (value === undefined) {
+    return undefined;
+  }
+  return value;
+});`},
+{title: {en: `Intersting task of definding array element type`, ua: `Цікава задачка на знаходження типу елемента массиву`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data:
+`const array = [1, 2, 3];
+const message = "Hello!";
+
+type ArrayElementType<T> = T extends (infer E)[] ? E : never;
+
+type ArrayElement = ArrayElementType<typeof array>; // type ArrayElement = number
+type NotArrayElement = ArrayElementType<typeof message>; // type NotArrayElement = never`},
+{title: {en: `Redux Life Cycle`, ua: `Життєвий Цикл Редаксу`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['React'], data: redux_life_cycle},
+{title: {en: `Correct way for class methods extendings`, ua: `Коректний спосіб наслідування методів класів`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'OOP', data:
+`class Animal {
+  walk = () => {
+    console.log("walk");
+  };
+}
+
+class Cat extends Animal {
+  silentWalk() {
+    console.log("silent walk");
+    // super.walk(); // Error!
+    this.walk(); // Correct!
+  }
+}
+
+new Cat().silentWalk();`},
 ]
 
 export default content
