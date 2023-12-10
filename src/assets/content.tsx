@@ -46,6 +46,7 @@ import sql_cheet_sheet_5 from './images/sql_cheet_sheet_5.jpg'
 import sql_cheet_sheet_6 from './images/sql_cheet_sheet_6.jpg'
 import sql_cheet_sheet_7 from './images/sql_cheet_sheet_7.jpg'
 import redux_life_cycle from './images/redux_life_cycle.jpg'
+import decorator_evaluation from './images/Decorator Evaluation.jpg'
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -7944,6 +7945,162 @@ class Cat extends Animal {
 }
 
 new Cat().silentWalk();`},
+{title: {en: `Decorator Evaluation`, ua: `Життєвий Цикл Декораторів`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['typescript', 'OOP'], data: decorator_evaluation},
+{title: {en: `An interesting task for using Decorators. In time, it needs an outdated version. Namely, versions lower than 5`, ua: `Цікава задачка на використовування Декораторів. На часі вона потребує застарілої версії. А саме версії, що нижче за 5`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
+`import "reflect-metadata"; // npm i reflect-metadata
+
+interface ICuboid {
+  width: number;
+  length: number;
+  height: number;
+  calcArea: (multiply?: number) => number;
+  calcVolume: (multiply?: number) => number;
+}
+
+@createdAt
+class ShippingContainer implements ICuboid {
+  @IsInt()
+  @Min(1)
+  width: number;
+
+  @IsInt()
+  @Min(1)
+  length: number;
+
+  @IsInt()
+  @Min(1)
+  @Max(8)
+  height: number;
+
+  constructor(width: number, length: number, height: number) {
+    this.width = width;
+    this.length = length;
+    this.height = height;
+    validate(this, "width", width);
+    validate(this, "length", length);
+    validate(this, "height", height);
+  }
+
+  @fixLastCalculation("calcArea")
+  calcArea(multiply?: number): number {
+    return this.width * this.length * (multiply ? multiply : 1);
+  }
+
+  @fixLastCalculation("calcVolume")
+  calcVolume(multiply?: number) {
+    return this.width * this.length * this.height * (multiply ? multiply : 1);
+  }
+}
+
+type ShippingContainerData = {
+  lastCalculation: string;
+  createdAt: Date;
+};
+
+const container = new ShippingContainer(10, 100, 7) as ICuboid &
+  ShippingContainerData;
+
+container.width = 5;
+container.height = 5;
+
+console.log(container.createdAt);
+console.log(container.calcVolume());
+console.log(container.lastCalculation);
+
+// 1. You need to create a class decorator that will record the creation date of the container.
+// In simple words - create a new createdAt property in it with the date of creation of the instance.
+
+function createdAt<T extends { new (...args: any[]): {} }>(constructor: T) {
+  return class extends constructor {
+    createdAt = new Date();
+  };
+}
+
+// 2. It is necessary to create decorators IsInt, Min and Max, which will validate the properties of the class.
+// See application in the class itself. If there is an error, throw new Error.
+// IsInt checks that an integer was passed.
+
+function IsInt() {
+  return function (target: any, propertyKey: string) {
+    Reflect.defineMetadata("IsInt", true, target, propertyKey);
+  };
+}
+
+function Min(value: number) {
+  return function (target: any, propertyKey: string) {
+    Reflect.defineMetadata("Min", value, target, propertyKey);
+  };
+}
+
+function Max(value: number) {
+  return function (target: any, propertyKey: string) {
+    Reflect.defineMetadata("Max", value, target, propertyKey);
+  };
+}
+
+// 3. It is necessary to create a method decorator that, each time the method is run, will create
+// OR change the contents of the lastCalculation class property itself.
+// As a value, write into it the string “The last count of \${method} was \${Date}”,
+// Where method is the name of the calculation that is passed when calling the decorator (area or volume).
+
+function fixLastCalculation(method: string) {
+  return (
+    target: Object,
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor,
+  ): PropertyDescriptor | void => {
+    const oldValue = descriptor.value;
+    descriptor.value = function (this: any, ...args: any[]) {
+      this.lastCalculation = \`The last count of \${method} was \${new Date()}\`;
+      return oldValue.apply(this, args);
+    };
+  };
+}
+
+finalValidate(container);
+
+function finalValidate(obj: unknown) {
+  if (obj && typeof obj === "object" && !Array.isArray(obj)) {
+    for (let key in obj) {
+      validate(obj, key, obj[key as keyof typeof obj]);
+    }
+  }
+}
+
+// Validation
+
+function validate(target: Object, propertyKey: string, value: any) {
+  if (
+    Reflect.getMetadata("IsInt", target, propertyKey) &&
+    (!Number.isInteger(value) || value !== parseInt(value))
+  ) {
+    throw new Error(\`Property \${propertyKey} should be an integer\`);
+  }
+  if (
+    Reflect.hasMetadata("Min", target, propertyKey) &&
+    value < Reflect.getMetadata("Min", target, propertyKey)
+  ) {
+    throw new Error(
+      \`Min value for \${propertyKey} is \${Reflect.getMetadata(
+        "Min",
+        target,
+        propertyKey,
+      )}\`,
+    );
+  }
+  if (
+    Reflect.hasMetadata("Max", target, propertyKey) &&
+    value > Reflect.getMetadata("Max", target, propertyKey)
+  ) {
+    throw new Error(
+      \`Max value for \${propertyKey} is \${Reflect.getMetadata(
+        "Max",
+        target,
+        propertyKey,
+      )}\`,
+    );
+  }
+}`},
 ]
 
 export default content
