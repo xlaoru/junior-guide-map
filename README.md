@@ -960,3 +960,7 @@ Some addictions
 ### `v33.0`
 
 No more debounce! New feature has came.
+
+### `v33.0.1`
+
+Bug fixing
