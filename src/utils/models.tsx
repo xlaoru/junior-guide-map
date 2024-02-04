@@ -48,14 +48,12 @@ export interface IListProps {
 export interface ISearcherProps {
     value: string
     setSearchParams: (prop: any) => void
-    disabled: boolean
 }
 
 export interface IFilterProps {
     filter: string;
     setSearchParams: (prop: any) => void;
     types: ITypeCategory[]
-    disabled: boolean
 }
 
 export interface IContentItemProps {

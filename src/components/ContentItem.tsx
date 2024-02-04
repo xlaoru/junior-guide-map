@@ -44,17 +44,19 @@ function ContentItem ({value, data, title, body, link, type}: IContentItemProps)
 
         if (data.includes('/static/media/')) {
             return (
-                <img style={{'cursor': 'pointer'}} src={data} alt="Image" onClick={() => {setImgData(data); setShow(true)}}/>
+                <div style={{ height: '350px', overflowY: 'scroll', backgroundColor: 'rgb(39, 40, 34)' }}>
+                    <img style={{'cursor': 'pointer'}} src={data} alt="Image" onClick={() => {setImgData(data); setShow(true)}}/>
+                </div>
             )
         }
 
         return (
-            <div className="code-wrapper">
-                <SyntaxHighlighter style={monokai} className="code-show">
-                    {data}
-                </SyntaxHighlighter>
+            <div style={{ height: '350px', overflowY: 'scroll', backgroundColor: 'rgb(39, 40, 34)' }}>
+              <SyntaxHighlighter style={monokai} className="code-show">
+                {data}
+              </SyntaxHighlighter>
             </div>
-        )
+        );
     }
 
     const renderTitle = () => {

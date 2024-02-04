@@ -50,7 +50,7 @@ import decorator_evaluation from './images/Decorator Evaluation.jpg'
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
-`const array = ['JS', 'TS', 'C#', 'Java'] 
+`const array = ['JS', 'TS', 'C#', 'Java']
 let filteredArray = array.filter(
     language => {
         if (language.length === 2) return true
@@ -137,17 +137,48 @@ function showUsers(data) {
 } 
 
 getUsers(showUsers)`},
-{title: {en: 'Closure', ua: 'Замикання'}, body: {en: 'Closure is the creation of a local function in another function for later use of it with data.', ua: 'Замикання - це створення локальної функції в інщій функції для подалих використовувань її з даними.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.'}, type: 'function', data: 
-`function init() {
-    let name = 'Name' 
-    function showName() { 
-        console.log(name) 
-    } 
+{title: {en: 'Closure', ua: 'Замикання'}, body: {en: 'Closure is the creation of a local function in another function for later use of it with data.', ua: 'Замикання - це створення локальної функції в інщій функції для подалих використовувань її з даними.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.'}, type: 'function', data: [
+`function User(defaultName: string) {
+  let _name = defaultName
 
-    showName() 
-} 
+  return {
+      getName() {
+          return _name
+      },
 
-init()`},
+      setName(n: string) {
+          _name = n
+      }
+  }
+}
+
+const user = User('Illia')
+
+console.log(user) // { getName: [Function: getName], setName: [Function: setName] }
+console.log(user.getName()) // Illia
+user.setName('Alex')
+console.log(user.getName()) // Alex`,
+`function Animal(defaultName: string = "") {
+  let _name = defaultName
+
+  return class Animal {
+      get name() {
+          return _name
+      }
+
+      set name(n) {
+          _name = n
+      }
+  }
+}
+
+const animal = new (Animal('rabbit'))()
+
+console.log(animal) // Animal {}
+console.log(animal.name) // rabbit
+
+animal.name = "cat"
+console.log(animal.name) // cat`]},
 {title: {en: 'Recursion', ua: 'Рекурсія'}, body: {en: 'Recursion is a function call to itself.', ua: 'Рекурсія - це виклик функції у собі.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Errors/Too_much_recursion', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Too_much_recursion'}, type: 'function', data: 
 `let num = 0 
 function init() { 
@@ -1909,7 +1940,7 @@ const num2: bigint = 2n
 
 // console.log(num1 + 5) // Error! Operator '+' cannot be applied to types 'bigint' and '5'
 console.log(num1 + num2) // 3n`},
-{title: {en: 'Objects and their destructuring in TypeScript', ua: "Об'єкти та їч деструктурізація у TypeScript"}, body: {en: 'In general, the code shown in this post is used very rarely, because there are other more powerful types of object types and destructuring. But this code shows just the basic use of objects.', ua: "Взагалі код, що показаний у цьому пості застосовується дуже рідко, оскільки існують інші більш потужні види типізацій та деструктурізації об'єктів. Але у цьому коді показано саме базове використовування об'єктів."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
+{title: {en: 'Objects and their destructuring in TypeScript', ua: "Об'єкти та її деструктурізація у TypeScript"}, body: {en: 'In general, the code shown in this post is used very rarely, because there are other more powerful types of object types and destructuring. But this code shows just the basic use of objects.', ua: "Взагалі код, що показаний у цьому пості застосовується дуже рідко, оскільки існують інші більш потужні види типізацій та деструктурізації об'єктів. Але у цьому коді показано саме базове використовування об'єктів."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
 `const userData: {name: string, age: number, skills: string[], isStudent: boolean} = {
     name: 'Alex',
     age: 30,
@@ -8101,6 +8132,260 @@ function validate(target: Object, propertyKey: string, value: any) {
     );
   }
 }`},
+{title: {en: ``, ua: ``}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['typescript', 'React'], data:
+`import {useState, useCallback} from 'react'
+
+type LoadingStatusTypes = 'idle' | 'loading' | 'error'
+
+type HTTPRequestMethods = 'GET' | 'POST' | 'PATCH' | 'DELETE'
+
+interface HTTPHeaders {
+    [key: string]: string
+}
+
+interface RequestConfig {
+    url: string;
+    method?: HTTPRequestMethods;
+    body?: string | null;
+    headers: HTTPHeaders
+}
+
+export const useHttp = () => {
+    const [loadingStatus, setLoadingStatus] = useState<LoadingStatusTypes>('idle')
+
+    const request = useCallback(async ({
+        url,
+        method = "GET", 
+        body = null, 
+        headers = {"Content-Type": "application/json"}
+    }: RequestConfig) => {
+        setLoadingStatus('loading')
+
+        try {
+            const response = await fetch(url, {method, body, headers})
+
+            if (!response.ok) {
+                throw new Error(\`Could not fetch \${url}, status: \${response.status}\`)
+            }
+
+            const data = await response.json()
+
+            setLoadingStatus('idle')
+            
+            return data
+        } catch(error) {
+            setLoadingStatus('error')
+            throw error
+        }
+    }, [])
+    
+    return {
+        loadingStatus,
+        request
+    }
+}`},
+{title: {en: `TypeScript Nullable Type`, ua: `TypeScript Nullable Type`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`type UserForm = {
+  name: Nullable<string>;
+  age: number;
+  email: string
+}
+
+type Nullable<T> = null | T
+
+const user: UserForm = {
+  name: 'Bob',
+  age: 21,
+  email: 'bob@example.com'
+}`},
+{title: {en: `Turning a string to an objec using infer from TypeScript`, ua: `Робимо об'єкт зі строки використовуючи infer з TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`type InferValueFromColor<Color extends string> = 
+  Color extends \`\${infer N}-\${infer C}-\${infer T}\`
+    ? {
+      namespace: N;
+      color: C;
+      tone: T
+    }
+    : never
+
+type Green = InferValueFromColor<"text-green-300">
+
+/* 
+type Green = {
+  namespace: "text";
+  color: "green";
+  tone: "300";
+}
+*/`},
+{title: {en: `Clean Code way to write a functions`, ua: `Гарний спосіб написання правильної логіки у функціях`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'all', data:
+`function composeData() {
+  const { data } = myService.get()
+
+  if (!data) return
+
+  let mapped = data
+    .map(d => d.id)
+    .filter(d => d < 10)
+}
+`},
+{title: {en: `React.ReactNode vs JSX.Element`, ua: `React.ReactNode vs JSX.Element`}, body: {en: `React.ReactNode: Anything a React component can render. JSX, string, null, undefined, number. JSX.Element: Just represents JSX.`, ua: `React.ReactNode: Все, що може відрендети React елемент. JSX, string, null, undefined, number. JSX.Element: Лише репрезентує JSX.`}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
+`import React, {JSX} from "react"
+
+// Represents anything a React component can render.
+const ReactNodeExample: React.ReactNode[] = [
+  <div />,
+  "Hello World!",
+  42,
+  undefined
+]
+
+// Only represents JSX
+const JSXElementExample: JSX.Element[] = [
+  <div />,
+  // "Bye World!", // Error! Type 'string' is not assignable to type 'Element'.
+  // 123, // Error! Type 'number' is not assignable to type 'Element'.
+  // null // Error! Type 'undefined' is not assignable to type 'Element'.
+]`},
+{title: {en: `Keyword "using" for mocking something in tests`, ua: `Ключове слово "using" для моку чогось при тестувані`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
+`const mockMessage = () => {
+  const myMock = "message"
+
+  return {
+      [Symbol.dispose]: () => {
+          // Dispose of the mock in here.
+      },
+      value: myMock
+  }
+}
+
+it("Should log to the console", () => {
+  using mock = mockMessage()
+  console.log(mock.value)
+})`},
+{title: {en: `Task with scope manipulation`, ua: `Задачка з маніпуляцією scope`}, body: {en: `Task: Create a function, that will increase a count above previous value. But we can't set any variable in global scope. Only in inc() function.`, ua: `Завдання: Створити функцію, що буде збільшувати значення лічильника спираючись на попередній рахунок. Проте ми не маємо використвовувати глобальний scope. Лише scope функції inc().`}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`let inc = (function() {
+  let counter = 0
+  return function() {
+      counter + 1
+  }
+})()
+
+inc() // 1
+inc() // 2
+`},
+{title: {en: `ParseInt function on type level`, ua: `Функція ParseInt на рівні типів`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data:
+`type ParseInt<T extends string> =
+T extends \`\${infer Int extends number}\` ? Int : never
+
+type SomeNum = ParseInt<"123"> // type SomeNum = 123
+
+type SomeString = ParseInt<"abc"> // type SomeString = never`},
+{title: {en: `New SWITCH CASE syntax`, ua: `Новий синтаксис SWITCH CASE`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`class Demo {
+  prop: number = 3000
+}
+
+function unknownParser(prop: unknown) {
+  switch (true) {
+      case typeof prop === 'string':
+          console.log('Type of prop is string')
+          break
+      case Array.isArray(prop):
+          console.log('Type of prop is array')
+          break
+      case prop instanceof Demo:
+          console.log('Prop is instance of Demo class')
+          break
+      default:
+          console.log('Prop does not belong to any desired type')
+          break
+  }
+}
+
+unknownParser('Hello World!') // Type of prop is string
+unknownParser([2, 4, 5]) // Type of prop is array
+unknownParser(new Demo()) // Prop is instance of Demo class
+unknownParser(null) // Prop does not belong to any desired type`},
+{title: {en: `Write wrapper for promise cancellation`, ua: `Write wrapper для скасування promise`}, body: {en: `Once promise is "cancelled" all .then are bypassed and .catch is triggered with event.isCancelled === true. If promise is generated by fetch request, should cancel request itself`, ua: `Після «скасування обіцянки» всі .then обходяться, а .catch запускається з event.isCancelled === true. Якщо обіцянка генерується запитом на вибірку, слід скасувати сам запит`}, link: {en: `#`, ua: `#`}, type: ['task', 'request'], data:
+`function makeCancellable(handler) {
+  const start = (id, opts = null) => {
+    return handler(id);
+  };
+
+  const abort = () => {
+    return;
+  };
+
+  return {
+    start,
+    abort,
+  };
+}
+
+// do not change this
+function fetchUser(id, opts) {
+  return fetch(\`https://reqres.in/api/users/\${id}\`, opts).then((response) =>
+    response.json()
+  );
+}
+
+// Expected usage
+const { start, abort } = makeCancellable(fetchUser);
+start(1).then(console.log);
+abort();`},
+{title: {en: `Correct way to set built-in HTML attributes in React`, ua: `Правильний шлях для встановлення вбудованих HTML атрибутів у React`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['typescript', 'React'], data:
+`import React from "react";
+
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+function Demo(props: CardProps) {
+  const { className, ...restProps } = props 
+  return (
+    <div>
+      {...restProps}
+    </div>
+  );
+}
+
+export default Demo;`},
+{title: {en: `Custom useWindowWidth() hook`, ua: `Зроблений власноруч хук useWindowWidth()`}, body: {en: `This hook helps to find the width of the user's screen in real-time using the useState() and useEffect() hooks. And also use the window object to receive data from the user.`, ua: `Цей хук допомагає шукати широту екрану користувача в реальному часі за допомогою хуків useState() та useEffect(). А також використовувати об'єкт window для отримання даних від користувача.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
+`import {useState, useEffect} from "react";
+
+const useWindowWidth = () => {
+  const [
+    windowWidth, 
+    setWindowWidth
+  ] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  return windowWidth
+}
+
+export default useWindowWidth`,
+`import useWindowsWidth from "./useWindowWidth";
+
+function Demo() {
+  const windowWidth = useWindowsWidth()
+  return (
+    <>
+      {windowWidth}
+    </>
+  );
+}
+
+export default Demo;`
+]},
 ]
 
 export default content

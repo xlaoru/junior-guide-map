@@ -1,11 +1,10 @@
 import { IFilterProps } from '../utils/models';
 
-export default function Filter({filter, setSearchParams, types, disabled}: IFilterProps) {
+export default function Filter({filter, setSearchParams, types}: IFilterProps) {
 
   const filterContentButtons = types.map(
     (type) => (
       <button
-        disabled={disabled}
         className={type.en === filter ? `type-bar clicked` : 'type-bar'}
         key={type.en}
         onClick={() => {

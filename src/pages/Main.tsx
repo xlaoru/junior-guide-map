@@ -1,13 +1,10 @@
 import { useSearchParams } from 'react-router-dom';
-import useDebounce from '../utils/useDebounce';
 
 import { IMainProps, ITypeCategory } from '../utils/models';
 
 import Searcher from '../components/Searcher';
 import Filter from '../components/Filter';
 import List from '../layouts/List'
-
-import Spinner from '../assets/Spinner';
 
 const types: ITypeCategory[] = [
     {en: 'all', ua: 'усе'},
@@ -24,61 +21,46 @@ const types: ITypeCategory[] = [
     {en: 'typescript', ua: 'typescript'},
 ]
 
-enum Debounce {
-    DATA,
-    ISSPINER
-}
-
 function Main({content}: IMainProps) {
     const [searchParams, setSearchParams] = useSearchParams({
         type: "all",
         value: "",
     })
 
-    const value = searchParams.get("value")
-    const type = searchParams.get("type")
-
-    const debouncedValue = useDebounce<string>(value ?? "", 800)
-    const debouncedType = useDebounce<string>(type ?? "all", 800)
+    const value = searchParams.get("value") ?? ""
+    const type = searchParams.get("type") ?? "all"
 
     const searchedContent = () => {
         return content.filter(
             content => {
-                return content.title.en.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase()) 
-                    || content.title.ua.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase())
-                    || content.body.en.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase())
-                    || content.body.ua.toLowerCase().includes(debouncedValue[Debounce.DATA].toLowerCase())
+                return content.title.en.toLowerCase().includes((value ?? "").toLowerCase()) 
+                    || content.title.ua.toLowerCase().includes((value ?? "").toLowerCase())
+                    || content.body.en.toLowerCase().includes((value ?? "").toLowerCase())
+                    || content.body.ua.toLowerCase().includes((value ?? "").toLowerCase())
             }
         )
     }
 
     const filteredContent = () => {
-        if (debouncedType[Debounce.DATA].includes("all")) return searchedContent();
-    
+        if (type.includes("all")) return searchedContent();
         return searchedContent().filter(contentItem => {
             if (Array.isArray(contentItem.type)) {
-                return contentItem.type.some(type => debouncedType[Debounce.DATA].includes(type))
+                return contentItem.type.some(contentType => {
+                    return contentType.includes(type)
+                })
             } else {
-                return debouncedType[Debounce.DATA].includes(contentItem.type);
+                return type.includes(contentItem.type);
             }
         })
-    }
-
-    function renderList() {
-        if (!debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]) {
-            return <div style={{'display': 'flex', 'justifyContent': 'center', 'margin': '50px 0'}}><Spinner /></div> 
-        } else {
-            return <List value={debouncedValue[Debounce.DATA] ?? ""} content={filteredContent()}/>
-        }
     }
 
     return (
         <div className='Main'>
             <div className='form'>
-                <Searcher value={value ?? ""} setSearchParams={setSearchParams} disabled={!debouncedType[Debounce.ISSPINER]} />
-                <Filter filter={type ?? "all"} setSearchParams={setSearchParams} types={types} disabled={!debouncedValue[Debounce.ISSPINER] || !debouncedType[Debounce.ISSPINER]} />
+                <Searcher value={value} setSearchParams={setSearchParams}/>
+                <Filter filter={type} setSearchParams={setSearchParams} types={types}/>
             </div>
-            {renderList()}
+            <List value={value} content={filteredContent()}/>
         </div>
     );
 };

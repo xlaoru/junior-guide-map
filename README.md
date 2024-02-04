@@ -956,3 +956,7 @@ Some addictions
 ### `v32.0.22`
 
 Some addictions
+
+### `v33.0`
+
+No more debounce! New feature has came.
