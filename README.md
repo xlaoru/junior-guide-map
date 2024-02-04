@@ -964,3 +964,7 @@ No more debounce! New feature has came.
 ### `v33.0.1`
 
 Bug fixing
+
+### `v33.0.2`
+
+Bug fixing
