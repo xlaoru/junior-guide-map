@@ -70,8 +70,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 12.5px;
-  height: 12.5px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
