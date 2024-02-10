@@ -976,3 +976,7 @@ Bug fixing
 ### `v33.0.4`
 
 Some addictions
+
+### `v33.0.5`
+
+Some addictions

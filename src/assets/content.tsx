@@ -8386,6 +8386,50 @@ function Demo() {
 
 export default Demo;`
 ]},
+{title: {en: `Correct way to typing props using Generic Types`, ua: `Правильний шлях для типізації пропсів використовуючи Generic Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:[
+`import { useState } from 'react';
+import List from './List'
+
+type User = {
+  id: number;
+  name: string
+}
+
+function App() {
+  const [users, setUsers] = useState<User[]>([
+    {id: 1, name: "Alex"},
+    {id: 2, name: "Tom"}
+  ])
+  
+  return (
+    <div className="App">
+      <List 
+        data={users}
+        renderItem={(user) => <div>{user.id}. {user.name}</div>}
+      />
+    </div>
+  );
+}
+
+export default App;`,
+`type ListProps<T> = {
+  data: T[];
+  renderItem: (item: T) => JSX.Element
+}
+
+function List<T>({
+  data,
+  renderItem
+}: ListProps<T>) {
+  return (
+    <>
+      {renderItem(data[0])}
+    </>
+  );
+}
+
+export default List;`
+]},
 ]
 
 export default content
