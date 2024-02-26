@@ -980,3 +980,7 @@ Some addictions
 ### `v33.0.5`
 
 Some addictions
+
+### `v33.0.6`
+
+Some addictions

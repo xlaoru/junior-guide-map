@@ -8430,7 +8430,81 @@ function List<T>({
 
 export default List;`
 ]},
+{title: {en: `"react-virtualized" library`, ua: `Бібліотека "react-virtualized"`}, body: {en: `"react-virtualized" library helps to render data in real-time. It only renders the content that appears on the screen at the moment.`, ua: `Ця бібліотека допомагає відображати дані в реальному часі за домогою технології рендеру лише того контенту, що з'являється на екрані у даний момент.`}, link: {en: `https://www.npmjs.com/package/react-virtualized`, ua: `https://www.npmjs.com/package/react-virtualized`}, type: ['typescript', 'React'], data: [
+`import Demo from "./Demo";
+
+import { IContentItem } from "./models/models"; 
+
+function App() {
+  const content: IContentItem[] = [
+    {
+      id: 0,
+      titlle: 'Title 0',
+      body: 'Body 0'
+    }
+  ]
+
+  for (let i = 1; i <= 10000; i++) {
+      content.push({
+        id: i,
+        titlle: \`Title \${i}\`,
+        body: \`Body \${i}\`
+      })
+  }
+
+  return (
+    <div className="App">
+      <Demo
+        content={content}
+      />
+    </div>
+  );
+}
+
+export default App;
+`,
+`import { List } from "react-virtualized";
+
+import { IDemoProps, IRowRendererProps } from "./models/models";
+
+export default function Demo({ content }: IDemoProps) {
+  function rowRenderer({ index, key, style }: IRowRendererProps) {
+    const item = content[index]
+    return (
+      <span
+        key={key}  
+        style={style}
+      >
+        {item.titlle}. {item.body}
+      </span>
+    )
+  }
+
+  return (
+    <>
+      <List
+        width={500}
+        height={300}
+        rowHeight={30}
+        rowCount={content.length}
+        rowRenderer={rowRenderer}
+      />
+    </>
+  )
+}`
+]},
 ]
+
+// ! Performance testing
+/* for (let i = 1; i <= 10000; i++) {
+  content.push({
+    title: {en: `${i}`, ua: `${i}`},
+    body: {en: ``, ua: ``},
+    link: {en: ``, ua: ``},
+    type: 'typescript',
+    data: `${i}`
+  })
+} */
 
 export default content
 
