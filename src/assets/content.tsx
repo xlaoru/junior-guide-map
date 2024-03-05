@@ -6996,7 +6996,26 @@ class Ports {
 console.log(Ports.portList) // [ 3000, 3001, 3002 ]`,
 ]},
 {title: {en: `"this" and context typing`, ua: `"this" і типізація контекста`}, body: {en: `When functionality becomes more complex, you can always lose context in classes. In TS there is an opportunity to clearly say what the context should be and not get such situations. The problem can be solved using bind or an arrow function. But you won't know about the error until you run the code. Therefore, in TS there is an option to immediately say what the context will be as the first argument in the function. And you will see an error at the development stage. Sometimes we return context from a method, that is, a reference to an instance of an object. In such cases, you should not strictly type the return value, as it may break the logic. Using the context, we can check which class the instance belongs to and write our own type protector.`, ua: `При ускладненні функціоналу можна втратити контекст у класах. У TS існує можливість чітко сказати, чим має бути контекст і не набувати таких ситуацій. Проблему можна вирішити за допомогою bind або стрілочної функції. Але до запуску коду ви не дізнаєтесь про помилку. Тому в TS є варіант відразу сказати, чим буде контекст прямо першим аргументом функції. І ви побачите помилку на етапі розробки. Іноді ми з методу повертаємо контекст, тобто посилання на екземпляр об'єкта. У таких випадках не варто жорстко типізувати значення, що повертається, так як воно може зламати логіку. За допомогою контексту ми можемо перевірити, до якого класу належить екземпляр та написати свій захисник типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`}, type: ['typescript', 'OOP'], data: [
-`/* Case 1. We use the "bind" method to assert the context. */
+` /* Case 1. We use the "this" keyword to assert the context. */
+class Soldier {
+  #callsign: string;
+
+  constructor(callsign: string) {
+      this.#callsign = callsign;
+  }
+
+  /* Example of 'this' context */
+  callByCallsign(this: Soldier) {
+      return \`Soldier \${this.#callsign} is on duty.\`
+  }
+}
+
+const soldier = new Soldier("Khimik");
+
+const calling = soldier.callByCallsign
+// calling() // Error! The 'this' context of type 'void' is not assignable to method's 'this' of type 'Soldier'.
+`,
+`/* Case 2. We use the "bind" method to assert the context. */
 class Pilot {
   name: string;
   isRegistered: boolean;
@@ -7030,7 +7049,7 @@ const AlexRecheck = Alex.checkInfo.bind(Alex);
 console.log(AlexRecheck()); // Alex is registered.
 
 console.log(Alex.pilotInfo().name); // Alex`,
-`/* Case 2. Context inheritance in subclasses. */
+`/* Case 3. Context inheritance in subclasses. */
 class MilitaryPilot extends Pilot {
   static callsign: string;
   planeType: string;
@@ -7053,7 +7072,7 @@ console.log(Tom.checkMilitaryInfo()); // { registration: 'Tom is registered.', p
 
 const John: Pilot | MilitaryPilot = new MilitaryPilot("John", true, "F-35");
 console.log(John.isMilitary()); // true`,
-`/* Case 3. We use the arrow function to assert the context. */
+`/* Case 4. We use the arrow function to assert the context. */
 class Trooper {
   callsign: string;
 
@@ -8493,6 +8512,150 @@ export default function Demo({ content }: IDemoProps) {
   )
 }`
 ]},
+{title: {en: `Task on imitating SQL Select`, ua: `Задачка на імітацію функцію SQL Select`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['function', 'request', 'task'], data:
+`const data = [
+  { id: 1, name: "John", surname: "Doe", age: 34 },
+  { id: 2, name: "John", surname: "Doe", age: 35 },
+  { id: 3, name: "John", surname: "Doe", age: 33 },
+  { id: 4, name: "Mike", surname: "Doe", age: 37 },
+];
+
+function query(...fns) {
+  return function (data) {
+    let res = data;
+    fns.forEach((query) => {
+      res = query(res);
+      console.log(res);
+    });
+    return res;
+  };
+}
+
+function where(condition) {
+  return function (data) {
+    return data.filter((item) => {
+      for (let key in condition) {
+        if (item[key] !== condition[key]) {
+          return false;
+        }
+      }
+      return true;
+    });
+  };
+}
+
+function sort(key) {
+  return function (data) {
+    return data.sort((a, b) => {
+      if (a[key] < b[key]) return -1;
+      if (a[key] > b[key]) return 1;
+      return 0;
+    });
+  };
+}
+
+const ids = query(
+  where({ name: "John" }),
+  where({ surname: "John" }),
+  sort("age")
+)(data).map((u) => u.id);
+
+console.log(ids);
+
+const idsDoe = query(
+  where({ name: "John" }),
+  where({ surname: "Doe" }),
+  sort("age")
+)(data).map((u) => u.id);
+
+console.log(idsDoe);`},
+{title: {en: `String to JSON converter`, ua: `Конвертор строки до JSON`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'request'], data:
+`interface IWordItem {
+  foreignWord: string,
+  nativeWord: string
+}
+
+export function convertStringToJSON(
+  data: string
+): IWordItem[] {
+  let out: IWordItem[] = []
+  
+  let separatedItems = data.split(", ")
+  
+  for (let i = 0; i < separatedItems.length; i++) {
+      const separatedItem = separatedItems[i].split(" — ")
+      
+      out.push({
+          foreignWord: separatedItem[0].toLowerCase(),
+          nativeWord: separatedItem[1]
+      })
+  }
+  
+  return out
+}
+
+console.log(
+  convertStringToJSON(
+      "Independent — незалежний, Glance — погляд, To demand — вимогати, To tamper — втрутився, Impressed — вражений"
+  )
+)
+
+/* 
+  [
+      { foreignWord: 'independent', nativeWord: 'незалежний' },
+      { foreignWord: 'glance', nativeWord: 'погляд' },
+      { foreignWord: 'to demand', nativeWord: 'вимогати' },
+      { foreignWord: 'to tamper', nativeWord: 'втрутився' },
+      { foreignWord: 'impressed', nativeWord: 'вражений' }
+  ]
+*/`},
+{title: {en: `Object filter`, ua: `Фільтер об'єктів`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`const data = [
+  { id: 1, name: "Alex", surname: "Hirsch", age: 28 },
+  { id: 2, name: "John", surname: "Doe", age: 34 },
+  { id: 3, name: "Ben", surname: "Stiller", age: 54 },
+  { id: 4, name: "John", surname: "Miller", age: 44 }
+]
+
+function query(...objs) {
+  let keys = [];
+  let values = [];
+  
+  for (let i = 0; i < objs.length; i++) {
+    keys = keys.concat(Object.keys(objs[i]));
+    values = values.concat(Object.values(objs[i]));
+  }
+  
+  return data.filter(item => {
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      if (item[key] !== values[i]) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
+console.log(
+  query(
+    {name: "John"}, 
+  )
+) // (2) [{…}, {…}]
+
+console.log(
+  query(
+    {name: "John"}, 
+    {surname: "Doe"}
+  )
+) // Array [{…}]
+
+console.log(
+  query(
+    {name: "Ben"},
+    {age: 44}
+  )
+) // Array []`},
 ]
 
 // ! Performance testing
