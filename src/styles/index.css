@@ -252,7 +252,6 @@ nav.navbar {
 
 .code-show {
   height: 350px;
-  overflow-y: scroll;
   background-color: rgb(39, 40, 34);
   margin: 0;
   padding: 25px;

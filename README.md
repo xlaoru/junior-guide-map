@@ -992,3 +992,7 @@ Some addictions
 ### `v34.0`
 
 Fundamental Content Items style correction
+
+### `v34.0.1`
+
+Style correction
