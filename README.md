@@ -988,3 +988,7 @@ Some addictions
 ### `v33.0.7`
 
 Some addictions
+
+### `v34.0`
+
+Fundamental Content Items style correction

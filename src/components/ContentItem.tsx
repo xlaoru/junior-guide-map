@@ -51,7 +51,7 @@ function ContentItem ({value, data, title, body, link, type}: IContentItemProps)
         }
 
         return (
-            <div style={{ height: '350px', overflowY: 'scroll', backgroundColor: 'rgb(39, 40, 34)' }}>
+            <div>
               <SyntaxHighlighter style={monokai} className="code-show">
                 {data}
               </SyntaxHighlighter>

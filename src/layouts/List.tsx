@@ -15,7 +15,6 @@ const VirtualizedList = memo(({ value, content }: IListProps) => {
         setWindowHeight
       ] = useState(window.innerHeight)
 
-
       useEffect(() => {
         const handleResize = () => {
           setWindowWidth(window.innerWidth)
@@ -64,7 +63,7 @@ const VirtualizedList = memo(({ value, content }: IListProps) => {
             width={windowWidth > 600 ? (windowWidth / 2) : (windowWidth / 1.1)}
             height={(windowHeight / 1.3)}
             rowCount={content.length}
-            rowHeight={windowWidth > 600 ? 700 : 850}
+            rowHeight={650}
             rowRenderer={rowRenderer}
             noRowsRenderer={noRowsRenderer}
         />

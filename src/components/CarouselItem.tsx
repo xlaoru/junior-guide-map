@@ -18,7 +18,7 @@ function CarouselItem ({data, setShow, activeIndex, setActiveIndex, setImgData}:
     <Carousel className='Carousel' onSelect={handleSelect} activeIndex={activeIndex} interval={null} touch={false}>
       {data.map((item: string, index: number) => 
         item.includes('/static/media/')
-          ? <Carousel.Item className='CarouselItem' key={index} style={{'height': '350px', 'overflowY': 'scroll'}}><div className='image-wrapper'><img src={item} alt="Image" onClick={() => {setShow(true); setImgData(item)}} /></div></Carousel.Item>
+          ? <Carousel.Item className='CarouselItem' key={index} style={{'height': '315px', 'overflowY': 'scroll'}}><div className='image-wrapper'><img src={item} alt="Image" onClick={() => {setShow(true); setImgData(item)}} /></div></Carousel.Item>
           : <Carousel.Item key={index}><div className="code-wrapper"><SyntaxHighlighter style={monokai} className='code-show'>{item}</SyntaxHighlighter></div></Carousel.Item>
       )}
     </Carousel>
