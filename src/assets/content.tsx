@@ -8656,6 +8656,31 @@ console.log(
     {age: 44}
   )
 ) // Array []`},
+{title: {en: `All about useMemo()`, ua: `Все про useMemo()`}, body: {en: `useMemo is a React Hook that lets you cache the result of a calculation between re-renders.`, ua: `useMemo - це хук React, який дозволяє кешувати результат розрахунку між повторними візуалізаціями.`}, link: {en: `https://react.dev/reference/react/useMemo`, ua: `https://react.dev/reference/react/useMemo`}, type: 'React', data:
+`import { useState, useMemo } from "react"
+
+import { IDemoProps } from "./models/models"
+
+export default function Demo({items}: IDemoProps) {
+  const [count, setCount] = useState(0)
+
+  const selectedItem = useMemo(
+    () => items.find(item => item.isSelected),
+    [items]
+  )
+
+  return (
+    <>
+      <h1>Count: {count}</h1>
+      <h2>Selected Item: #{selectedItem?.id}</h2>
+      <button
+        onClick={() => setCount(count + 1)}
+      >
+        Increment
+      </button>
+    </>
+  )
+}`},
 ]
 
 // ! Performance testing
