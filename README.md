@@ -1004,3 +1004,7 @@ TESTING
 ### `v34.0.3`
 
 Some addictions
+
+### `v34.0.4`
+
+Some addictions

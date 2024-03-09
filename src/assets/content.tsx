@@ -8151,7 +8151,7 @@ function validate(target: Object, propertyKey: string, value: any) {
     );
   }
 }`},
-{title: {en: ``, ua: ``}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['typescript', 'React'], data:
+{title: {en: `Custom useHttp() hook`, ua: `Зроблений власноруч хук useHttp()`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
 `import {useState, useCallback} from 'react'
 
 type LoadingStatusTypes = 'idle' | 'loading' | 'error'
