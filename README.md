@@ -1016,3 +1016,7 @@ TESTING
 ### `v34.0.6`
 
 TESTING
+
+### `v35.0`
+
+New feature! Now you can add gif files

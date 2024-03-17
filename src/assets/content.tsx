@@ -47,6 +47,7 @@ import sql_cheet_sheet_6 from './images/sql_cheet_sheet_6.jpg'
 import sql_cheet_sheet_7 from './images/sql_cheet_sheet_7.jpg'
 import redux_life_cycle from './images/redux_life_cycle.jpg'
 import decorator_evaluation from './images/Decorator Evaluation.jpg'
+import fullScreenSlider from "./images/full-screen_slider.gif"
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -8681,6 +8682,43 @@ export default function Demo({items}: IDemoProps) {
     </>
   )
 }`},
+{title: {en: `Full-Screen Slider`, ua: `Повноекранний слайдер`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'markup', data: [
+fullScreenSlider,
+`<section class="container">
+<div class="slide red">Slide 1</div>
+<div class="slide green">Slide 2</div>
+<div class="slide blue">Slide 3</div>
+<div class="slide purple">Slide 4</div>
+<div class="slide orange">Slide 5</div>
+</section>
+`,
+`* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.slide {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}`
+]},
+{title: {en: `test gif`, ua: ``}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'all', data:
+fullScreenSlider},
 ]
 
 // ! Performance testing

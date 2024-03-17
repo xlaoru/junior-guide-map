@@ -44,7 +44,7 @@ function ContentItem ({value, data, title, body, link, type}: IContentItemProps)
 
         if (data.includes('/static/media/')) {
             return (
-                <div style={{ height: '350px', overflowY: 'scroll', backgroundColor: 'rgb(39, 40, 34)' }}>
+                <div className='image-wrapper' style={{ height: '350px', overflowY: 'scroll' }}>
                     <img style={{'cursor': 'pointer'}} src={data} alt="Image" onClick={() => {setImgData(data); setShow(true)}}/>
                 </div>
             )
