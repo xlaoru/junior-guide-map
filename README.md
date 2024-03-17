@@ -1024,3 +1024,7 @@ New feature! Now you can add gif files
 ### `v35.0.1`
 
 Some addictions
+
+### `v35.0.2`
+
+Some addictions
