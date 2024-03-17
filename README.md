@@ -1020,3 +1020,7 @@ TESTING
 ### `v35.0`
 
 New feature! Now you can add gif files
+
+### `v35.0.1`
+
+Some addictions

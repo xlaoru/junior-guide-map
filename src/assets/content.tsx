@@ -20,11 +20,10 @@ import basicsofhtml04 from './images/basics-of-html-04.jpg'
 import basicsofhtml05 from './images/basics-of-html-05.jpg'
 import basicsofhtml06 from './images/basics-of-html-06.jpg'
 import fullscreensample from './images/fullscreensample.jpg'
-import zoomhovereffect_01 from './images/zoomhovereffect_01.jpg'
-import zoomhovereffect_02 from './images/zoomhovereffect_02.jpg'
+import zoomhovereffect from './images/zoomhovereffect.gif'
 import glassmorphism from './images/glassmorphism.jpg'
 import gridlayout from './images/gridlayout.jpg'
-import easyLoader from './images/easy-loader.jpg'
+import easyLoader from './images/easy-loader.gif'
 import InterfaceVSTypeAlias from './images/interface-vs-type-alias.jpg'
 import awesomeForm from './images/awesome-form.png'
 import fs_1 from "./images/folder-struct_1.jpg"
@@ -48,6 +47,8 @@ import sql_cheet_sheet_7 from './images/sql_cheet_sheet_7.jpg'
 import redux_life_cycle from './images/redux_life_cycle.jpg'
 import decorator_evaluation from './images/Decorator Evaluation.jpg'
 import fullScreenSlider from "./images/full-screen_slider.gif"
+import responsibleAutolayoutForm from "./images/responsible-autolayout-form.gif"
+import smoothHideAnimation from "./images/smooth-hide-animation.gif"
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -1474,7 +1475,7 @@ function(list) {
 {title: {en: 'gap in CSS3', ua: 'gap у CSS3'}, body: {en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap'}, type: 'markup', data: gapstyle},
 {title: {en: 'Simplifying array methods', ua: 'Спрощення методів масивів'}, body: {en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.'}, link: {en: '', ua: ''}, type: 'method', data: [arraymethods_01, arraymethods_02, arraymethods_03]},
 {title: {en: 'Zoom on hover effect', ua: 'Ефект приближення (зуму)'}, body: {en: 'This zoom effect is made using the hover pseudo-class and transition scale.', ua: 'Цей ефект приближення (зуму) зроблений за допомогою псевдокласу hover та transition scale.'}, link: {en: '#', ua: '#'}, type: 'markup', data: 
-[zoomhovereffect_01, zoomhovereffect_02,
+[zoomhovereffect,
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -4439,7 +4440,7 @@ export default function useDebounce<T>(value: T, delay: number = 250): T {
 
   return debouncedValue;
 }`]},
-{title: {en: `Awesome Form on React + TypeScript`, ua: `Гарна Форма для вводу даних на Реакті + TypeScript`}, body: {en: `This Form is made on React and TypesScript, where there is normal validation at the level of types in the data field.`, ua: `Ця Форма зроблена на Реакті і TypesScript де є звичайна валідація на рівні типів у полі даних.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
+{title: {en: `Awesome Form on React + TypeScript`, ua: `Гарна Форма для вводу даних на Реакті + TypeScript`}, body: {en: `This Form is made on React and TypesScript, where there is normal validation at the level of types in the data field.`, ua: `Ця Форма зроблена на Реакті і TypesScript де є звичайна валідація на рівні типів у полі даних.`}, link: {en: `#`, ua: `#`}, type: ['React', 'markup'], data: [
 awesomeForm,
 `import { useState } from "react";
 
@@ -4779,7 +4780,7 @@ console.log(T2) // T2 is not defined`,
 console.log(T0) // undefined
 var T0 = 10
 
-// console.log(T1)
+console.log(T1)
 let T1 = 20
 // Error! Cannot access 'T1' before initialization
 
@@ -8717,8 +8718,147 @@ fullScreenSlider,
   scroll-snap-stop: always;
 }`
 ]},
-{title: {en: `test gif`, ua: ``}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'all', data:
-fullScreenSlider},
+{title: {en: `Responsible Autolayout Form`, ua: `Форма адаптивного макету`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'markup', data: [
+responsibleAutolayoutForm,
+`<form class="form">
+<input type="email" class="input">
+<input type="password" class="input">
+<button type="submit">Submit</button>
+</form>`,
+`body {
+  font-size: 15px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.input {
+  flex: 1 0 8rem;
+}
+
+button {
+  flex: 1 0 4rem;
+}`
+]},
+{title: {en: `Smooth Hide Animation`, ua: `Анімація згладжування`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'markup', data: [
+smoothHideAnimation,
+`<button class="handler">Show/Hide</button>
+<div class="collapse">
+  <div class="text">
+    JavaScript is a lightweight interpreted programming language with first-class functions.
+  </div>
+</div>`,
+`.collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 200ms ease;
+}
+
+.collapse.open {
+  grid-template-rows: 1fr;
+}
+
+.text {
+  min-height: 0;
+}
+
+* {
+  font-size: 25px;
+}`,
+`const button = document.querySelector(".handler")
+const collapse = document.querySelector("div.collapse")
+
+button.addEventListener("click", () => {
+  collapse.classList.toggle("open")
+})`
+]},
+{title: {en: `Bubble Sort Algorithm`, ua: `Алгоритм Bubble Sort`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
+`function bubbleSort(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (array[j] > array[j + 1]) {
+        const element = array[j]
+        array[j] = array[j + 1]
+        array[j + 1] = element
+      }
+    }
+  }
+  return array
+}
+
+console.log(
+  bubbleSort(
+    [
+      1, 2, 1, 4, 6, 7
+    ]
+  )
+) // [1, 1, 2, 4, 6, 7]`},
+{title: {en: `Reseting components state with key prop`, ua: `Відновлення стану компонентів за допомогою ключа`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['React', 'typescript'], data: [
+`import { useEffect, useState } from 'react'
+
+export default function Page({}) {
+    const [user, setUser] = useState("Tom")
+    return (
+        <div>
+            <div>
+                <button
+                    onClick={() => setUser("Tom")}
+                >Open user 1</button>
+                <button
+                    onClick={() => setUser("Alex")}
+                >Open user 2</button>
+            </div>
+            <Profile user={user} />
+        </div>
+    )
+}`,
+`type UserProps = {
+  user: string
+}
+
+function Profile({ user }: UserProps) {
+  return <UserProfile user={user} key={user} />
+}`,
+`function UserProfile({ user }: UserProps) {
+  const [commentInput, setCommentInput] = useState("")
+
+  useEffect(() => {
+      setCommentInput("")
+  }, [user])
+
+  return (
+      <div>
+          <span>{user}</span>
+          <input type="text"
+              defaultValue={commentInput}
+              onChange={(e) => setCommentInput(e.target.value)}
+          />
+          <button type='submit'>Submit</button>
+      </div>
+  )
+}`,
+]},
+{title: {en: `Filtering undefined in Union Types`, ua: `Фільтрація на undefined у Union Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data:
+`type ExternalLib =
+string 
+| number
+| null
+| undefined
+
+type NonUndefined<T> = T extends undefined ? never : T
+
+interface Wallet {
+code: NonUndefined<ExternalLib>
+}
+
+const wallet: Wallet = {
+// code: undefined, // Type 'undefined' is not assignable to type 'string | number | null'.
+code: null
+}`},
 ]
 
 // ! Performance testing
