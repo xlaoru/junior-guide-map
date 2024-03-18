@@ -8859,6 +8859,58 @@ const wallet: Wallet = {
 // code: undefined, // Type 'undefined' is not assignable to type 'string | number | null'.
 code: null
 }`},
+{title: {en: `New type narrowing that observes types among nested closures`, ua: `Нове type narrowing, що спостерігає типи у вкладених замиканнях`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`const getDefaultName = () => "Basic Development"
+
+function composeCertificateTitle(certificateName?: string) {
+    if (!certificateName) {
+        certificateName =  getDefaultName()
+    }
+
+    return (tariff: string) => {
+        // New type narrowing that observes types among nested closures
+        // Insed of Error: "certificateName' is possibly 'undefined'"" we definitely know, that needed type will be 'string'
+        return certificateName.toUpperCase() + " " + tariff.toUpperCase()
+    }
+}
+
+const certificate = composeCertificateTitle("Markup")
+certificate('Independent')
+`},
+{title: {en: `NoInfer Utility Type`, ua: `Утилітарний тип NoInfer`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`function getAccessMatrix<
+  T extends string
+> (
+  a: T[], 
+  def: NoInfer<T>
+) {
+
+}
+
+getAccessMatrix(['admin', 'user'], "admin")
+// getAccessMatrix(['admin', 'user'], "customer") // Error! Argument of type '"customer"' is not assignable to parameter of type '"admin" | "user"'.`},
+{title: {en: `groupBy method for Object and Map`, ua: `Методо groupBy для Об'єктів та Map`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+`const users = [
+  { name: "Tom", role: "Admin" },
+  { name: "Alex", role: "User" },
+  { name: "John", role: "User" },
+];
+
+const resObj = Object.groupBy(users, (user, index) => {
+  return user.role;
+});
+
+console.log(resObj);
+/* 
+{
+  Admin: [{ name: 'Tom', role: 'Admin' }],
+  User: [{ name: 'Alex', role: 'User' }, { name: 'John', role: 'User' }]
+}
+*/
+
+const resMap = Map.groupBy(users, (user, index) => {
+  return user.role;
+}); // Correct!`},
 ]
 
 // ! Performance testing

@@ -1032,3 +1032,7 @@ Some addictions
 ### `v35.0.3`
 
 TESTING
+
+### `v35.0.4`
+
+Some addictions
