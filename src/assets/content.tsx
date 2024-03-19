@@ -8219,7 +8219,7 @@ const user: UserForm = {
   age: 21,
   email: 'bob@example.com'
 }`},
-{title: {en: `Turning a string to an objec using infer from TypeScript`, ua: `Робимо об'єкт зі строки використовуючи infer з TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
+{title: {en: `Turning a string to an object using infer from TypeScript`, ua: `Робимо об'єкт зі строки використовуючи infer з TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
 `type InferValueFromColor<Color extends string> = 
   Color extends \`\${infer N}-\${infer C}-\${infer T}\`
     ? {
@@ -8911,6 +8911,179 @@ console.log(resObj);
 const resMap = Map.groupBy(users, (user, index) => {
   return user.role;
 }); // Correct!`},
+{title: {en: `RTK. How to create your fully typed Redux-Slice`, ua: `RTK. Як створити повністю типований Redux-Slice`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course`, ua: `https://github.com/xlaoru/selfmade-rtk-course`}, type: ['React', 'typescript'], data: [
+`import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from ".";
+
+export interface ITodo {
+  id: string;
+  text: string;
+  completed: boolean;
+}
+
+export const TodoSlice = createSlice({
+  name: "todos",
+  initialState: {
+    // Here you can create/define your initial state
+    todos: [] as ITodo[],
+  },
+  reducers: {
+    addTodo(state, action) {
+      state.todos.push({
+        id: new Date().toISOString(),
+        text: action.payload.text,
+        completed: false,
+      });
+    },
+    toggleComplete(state, action) {
+      const toggledTodo = state.todos.find(
+        (todo) => todo.id === action.payload.id
+      );
+      toggledTodo!.completed = !toggledTodo!.completed;
+    },
+    removeTodo(state, action) {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
+    },
+  },
+});
+
+export const { addTodo, toggleComplete, removeTodo } = TodoSlice.actions; // Exporting your tools for state management
+
+export const selectTodos = (state: RootState) => state.todos.todos; // Exporting your state
+
+export default TodoSlice.reducer; // Exporting your reducer`,
+`import { configureStore } from "@reduxjs/toolkit";
+
+import TodoReducer from "./TodoSlice";
+
+export const store = configureStore({
+  reducer: {
+    todos: TodoReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;`,
+]},
+{title: {en: `RTK. How to create your fully typed Asynchronous Redux-Slice with data fetching`, ua: `RTK. Як створити повністю типований асинхронний Redux-Slice з отриманням даних`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course`, ua: `https://github.com/xlaoru/selfmade-rtk-course`}, type: ['React', 'typescript'], data: [
+`import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { RootState } from ".";
+
+export interface ITodo {
+  id: string;
+  title: string;
+  completed: boolean;
+}
+
+type LoadingStatusTypes = 'idle' | 'loading' | 'error'
+
+const setError = (state: any, action: any) => {
+  state.status = "rejected";
+  state.error = action.payload
+}
+
+// Asynchronous thunk action creator
+export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+    if (!response.ok) throw new Error("Failed to fetch todos");
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching todos:", error);
+    throw error;
+  }
+});
+
+export const TodoSlice = createSlice({
+  name: "todos",
+  initialState: {
+    // Here you can create/define your initial state
+    todos: [] as ITodo[],
+    status: "idle" as LoadingStatusTypes,
+    error: null,
+  },
+  reducers: {
+    addTodo(state, action) {
+      state.todos.push({
+        id: new Date().toISOString(),
+        title: action.payload.text,
+        completed: false,
+      });
+    },
+    toggleComplete(state, action) {
+      const toggledTodo = state.todos.find(
+        (todo) => todo.id === action.payload.id
+      );
+      toggledTodo!.completed = !toggledTodo!.completed;
+    },
+    removeTodo(state, action) {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
+    },
+  },
+
+  // The "extraReducers" field lets the slice handle actions defined elsewhere
+  extraReducers: (builder) => {
+    builder.addCase(fetchTodos.pending, (state) => {
+      state.status = "loading";
+      state.error = null
+    })
+
+    builder.addCase(fetchTodos.fulfilled, (state, action) => {
+      state.status = "idle";
+      state.todos = action.payload
+    })
+
+    builder.addCase(fetchTodos.rejected, setError)
+  }
+});
+
+export const { addTodo, toggleComplete, removeTodo } = TodoSlice.actions; // Exporting your tools for state management
+
+export const selectTodos = (state: RootState) => state.todos.todos; // Exporting your state
+
+export default TodoSlice.reducer; // Exporting your reducer`,
+`import { configureStore } from "@reduxjs/toolkit";
+
+import TodoReducer from "./TodoSlice";
+
+export const store = configureStore({
+  reducer: {
+    todos: TodoReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;`,
+`/* How to fetch your data */
+import { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { AppDispatch } from "./store";
+
+import { selectTodos, fetchTodos } from "./store/TodoSlice";
+
+import TodoItem from "./TodoItem";
+
+const TodoList = () => {
+  const todos = useSelector(selectTodos);
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [dispatch])
+
+  return (
+    <ul>
+      {todos.map((todo: any) => (
+        <TodoItem key={todo.id} {...todo} />
+      ))}
+    </ul>
+  );
+};
+
+export default TodoList;`,
+]},
 ]
 
 // ! Performance testing

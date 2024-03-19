@@ -1040,3 +1040,7 @@ Some addictions
 ### `v35.0.5`
 
 TESTING
+
+### `v35.0.6`
+
+Some addictions
