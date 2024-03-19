@@ -8911,13 +8911,13 @@ console.log(resObj);
 const resMap = Map.groupBy(users, (user, index) => {
   return user.role;
 }); // Correct!`},
-{title: {en: `RTK. How to create your fully typed Redux-Slice`, ua: `RTK. Як створити повністю типований Redux-Slice`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course`, ua: `https://github.com/xlaoru/selfmade-rtk-course`}, type: ['React', 'typescript'], data: [
+{title: {en: `RTK. How to create your fully typed Redux-Slice`, ua: `RTK. Як створити повністю типований Redux-Slice`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course/tree/ff14fed2cc4d5b42214e782ecadeb68b61740a6b`, ua: `https://github.com/xlaoru/selfmade-rtk-course/tree/ff14fed2cc4d5b42214e782ecadeb68b61740a6b`}, type: ['React', 'typescript'], data: [
 `import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from ".";
 
 export interface ITodo {
   id: string;
-  text: string;
+  title: string;
   completed: boolean;
 }
 
@@ -8931,7 +8931,7 @@ export const TodoSlice = createSlice({
     addTodo(state, action) {
       state.todos.push({
         id: new Date().toISOString(),
-        text: action.payload.text,
+        title: action.payload.text,
         completed: false,
       });
     },
@@ -8965,7 +8965,7 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;`,
 ]},
-{title: {en: `RTK. How to create your fully typed Asynchronous Redux-Slice with data fetching`, ua: `RTK. Як створити повністю типований асинхронний Redux-Slice з отриманням даних`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course`, ua: `https://github.com/xlaoru/selfmade-rtk-course`}, type: ['React', 'typescript'], data: [
+{title: {en: `RTK. How to create your fully typed Asynchronous Redux-Slice with data fetching`, ua: `RTK. Як створити повністю типований асинхронний Redux-Slice з отриманням даних`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course/tree/c3bb7cd3a668e971a2884973a587627914ff90d7`, ua: `https://github.com/xlaoru/selfmade-rtk-course/tree/c3bb7cd3a668e971a2884973a587627914ff90d7`}, type: ['React', 'typescript'], data: [
 `import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from ".";
 
