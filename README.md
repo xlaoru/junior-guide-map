@@ -1048,3 +1048,7 @@ Some addictions
 ### `v35.0.7`
 
 Some addictions
+
+### `v35.0.8`
+
+Some addictions

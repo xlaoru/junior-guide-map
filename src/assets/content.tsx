@@ -8964,6 +8964,50 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;`,
+`/* How to use your data */
+import { useSelector } from "react-redux";
+
+import { selectTodos, ITodo } from "./store/TodoSlice";
+
+import TodoItem from "./TodoItem";
+
+const TodoList = () => {
+  const todos = useSelector(selectTodos);
+  return (
+    <ul>
+      {todos.map((todo: ITodo) => (
+        <TodoItem key={todo.id} {...todo} />
+      ))}
+    </ul>
+  );
+};
+
+export default TodoList;`,
+`/* How to use your reducers */
+import { useDispatch } from "react-redux";
+
+import { toggleComplete, removeTodo } from "./store/TodoSlice";
+
+import { ITodoItemProps } from "./models/models";
+
+const TodoItem = ({ id, title, completed }: ITodoItemProps) => {
+  const dispatch = useDispatch();
+  return (
+    <li>
+      <input
+        type="checkbox"
+        checked={completed}
+        onChange={() => dispatch(toggleComplete({ id }))}
+      />
+      <span style={{ textDecoration: completed ? "line-through" : "none" }}>
+        {title}
+      </span>
+      <button onClick={() => dispatch(removeTodo({ id }))}>&times;</button>
+    </li>
+  );
+};
+
+export default TodoItem;`,
 ]},
 {title: {en: `RTK. How to create your fully typed Asynchronous Redux-Slice with data fetching`, ua: `RTK. Як створити повністю типований асинхронний Redux-Slice з отриманням даних`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course/tree/c3bb7cd3a668e971a2884973a587627914ff90d7`, ua: `https://github.com/xlaoru/selfmade-rtk-course/tree/c3bb7cd3a668e971a2884973a587627914ff90d7`}, type: ['React', 'typescript'], data: [
 `import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
@@ -9083,6 +9127,31 @@ const TodoList = () => {
 };
 
 export default TodoList;`,
+`/* How to use your reducers */
+import { useDispatch } from "react-redux";
+
+import { toggleComplete, removeTodo } from "./store/TodoSlice";
+
+import { ITodoItemProps } from "./models/models";
+
+const TodoItem = ({ id, title, completed }: ITodoItemProps) => {
+  const dispatch = useDispatch();
+  return (
+    <li>
+      <input
+        type="checkbox"
+        checked={completed}
+        onChange={() => dispatch(toggleComplete({ id }))}
+      />
+      <span style={{ textDecoration: completed ? "line-through" : "none" }}>
+        {title}
+      </span>
+      <button onClick={() => dispatch(removeTodo({ id }))}>&times;</button>
+    </li>
+  );
+};
+
+export default TodoItem;`,
 ]},
 ]
 
