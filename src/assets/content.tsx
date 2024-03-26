@@ -9153,6 +9153,170 @@ const TodoItem = ({ id, title, completed }: ITodoItemProps) => {
 
 export default TodoItem;`,
 ]},
+{title: {en: `How to create LogIn functionality using Node.js`, ua: `Як створити функцію логіну за допомогою Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data: [
+`const http = require("http");
+const fs = require("fs");
+const path = require("path");
+const url = require("url");
+
+const users = require("./users.js");
+
+let cookie;
+
+const mimeTypes = {
+  ".html": "text/html",
+  ".js": "text/javascript",
+  ".css": "text/css",
+  ".json": "application/json",
+  ".png": "image/png",
+  ".jpg": "image/jpg",
+  ".gif": "image/gif",
+  ".svg": "image/svg+xml",
+  ".wav": "audio/wav",
+  ".mp4": "video/mp4",
+  ".woff": "application/font-woff",
+  ".ttf": "application/font-ttf",
+  ".eot": "application/vnd.ms-fontobject",
+  ".otf": "application/font-otf",
+  ".wasm": "application/wasm",
+};
+
+function staticFile(res, filePath, ext) {
+  res.setHeader("Content-Type", mimeTypes[ext]);
+  fs.readFile("./public" + filePath, (error, data) => {
+    if (error) {
+      res.statusCode = 404;
+      res.end();
+    }
+
+    res.end(data);
+  });
+}
+
+function findUser(name, pass) {
+  for (let uid in users) {
+    if (users[uid].name === name && users[uid].pass === pass) return uid;
+  }
+  return false;
+}
+
+function parseCookies(request) {
+  const list = {};
+  const cookieHeader = request.headers?.cookie;
+  if (!cookieHeader) return list;
+
+  cookieHeader.split(\`;\`).forEach(function (cookie) {
+    let [name, ...rest] = cookie.split(\`=\`);
+    name = name?.trim();
+    if (!name) return;
+    const value = rest.join(\`=\`).trim();
+    if (!value) return;
+    list[name] = decodeURIComponent(value);
+  });
+  return list;
+}
+
+http
+  .createServer((req, res) => {
+    let url = req.url;
+    url = url.split("?")[0];
+    console.log(url);
+
+    switch (url) {
+      case "/":
+        console.log("main page");
+        staticFile(res, "/html/main.html", ".html");
+        break;
+
+      case "/about":
+        console.log("about page");
+        staticFile(res, "/html/about.html", ".html");
+        break;
+
+      case "/contact":
+        console.log("contact page");
+        staticFile(res, "/html/contact.html", ".html");
+        break;
+
+      case "/admin":
+        console.log("admin page");
+        cookie = parseCookies(req);
+        console.log(cookie);
+
+        if (cookie.uid in users) {
+          staticFile(res, "/html/admin.html", ".html");
+        } else {
+          staticFile(res, "/html/not_admin.html", ".html");
+        }
+
+        break;
+
+      case "/login":
+        console.log("login page");
+        cookie = parseCookies(req);
+        if ("uid" in cookie) {
+          res.setHeader("Set-Cookie", ['uid="";max-age=-1', "u=;max-age=0"]);
+          staticFile(res, "/html/exit.html", ".html");
+        } else {
+          staticFile(res, "/html/login.html", ".html");
+        }
+
+        break;
+
+      case "/cabinet":
+        console.log("check user");
+
+        const current_url = new URL("http://localhost:3500" + req.url);
+        const search_params = current_url.searchParams;
+        const login = search_params.get("login");
+        const password = search_params.get("password");
+
+        console.log(login, password);
+
+        const uid = findUser(login, password);
+
+        if (uid) {
+          console.log("yes");
+          res.setHeader("Set-Cookie", [
+            "uid=" + uid,
+            "u=" + users[uid]["name"],
+          ]);
+          staticFile(res, "/html/cabinet.html", ".html");
+        } else {
+          res.writeHead(200, {
+            "Set-Cookie": ["uid=;max-age=0", "u=;max-age=0"],
+            "Content-Type": "text/plain",
+          });
+        }
+
+        break;
+
+      default:
+        const extname = String(path.extname(url)).toLocaleLowerCase();
+
+        if (extname in mimeTypes) {
+          staticFile(res, url, extname);
+        } else {
+          res.statusCode = 404;
+          res.end();
+        }
+
+        break;
+    }
+  })
+  .listen(3500);`,
+` /* Mini Data Base */
+module.exports = {
+  "9c05b0d586377d5c" : {
+      "name" : "matador",
+      "pass" : "123321"
+  },
+  "0a8228b61a265d6c" :  {
+      "name" : "jsdenton",
+      "pass" : "bcheats"
+  }
+};`,
+]},
 ]
 
 // ! Performance testing
