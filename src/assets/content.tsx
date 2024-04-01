@@ -6998,24 +6998,29 @@ class Ports {
 console.log(Ports.portList) // [ 3000, 3001, 3002 ]`,
 ]},
 {title: {en: `"this" and context typing`, ua: `"this" і типізація контекста`}, body: {en: `When functionality becomes more complex, you can always lose context in classes. In TS there is an opportunity to clearly say what the context should be and not get such situations. The problem can be solved using bind or an arrow function. But you won't know about the error until you run the code. Therefore, in TS there is an option to immediately say what the context will be as the first argument in the function. And you will see an error at the development stage. Sometimes we return context from a method, that is, a reference to an instance of an object. In such cases, you should not strictly type the return value, as it may break the logic. Using the context, we can check which class the instance belongs to and write our own type protector.`, ua: `При ускладненні функціоналу можна втратити контекст у класах. У TS існує можливість чітко сказати, чим має бути контекст і не набувати таких ситуацій. Проблему можна вирішити за допомогою bind або стрілочної функції. Але до запуску коду ви не дізнаєтесь про помилку. Тому в TS є варіант відразу сказати, чим буде контекст прямо першим аргументом функції. І ви побачите помилку на етапі розробки. Іноді ми з методу повертаємо контекст, тобто посилання на екземпляр об'єкта. У таких випадках не варто жорстко типізувати значення, що повертається, так як воно може зламати логіку. За допомогою контексту ми можемо перевірити, до якого класу належить екземпляр та написати свій захисник типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`}, type: ['typescript', 'OOP'], data: [
-` /* Case 1. We use the "this" keyword to assert the context. */
+`/* Case 1. We use the "this" keyword to assert the context. */
 class Soldier {
   #callsign: string;
 
   constructor(callsign: string) {
-      this.#callsign = callsign;
+    this.#callsign = callsign;
   }
 
   /* Example of 'this' context */
   callByCallsign(this: Soldier) {
-      return \`Soldier \${this.#callsign} is on duty.\`
+    return \`Soldier \${this.#callsign} is on duty.\`
   }
 }
 
 const soldier = new Soldier("Khimik");
 
-const calling = soldier.callByCallsign
-// calling() // Error! The 'this' context of type 'void' is not assignable to method's 'this' of type 'Soldier'.
+const calling1 = soldier.callByCallsign
+// calling1() // Error! The 'this' context of type 'void' is not assignable to method's 'this' of type 'Soldier'.
+
+// To prevent this issue we can do strict binding for our class.
+const calling2 = soldier.callByCallsign.bind(soldier)
+calling2() // Correct!
+console.log(calling2()) // Soldier Khimik is on duty.
 `,
 `/* Case 2. We use the "bind" method to assert the context. */
 class Pilot {
