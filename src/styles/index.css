@@ -3,7 +3,7 @@
   flex-direction: column;
   min-height: 100vh;
 }
-  
+
 .fullscreen-background {
   background-image: url(../assets/images/bg-fullscreen.jpg);
   color: white;
@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: center;
 }
-  
+
 .fullscreen_title {
   text-align: center;
   max-width: 350px;
@@ -27,6 +27,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin: 0.5rem 0;
 }
 
 .language-button {
@@ -40,7 +41,7 @@
 }
 
 .language-button:hover {
-  background-color:rgb(203, 202, 202);
+  background-color: rgb(203, 202, 202);
   border: 2.5px solid rgb(181, 180, 180);
   color: white;
 }
@@ -124,7 +125,7 @@ nav.navbar {
   font-weight: bold;
   padding: 10px 15px;
 }
-  
+
 .nav-item .active {
   background-color: white;
   color: #000;
@@ -146,7 +147,7 @@ nav.navbar {
 
 .Footer h5 {
   color: white;
-  margin: 0;;
+  margin: 0;
 }
 
 .form {
@@ -154,8 +155,6 @@ nav.navbar {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
 }
 
 .searcher {
@@ -172,9 +171,8 @@ nav.navbar {
 .types-bar {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  margin-top: 2rem;
 }
-  
+
 .type-bar {
   text-transform: capitalize;
   font-weight: 550;
@@ -186,15 +184,15 @@ nav.navbar {
   padding: 10px 5px;
   transition: all 0.5s;
 }
-  
+
 .type-bar:hover {
-  background-color:rgb(169, 180, 188);
+  background-color: rgb(169, 180, 188);
   border: 3.5px solid rgb(215, 214, 214);
   color: white;
 }
 
 .clicked {
-  background-color:rgb(140, 149, 156);
+  background-color: rgb(140, 149, 156);
   border: 3.5px solid white;
   color: white;
 }
@@ -204,7 +202,7 @@ nav.navbar {
   font-size: 30px;
   color: rgb(140, 149, 156);
 }
-  
+
 .col {
   display: flex;
   justify-content: center;
@@ -245,7 +243,7 @@ nav.navbar {
   display: block;
   padding: 10px;
 }
-  
+
 .doc-link:hover {
   color: white;
 }
@@ -272,7 +270,7 @@ nav.navbar {
 .Carousel {
   position: relative;
 }
-  
+
 .code-show-carousel {
   height: 350px;
   border-radius: 0;
@@ -280,14 +278,14 @@ nav.navbar {
   padding: 25px;
   color: #1e1e1e;
   background: #fafafa;
-  border-bottom: 1px solid #BBBBBB;
+  border-bottom: 1px solid #bbbbbb;
 }
-  
+
 .carousel-inner {
   display: flex;
   align-items: center;
 }
-  
+
 div.carousel-indicators {
   margin: 0;
   position: relative;
@@ -295,21 +293,21 @@ div.carousel-indicators {
   border-top: 1px solid white;
   padding: 5px 25px;
 }
-  
+
 .Carousel .carousel-control-prev,
 .Carousel .carousel-control-next {
   width: auto;
   z-index: 10;
   bottom: auto;
 }
-  
+
 .Carousel .carousel-control-prev-icon,
 .Carousel .carousel-control-next-icon {
   width: 27px;
   height: 27px;
   margin-top: 3px;
 }
-  
+
 .carousel img {
   min-width: 0;
   cursor: pointer;
@@ -324,7 +322,7 @@ div.carousel-indicators {
   overflow: scroll;
   height: 350px;
 }
-  
+
 @media (max-width: 600px) {
   .image-wrapper {
     display: contents;
