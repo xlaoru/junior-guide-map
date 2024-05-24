@@ -49,6 +49,7 @@ import decorator_evaluation from './images/Decorator Evaluation.jpg'
 import fullScreenSlider from "./images/full-screen_slider.gif"
 import responsibleAutolayoutForm from "./images/responsible-autolayout-form.gif"
 import smoothHideAnimation from "./images/smooth-hide-animation.gif"
+import logInOrSignUpForm from "./images/log in or sign up form.gif"
 
 const content: IContentItem[] = [
 {title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
@@ -9321,6 +9322,204 @@ module.exports = {
       "pass" : "bcheats"
   }
 };`,
+]},
+{title: {en: ``, ua: ``}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['markup', 'React'], data: [
+logInOrSignUpForm,
+`import { useRef, useState } from "react";
+
+type Props = {};
+
+export default function Form({}: Props) {
+    const userEmailRef = useRef<HTMLInputElement>(null);
+    const [isShowSignUpCode, setShowSignUpCode] = useState(false);
+
+    const handleClick = () => {
+        if (userEmailRef.current?.value !== "") {
+            setShowSignUpCode(true);
+        }
+    };
+
+    return (
+        <div className="Form">
+            <div className="container">
+                <form onSubmit={handleClick}>
+                    <div className="header">
+                        <h1 className="title">Log in or sign up</h1>
+                        <p className="subtitle">Get started for free</p>
+                    </div>
+                    <div className="google">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png"
+                            alt="google"
+                        />
+                        Continue with Google
+                    </div>
+                    <div className="separator">
+                        <hr />
+                    </div>
+                    <label>
+                        Work email
+                        <input
+                            ref={userEmailRef}
+                            type="text"
+                            placeholder="example@mail.com"
+                        />
+                    </label>
+                    {isShowSignUpCode && (
+                        <label>
+                            Verefication code
+                            <input
+                                placeholder="Paste sign up code"
+                                type="text"
+                            />
+                            <span className="resend">
+                                We sent a verefication code to your inbox •{" "}
+                                <span className="resend-button">Resend</span>
+                            </span>
+                        </label>
+                    )}
+                    <button className="submit-button" type="submit">
+                        Continue with email
+                    </button>
+                    <p className="terms">
+                        By clicking "Continue with Google / Email" you agree to
+                        your <a href="#">Terms of Service</a> and{" "}
+                        <a href="#">Privacy Police</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    );
+}`,
+`button {
+  cursor: pointer;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form {
+  padding: 1.5rem;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  display: flex block;
+  flex-direction: column;
+  gap: 1.5rem 0;
+  font-family: "Golos Text", sans-serif;
+}
+
+form .title {
+  font-size: 1.5rem;
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+form .subtitle {
+  color: #797979;
+  font-size: 1rem;
+  margin: 0;
+}
+
+form .google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0px 0px 0px 1.5px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+form img {
+  height: 1.15rem;
+  width: 1.15rem;
+}
+
+form .google:hover {
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+form .separator hr {
+  border: none;
+  height: 1px;
+  background-color: #797979;
+}
+
+form .separator hr::after {
+  font-size: 0.9rem;
+  content: "or";
+  color: #797979;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+  padding: 1.1rem;
+  background: #fff;
+}
+
+form label {
+  font-size: 0.8rem;
+  gap: 4px;
+  color: #797979;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.05rem;
+}
+
+form input {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 0px 0px 1.5px rgba(0, 0, 0, 0.15);
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+form .submit-button {
+  border: 1px solid #000;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #000;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+form .submit-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+form .resend {
+  font-weight: 500;
+}
+
+form .resend .resend-button {
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+form .terms {
+  font-size: 0.8rem;
+  color: #797979;
+  margin: 0;
+}
+
+form .terms a {
+  color: #797979;
+}`
 ]},
 ]
 
