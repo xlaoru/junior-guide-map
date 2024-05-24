@@ -1080,3 +1080,7 @@ Some addictions
 ### `v35.0.15`
 
 Some addictions
+
+### `v36.0`
+
+UI redesign
