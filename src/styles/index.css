@@ -27,6 +27,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .language-button {
@@ -154,8 +155,7 @@ nav.navbar {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin: 10px 0;
 }
 
 .searcher {
@@ -172,7 +172,7 @@ nav.navbar {
 .types-bar {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  margin-top: 2rem;
+  margin-top: 10px;
 }
   
 .type-bar {

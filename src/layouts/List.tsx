@@ -61,7 +61,7 @@ const VirtualizedList = memo(({ value, content }: IListProps) => {
     >
         <List
             width={windowWidth > 600 ? (windowWidth / 2) : (windowWidth / 1.1)}
-            height={(windowHeight / 1.3)}
+            height={(windowHeight / 1.65)}
             rowCount={content.length}
             rowHeight={650}
             rowRenderer={rowRenderer}
