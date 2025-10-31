@@ -32,11 +32,11 @@ import fs_3 from "./images/folder-struct_3.jpg"
 import fs_4 from "./images/folder-struct_4.jpg"
 import apiArchitectural from './images/api-architectural.jpg'
 import restApiRequests from './images/rest-api_request.jpg'
-import react_hook_explain_1 from './images/react_hook_explain_1.jpg' 
-import react_hook_explain_2 from './images/react_hook_explain_2.jpg' 
-import react_hook_explain_3 from './images/react_hook_explain_3.jpg' 
-import react_hook_explain_4 from './images/react_hook_explain_4.jpg' 
-import react_hook_explain_5 from './images/react_hook_explain_5.jpg' 
+import react_hook_explain_1 from './images/react_hook_explain_1.jpg'
+import react_hook_explain_2 from './images/react_hook_explain_2.jpg'
+import react_hook_explain_3 from './images/react_hook_explain_3.jpg'
+import react_hook_explain_4 from './images/react_hook_explain_4.jpg'
+import react_hook_explain_5 from './images/react_hook_explain_5.jpg'
 import sql_cheet_sheet_1 from './images/sql_cheet_sheet_1.jpg'
 import sql_cheet_sheet_2 from './images/sql_cheet_sheet_2.jpg'
 import sql_cheet_sheet_3 from './images/sql_cheet_sheet_3.jpg'
@@ -52,8 +52,9 @@ import smoothHideAnimation from "./images/smooth-hide-animation.gif"
 import logInOrSignUpForm from "./images/log in or sign up form.gif"
 
 const content: IContentItem[] = [
-{title: {en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()'}, body: {en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'}, type: 'method', data:
-`const array = ['JS', 'TS', 'C#', 'Java']
+  {
+    title: { en: 'Array.prototype.filter()', ua: 'Array.prototype.filter()' }, body: { en: 'filter is a method that creates a new unique array with specific criteria based on the selected array.', ua: 'filter - це метод, що створює новий унікальний масив з чіткими критеріями на основі обранного масиву.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/filter' }, type: 'method', data:
+      `const array = ['JS', 'TS', 'C#', 'Java']
 let filteredArray = array.filter(
     language => {
         if (language.length === 2) return true
@@ -61,16 +62,18 @@ let filteredArray = array.filter(
 ) 
 
 console.log(filteredArray)`},
-{title: {en: 'Array.prototype.map()', ua: 'Array.prototype.map()'}, body: {en: 'map is a method that creates a new unique array with some distinct changes in it.', ua: 'map - це метод, що створює новий унікальний массиву з якимись чіткими змінами у ньому.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/map'}, type: 'method', data: 
-`const array = ['JS', 'TS', 'C#', 'Java'] 
+  {
+    title: { en: 'Array.prototype.map()', ua: 'Array.prototype.map()' }, body: { en: 'map is a method that creates a new unique array with some distinct changes in it.', ua: 'map - це метод, що створює новий унікальний массиву з якимись чіткими змінами у ньому.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/map' }, type: 'method', data:
+      `const array = ['JS', 'TS', 'C#', 'Java'] 
 let mappedArray = array.map( 
     language => { 
         return language + ':)' 
     }
 ) 
 console.log(mappedArray)`},
-{title: {en: 'Array.prototype.reduce()', ua: 'Array.prototype.reduce()'}, body: {en: 'reduce is a method that applies an explicit criterion (reducer) to each array element and returns a single resulting final value.', ua: 'reduce - це метод, що застосовує чіткий критерій (reducer) до кожного елементу масиву та повертає одне резултативне кінцеве значення.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce'}, type: 'method', data: 
-`const array = [1, 2, 3, 4, 5] 
+  {
+    title: { en: 'Array.prototype.reduce()', ua: 'Array.prototype.reduce()' }, body: { en: 'reduce is a method that applies an explicit criterion (reducer) to each array element and returns a single resulting final value.', ua: 'reduce - це метод, що застосовує чіткий критерій (reducer) до кожного елементу масиву та повертає одне резултативне кінцеве значення.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce' }, type: 'method', data:
+      `const array = [1, 2, 3, 4, 5] 
 const total = array.reduce( 
     (accumulator, element) => { 
         return accumulator + element 
@@ -78,18 +81,21 @@ const total = array.reduce(
 ) 
 
 console.log(total)`},
-{title: {en: 'Array.prototype.forEach()', ua: 'Array.prototype.forEach()'}, body: {en: 'forEach is a method that populates a distinct variable for each array element.', ua: 'forEach - це метод, що виповнює чітку змінну для кожного елементу масиву.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/foreach', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/foreach'}, type: 'method', data: 
-`const array = ['JS', 'TS', 'C#', 'Java'] 
+  {
+    title: { en: 'Array.prototype.forEach()', ua: 'Array.prototype.forEach()' }, body: { en: 'forEach is a method that populates a distinct variable for each array element.', ua: 'forEach - це метод, що виповнює чітку змінну для кожного елементу масиву.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/foreach', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/foreach' }, type: 'method', data:
+      `const array = ['JS', 'TS', 'C#', 'Java'] 
 let forEachedArray = array.forEach( 
     language => console.log(language + ' :)') 
 ) 
 
 // console.log(forEachedArray)`},
-{title: {en: 'Array.prototype.indexOf()', ua: 'Array.prototype.indexOf()'}, body: {en: 'indexOf is a method that finds the closest index of the item you are looking for.', ua: 'indexOf - це метод, що шукає найблищий індекс item`а, котрий ви шукаєте.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf'}, type: 'method', data: 
-`const array = [1, 2, 3, 4, 5] 
+  {
+    title: { en: 'Array.prototype.indexOf()', ua: 'Array.prototype.indexOf()' }, body: { en: 'indexOf is a method that finds the closest index of the item you are looking for.', ua: 'indexOf - це метод, що шукає найблищий індекс item`а, котрий ви шукаєте.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf' }, type: 'method', data:
+      `const array = [1, 2, 3, 4, 5] 
 console.log(array.indexOf(2, 0))`},
-{title: {en: 'Object.keys()', ua: 'Object.keys()'}, body: {en: 'keys is a method that shows all the keys of an object or array.', ua: 'keys - це метод, що показую усі ключі об`єкта чи массива.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/keys', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/keys'}, type: 'method', data: 
-`const array = ['JS', 'TS', 'C#', 'Java'] 
+  {
+    title: { en: 'Object.keys()', ua: 'Object.keys()' }, body: { en: 'keys is a method that shows all the keys of an object or array.', ua: 'keys - це метод, що показую усі ключі об`єкта чи массива.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/keys', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/keys' }, type: 'method', data:
+      `const array = ['JS', 'TS', 'C#', 'Java'] 
 const object = { 
     1: 'JS', 
     2: 'TS', 
@@ -99,13 +105,15 @@ const object = {
 
 console.log(Object.keys(array)) 
 console.log(Object.keys(object))`},
-{title: {en: 'String.prototype.split()', ua: 'String.prototype.split()'}, body: { en: 'split is a method that converts a string into an array.', ua: 'split - це метод, що перетворює строку у масив.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/split', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/split'}, type: 'method', data: 
-`let string = 'Hello World' 
+  {
+    title: { en: 'String.prototype.split()', ua: 'String.prototype.split()' }, body: { en: 'split is a method that converts a string into an array.', ua: 'split - це метод, що перетворює строку у масив.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/split', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/split' }, type: 'method', data:
+      `let string = 'Hello World' 
 let splitedString = string.split(' ') 
 
 console.log(splitedString)`},
-{title: {en: 'Spread operator', ua: 'Spread оператор'}, body: {en: 'spread (...) is an operator that allows you to expand the elements available for iteration.', ua: 'spread (...) - це оператор, що дозволяє розширити доступні для ітерації елементи.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_syntax', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Spread_syntax'}, type: 'operator', data: 
-`const array = [1, 1, 2, 3, 5, 8] 
+  {
+    title: { en: 'Spread operator', ua: 'Spread оператор' }, body: { en: 'spread (...) is an operator that allows you to expand the elements available for iteration.', ua: 'spread (...) - це оператор, що дозволяє розширити доступні для ітерації елементи.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_syntax', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Spread_syntax' }, type: 'operator', data:
+      `const array = [1, 1, 2, 3, 5, 8] 
 const object = {name: 'Alex', age: '20'} 
 const string = 'Hello World' 
 const newArray = [...array, 13, 21, 34, 55] 
@@ -122,8 +130,9 @@ console.log(newArray)
 console.log(newObject) 
 console.log(newStringArray) 
 console.log(multiply(...numbers))`},
-{title: {en: 'Callback', ua: 'Колбек'}, body: {en: 'callback is a function that is passed as an argument to (for example) another function. Further, this callback function is used (for example) as outputting some information to the console.', ua: 'callback - це функція, яку передають у якості аргументу до (наприклад) іншої функції. Далі цю callback функцію використовують (наприклад), як відображення якоїсь інформації у консоль.'}, link: {en: 'https://developer.mozilla.org/en/docs/Glossary/Callback_function', ua: 'https://developer.mozilla.org/ru/docs/Glossary/Callback_function'}, type: 'function', data: 
-`function getUsers(callback) {
+  {
+    title: { en: 'Callback', ua: 'Колбек' }, body: { en: 'callback is a function that is passed as an argument to (for example) another function. Further, this callback function is used (for example) as outputting some information to the console.', ua: 'callback - це функція, яку передають у якості аргументу до (наприклад) іншої функції. Далі цю callback функцію використовують (наприклад), як відображення якоїсь інформації у консоль.' }, link: { en: 'https://developer.mozilla.org/en/docs/Glossary/Callback_function', ua: 'https://developer.mozilla.org/ru/docs/Glossary/Callback_function' }, type: 'function', data:
+      `function getUsers(callback) {
     fetch('https://jsonplaceholder.typicode.com/users')  
     .then((response) => { 
             return response.json() 
@@ -140,8 +149,9 @@ function showUsers(data) {
 } 
 
 getUsers(showUsers)`},
-{title: {en: 'Closure', ua: 'Замикання'}, body: {en: 'Closure is the creation of a local function in another function for later use of it with data.', ua: 'Замикання - це створення локальної функції в інщій функції для подалих використовувань її з даними.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.'}, type: 'function', data: [
-`function User(defaultName: string) {
+  {
+    title: { en: 'Closure', ua: 'Замикання' }, body: { en: 'Closure is the creation of a local function in another function for later use of it with data.', ua: 'Замикання - це створення локальної функції в інщій функції для подалих використовувань її з даними.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#:~:text=%D0%97%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D0%B5%20%E2%80%94%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D0%B8,%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%2C%20%D0%B2%D0%BE%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%20%D0%B5%D1%91%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.' }, type: 'function', data: [
+      `function User(defaultName: string) {
   let _name = defaultName
 
   return {
@@ -161,7 +171,7 @@ console.log(user) // { getName: [Function: getName], setName: [Function: setName
 console.log(user.getName()) // Illia
 user.setName('Alex')
 console.log(user.getName()) // Alex`,
-`function Animal(defaultName: string = "") {
+      `function Animal(defaultName: string = "") {
   let _name = defaultName
 
   return class Animal {
@@ -181,9 +191,11 @@ console.log(animal) // Animal {}
 console.log(animal.name) // rabbit
 
 animal.name = "cat"
-console.log(animal.name) // cat`]},
-{title: {en: 'Recursion', ua: 'Рекурсія'}, body: {en: 'Recursion is a function call to itself.', ua: 'Рекурсія - це виклик функції у собі.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Errors/Too_much_recursion', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Too_much_recursion'}, type: 'function', data: 
-`let num = 0 
+console.log(animal.name) // cat`]
+  },
+  {
+    title: { en: 'Recursion', ua: 'Рекурсія' }, body: { en: 'Recursion is a function call to itself.', ua: 'Рекурсія - це виклик функції у собі.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Errors/Too_much_recursion', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Errors/Too_much_recursion' }, type: 'function', data:
+      `let num = 0 
 function init() { 
     num ++  
     console.log(num)  
@@ -192,8 +204,9 @@ function init() {
 } 
 
 init()`},
-{title: {en: 'do... while', ua: 'do... while'}, body: {en: 'do... while is a loop very similar to the while loop, but with a different syntax. The idea is that the loop will repeat until the condition is not true.', ua: 'do... while - це цикл, дуже схожий на цикл while, але з іншим синстаксисом. Ідея полягає в тому, що цикл буде повторюватися поки умова не буде значенням true.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/do...while', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/do...while'}, type: 'cycle', data: 
-`let result = '' 
+  {
+    title: { en: 'do... while', ua: 'do... while' }, body: { en: 'do... while is a loop very similar to the while loop, but with a different syntax. The idea is that the loop will repeat until the condition is not true.', ua: 'do... while - це цикл, дуже схожий на цикл while, але з іншим синстаксисом. Ідея полягає в тому, що цикл буде повторюватися поки умова не буде значенням true.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/do...while', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/do...while' }, type: 'cycle', data:
+      `let result = '' 
 let i = 0 
 do { 
     i++ 
@@ -201,8 +214,9 @@ do {
 } while (i < 5) 
 
 console.log(result)`},
-{title: {en: 'for in / for of', ua: 'for in / for of'}, body: {en: 'The difference between `for in` and `for of` is that for in is responsible for indexes and for of is responsible for values.', ua: 'Різниця між `for in` і `for of` полягая в тому, що for in відповідає за індекси, а for of відповідає за значення.'}, link: {en: '#', ua: '#'}, type: 'cycle', data: 
-`const array = ['JS', 'TS', 'C#', 'Java'] 
+  {
+    title: { en: 'for in / for of', ua: 'for in / for of' }, body: { en: 'The difference between `for in` and `for of` is that for in is responsible for indexes and for of is responsible for values.', ua: 'Різниця між `for in` і `for of` полягая в тому, що for in відповідає за індекси, а for of відповідає за значення.' }, link: { en: '#', ua: '#' }, type: 'cycle', data:
+      `const array = ['JS', 'TS', 'C#', 'Java'] 
 for (const index in array) { 
     console.log(index) 
 } 
@@ -210,14 +224,16 @@ for (const index in array) {
 for (const value of array) { 
     console.log(value) 
 }`},
-{title: {en: 'while', ua: 'while'}, body: { en: 'while is a loop that will repeat until the condition is not true.', ua: 'while - це цикл, буде повторюватися поки умова не буде значенням true.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/while', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/while'}, type: 'cycle', data: 
-`let i = 0 
+  {
+    title: { en: 'while', ua: 'while' }, body: { en: 'while is a loop that will repeat until the condition is not true.', ua: 'while - це цикл, буде повторюватися поки умова не буде значенням true.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/while', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/while' }, type: 'cycle', data:
+      `let i = 0 
 while (i <= 3) { 
     console.log(i) 
     i++ 
 }`},
-{title: {en: 'Ternary expressions', ua: 'Умовний оператор'}, body: {en: 'Ternary expressions are a concise replacement of the if/else condition.', ua: 'Тернарні вирази - це лаконічна заміна умови if/else.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator'}, type: 'operator', data: 
-`function isEqual(string1, string2) { 
+  {
+    title: { en: 'Ternary expressions', ua: 'Умовний оператор' }, body: { en: 'Ternary expressions are a concise replacement of the if/else condition.', ua: 'Тернарні вирази - це лаконічна заміна умови if/else.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator' }, type: 'operator', data:
+      `function isEqual(string1, string2) { 
     let out = '' 
 
     string1.length === string2.length 
@@ -229,15 +245,17 @@ while (i <= 3) {
 
 console.log(isEqual('hello', 'world')) 
 console.log(isEqual('bye', 'world'))`},
-{title: {en: 'Array.length()', ua: 'Array.length()'}, body: {en: 'length is a method that displays the length of the array.', ua: 'length - це метод, що показую довжину масиву.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/length'}, type: 'method', data: 
-`function isBigger(string1, string2) { 
+  {
+    title: { en: 'Array.length()', ua: 'Array.length()' }, body: { en: 'length is a method that displays the length of the array.', ua: 'length - це метод, що показую довжину масиву.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/length' }, type: 'method', data:
+      `function isBigger(string1, string2) { 
 return string1.length === string2.length 
 } 
 
 console.log(isBigger('hello', 'world')) 
 console.log(isBigger('bye', 'world'))`},
-{title: {en: 'fetch', ua: 'fetch'}, body: {en: 'fetch is a request to the server.', ua: 'fetch - це запит на сервер.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/API/Fetch_API/Using_Fetch', ua: 'https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch'}, type: 'request', data: 
-`function getUsers() { 
+  {
+    title: { en: 'fetch', ua: 'fetch' }, body: { en: 'fetch is a request to the server.', ua: 'fetch - це запит на сервер.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/API/Fetch_API/Using_Fetch', ua: 'https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch' }, type: 'request', data:
+      `function getUsers() { 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => { 
     return response.json() 
@@ -246,36 +264,42 @@ fetch('https://jsonplaceholder.typicode.com/users')
 } 
 
 getUsers()`},
-{title: {en: 'Math.floor() + Math.random()', ua: 'Math.floor() + Math.random()'}, body: {en: 'floor is a Math method that rounds a number to the nearest smaller integer. random is a Math method that helps find a random number in a specific range.', ua: 'floor - це метод Math, котрий округлює число до найблищого меньшого цілого числа. random - це метод Math, котрий допомагає знайти випадкове число в конкретному діапазоні.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math/random', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random'}, type: 'method', data: 
-`function randomNumber(min, max) { 
+  {
+    title: { en: 'Math.floor() + Math.random()', ua: 'Math.floor() + Math.random()' }, body: { en: 'floor is a Math method that rounds a number to the nearest smaller integer. random is a Math method that helps find a random number in a specific range.', ua: 'floor - це метод Math, котрий округлює число до найблищого меньшого цілого числа. random - це метод Math, котрий допомагає знайти випадкове число в конкретному діапазоні.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math/random', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random' }, type: 'method', data:
+      `function randomNumber(min, max) { 
     return Math.floor(Math.random() * (max - min) + min) 
 } 
 
 console.log(randomNumber(0, 10)) 
 console.log(randomNumber(12, 99))`},
-{title: {en: 'Filtering empty strings from the array', ua: 'Фільтрація порожніх рядків із масиву'}, body: {en: 'This is a function that finds all false values ​​using the filter method and a Boolean value.', ua: 'Це функція, що знаходить усі неправильні (false) значення за допомогою методу filter та значення Boolean.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`const dirtyArray = ['JS', '', 'TS', '', '', 'PHP'] 
+  {
+    title: { en: 'Filtering empty strings from the array', ua: 'Фільтрація порожніх рядків із масиву' }, body: { en: 'This is a function that finds all false values ​​using the filter method and a Boolean value.', ua: 'Це функція, що знаходить усі неправильні (false) значення за допомогою методу filter та значення Boolean.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `const dirtyArray = ['JS', '', 'TS', '', '', 'PHP'] 
 const clearArray = dirtyArray.filter(Boolean) 
 
 console.log(clearArray)`},
-{title: {en: 'Filtering of unique values ​​in the array', ua: 'Фільтрація унікальних значень в масиві'}, body:{en: 'This is a function that filters values ​​using the filter and Set methods.', ua: 'Це функція, що фільтрує значення за допомогою метода filter та Set.'} , link: {en: '#', ua: '#'}, type: 'task', data: 
-`const dirtyArray = ['JS', 'TS', 'TS', 'PHP', 'PYTHON', 'TS'] 
+  {
+    title: { en: 'Filtering of unique values ​​in the array', ua: 'Фільтрація унікальних значень в масиві' }, body: { en: 'This is a function that filters values ​​using the filter and Set methods.', ua: 'Це функція, що фільтрує значення за допомогою метода filter та Set.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `const dirtyArray = ['JS', 'TS', 'TS', 'PHP', 'PYTHON', 'TS'] 
 let arrayWithUniqueValues = [... new Set(dirtyArray)] 
 
 console.log(arrayWithUniqueValues)`},
-{title: {en: 'Shuffling elements in an array', ua: 'Переміщення елементів у масиві'}, body: {en: 'This is a function that shuffles all the values ​​in an array through the sort method.', ua: 'Це функція, що перемішує усі значення у масиві через метод sort.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`const array = ['JS', 'TS', 'PHP', 'PYTHON', 'Java'] 
+  {
+    title: { en: 'Shuffling elements in an array', ua: 'Переміщення елементів у масиві' }, body: { en: 'This is a function that shuffles all the values ​​in an array through the sort method.', ua: 'Це функція, що перемішує усі значення у масиві через метод sort.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `const array = ['JS', 'TS', 'PHP', 'PYTHON', 'Java'] 
 const shuffledArray = array.sort( 
     () => Math.random() - 0.5 
 ) 
 
 console.log(shuffledArray)`},
-{title: {en: 'Falsy values', ua: 'Хибні значення'}, body: {en: 'Invalid values ​​that correspond to false in Boolean format.', ua: 'Невірні значення, що у Boolean форматі відповідають false.'}, link: {en: 'https://developer.mozilla.org/en/docs/Glossary/Falsy', ua: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy'}, type: 'task', data: 
-`const falsyValues = [
+  {
+    title: { en: 'Falsy values', ua: 'Хибні значення' }, body: { en: 'Invalid values ​​that correspond to false in Boolean format.', ua: 'Невірні значення, що у Boolean форматі відповідають false.' }, link: { en: 'https://developer.mozilla.org/en/docs/Glossary/Falsy', ua: 'https://developer.mozilla.org/ru/docs/Glossary/Falsy' }, type: 'task', data:
+      `const falsyValues = [
     '', 0, null, undefined, NaN, false
 ]`},
-{title: {en: 'Fibonaccio cycle', ua: 'Цикл Фібоначчі'}, body: {en: 'This is a cycle in which two previous numbers form the next.', ua: 'Це цикл у якому два попередніх числа утворюють наступне.'}, link: {en: 'https://www.programiz.com/javascript/examples/fibonacci-series', ua: 'https://www.programiz.com/javascript/examples/fibonacci-series'}, type: 'task', data: 
-`function fibonaccioCycle(limit) { 
+  {
+    title: { en: 'Fibonaccio cycle', ua: 'Цикл Фібоначчі' }, body: { en: 'This is a cycle in which two previous numbers form the next.', ua: 'Це цикл у якому два попередніх числа утворюють наступне.' }, link: { en: 'https://www.programiz.com/javascript/examples/fibonacci-series', ua: 'https://www.programiz.com/javascript/examples/fibonacci-series' }, type: 'task', data:
+      `function fibonaccioCycle(limit) { 
     let a = 0 
     let b = 1 
     let result = b 
@@ -292,8 +316,9 @@ console.log(shuffledArray)`},
 } 
 
 console.log(fibonaccioCycle(100))`},
-{title: {en: 'Finding the largest number in an array', ua: 'Знаходження найбільшого числа в масиві'}, body: {en: 'This is a function that finds the largest number in an array using a loop.', ua: 'Це функція, що знаходить найбільше число у масиві за допомогою цикла.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`const numberArray = [1, 7, 26, 4, 82, 19] 
+  {
+    title: { en: 'Finding the largest number in an array', ua: 'Знаходження найбільшого числа в масиві' }, body: { en: 'This is a function that finds the largest number in an array using a loop.', ua: 'Це функція, що знаходить найбільше число у масиві за допомогою цикла.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `const numberArray = [1, 7, 26, 4, 82, 19] 
 function findMaxNumber(array) { 
     let maxNumber = array[0] 
 
@@ -304,8 +329,9 @@ function findMaxNumber(array) {
 } 
 
 console.log(findMaxNumber(numberArray))`},
-{title: {en: 'Finding multiples', ua: 'Пошук кратних'}, body: {en: 'This is a function that finds numbers that are multiples of 3, 5 and 3 and 5 at once.', ua: 'Це функціі, що знаходиь числа кратним 3, 5 та 3 і 5 одразу.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`const fizzBuzz = (limit) => { 
+  {
+    title: { en: 'Finding multiples', ua: 'Пошук кратних' }, body: { en: 'This is a function that finds numbers that are multiples of 3, 5 and 3 and 5 at once.', ua: 'Це функціі, що знаходиь числа кратним 3, 5 та 3 і 5 одразу.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `const fizzBuzz = (limit) => { 
     let out = '' 
 
     for (let i = 0; i < limit; i++) { 
@@ -320,9 +346,10 @@ console.log(findMaxNumber(numberArray))`},
 } 
 
 console.log(fizzBuzz(11)) 
-console.log(fizzBuzz(22))`}, 
-{title: {en: 'Search for a letter in a word', ua: 'Пошук букви в слові'}, body: {en: 'This function searches for letters in a word.', ua: 'Ця функція шукає букви у слові.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`function letterFinder(word, letter) { 
+console.log(fizzBuzz(22))`},
+  {
+    title: { en: 'Search for a letter in a word', ua: 'Пошук букви в слові' }, body: { en: 'This function searches for letters in a word.', ua: 'Ця функція шукає букви у слові.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `function letterFinder(word, letter) { 
     let firstCondition = typeof word === 'string' && word.length >= 2 
     let secondCondition = typeof word === 'string' && letter.length === 1
 
@@ -336,9 +363,10 @@ console.log(fizzBuzz(22))`},
 
 console.log(letterFinder([], []))
 console.log(letterFinder('cat', 'c'))
-console.log(letterFinder('cat', 'd'))`}, 
-{title: {en: 'Checking the object for emptiness', ua: "Перевірка об'єкта на порожнечу"}, body: {en: 'This function checks the object for void via Object.keys() + .length.', ua: 'Ця функція перевіряє об`єкт на порожнечу через Object.keys() + .length.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`function isEmptyObject(object) { 
+console.log(letterFinder('cat', 'd'))`},
+  {
+    title: { en: 'Checking the object for emptiness', ua: "Перевірка об'єкта на порожнечу" }, body: { en: 'This function checks the object for void via Object.keys() + .length.', ua: 'Ця функція перевіряє об`єкт на порожнечу через Object.keys() + .length.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `function isEmptyObject(object) { 
     return Object.keys(object).length === 0 
 } 
 
@@ -346,9 +374,10 @@ let schedule = {}
 console.log(isEmptyObject(schedule)) 
 
 schedule['8:30'] = 'get up' 
-console.log(isEmptyObject(schedule))`}, 
-{title: {en: 'Class', ua: 'Клас'}, body: {en: 'A class is syntactic sugar over JavaScript`s existing prototype inheritance mechanism.', ua: 'Клас - це синтаксичний цукор над існуючим у JavaScript механізмом прототипного наслідування.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes'}, type: 'OOP', data: 
-`class Vacation { 
+console.log(isEmptyObject(schedule))`},
+  {
+    title: { en: 'Class', ua: 'Клас' }, body: { en: 'A class is syntactic sugar over JavaScript`s existing prototype inheritance mechanism.', ua: 'Клас - це синтаксичний цукор над існуючим у JavaScript механізмом прототипного наслідування.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes' }, type: 'OOP', data:
+      `class Vacation { 
     constructor(destination, length) { 
         this.destination = destination
         this.length = length 
@@ -378,8 +407,9 @@ class Expeditions extends Vacation {
 
 const africanExpedition = new Expeditions('Mali', 14, ['special suite', 'backpack', 'road map']) 
 africanExpedition.print()`},
-{title: {en: 'Filtering ban words', ua: 'Фільтрування заборонених слів'}, body: {en: 'This function filters out ban words using the includes method.', ua: 'Ця функція фільтрує бан-слова за допомогою метода includes.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`const banWordsArray = [ 
+  {
+    title: { en: 'Filtering ban words', ua: 'Фільтрування заборонених слів' }, body: { en: 'This function filters out ban words using the includes method.', ua: 'Ця функція фільтрує бан-слова за допомогою метода includes.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `const banWordsArray = [ 
     'JS', 
     'TS', 
     'Java', 
@@ -403,8 +433,9 @@ function banWordsFilter(sentence) {
 
 console.log(banWordsFilter('Pascal is a dead language'))
 console.log(banWordsFilter('The best functional language is Java'))`},
-{title: {en: 'Promise', ua: 'Promise'}, body: {en: 'The Promise object is used for deferred and asynchronous requests.', ua: 'Об`єкт Promise використовується для відкладених і ансинхронних запитів.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise'}, type: 'request', data: 
-`let usersPromise = new Promise((resolve, reject) => { 
+  {
+    title: { en: 'Promise', ua: 'Promise' }, body: { en: 'The Promise object is used for deferred and asynchronous requests.', ua: 'Об`єкт Promise використовується для відкладених і ансинхронних запитів.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise' }, type: 'request', data:
+      `let usersPromise = new Promise((resolve, reject) => { 
     fetch('https://jsonplaceholder.typicode.com/users') 
         .then(data => { 
         data !== undefined 
@@ -429,8 +460,9 @@ Promise.all([usersPromise, postsPromise])
         console.log(data) 
     }
 )`},
-{title: {en: 'Fibonaccio cycle v2.0', ua: 'Цикл Фібоначчі v2.0'}, body: {en: 'This is a cycle in which two previous numbers form the next.', ua: 'Це цикл у якому два попередніх числа утворюють наступне.'}, link: {en: 'https://www.programiz.com/javascript/examples/fibonacci-series', ua: 'https://www.programiz.com/javascript/examples/fibonacci-series'}, type: 'task', data: 
-`function fibonaccioCycle(amount) { 
+  {
+    title: { en: 'Fibonaccio cycle v2.0', ua: 'Цикл Фібоначчі v2.0' }, body: { en: 'This is a cycle in which two previous numbers form the next.', ua: 'Це цикл у якому два попередніх числа утворюють наступне.' }, link: { en: 'https://www.programiz.com/javascript/examples/fibonacci-series', ua: 'https://www.programiz.com/javascript/examples/fibonacci-series' }, type: 'task', data:
+      `function fibonaccioCycle(amount) { 
     return new Array(amount).fill(0).reduce( 
         (accumulator, zero, index) => [...accumulator, index < 2 
         ? 1 
@@ -438,8 +470,9 @@ Promise.all([usersPromise, postsPromise])
 } 
 
 console.log(fibonaccioCycle(10))`},
-{title: {en: 'Filtering of unique values ​​in the array v2.0', ua: 'Фільтрація унікальних значень в масиві v2.0'}, body: {en: 'This is a function that filters values ​​using the filter and indexOf methods.', ua: 'Це функція, що фільтрує значення за допомогою метода filter та indexOf.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`const userArray = [ 
+  {
+    title: { en: 'Filtering of unique values ​​in the array v2.0', ua: 'Фільтрація унікальних значень в масиві v2.0' }, body: { en: 'This is a function that filters values ​​using the filter and indexOf methods.', ua: 'Це функція, що фільтрує значення за допомогою метода filter та indexOf.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `const userArray = [ 
     'Alex', 
     'Mike', 
     'Jane', 
@@ -454,8 +487,9 @@ let uniqueArray = userArray.filter(
 ) 
 
 console.log(uniqueArray)`},
-{title: {en: 'Filtering of unique values ​​in the array v3.0', ua: 'Фільтрація унікальних значень в масиві v3.0'}, body: {en: 'This is a function that filters values ​​using the reduce and includes method.', ua: 'Це функція, що фільтрує значення за допомогою метода reduce та includes.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`const userArray = [ 
+  {
+    title: { en: 'Filtering of unique values ​​in the array v3.0', ua: 'Фільтрація унікальних значень в масиві v3.0' }, body: { en: 'This is a function that filters values ​​using the reduce and includes method.', ua: 'Це функція, що фільтрує значення за допомогою метода reduce та includes.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `const userArray = [ 
     'Alex', 
     'Mike', 
     'Jane', 
@@ -472,8 +506,9 @@ let uniqueArray = userArray.reduce(
 ) 
 
 console.log(uniqueArray)`},
-{title: {en: 'Euclid`s algorithm', ua: 'Алгоритм Евкліда'}, body: {en: 'This is a function that finds the lowest common multiple for two numbers.', ua: 'Це функція, що знаходить НСК для двух чисел.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`function euclideanAlgorithm(numberOne, numberTwo) { 
+  {
+    title: { en: 'Euclid`s algorithm', ua: 'Алгоритм Евкліда' }, body: { en: 'This is a function that finds the lowest common multiple for two numbers.', ua: 'Це функція, що знаходить НСК для двух чисел.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `function euclideanAlgorithm(numberOne, numberTwo) { 
     let out = [] 
 
     if (numberOne > numberTwo) { 
@@ -502,9 +537,10 @@ console.log(uniqueArray)`},
 } 
 
 console.log(euclideanAlgorithm(124, 28)) 
-console.log(euclideanAlgorithm(18, 24))`},  
-{title: {en: 'Isogram check', ua: 'Перевірка ізограми'}, body: {en: 'This is a function that checks a word for an isogram. That is, whether there are repeated letters in the word.', ua: 'Це функція, що перевіряє слово на ізограму. Тобто чи є у слові повторювальні літери.'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`function isIsogram(word) { 
+console.log(euclideanAlgorithm(18, 24))`},
+  {
+    title: { en: 'Isogram check', ua: 'Перевірка ізограми' }, body: { en: 'This is a function that checks a word for an isogram. That is, whether there are repeated letters in the word.', ua: 'Це функція, що перевіряє слово на ізограму. Тобто чи є у слові повторювальні літери.' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `function isIsogram(word) { 
     let separatedWord = word.split('') 
     let settedWord = [...new Set(separatedWord)] 
 
@@ -513,9 +549,10 @@ console.log(euclideanAlgorithm(18, 24))`},
 
 console.log(isIsogram('Dermatoglyphics')) 
 console.log(isIsogram('moose')) 
-console.log(isIsogram('aba'))`},  
-{title: {en: 'Digital clock', ua: 'Цифровий годинник'}, body: {en: 'An interactive clock made using setInterval().', ua: 'Інтерактивний годинник, котрий зроблений за допомогою setInterval().'}, link: {en: '#', ua: '#'}, type: 'task', data: 
-`<!DOCTYPE html> 
+console.log(isIsogram('aba'))`},
+  {
+    title: { en: 'Digital clock', ua: 'Цифровий годинник' }, body: { en: 'An interactive clock made using setInterval().', ua: 'Інтерактивний годинник, котрий зроблений за допомогою setInterval().' }, link: { en: '#', ua: '#' }, type: 'task', data:
+      `<!DOCTYPE html> 
 <html lang="en"> 
 <head> 
 <meta charset="UTF-8"> 
@@ -532,9 +569,10 @@ console.log(isIsogram('aba'))`},
 }) 
 </script> 
 </body> 
-</html>`},  
-{title: {en: 'switch', ua: 'switch'}, body: {en: 'switch is a loop that compares expressions with the cases listed in its environment and then issues the corresponding statement.', ua: 'switch - це цикл, що зрівнює вирази з випадками, перерахованими у середені її, а потім випонює відповідне інструкції.'}, link: {en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/switch', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch'}, type: 'cycle', data: 
-`function getDirection(language) { 
+</html>`},
+  {
+    title: { en: 'switch', ua: 'switch' }, body: { en: 'switch is a loop that compares expressions with the cases listed in its environment and then issues the corresponding statement.', ua: 'switch - це цикл, що зрівнює вирази з випадками, перерахованими у середені її, а потім випонює відповідне інструкції.' }, link: { en: 'https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/switch', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch' }, type: 'cycle', data:
+      `function getDirection(language) { 
     switch (language) { 
         case 'JS': 
         case 'TS': 
@@ -554,8 +592,9 @@ console.log(isIsogram('aba'))`},
 console.log(getDirection('JS')) 
 console.log(getDirection('Python')) 
 console.log(getDirection('Dart'))`},
-{title: {en: 'React Search Pattern', ua: 'Зразок (паттерн) Пошуковику у Реакт'}, body: {en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query.', ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-`import { useState } from "react";
+  {
+    title: { en: 'React Search Pattern', ua: 'Зразок (паттерн) Пошуковику у Реакт' }, body: { en: 'This design pattern provides a search input where an event is passed through the onChange() attribute, i.e. the letters to search for. Next, these letters go to useState(), which is used to process the search query.', ua: 'Цей паттерн проєктування передбачає пошуковий інпут куди через атрибут onChange() передається подію, тобто літери для пошуку. Далі ці літери переходять до useState() з допомогою якого і робиться оброблення пошукового запиту.' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      `import { useState } from "react";
 
 interface IContentItem {
   title: string;
@@ -593,8 +632,9 @@ export default function Demo({ content }: IDemoProps) {
     </>
   );
 }`},
-{title: {en: 'React Filter Pattern', ua: 'Зарозок (паттерн) Категорій у Реакт'}, body: {en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written.', ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-`import { useState } from "react";
+  {
+    title: { en: 'React Filter Pattern', ua: 'Зарозок (паттерн) Категорій у Реакт' }, body: { en: 'This design pattern provides a set of various buttons that can change categories. This is all done using useState(), where the initial index of the standard category is written.', ua: 'Цей паттерн проєктування передабачає набір різноманітних кнопок, що можуть змінювати категорії. Це все проходить за допомогою useState(), куди записуються початковий індекс стандартної катергорії.' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      `import { useState } from "react";
 
 const filters: string[] = ["all", "phone", "tablet", "laptop"];
 
@@ -640,8 +680,9 @@ export default function Demo({ content }: IDemoProps) {
   );
 }`},
 
-{title: {en: 'All about useEffect()', ua: 'Все про UseEffect()'}, body: {en: 'An effect hook allows you to perform side effects in a functional component.', ua: 'Хук ефектів дозволяє виконувати побічні ефекти у функціональному компоненті.'}, link: {en: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', ua: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/'}, type: 'React', data: 
-`// componentDidMount
+  {
+    title: { en: 'All about useEffect()', ua: 'Все про UseEffect()' }, body: { en: 'An effect hook allows you to perform side effects in a functional component.', ua: 'Хук ефектів дозволяє виконувати побічні ефекти у функціональному компоненті.' }, link: { en: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/', ua: 'https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/' }, type: 'React', data:
+      `// componentDidMount
 useEffect(() => {
     console.log('components did mount')
 }, [])
@@ -664,8 +705,9 @@ useEffect(() => {
     }
 }, [])`},
 
-{title: {en: 'Fetching info from API', ua: 'Отримуємо інформацію з API серверу'}, body: {en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use.', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-`import { useState, useEffect } from "react";
+  {
+    title: { en: 'Fetching info from API', ua: 'Отримуємо інформацію з API серверу' }, body: { en: 'UseState() and useEffect() can be used to retrieve information from the API and record its state for future use.', ua: 'За допомогою useState() та useEffect() можно отримати інформацію з API та записати її state для майбутнього використовування.' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      `import { useState, useEffect } from "react";
 
 function Demo() {
   const [data, setData] = useState([]);
@@ -692,8 +734,9 @@ function Demo() {
 }
 
 export default Demo;`},
-{title: {en: 'React Redux-Toolkit mini form app', ua: 'Робимо міні проект Форми за допомогою біліотеки Реакт Redux-Toolkit'}, body: {en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is outputed).', ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось).'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', data: [
-`/* root index.js */
+  {
+    title: { en: 'React Redux-Toolkit mini form app', ua: 'Робимо міні проект Форми за допомогою біліотеки Реакт Redux-Toolkit' }, body: { en: 'This is a small project that uses Redux-Toolkit technology. This project represents input (where something is written) with output (where something is outputed).', ua: 'Це маленький проект, де використовується технологія Redux-Toolkit. Цей проект представляє input (куди пишуть щось) з output (куди виводять щось).' }, link: { en: 'https://redux.js.org/', ua: 'https://redux.js.org/' }, type: 'React', data: [
+      `/* root index.js */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'
@@ -709,7 +752,7 @@ root.render(
     </Provider>
   </React.StrictMode>
 )`,
-`/* App.js */
+      `/* App.js */
 import Input from './components/Input'
 import Output from './components/Output'
 
@@ -723,7 +766,7 @@ const App = () => {
 }
 
 export default App`,
-`/* store index.js */
+      `/* store index.js */
 import {configureStore} from '@reduxjs/toolkit'
 import TextReducer from './TextSlice'
 
@@ -732,7 +775,7 @@ export default configureStore({
         text: TextReducer
     }
 })`,
-`/* TextSlice.js */
+      `/* TextSlice.js */
 import {createSlice} from '@reduxjs/toolkit'
 export const TextSlice = createSlice({
     name: 'text',
@@ -758,7 +801,7 @@ export const TextSlice = createSlice({
 export const {textAdditor} = TextSlice.actions // ? Export of all action reducers.
 export const selectText = state => state.text.value // ? Export of result value of State.
 export default TextSlice.reducer // ? Export of all Slice.`,
-`/* Input.js */
+      `/* Input.js */
 import {createRef} from 'react'
 import {useDispatch} from 'react-redux'
 import {textAdditor} from '../store/TextSlice'
@@ -780,7 +823,7 @@ const Input = () => {
 }
 
 export default Input`,
-`/* Output.js */
+      `/* Output.js */
 import {useSelector} from "react-redux"
 import {selectText} from "../store/TextSlice"
 
@@ -794,10 +837,12 @@ const Output = () => {
 }
 
 export default Output`,
-]},
+    ]
+  },
 
-{title: {en: 'React props destructurization', ua: "Деструктурізація props об'єктів у Реакті"}, body: {en: 'Destructuring props objects in React is a very important part. Destructuring is used to make the code easier to read.', ua: "Деструктурізація props об'єктів у Реакті дуже важлива частина. Щоб полегшити читабельність коду застосовують деструктурізацію."}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', data: [
-`import Demo from "./Demo";
+  {
+    title: { en: 'React props destructurization', ua: "Деструктурізація props об'єктів у Реакті" }, body: { en: 'Destructuring props objects in React is a very important part. Destructuring is used to make the code easier to read.', ua: "Деструктурізація props об'єктів у Реакті дуже важлива частина. Щоб полегшити читабельність коду застосовують деструктурізацію." }, link: { en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/' }, type: 'React', data: [
+      `import Demo from "./Demo";
 
 export default function App() {
   return (
@@ -811,7 +856,7 @@ export default function App() {
   );
 }
 `,
-`export default function Demo({ skills, ...userInfo }) {
+      `export default function Demo({ skills, ...userInfo }) {
     return (
       <ul>
         <li>
@@ -821,10 +866,12 @@ export default function App() {
     );
   }
   `
-]},
+    ]
+  },
 
-{title: {en: 'Conditional rendering', ua: 'Умовний рендеринг'}, body: {en: 'Conditional rendering is a special syntax in React, where there are conditions under which it is possible to adjust the rendering of individual parts of the code.', ua: 'Умовний рендеринг - це спеціальний синтаксис у Реакті, де є умови при яких можливо регулювати рендеринг окремих частин коду.'}, link: {en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/'}, type: 'React', data: 
-`export default function Demo() {
+  {
+    title: { en: 'Conditional rendering', ua: 'Умовний рендеринг' }, body: { en: 'Conditional rendering is a special syntax in React, where there are conditions under which it is possible to adjust the rendering of individual parts of the code.', ua: 'Умовний рендеринг - це спеціальний синтаксис у Реакті, де є умови при яких можливо регулювати рендеринг окремих частин коду.' }, link: { en: 'https://reactpatterns.com/', ua: 'https://reactpatterns.com/' }, type: 'React', data:
+      `export default function Demo() {
   return (
     <>
       {5 > 3 && <span>Renders when 'truthy'</span>}
@@ -839,10 +886,11 @@ export default function App() {
     </>
   );
 }`
-},
+  },
 
-{title: {en: 'Discriminant Formula', ua: 'Формула Дискримінанту'}, body: {en: 'The function for finding the roots of a quadratic equation using the Discriminant Formula is made using the methods of the Math class. Namely Math.pow() - power (numbers), Math.sqrt() - root (numbers).', ua: 'Функція для знаходження коренів квадратного рівняння за допомогою Формула Дискримінанту зробленна за допомогою методів класа Math. А саме Math.pow() - степінь(числа), Math.sqrt() - корінь(числа).'}, link: {en: 'https://en.wikipedia.org/wiki/Discriminant', ua: 'https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82'}, type: 'task', data: 
-`function discriminantFormula(a, b, c) {
+  {
+    title: { en: 'Discriminant Formula', ua: 'Формула Дискримінанту' }, body: { en: 'The function for finding the roots of a quadratic equation using the Discriminant Formula is made using the methods of the Math class. Namely Math.pow() - power (numbers), Math.sqrt() - root (numbers).', ua: 'Функція для знаходження коренів квадратного рівняння за допомогою Формула Дискримінанту зробленна за допомогою методів класа Math. А саме Math.pow() - степінь(числа), Math.sqrt() - корінь(числа).' }, link: { en: 'https://en.wikipedia.org/wiki/Discriminant', ua: 'https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82' }, type: 'task', data:
+      `function discriminantFormula(a, b, c) {
 let D = Math.pow(b, 2) - 4 * a * c
 let x1
 let x2
@@ -861,8 +909,9 @@ else {
 console.log(discriminantFormula(1, -6, 5))
 console.log(discriminantFormula(1, -0, 5))`},
 
-{title: {en: 'Email sender on Node.js', ua: 'Відправник на електронну пошту на Node.js'}, body: {en: 'This program uses the nodemailer library, which helps to easily send information to e-mail.', ua: 'Ця програма застосовую бібліотеку nodemailer, котра допомогає легко відсилати інформацію на електронну пошту.'}, link: {en: 'https://github.com/nodemailer/nodemailer', ua: 'https://github.com/nodemailer/nodemailer'}, type: 'Node.js', data: 
-`const nodemailer = require('nodemailer')
+  {
+    title: { en: 'Email sender on Node.js', ua: 'Відправник на електронну пошту на Node.js' }, body: { en: 'This program uses the nodemailer library, which helps to easily send information to e-mail.', ua: 'Ця програма застосовую бібліотеку nodemailer, котра допомогає легко відсилати інформацію на електронну пошту.' }, link: { en: 'https://github.com/nodemailer/nodemailer', ua: 'https://github.com/nodemailer/nodemailer' }, type: 'Node.js', data:
+      `const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -887,8 +936,9 @@ transporter.sendMail(mailOptions, function(error, info){
     }
 })`},
 
-{title: {en: 'Array.prototype.includes()', ua: 'Array.prototype.includes()'}, body: {en: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.', ua: 'Метод includes() визначає, чи містить масив певне значення серед своїх записів, повертаючи true або false відповідно.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/includes'}, type: 'method', data: 
-`const array = [1, 4, 'hello', 77, 'WoRld']
+  {
+    title: { en: 'Array.prototype.includes()', ua: 'Array.prototype.includes()' }, body: { en: 'The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.', ua: 'Метод includes() визначає, чи містить масив певне значення серед своїх записів, повертаючи true або false відповідно.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/includes' }, type: 'method', data:
+      `const array = [1, 4, 'hello', 77, 'WoRld']
 
 console.log(array.includes(4))
 console.log(array.includes('hello'))
@@ -900,8 +950,9 @@ const string = 'helloWorld'
 console.log(array.includes('hello'))
 console.log(array.includes('world'))`},
 
-{title: {en: 'Destructuring assignment', ua: 'Деструктуризаційне завдавання'}, body: {en: 'The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.', ua: 'Синтаксис присвоєння деструктуризації — це вираз JavaScript, який дає змогу розпаковувати значення з масивів або властивості з об’єктів у окремі змінні.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment'}, type: 'operator', data: 
-`const arr = [1, 1, 2, 3, 5]
+  {
+    title: { en: 'Destructuring assignment', ua: 'Деструктуризаційне завдавання' }, body: { en: 'The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.', ua: 'Синтаксис присвоєння деструктуризації — це вираз JavaScript, який дає змогу розпаковувати значення з масивів або властивості з об’єктів у окремі змінні.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment' }, type: 'operator', data:
+      `const arr = [1, 1, 2, 3, 5]
 
 const [a, b] = arr
 
@@ -918,8 +969,9 @@ const {name, age} = person
 
 console.log(name) // Alex
 console.log(age) // 25`},
-{title: {en: 'Array.prototype.push()', ua: 'Array.prototype.push()'}, body: {en: 'The push() method adds one or more elements to the end of the array and returns the new length of the array.', ua: 'Метод push() додає один або більше елементів до кінця масиву і повертає нову довжину масиву.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/push'}, type: 'method', data:
-`let array = [1, 1, 2, 3, 5, 8]
+  {
+    title: { en: 'Array.prototype.push()', ua: 'Array.prototype.push()' }, body: { en: 'The push() method adds one or more elements to the end of the array and returns the new length of the array.', ua: 'Метод push() додає один або більше елементів до кінця масиву і повертає нову довжину масиву.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/push' }, type: 'method', data:
+      `let array = [1, 1, 2, 3, 5, 8]
 
 array.push(13)
 console.log(array)
@@ -928,8 +980,9 @@ array.push(21, 34, 55)
 console.log(array)
 
 console.log(array.push())`},
-{title: {en: 'Array.prototype.pop()', ua: 'Array.prototype.pop()'}, body: {en: 'The pop() method removes the last element from the array and returns its value. The last element of the array, or undefined if the array is empty.', ua: 'Метод pop() видаляє останній елемент з масиву та повертає його значення. Останній елемент масиву або undefined, якщо масив порожній.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop#%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/pop#%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5'}, type: 'method', data:
-`let array = [1, 1, 2, 3, 5, 8]
+  {
+    title: { en: 'Array.prototype.pop()', ua: 'Array.prototype.pop()' }, body: { en: 'The pop() method removes the last element from the array and returns its value. The last element of the array, or undefined if the array is empty.', ua: 'Метод pop() видаляє останній елемент з масиву та повертає його значення. Останній елемент масиву або undefined, якщо масив порожній.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop#%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/pop#%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5' }, type: 'method', data:
+      `let array = [1, 1, 2, 3, 5, 8]
 
 array.pop()
 console.log(array)
@@ -937,8 +990,9 @@ console.log(array)
 console.log(array.pop())
 console.log(array)`},
 
-{title: {en: 'Children props in React', ua: 'Children props у Реакті'}, body: {en: 'Children lets you manipulate and transform the JSX you received as the children prop.', ua: 'Children дозволяють вам маніпулювати та перетворювати JSX, який ви отримали як дочірню props.'}, link: {en: 'https://react.dev/reference/react/Children', ua: 'https://react.dev/reference/react/Children'}, type: 'React', data:
-`import React from "react";
+  {
+    title: { en: 'Children props in React', ua: 'Children props у Реакті' }, body: { en: 'Children lets you manipulate and transform the JSX you received as the children prop.', ua: 'Children дозволяють вам маніпулювати та перетворювати JSX, який ви отримали як дочірню props.' }, link: { en: 'https://react.dev/reference/react/Children', ua: 'https://react.dev/reference/react/Children' }, type: 'React', data:
+      `import React from "react";
 
 interface IChildrenProps {
   children: React.ReactNode;
@@ -1005,8 +1059,9 @@ export default function Demo() {
     </>
   );
 }`},
-{title: {en: 'Rerender props in React', ua: 'Ререндер props у Реакті'}, body: {en: 'The term "render-prop" refers to a technique in which React components share one code (function) among themselves by passing it through a prop. A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.', ua: 'Термін “рендер-проп” відноситься до техніки, в якій React-компоненти розділяють між собою один код (функцію) передаючи її через проп. Компонент з рендер-пропом приймає функцію, яка повертає React-елемент, і викликає її замість реалізації власної рендер-логіки.'}, link: {en: 'https://react.dev/reference/react/cloneElement#passing-data-with-a-render-prop', ua: 'https://uk.legacy.reactjs.org/docs/render-props.html'}, type: 'React', data:
-`import { useState } from "react";
+  {
+    title: { en: 'Rerender props in React', ua: 'Ререндер props у Реакті' }, body: { en: 'The term "render-prop" refers to a technique in which React components share one code (function) among themselves by passing it through a prop. A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.', ua: 'Термін “рендер-проп” відноситься до техніки, в якій React-компоненти розділяють між собою один код (функцію) передаючи її через проп. Компонент з рендер-пропом приймає функцію, яка повертає React-елемент, і викликає її замість реалізації власної рендер-логіки.' }, link: { en: 'https://react.dev/reference/react/cloneElement#passing-data-with-a-render-prop', ua: 'https://uk.legacy.reactjs.org/docs/render-props.html' }, type: 'React', data:
+      `import { useState } from "react";
 
 function Alert({ count }) {
   return <h1>Count: {count}</h1>;
@@ -1037,14 +1092,16 @@ export default function Demo() {
     </>
   );
 }`},
-{title: {en: 'Array.isArray()', ua: 'Array.isArray()'}, body: {en: 'The Array.isArray() static method determines whether the passed value is an Array.', ua: 'Статичний метод Array.isArray() визначає, чи є передане значення масивом.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray'}, type: 'method', data:
-`const list1 = ['banana', 'apple', 'orange']
+  {
+    title: { en: 'Array.isArray()', ua: 'Array.isArray()' }, body: { en: 'The Array.isArray() static method determines whether the passed value is an Array.', ua: 'Статичний метод Array.isArray() визначає, чи є передане значення масивом.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray' }, type: 'method', data:
+      `const list1 = ['banana', 'apple', 'orange']
 const list2 = 'banana, apple, orange'
 
 console.log(Array.isArray(list1))
 console.log(Array.isArray(list2))`},
-{title: {en: 'Hunger Games app', ua: 'Додаток Голодні ігри'}, body: {en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less.', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.'}, link: {en: '#', ua: '#'}, type: ['React', 'task'], data:
-`import React, { useState } from 'react'
+  {
+    title: { en: 'Hunger Games app', ua: 'Додаток Голодні ігри' }, body: { en: 'This application is an analogue of the Hunger Games game, where you drive in participants and with each passed circle of participants, with a random probability, it becomes less and less.', ua: 'Цей додаток є аналогом гри Голодні ігри, де ви заганяєте учасників і з кожним пройденим колом учасників, з випадковою ймовірністю, стає все менше і менше.' }, link: { en: '#', ua: '#' }, type: ['React', 'task'], data:
+      `import React, { useState } from 'react'
 
 const HungerGamesApp = () => {
 const [inputValue, setInputValue] = useState('')
@@ -1086,8 +1143,9 @@ return (
 };
 
 export default HungerGamesApp`},
-{title: {en: 'Spinner in React', ua: 'Spinner в Реакт'}, body: {en: 'Spinner in React is a very important thing. When information comes with a delay from the API, then some kind of stub is needed so that the user does not see an empty page.', ua: 'Spinner у React — це дуже важлива річ. Коли інформація надходить із затримкою від API, то потрібна якась заглушка, щоб користувач не бачив порожню сторінку.'}, link: {en: '#', ua: '#'}, type: 'React', data:
-`const Spinner = () => {
+  {
+    title: { en: 'Spinner in React', ua: 'Spinner в Реакт' }, body: { en: 'Spinner in React is a very important thing. When information comes with a delay from the API, then some kind of stub is needed so that the user does not see an empty page.', ua: 'Spinner у React — це дуже важлива річ. Коли інформація надходить із затримкою від API, то потрібна якась заглушка, щоб користувач не бачив порожню сторінку.' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      `const Spinner = () => {
 return (
     <svg xmlns="http://www.w3.org/2000/svg" style={{margin: '0 auto', background: 'none', display: 'block'}} width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
         <g transform="translate(80,50)">
@@ -1152,8 +1210,9 @@ return (
 }
 
 export default Spinner;`},
-{title: {en: 'A small React + Redux.js Todo app', ua: 'Невеликий Todo додаток з Реакт + Redux.js'}, body: {en: 'This small app is made using React + Redux.js toolkit. NewTodoForm.js takes the data and passes it to the store and then TodoList.js takes it and renders it in TodoItem.js.', ua: 'Цей невеликий додаток зроблений за допомогою React + Redux.js toolkit. NewTodoForm.js приймає данні та передає їх у store а потім TodoList.js приймає їх й рендерить у TodoItem.js.'}, link: {en: 'https://redux.js.org/', ua: 'https://redux.js.org/'}, type: 'React', data:[
-`/* index.js */
+  {
+    title: { en: 'A small React + Redux.js Todo app', ua: 'Невеликий Todo додаток з Реакт + Redux.js' }, body: { en: 'This small app is made using React + Redux.js toolkit. NewTodoForm.js takes the data and passes it to the store and then TodoList.js takes it and renders it in TodoItem.js.', ua: 'Цей невеликий додаток зроблений за допомогою React + Redux.js toolkit. NewTodoForm.js приймає данні та передає їх у store а потім TodoList.js приймає їх й рендерить у TodoItem.js.' }, link: { en: 'https://redux.js.org/', ua: 'https://redux.js.org/' }, type: 'React', data: [
+      `/* index.js */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -1173,7 +1232,7 @@ document.getElementById('root')
 );
 
 reportWebVitals();`,
-`/* App.js */
+      `/* App.js */
 import {useState} from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -1207,7 +1266,7 @@ return (
 }
 
 export default App;`,
-`/* store index.js */
+      `/* store index.js */
 import { configureStore } from '@reduxjs/toolkit';
 import todoReducer from './todoSlice';
 
@@ -1216,7 +1275,7 @@ reducer: {
     todos: todoReducer,
 },
 });`,
-`/* todoSlice.js */
+      `/* todoSlice.js */
 import { createSlice } from '@reduxjs/toolkit';
 
 const todoSlice = createSlice({
@@ -1245,7 +1304,7 @@ const todoSlice = createSlice({
 export const {addTodo, toggleComplete, removeTodo} = todoSlice.actions;
 
 export default todoSlice.reducer;`,
-`/* NewTodoForm.js */
+      `/* NewTodoForm.js */
 const NewTodoForm = ({ value, updateText, handleAction }) => {
 return (
     <label>
@@ -1260,7 +1319,7 @@ return (
 };
 
 export default NewTodoForm;`,
-`/* TodoList.js */
+      `/* TodoList.js */
 import { useSelector } from 'react-redux';
 import TodoItem from './TodoItem';
 
@@ -1280,7 +1339,7 @@ return (
 };
 
 export default TodoList;`,
-`/* TodoItem.js */
+      `/* TodoItem.js */
 import { useDispatch } from 'react-redux';
 import {toggleComplete, removeTodo} from '../store/todoSlice';
 
@@ -1301,9 +1360,11 @@ return (
 };
 
 export default TodoItem;`,
-]},
-{title: {en: 'All about useState()', ua: 'Все про useState()'}, body: {en: 'The useState() hook is a function in React used to add state to functional components. It takes an initial state value and returns an array containing the current state value and a function to update it. When this function is called, the component is re-rendered with the new state value, and state changes can be tracked and handled in the component.', ua: 'Хук useState() — це функція в React, яка використовується для додавання стану до функціональних компонентів. Він приймає початкове значення стану та повертає масив, що містить поточне значення стану та функцію для його оновлення. Коли ця функція викликається, компонент повторно візуалізується з новим значенням стану, і зміни стану можна відстежувати та обробляти в компоненті.'}, link: {en: 'https://legacy.reactjs.org/docs/hooks-state.html', ua: 'https://legacy.reactjs.org/docs/hooks-state.html'}, type: 'React', data:
-`import { useState } from "react";
+    ]
+  },
+  {
+    title: { en: 'All about useState()', ua: 'Все про useState()' }, body: { en: 'The useState() hook is a function in React used to add state to functional components. It takes an initial state value and returns an array containing the current state value and a function to update it. When this function is called, the component is re-rendered with the new state value, and state changes can be tracked and handled in the component.', ua: 'Хук useState() — це функція в React, яка використовується для додавання стану до функціональних компонентів. Він приймає початкове значення стану та повертає масив, що містить поточне значення стану та функцію для його оновлення. Коли ця функція викликається, компонент повторно візуалізується з новим значенням стану, і зміни стану можна відстежувати та обробляти в компоненті.' }, link: { en: 'https://legacy.reactjs.org/docs/hooks-state.html', ua: 'https://legacy.reactjs.org/docs/hooks-state.html' }, type: 'React', data:
+      `import { useState } from "react";
 
 export default function Demo() {
   const [count, setCount] = useState(0);
@@ -1338,8 +1399,9 @@ export default function Demo() {
     </>
   );
 }`},
-{title: {en: 'Portals in React', ua: 'Портали у Реакті'}, body: {en: 'Portals let your components render some of their children into a different place in the DOM. This lets a part of your component “escape” from whatever containers it may be in. For example, a component can display a modal dialog or a tooltip that appears above and outside of the rest of the page.', ua: 'Портали дозволяють вашим компонентам відтворювати деякі їхні дочірні елементи в іншому місці в DOM. Це дозволяє частині вашого компонента «втекти» з будь-яких контейнерів, у яких він може знаходитися. Наприклад, компонент може відображати модальне діалогове вікно або спливаючу підказку, яка з’являється над і поза межами решти сторінки.'}, link: {en: 'https://react.dev/reference/react-dom/createPortal', ua: 'https://habr.com/ru/companies/smartprogress/articles/306096/'}, type: 'React', data:
-`import { useState } from "react";
+  {
+    title: { en: 'Portals in React', ua: 'Портали у Реакті' }, body: { en: 'Portals let your components render some of their children into a different place in the DOM. This lets a part of your component “escape” from whatever containers it may be in. For example, a component can display a modal dialog or a tooltip that appears above and outside of the rest of the page.', ua: 'Портали дозволяють вашим компонентам відтворювати деякі їхні дочірні елементи в іншому місці в DOM. Це дозволяє частині вашого компонента «втекти» з будь-яких контейнерів, у яких він може знаходитися. Наприклад, компонент може відображати модальне діалогове вікно або спливаючу підказку, яка з’являється над і поза межами решти сторінки.' }, link: { en: 'https://react.dev/reference/react-dom/createPortal', ua: 'https://habr.com/ru/companies/smartprogress/articles/306096/' }, type: 'React', data:
+      `import { useState } from "react";
 import ReactDOM from "react-dom";
 
 function Portal({ children }) {
@@ -1416,17 +1478,19 @@ export default function Demo() {
     </>
   );
 }`},
-{title: {en: 'Responsive Screen Size Breakpoints', ua: 'Точки зупинки розміру адаптивного екрана'}, body: {en: 'Here is a nice illustration of setting breakpoints for your application.', ua: 'Ось гарна ілюстрація з встановленням брєйкпоінтів для вашого застосунку.'}, link: {en: '#', ua: '#'}, type: 'markup', data: responsiveBreakpoints},
-{title: {en: 'Markup tips', ua: 'Поради щодо верстки'}, body: {en: 'Here are a bunch of markup tips for people looking to improve their experience.', ua: 'Ось багато порад щодо ведення верстки для людей, що прагунть покращити свій досвід.'}, link: {en: '#', ua: '#'}, type: 'markup', data: [markup1, markup2, markup3, markup4]},
-{title: {en: 'Guard clause example', ua: 'Приклад вкорочення коду'}, body: {en: 'Here is an easy example for applying code shortening via an empty return.', ua: 'Ось легкий приклад для застосування вкорочення коду через порожній return.'}, link: {en: '#', ua: '#'}, type: 'function', data: 
-`// Guard clause example
+  { title: { en: 'Responsive Screen Size Breakpoints', ua: 'Точки зупинки розміру адаптивного екрана' }, body: { en: 'Here is a nice illustration of setting breakpoints for your application.', ua: 'Ось гарна ілюстрація з встановленням брєйкпоінтів для вашого застосунку.' }, link: { en: '#', ua: '#' }, type: 'markup', data: responsiveBreakpoints },
+  { title: { en: 'Markup tips', ua: 'Поради щодо верстки' }, body: { en: 'Here are a bunch of markup tips for people looking to improve their experience.', ua: 'Ось багато порад щодо ведення верстки для людей, що прагунть покращити свій досвід.' }, link: { en: '#', ua: '#' }, type: 'markup', data: [markup1, markup2, markup3, markup4] },
+  {
+    title: { en: 'Guard clause example', ua: 'Приклад вкорочення коду' }, body: { en: 'Here is an easy example for applying code shortening via an empty return.', ua: 'Ось легкий приклад для застосування вкорочення коду через порожній return.' }, link: { en: '#', ua: '#' }, type: 'function', data:
+      `// Guard clause example
 function(list) {
     if(list == null) return
     list.update()
 }`},
-{title: {en: 'Fullscreen background image', ua: 'Фонове зображення на весь екран'}, body: {en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. '}, link: {en: '#', ua: '#'}, type: 'markup', data: 
-[fullscreensample,
-`<!DOCTYPE html>
+  {
+    title: { en: 'Fullscreen background image', ua: 'Фонове зображення на весь екран' }, body: { en: 'Here`s a custom-built layout for a full-screen background.', ua: 'Ось спеціально зібраний макет для повноекранного фону. ' }, link: { en: '#', ua: '#' }, type: 'markup', data:
+      [fullscreensample,
+        `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1446,7 +1510,7 @@ function(list) {
     <script src="index.js"></script>
 </body>
 </html>`,
-`body {
+        `body {
     height: 100%;
     margin: 0;
 }
@@ -1472,12 +1536,14 @@ function(list) {
 
 .fullscreen__title {
     font-size: 150px;
-}`]},
-{title: {en: 'gap in CSS3', ua: 'gap у CSS3'}, body: {en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap'}, type: 'markup', data: gapstyle},
-{title: {en: 'Simplifying array methods', ua: 'Спрощення методів масивів'}, body: {en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.'}, link: {en: '', ua: ''}, type: 'method', data: [arraymethods_01, arraymethods_02, arraymethods_03]},
-{title: {en: 'Zoom on hover effect', ua: 'Ефект приближення (зуму)'}, body: {en: 'This zoom effect is made using the hover pseudo-class and transition scale.', ua: 'Цей ефект приближення (зуму) зроблений за допомогою псевдокласу hover та transition scale.'}, link: {en: '#', ua: '#'}, type: 'markup', data: 
-[zoomhovereffect,
-`<!DOCTYPE html>
+}`]
+  },
+  { title: { en: 'gap in CSS3', ua: 'gap у CSS3' }, body: { en: 'The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.', ua: 'Властивість CSS gap встановлює проміжки (жолоби) між рядками та стовпцями. Це скорочення для row-gap і column-gap.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/gap', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/gap' }, type: 'markup', data: gapstyle },
+  { title: { en: 'Simplifying array methods', ua: 'Спрощення методів масивів' }, body: { en: 'Principles of operation of the array method on simple examples.', ua: 'Принципи роботи методі масивів на простих прикладах.' }, link: { en: '', ua: '' }, type: 'method', data: [arraymethods_01, arraymethods_02, arraymethods_03] },
+  {
+    title: { en: 'Zoom on hover effect', ua: 'Ефект приближення (зуму)' }, body: { en: 'This zoom effect is made using the hover pseudo-class and transition scale.', ua: 'Цей ефект приближення (зуму) зроблений за допомогою псевдокласу hover та transition scale.' }, link: { en: '#', ua: '#' }, type: 'markup', data:
+      [zoomhovereffect,
+        `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1493,7 +1559,7 @@ function(list) {
     <script src="index.js"></script>
 </body>
 </html>`,
-`.wrapper {
+        `.wrapper {
     overflow: hidden;
     width: 500px;
     height: 500px;
@@ -1507,12 +1573,14 @@ function(list) {
 
 .wrapper:hover img {
     scale: 120%;
-}`]},
-{title: {en: 'Flexbox layout', ua: 'Макет Flexbox'}, body: {en: 'This image contains all instances of the Flexbox layout.', ua: 'На цій картинці забрані усі випадки макету Flexbox.'}, link: {en: '#', ua: '#'}, type: 'markup', data: flexboxstyle},
-{title: {en: 'object-fit style', ua: 'Стиль object-fit'}, body: {en: 'This picture shows all cases of using the object-fit style for pictures.', ua: 'На цій картинці забрані усі випадки використання стилю object-fit для картинок.'}, link: {en: '#', ua: '#'}, type: 'markup', data: objectfitstyle},
-{title: {en: 'this', ua: 'this'}, body: {en: "The this keyword is a word that indicates the context of their execution. Case 1: when a function is created in an object as its method, then the this word points to this object itself. Case 2: a constructor function that is used to create a new object using the new operator here the word this indicates the object that will be created. Case 3: arrow functions. You can often hear that they do not have their own execution context, but in fact it depends on the lexical environment, and in simple words on the function inside which the arrow function was created. What value the this of the top function had, will also be the value of the arrow function", ua: 'Ключове слово this — це слово, яке вказує на контекст їх виконання. Випадок 1: коли функція створюється в об’єкті як його метод, тоді слово this вказує на сам об’єкт. Випадок 2: функція-конструктор, яка використовується для створення нового об’єкта за допомогою оператора new, тут слово this вказує на об’єкт, який буде створено. Випадок 3: функції стрілок. Часто можна почути, що вони не мають власного контексту виконання, але насправді це залежить від лексичного оточення, а простими словами від функції, всередині якої була створена функція-стрілка. Значення функції this у верхній частині також буде значенням функції зі стрілкою'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this'}, type: 'function', data: 
-[
-`// Case 1
+}`]
+  },
+  { title: { en: 'Flexbox layout', ua: 'Макет Flexbox' }, body: { en: 'This image contains all instances of the Flexbox layout.', ua: 'На цій картинці забрані усі випадки макету Flexbox.' }, link: { en: '#', ua: '#' }, type: 'markup', data: flexboxstyle },
+  { title: { en: 'object-fit style', ua: 'Стиль object-fit' }, body: { en: 'This picture shows all cases of using the object-fit style for pictures.', ua: 'На цій картинці забрані усі випадки використання стилю object-fit для картинок.' }, link: { en: '#', ua: '#' }, type: 'markup', data: objectfitstyle },
+  {
+    title: { en: 'this', ua: 'this' }, body: { en: "The this keyword is a word that indicates the context of their execution. Case 1: when a function is created in an object as its method, then the this word points to this object itself. Case 2: a constructor function that is used to create a new object using the new operator here the word this indicates the object that will be created. Case 3: arrow functions. You can often hear that they do not have their own execution context, but in fact it depends on the lexical environment, and in simple words on the function inside which the arrow function was created. What value the this of the top function had, will also be the value of the arrow function", ua: 'Ключове слово this — це слово, яке вказує на контекст їх виконання. Випадок 1: коли функція створюється в об’єкті як його метод, тоді слово this вказує на сам об’єкт. Випадок 2: функція-конструктор, яка використовується для створення нового об’єкта за допомогою оператора new, тут слово this вказує на об’єкт, який буде створено. Випадок 3: функції стрілок. Часто можна почути, що вони не мають власного контексту виконання, але насправді це залежить від лексичного оточення, а простими словами від функції, всередині якої була створена функція-стрілка. Значення функції this у верхній частині також буде значенням функції зі стрілкою' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this' }, type: 'function', data:
+      [
+        `// Case 1
 const user = {
     firstName: 'Alex',
     age: 20,
@@ -1522,13 +1590,13 @@ const user = {
 }
 
 user.sayHello() // Hello Alex`,
-`// Case 2
+        `// Case 2
 function User(id, name, age) {
     this.id = id
     this.name = name
     this.age = age
 }`,
-`// Case 3
+        `// Case 3
 const user = {
     firstName: 'Kate',
     age: 20,
@@ -1541,10 +1609,12 @@ const user = {
 }
 
 user.sayHello() // Hello Kate`
-]},
-{title: {en: 'Professional data fetching with useEffect() and controller signal "AbortController()"', ua: 'Професійне отримання даних за допомогою useEffect() і сигналу контролера "AbortController()"'}, body: {en: 'In the example code, you can see the quality of getting data from useEffect() and the "AbortController()" controller signal.', ua: 'На прикладі коду можно побачити якісне отримання даних із useEffect() і сигналу контролера "AbortController()".'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[
-`import User from '../User/User';
+      ]
+  },
+  {
+    title: { en: 'Professional data fetching with useEffect() and controller signal "AbortController()"', ua: 'Професійне отримання даних за допомогою useEffect() і сигналу контролера "AbortController()"' }, body: { en: 'In the example code, you can see the quality of getting data from useEffect() and the "AbortController()" controller signal.', ua: 'На прикладі коду можно побачити якісне отримання даних із useEffect() і сигналу контролера "AbortController()".' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      [
+        `import User from '../User/User';
 import {BrowserRouter as Router} from 'react-router-dom'
 
 function App() {
@@ -1558,7 +1628,7 @@ function App() {
 }
 
 export default App;`,
-`import {useState, useEffect} from 'react';
+        `import {useState, useEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom'
 
 const User = () => {
@@ -1596,10 +1666,12 @@ const User = () => {
 };
 
 export default User;`,
-]},
-{title: {en: 'Professional data axios fetching with useEffect() and controller signal "AbortController()"', ua: 'Професійне отримання axios даних за допомогою useEffect() і сигналу контролера "AbortController()"'}, body: {en: 'In the example, you can see the quality of getting data from axios, useEffect() and the "Abortcontroller()" controller signal.', ua: 'У прикладі ви можете побачити якість отримання даних від axios, useEffect() і сигналу контролера "Abortcontroller()".'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[
-`import User from '../User/User';
+      ]
+  },
+  {
+    title: { en: 'Professional data axios fetching with useEffect() and controller signal "AbortController()"', ua: 'Професійне отримання axios даних за допомогою useEffect() і сигналу контролера "AbortController()"' }, body: { en: 'In the example, you can see the quality of getting data from axios, useEffect() and the "Abortcontroller()" controller signal.', ua: 'У прикладі ви можете побачити якість отримання даних від axios, useEffect() і сигналу контролера "Abortcontroller()".' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      [
+        `import User from '../User/User';
 import {BrowserRouter as Router} from 'react-router-dom'
 
 function App() {
@@ -1613,7 +1685,7 @@ function App() {
 }
 
 export default App;`,
-`import {useState, useEffect} from 'react';
+        `import {useState, useEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom'
 import axios from 'axios'
 
@@ -1650,9 +1722,11 @@ const User = () => {
 };
 
 export default User;`,
-]},
-{title: {en: 'async + await request with axios', ua: 'async + await запит за допомогою axios'}, body: {en: 'The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains. With axios help.', ua: 'Оголошення async функції створює прив’язку нової асинхронної функції до заданого імені. Ключове слово await дозволено в тілі функції, що дозволяє записувати асинхронну поведінку, засновану на обіцянках, у зрозумілішому стилі та уникати необхідності явного налаштування ланцюжків promises. Це все створено за допомогою axios.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function'}, type: 'request', data:
-`const axios = require('axios');
+      ]
+  },
+  {
+    title: { en: 'async + await request with axios', ua: 'async + await запит за допомогою axios' }, body: { en: 'The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains. With axios help.', ua: 'Оголошення async функції створює прив’язку нової асинхронної функції до заданого імені. Ключове слово await дозволено в тілі функції, що дозволяє записувати асинхронну поведінку, засновану на обіцянках, у зрозумілішому стилі та уникати необхідності явного налаштування ланцюжків promises. Це все створено за допомогою axios.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function' }, type: 'request', data:
+      `const axios = require('axios');
 
 async function fetchData(url) {
     try {
@@ -1668,10 +1742,11 @@ async function fetchData(url) {
 // Call the function to get the data
 fetchData('https://jsonplaceholder.typicode.com/users');
 `},
-{title: {en: 'nth-child selector', ua: 'nth-child селектор'}, body: {en: 'The :nth-child() CSS pseudo-class matches elements based on their position among a group of siblings.', ua: 'Псевдоклас CSS :nth-child() зіставляє елементи на основі їхньої позиції в групі.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/:nth-child'}, type: 'markup', data: nthchildselector},
-{title: {en: 'Basics of HTML', ua: 'HTML база'}, body: {en: 'Basic information about HTML tags and their properties.', ua: 'Базова інформація стосовно HTML тегів та їх властивості.'}, link: {en: '#', ua: '#'}, type: 'markup', data: [basicsofhtml00, basicsofhtml01, basicsofhtml02, basicsofhtml03, basicsofhtml04, basicsofhtml05, basicsofhtml06]},
-{title: {en: 'A large list of sites/web applications for Front-End developers', ua: 'Великий перелік із сайтами/веб-застосунками для Front-End розробників'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'all', data:
-`Web IDE for frontend:
+  { title: { en: 'nth-child selector', ua: 'nth-child селектор' }, body: { en: 'The :nth-child() CSS pseudo-class matches elements based on their position among a group of siblings.', ua: 'Псевдоклас CSS :nth-child() зіставляє елементи на основі їхньої позиції в групі.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/:nth-child' }, type: 'markup', data: nthchildselector },
+  { title: { en: 'Basics of HTML', ua: 'HTML база' }, body: { en: 'Basic information about HTML tags and their properties.', ua: 'Базова інформація стосовно HTML тегів та їх властивості.' }, link: { en: '#', ua: '#' }, type: 'markup', data: [basicsofhtml00, basicsofhtml01, basicsofhtml02, basicsofhtml03, basicsofhtml04, basicsofhtml05, basicsofhtml06] },
+  {
+    title: { en: 'A large list of sites/web applications for Front-End developers', ua: 'Великий перелік із сайтами/веб-застосунками для Front-End розробників' }, body: { en: '', ua: '' }, link: { en: '#', ua: '#' }, type: 'all', data:
+      `Web IDE for frontend:
 codesandbox.io\n
 
 color palette:
@@ -1737,8 +1812,9 @@ https://app.haikei.app/\n
 A site with a css library for creating animations in a project: 
 http://animate.style\n
 `},
-{title: {en: 'async await request', ua: 'async await запит'}, body: {en: 'The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.', ua: 'Оголошення async функції створює прив’язку нової асинхронної функції до заданого імені. Ключове слово await дозволено в тілі функції, що дозволяє записувати асинхронну поведінку, засновану на обіцянках, у зрозумілішому стилі та уникати необхідності явного налаштування ланцюжків promises.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function'}, type: 'request', data:
-`async function u1() {
+  {
+    title: { en: 'async await request', ua: 'async await запит' }, body: { en: 'The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.', ua: 'Оголошення async функції створює прив’язку нової асинхронної функції до заданого імені. Ключове слово await дозволено в тілі функції, що дозволяє записувати асинхронну поведінку, засновану на обіцянках, у зрозумілішому стилі та уникати необхідності явного налаштування ланцюжків promises.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function' }, type: 'request', data:
+      `async function u1() {
     const result = await fetch('https://jsonplaceholder.typicode.com/users/1')
     return result.text()
 }
@@ -1787,9 +1863,10 @@ async function printUsers(data) {
     console.log(result)
 }
 printUsers(getUsers())`},
-{title: {en: 'Glassmorphism block', ua: 'Блок у стилі скла'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'markup', data:
-[glassmorphism,
-`<!DOCTYPE html>
+  {
+    title: { en: 'Glassmorphism block', ua: 'Блок у стилі скла' }, body: { en: '', ua: '' }, link: { en: '#', ua: '#' }, type: 'markup', data:
+      [glassmorphism,
+        `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1806,7 +1883,7 @@ printUsers(getUsers())`},
 <script src="main.js"></script>
 </body>
 </html>`,
-`body {
+        `body {
     margin: 0;
     padding: 0;
     background: url(background.jpg);
@@ -1827,17 +1904,20 @@ printUsers(getUsers())`},
     border-radius: 15px;
     overflow: hidden;
     backdrop-filter: blur(4px);
-}`]},
-{title: {en: 'Grid layout cheat sheet', ua: 'Шпаргалка по Grid системі'}, body: {en: 'This picture contains the most important concepts of the Grid system, which are required for markup.', ua: 'На цій картинці зібрані найголовніші поняття по Grid системі, що потрібні для верстки.'}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/grid'}, type: 'markup', data: gridlayout},
-{title: {en: 'Basic TypeScript data types', ua: 'Основні типи даних TypeScript'}, body: {en: 'There are 3 main data types in TypeScript. These are number, string and boolean.', ua: 'У TypeScript існують 3 основні типи даних. Це number, string та boolean. Тобто числа, строки та логічні типи даних.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html'}, type: 'typescript', data: 
-`const userName: string = 'Ilya'
+}`]
+  },
+  { title: { en: 'Grid layout cheat sheet', ua: 'Шпаргалка по Grid системі' }, body: { en: 'This picture contains the most important concepts of the Grid system, which are required for markup.', ua: 'На цій картинці зібрані найголовніші поняття по Grid системі, що потрібні для верстки.' }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/CSS/grid', ua: 'https://developer.mozilla.org/ru/docs/Web/CSS/grid' }, type: 'markup', data: gridlayout },
+  {
+    title: { en: 'Basic TypeScript data types', ua: 'Основні типи даних TypeScript' }, body: { en: 'There are 3 main data types in TypeScript. These are number, string and boolean.', ua: 'У TypeScript існують 3 основні типи даних. Це number, string та boolean. Тобто числа, строки та логічні типи даних.' }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html' }, type: 'typescript', data:
+      `const userName: string = 'Ilya'
 const age: number = 16
 const isStudent: boolean = true
 
 if (isStudent) console.log(userName + ' is ' + age + ' years old and he is a student.')
 // Ilya is 16 years old and he is a student.`},
-{title: {en: 'Typing a function and what exactly it should return', ua: 'Типізація функції та що саме вона має повертати'}, body: {en: 'The function has the ability to specify what exactly it should return. If the current function does not have a return or the function returns undefind, then void must be written. Because this function returns void. If we need the function to return something specific, for example a clear answer as a string, then we need to write type string. This notation is the same in normal functions and in arrow functions.', ua: 'У функції є можливість прописати, що саме вона має повертати. Якщо усередені функції нема return або функція повертаю undefind, то треба прописати void. Оскільки ця функція повертає порожнечу. Якщо нам треба аби функція повертала конкретно щось, наприклад чітку відповідь у форматі строки, то нам треба це прописати. У звичайних функціях та у стрілочних функціях це прописування є однаковим.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html'}, type: 'typescript', data: [
-`const isBirthdayData: boolean = true
+  {
+    title: { en: 'Typing a function and what exactly it should return', ua: 'Типізація функції та що саме вона має повертати' }, body: { en: 'The function has the ability to specify what exactly it should return. If the current function does not have a return or the function returns undefind, then void must be written. Because this function returns void. If we need the function to return something specific, for example a clear answer as a string, then we need to write type string. This notation is the same in normal functions and in arrow functions.', ua: 'У функції є можливість прописати, що саме вона має повертати. Якщо усередені функції нема return або функція повертаю undefind, то треба прописати void. Оскільки ця функція повертає порожнечу. Якщо нам треба аби функція повертала конкретно щось, наприклад чітку відповідь у форматі строки, то нам треба це прописати. У звичайних функціях та у стрілочних функціях це прописування є однаковим.' }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html' }, type: 'typescript', data: [
+      `const isBirthdayData: boolean = true
 const userNameData: string = 'John'
 const ageData: number = 40
 
@@ -1848,7 +1928,7 @@ function logBirthdayCongrats(isBirthday: boolean, userName: string, age: number)
 }
 
 logBirthdayCongrats(isBirthdayData, userNameData, ageData) // Congrats JOHN, age: 41`,
-`/* if function has something to return, then function must has current type */
+      `/* if function has something to return, then function must has current type */
 function logBirthdayCongrats(isBirthday: boolean, userName: string, age: number): string {
     if (isBirthday) {
         return 'Congrats ' + userName.toUpperCase() + ', age: ' + (age + 1)
@@ -1860,7 +1940,7 @@ function logBirthdayCongrats(isBirthday: boolean, userName: string, age: number)
 console.log(
   logBirthdayCongrats(isBirthdayData, userNameData, ageData)
 ) // Congrats JOHN, age: 41`,
-`const logBirthdayCongrats = (
+      `const logBirthdayCongrats = (
   isBirthday: boolean, 
   userName: string, 
   age: number
@@ -1875,9 +1955,11 @@ console.log(
 console.log(
   logBirthdayCongrats(isBirthdayData, userNameData, ageData)
 ) // Congrats JOHN, age: 41`,
-]},
-{title: {en: 'The never type in functions and where it is used', ua: 'Тип never у функціях та де він використовується'}, body: {en: 'The never type is usually used when we need to write an error output. Another never type can occur when we have an infinite while loop or an infinite recursion. In general, we need the never type as a stopgap when we have a possible error when processing its arguments in the function.', ua: 'Тип never зазвичай використовується, коли нам треба прописати вивід помилки. Ще тип never може виникнути, коли в нас є безкінечний цикл while або безкінечна рекурсія. Взагалом тип never нам потрібен, як затичка, коли в нас можлива помилка при обробці у функції її аргументів.'}, link: {en: 'https://www.typescriptlang.org/docs/handbook/basic-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/basic-types.html'}, type: 'typescript', data: 
-`/* The never type is used when something in the function will never be returned in time. That is, the difference between void and never is that void returns undefind, and never returns nothing at all */
+    ]
+  },
+  {
+    title: { en: 'The never type in functions and where it is used', ua: 'Тип never у функціях та де він використовується' }, body: { en: 'The never type is usually used when we need to write an error output. Another never type can occur when we have an infinite while loop or an infinite recursion. In general, we need the never type as a stopgap when we have a possible error when processing its arguments in the function.', ua: 'Тип never зазвичай використовується, коли нам треба прописати вивід помилки. Ще тип never може виникнути, коли в нас є безкінечний цикл while або безкінечна рекурсія. Взагалом тип never нам потрібен, як затичка, коли в нас можлива помилка при обробці у функції її аргументів.' }, link: { en: 'https://www.typescriptlang.org/docs/handbook/basic-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/basic-types.html' }, type: 'typescript', data:
+      `/* The never type is used when something in the function will never be returned in time. That is, the difference between void and never is that void returns undefind, and never returns nothing at all */
 const createError = (error: string): never => {
     throw new Error(error)
 }
@@ -1903,8 +1985,9 @@ console.log(
     at checkViruses (index.js:11:12)
     at index.js:14:13 
 */`},
-{title: {en: 'The null and undefined types in TypeScript', ua: 'Типи null та undefined у TypeScript'}, body: {en: '"undefined" values have not been defined yet, whereas "null" values indicate intentional absence of a value.', ua: '"undefined" значення ще не визначені, тоді як "null" значення вказують на навмисну відсутність значення.'}, link: {en: 'https://basarat.gitbook.io/typescript/recap/null-undefined', ua: 'https://basarat.gitbook.io/typescript/recap/null-undefined'}, type: 'typescript', data: 
-`/* null is the absence of anything at all */
+  {
+    title: { en: 'The null and undefined types in TypeScript', ua: 'Типи null та undefined у TypeScript' }, body: { en: '"undefined" values have not been defined yet, whereas "null" values indicate intentional absence of a value.', ua: '"undefined" значення ще не визначені, тоді як "null" значення вказують на навмисну відсутність значення.' }, link: { en: 'https://basarat.gitbook.io/typescript/recap/null-undefined', ua: 'https://basarat.gitbook.io/typescript/recap/null-undefined' }, type: 'typescript', data:
+      `/* null is the absence of anything at all */
 /* undefined is a type that says something doesn't exist */
 
 const T1: null = null // correct
@@ -1928,8 +2011,9 @@ function getRandomData() {
 
 const data = getRandomData()
 const trimmedData = data ? data.trim() : null`},
-{title: {en: 'symbol and bigint types in TypeScript', ua: 'Типи symbol та bigint у TypeScript'}, body: {en: 'Starting with ECMAScript 2015, "symbol" is a primitive data type, just like number and string. "symbol" values are created by calling the Symbol constructor. "bigint" part of an upcoming proposal in ECMAScript that allow us to model theoretically arbitrarily large integers.', ua: 'Починаючи з ECMAScript 2015, "symbol" — це примітивний тип даних, як число та рядок. Значення "symbol" створюються шляхом виклику конструктора Symbol. "bigint" частина майбутньої пропозиції в ECMAScript, яка дозволяє нам моделювати теоретично довільно великі цілі числа.'}, link: {en: 'https://www.typescriptlang.org/', ua: 'https://www.typescriptlang.org/'}, type: 'typescript', data: 
-`let id: symbol = Symbol('id')
+  {
+    title: { en: 'symbol and bigint types in TypeScript', ua: 'Типи symbol та bigint у TypeScript' }, body: { en: 'Starting with ECMAScript 2015, "symbol" is a primitive data type, just like number and string. "symbol" values are created by calling the Symbol constructor. "bigint" part of an upcoming proposal in ECMAScript that allow us to model theoretically arbitrarily large integers.', ua: 'Починаючи з ECMAScript 2015, "symbol" — це примітивний тип даних, як число та рядок. Значення "symbol" створюються шляхом виклику конструктора Symbol. "bigint" частина майбутньої пропозиції в ECMAScript, яка дозволяє нам моделювати теоретично довільно великі цілі числа.' }, link: { en: 'https://www.typescriptlang.org/', ua: 'https://www.typescriptlang.org/' }, type: 'typescript', data:
+      `let id: symbol = Symbol('id')
 
 const data = {
     [id]: 1
@@ -1943,8 +2027,9 @@ const num2: bigint = 2n
 
 // console.log(num1 + 5) // Error! Operator '+' cannot be applied to types 'bigint' and '5'
 console.log(num1 + num2) // 3n`},
-{title: {en: 'Objects and their destructuring in TypeScript', ua: "Об'єкти та її деструктурізація у TypeScript"}, body: {en: 'In general, the code shown in this post is used very rarely, because there are other more powerful types of object types and destructuring. But this code shows just the basic use of objects.', ua: "Взагалі код, що показаний у цьому пості застосовується дуже рідко, оскільки існують інші більш потужні види типізацій та деструктурізації об'єктів. Але у цьому коді показано саме базове використовування об'єктів."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
-`const userData: {name: string, age: number, skills: string[], isStudent: boolean} = {
+  {
+    title: { en: 'Objects and their destructuring in TypeScript', ua: "Об'єкти та її деструктурізація у TypeScript" }, body: { en: 'In general, the code shown in this post is used very rarely, because there are other more powerful types of object types and destructuring. But this code shows just the basic use of objects.', ua: "Взагалі код, що показаний у цьому пості застосовується дуже рідко, оскільки існують інші більш потужні види типізацій та деструктурізації об'єктів. Але у цьому коді показано саме базове використовування об'єктів." }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html' }, type: 'typescript', data:
+      `const userData: {name: string, age: number, skills: string[], isStudent: boolean} = {
     name: 'Alex',
     age: 30,
     skills: ['dev', 'test', 'disign'],
@@ -1982,8 +2067,9 @@ let {age, isStudent} = userData
 
 console.log(age) // 30
 console.log(isStudent) // false`},
-{title: {en: 'Arrays and their destructuring in TypeScript', ua: "Масиви та їч деструктурізація у TypeScript"}, body: {en: 'Usually arrays and their destructuring in TypeScript is not hard typing. The same applies to both ordinary and multidimensional arrays, etc.', ua: "Зазвичай масиви та їх деструктурізація у TypeScript це не важка типізація. Це ж стосується як звичайних масивів так і мультівимірних тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
-`const departments: string[] = ['dev', 'design', 'marketing'] // simple array
+  {
+    title: { en: 'Arrays and their destructuring in TypeScript', ua: "Масиви та їч деструктурізація у TypeScript" }, body: { en: 'Usually arrays and their destructuring in TypeScript is not hard typing. The same applies to both ordinary and multidimensional arrays, etc.', ua: "Зазвичай масиви та їх деструктурізація у TypeScript це не важка типізація. Це ж стосується як звичайних масивів так і мультівимірних тощо." }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html' }, type: 'typescript', data:
+      `const departments: string[] = ['dev', 'design', 'marketing'] // simple array
 
 const department: string = departments[0]
 
@@ -2003,8 +2089,9 @@ const [first] = report
 
 console.log(first) // design - done
 `},
-{title: {en: 'Tuples in TypeScript', ua: "Tuples (Кортежі) у TypeScript"}, body: {en: 'Tuples is an array that has a clear sequence of data and its types, as you can see in the code of the post. You cannot dynamically change the type of one of the elements using array methods or by calling a specific element by index. Tuples also have the ability to spread some specific type of data like an array using the spread operator, but there is one condition. You can perform this action once per Tuple.', ua: "Tuples (Кортежі) - це масив, що має чітку послідовність даних та їх типів, як можно побачити у коді поста. Ти не маєш змогу змінити динамічно тип одного з елементів за допомогою методів масиву чи викликом конкретного елемента за індексом. Також у Tuples (Кортежі) є змога розвернути якийсь конкретний тип даних мов масив за допомогою spread оператора, але є одна умова. Таку дію ти можеш зробити один раз на один Tuple (Кортеж)."}, link: {en: 'https://www.tutorialsteacher.com/typescript/typescript-tuple', ua: 'https://www.tutorialsteacher.com/typescript/typescript-tuple'}, type: 'typescript', data: 
-`const userDataTuple: [boolean, number, string] = [true, 40, 'John']
+  {
+    title: { en: 'Tuples in TypeScript', ua: "Tuples (Кортежі) у TypeScript" }, body: { en: 'Tuples is an array that has a clear sequence of data and its types, as you can see in the code of the post. You cannot dynamically change the type of one of the elements using array methods or by calling a specific element by index. Tuples also have the ability to spread some specific type of data like an array using the spread operator, but there is one condition. You can perform this action once per Tuple.', ua: "Tuples (Кортежі) - це масив, що має чітку послідовність даних та їх типів, як можно побачити у коді поста. Ти не маєш змогу змінити динамічно тип одного з елементів за допомогою методів масиву чи викликом конкретного елемента за індексом. Також у Tuples (Кортежі) є змога розвернути якийсь конкретний тип даних мов масив за допомогою spread оператора, але є одна умова. Таку дію ти можеш зробити один раз на один Tuple (Кортеж)." }, link: { en: 'https://www.tutorialsteacher.com/typescript/typescript-tuple', ua: 'https://www.tutorialsteacher.com/typescript/typescript-tuple' }, type: 'typescript', data:
+      `const userDataTuple: [boolean, number, string] = [true, 40, 'John']
 
 /* tuple with spread operator */
 const carsDataTuple: [boolean, number, ...string[]] = [true, 42, 'Audi', 'Ford', 'Opel']
@@ -2026,8 +2113,9 @@ const FiboLoopTuple: [...number[], boolean, string] = [1, 1, 2, 3, 5, 8, 13, tru
 const res = userDataTuple.map((t) => t + ' - data') // res array will be string[] type
 
 const [birthday, age, userName] = userDataTuple // tuple destructuring`},
-{title: {en: 'Union type in TypeScript', ua: "Тип Union (Об'єднаний) у TypeScript"}, body: {en: 'Typically, the Union type is used by developers to record undefined information in advance. For example: we have an error output and we do not know what it will give us, whether it is a 404 number or a "not found" notification, and for this we need a Union type. But there is also a downside to the use of this technology, namely uncertainty. Because if we have variants of string or number types, then we definitely cannot apply methods for this information. For example: we have a choice between a string and a number, and in the function we need to output information from the argument, but we cannot apply the toUpperCase() method to this information, because the information can be a number, and numbers do not have the toUpperCase() method .', ua: "Зазвичай тип Union використовується розробниками для запису невизначеної заздалегідь інформації. Наприклад: в нас є вивід помилки і ми не знаємо, що саме нам видасть, чи число 404, чи сповіщення ''не знайдено'' і ось для цього нам потрібен тип Union. Але є і мінус застосування цієї технології, а саме невизначеність. Бо якщо в нас є варіанти типів строки чи числу, то ми однозначно не можемо застосувати методи для цієї інформації. Наприклад: в нас є вибір між строкою та числом і у фінкції нам треба вивести інформацію з аргументу, але ми не можемо застосувати метод toUpperCase() до цієї інформації, оскільки інформація може бути і числом, а вже у числа не має методу toUpperCase()."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html', ua: 'https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html'}, type: 'typescript', data: 
-`let message: string | number = 5
+  {
+    title: { en: 'Union type in TypeScript', ua: "Тип Union (Об'єднаний) у TypeScript" }, body: { en: 'Typically, the Union type is used by developers to record undefined information in advance. For example: we have an error output and we do not know what it will give us, whether it is a 404 number or a "not found" notification, and for this we need a Union type. But there is also a downside to the use of this technology, namely uncertainty. Because if we have variants of string or number types, then we definitely cannot apply methods for this information. For example: we have a choice between a string and a number, and in the function we need to output information from the argument, but we cannot apply the toUpperCase() method to this information, because the information can be a number, and numbers do not have the toUpperCase() method .', ua: "Зазвичай тип Union використовується розробниками для запису невизначеної заздалегідь інформації. Наприклад: в нас є вивід помилки і ми не знаємо, що саме нам видасть, чи число 404, чи сповіщення ''не знайдено'' і ось для цього нам потрібен тип Union. Але є і мінус застосування цієї технології, а саме невизначеність. Бо якщо в нас є варіанти типів строки чи числу, то ми однозначно не можемо застосувати методи для цієї інформації. Наприклад: в нас є вибір між строкою та числом і у фінкції нам треба вивести інформацію з аргументу, але ми не можемо застосувати метод toUpperCase() до цієї інформації, оскільки інформація може бути і числом, а вже у числа не має методу toUpperCase()." }, link: { en: 'https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html', ua: 'https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html' }, type: 'typescript', data:
+      `let message: string | number = 5
 // message = 'hello' // correct
 
 let messages: string[] | number[] = ['a', 'b']
@@ -2040,8 +2128,9 @@ function printMessage(msg: string | number): void {
 
 printMessage(4) // 4
 printMessage('hello') // hello`},
-{title: {en: 'Narrowing Union type using Type Guard and Type Flow methods in TypeScript', ua: "Narrowing (Звуження) типу Union (Об'єднаний) та Type Guard у TypeScript"}, body: {en: 'Commonly, data type narrowing for Union type is used to use specific methods for specific data types. For this, commands such as Array.isArray() are used for arrays, "in" for objects, instanceof for classes, etc.', ua: "Зазвичай для використання конкретних методів для конкретних типів даних використовуються Narrowing (Звуження) типів даних для типу Union. Для цього використовують такі команди, як Array.isArray() для масивів, ''in'' для об'єктів, instanceof для класів тощо."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html'}, type: 'typescript', data: [
-`/* Case 1. Narrowing Union type using conditions. */
+  {
+    title: { en: 'Narrowing Union type using Type Guard and Type Flow methods in TypeScript', ua: "Narrowing (Звуження) типу Union (Об'єднаний) та Type Guard у TypeScript" }, body: { en: 'Commonly, data type narrowing for Union type is used to use specific methods for specific data types. For this, commands such as Array.isArray() are used for arrays, "in" for objects, instanceof for classes, etc.', ua: "Зазвичай для використання конкретних методів для конкретних типів даних використовуються Narrowing (Звуження) типів даних для типу Union. Для цього використовують такі команди, як Array.isArray() для масивів, ''in'' для об'єктів, instanceof для класів тощо." }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html' }, type: 'typescript', data: [
+      `/* Case 1. Narrowing Union type using conditions. */
 function typeOfValue(value: string[] | number | boolean): void {
     if (Array.isArray(value)) {
         console.log("It's String Array type.")
@@ -2055,7 +2144,7 @@ function typeOfValue(value: string[] | number | boolean): void {
 typeOfValue(4); // It's Number type.
 typeOfValue(false); // It's Boolean type.
 typeOfValue(['hello', 'world!', 'how', 'are', 'you?']); // It's String Array type.`,
-`/* Case 2. Narrowing Union type using switch/case. */
+      `/* Case 2. Narrowing Union type using switch/case. */
 function typeOfValue(value: object | number | boolean): void {
     switch (typeof value) { 
         case 'boolean':
@@ -2073,14 +2162,14 @@ function typeOfValue(value: object | number | boolean): void {
 typeOfValue(4); // It's Number type.
 typeOfValue({}); // It's Object type.
 typeOfValue(false); // It's Boolean type.`,
-`/* Case 3. Narrowing Union type using generic methods. */
+      `/* Case 3. Narrowing Union type using generic methods. */
 const removeLastValue = (n: number[] | string) => {
     console.log(n.slice(0, -1));
 };
 
 removeLastValue([1, 1, 2, 3, 5]) // (4) [1, 1, 2, 3]
 removeLastValue('Hello World!') // Hello World`,
-`/* Case 4. Narrowing Union type using operator "in" for objects' comparison. */
+      `/* Case 4. Narrowing Union type using operator "in" for objects' comparison. */
 const checkReadings = (
     readings: { system: number } | { user: number }
 ): void => {
@@ -2093,7 +2182,7 @@ const checkReadings = (
 
 checkReadings({system: 32}) // 32
 checkReadings({user: 1}) // 1`,
-`/* Case 5. Narrowing Union type using operator instanceof for objects' and Classes comparison. */
+      `/* Case 5. Narrowing Union type using operator instanceof for objects' and Classes comparison. */
 function isDate(x: string | Date) {
     if (x instanceof Date) {
         console.log("It's Date class type.");
@@ -2104,7 +2193,7 @@ function isDate(x: string | Date) {
 
 isDate('18.09.2000') // It's String type.
 isDate(new Date()) // It's Date class type.`,
-`/* Case 7. Narrowing Union type using Type Flow method. */
+      `/* Case 7. Narrowing Union type using Type Flow method. */
 interface ICar {
     name: "car";
     engine: string;
@@ -2188,12 +2277,14 @@ function sellVehicle(vehicle: ICar | IShip | IAirplane): void {
 sellVehicle(car); // I have 4 wheels for sell.
 sellVehicle(ship); // I have Default sail for sell.
 sellVehicle(airplane); // I have 2 wings for sell.`
-]},
-{title: {en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript"}, body: {en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html'}, type: 'typescript', data: [
-`/* Case 1. Literal Types for Type Aliases. */
+    ]
+  },
+  {
+    title: { en: 'Literal types in TypeScript', ua: "Літеральні типи у TypeScript" }, body: { en: 'Literal types are data types used to specify values for variables, function arguments, etc. For example: we need to specify which protocol and port the server should be run on (see the post code). We have a choice of either http or https protocol, then port 3000 or 3001. We cannot have another protocol or another port, if we enter something else, then our server simply will not start.', ua: "Літеральні типи - це такі типи даних, що слугують для конкретизації значень для змінних, аргументів функцій тощо. Наприклад: нам потрібно зазначити за яким протоколом та за яким портом на треба запускати сервер (дивіться на код посту). В нас є вибір або http, або https протокол, далі порт 3000 чи 3001. В нас не може бути інший протокол, чи інший порт, якщо ми впишемо щось інше, то в нас просто не запуститься сервер." }, link: { en: 'https://www.typescriptlang.org/docs/handbook/literal-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/literal-types.html' }, type: 'typescript', data: [
+      `/* Case 1. Literal Types for Type Aliases. */
 type Categories = 'React' | 'Angular' | 'Vue' | 'Node' | 'Nest'
 const ReactCourse: Categories = 'React'`,
-`/* Case 2. Literal Types for Interfaces. */
+      `/* Case 2. Literal Types for Interfaces. */
 interface IUser {
     nickname: string;
     role: 'Admin' | 'User'
@@ -2203,7 +2294,7 @@ const user: IUser = {
     nickname: 'Xlaoru',
     role: 'Admin'
 }`,
-`/* Case 3. Literal Types for functions. */
+      `/* Case 3. Literal Types for functions. */
 function logCourse(course: Categories, receiver: 'registered' | 'not registered'): void {
     if (receiver === 'registered') {
         console.log(\`You chose a course with \${course}.\`)
@@ -2214,12 +2305,14 @@ logCourse(
     'Nest',
     'registered'
 ) // You chose a course with Nest.`,
-`/* Case 4. Array of Literal Types. */
+      `/* Case 4. Array of Literal Types. */
 type CategoriesArray = Categories[]
 const cart: CategoriesArray = ['Angular', 'Nest']`,
-]}, 
-{title: {en: 'Type Aliases in TypeScript', ua: "Тип Aliases у TypeScript"}, body: {en: 'Type "Aliases" create a new name for a type. Type "Aliases" are sometimes similar to "Interfaces", but can name primitives, "Unions", "Tuples", and any other types that you’d otherwise have to write by hand.', ua: "Тип ''Aliases'' створює нову назву для типу. Тип ''Aliases'' іноді схожий на ''Interfaces'', але може іменувати примітиви, ''Unions'', ''Tuples'' та будь-які інші типи, які інакше вам довелося б писати вручну."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html'}, type: 'typescript', data:  [
-`/* Case 1. Primitive Type Aliases. */
+    ]
+  },
+  {
+    title: { en: 'Type Aliases in TypeScript', ua: "Тип Aliases у TypeScript" }, body: { en: 'Type "Aliases" create a new name for a type. Type "Aliases" are sometimes similar to "Interfaces", but can name primitives, "Unions", "Tuples", and any other types that you’d otherwise have to write by hand.', ua: "Тип ''Aliases'' створює нову назву для типу. Тип ''Aliases'' іноді схожий на ''Interfaces'', але може іменувати примітиви, ''Unions'', ''Tuples'' та будь-які інші типи, які інакше вам довелося б писати вручну." }, link: { en: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html', ua: 'https://www.typescriptlang.org/docs/handbook/advanced-types.html' }, type: 'typescript', data: [
+      `/* Case 1. Primitive Type Aliases. */
 type PORT = number
 
 type LogMessage = string
@@ -2229,7 +2322,7 @@ type ErrorMessage = Error
 type Methods = 'GET' | 'POST'
 
 type NotFoundError = 404 | "Not Found" | string`,
-`/* Case 2. Type Aliases for objects. */
+      `/* Case 2. Type Aliases for objects. */
 type Car = {
     id: number,
     name: string,
@@ -2255,7 +2348,7 @@ const AudiToUkraine: CarWithRegion = {
     spareParts: ['suspension', 'brake system', 'engine'],
     country: 'Ukraine'
 }`,
-`/* Case 3. Type Aliases for functions. */
+      `/* Case 3. Type Aliases for functions. */
 type StartExprort = (permission: boolean, region: string, exportId: number) => string
 
 // Function annotation
@@ -2271,9 +2364,11 @@ console.log(
 console.log(
     exprortControl(false, 'USA', 4)
 ) // Car have not permission for export.`,
-]},
-{title: {en: 'Object Literals and Function Annotations in TypeScript', ua: "Об'єктні Literals (Літерали) та анотації функцій"}, body: {en: 'Usually, object "Literals" and function annotations are not used very much in future developments due to their inconvenience, unreadability and non-reusability, but the realization that this way of typing objects and function annotations is definitely worth it.', ua: "Зазвичай об'єктні Literals (Літерали) та анотації функцій не дуже використовуються при будених розробках через свою незручніть, нечитабельність та неперевикористовуванність, але усвідомлення про те, що такий спосіб типізації об'єктів та анотацій до функцій однозначно вартую того."}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html'}, type: 'typescript', data: 
-`const serverConfig: {
+    ]
+  },
+  {
+    title: { en: 'Object Literals and Function Annotations in TypeScript', ua: "Об'єктні Literals (Літерали) та анотації функцій" }, body: { en: 'Usually, object "Literals" and function annotations are not used very much in future developments due to their inconvenience, unreadability and non-reusability, but the realization that this way of typing objects and function annotations is definitely worth it.', ua: "Зазвичай об'єктні Literals (Літерали) та анотації функцій не дуже використовуються при будених розробках через свою незручніть, нечитабельність та неперевикористовуванність, але усвідомлення про те, що такий спосіб типізації об'єктів та анотацій до функцій однозначно вартую того." }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/objects.html', ua: 'https://www.typescriptlang.org/docs/handbook/2/objects.html' }, type: 'typescript', data:
+      `const serverConfig: {
     protocol: 'http' | 'https';
     port: 3000 | 3001;
 } = {
@@ -2291,8 +2386,9 @@ const startServer:
 }
 
 startServer(serverConfig.protocol, serverConfig.port) // Server started on https://server:3001`},
-{title: {en: 'All about useCallback()', ua: "Все про useCallback()"}, body: {en: 'useCallback() is a React hook that allows you to cache function definitions between re-renders. It is usually used to receive information from the server so that the request is not re-sent in case of an arbitrary phenomenon.', ua: "useCallback() — це хук React, який дозволяє кешувати визначення функції між повторними візуалізаціями. Зазвичай його використовують для отримання інформації із серверу так, щоб при довільному явищі запит повторно не посилався."}, link: {en: 'https://react.dev/reference/react/useCallback', ua: 'https://react.dev/reference/react/useCallback'}, type: 'React', data: 
-[`import { useState, useCallback } from "react";
+  {
+    title: { en: 'All about useCallback()', ua: "Все про useCallback()" }, body: { en: 'useCallback() is a React hook that allows you to cache function definitions between re-renders. It is usually used to receive information from the server so that the request is not re-sent in case of an arbitrary phenomenon.', ua: "useCallback() — це хук React, який дозволяє кешувати визначення функції між повторними візуалізаціями. Зазвичай його використовують для отримання інформації із серверу так, щоб при довільному явищі запит повторно не посилався." }, link: { en: 'https://react.dev/reference/react/useCallback', ua: 'https://react.dev/reference/react/useCallback' }, type: 'React', data:
+      [`import { useState, useCallback } from "react";
 import Buttons from "./Buttons";
 
 const Demo = () => {
@@ -2311,7 +2407,7 @@ const Demo = () => {
 
 export default Demo;
 `,
-`import { memo } from "react";
+        `import { memo } from "react";
 
 type counterFunc = () => void;
 
@@ -2335,10 +2431,12 @@ const Buttons = memo(
 );
 
 export default Buttons;
-`]},
-{title: {en: 'Easy loader', ua: "Легеньки спіннер (лоадер)"}, body: {en: 'This spinner (loader) is made using basic styles and animations.', ua: "Цей спіннер (лоадер) зроблений за допомогою базових стилів та анімації."}, link: {en: '#', ua: '#'}, type: 'markup', data: 
-[easyLoader, 
-`<!DOCTYPE html>
+`]
+  },
+  {
+    title: { en: 'Easy loader', ua: "Легеньки спіннер (лоадер)" }, body: { en: 'This spinner (loader) is made using basic styles and animations.', ua: "Цей спіннер (лоадер) зроблений за допомогою базових стилів та анімації." }, link: { en: '#', ua: '#' }, type: 'markup', data:
+      [easyLoader,
+        `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -2353,8 +2451,8 @@ export default Buttons;
     </div>
   <script src="main.js"></script>
 </body>
-</html>`, 
-`.container {
+</html>`,
+        `.container {
     position: absolute;
     top: 40%;
     left: 45%;
@@ -2378,9 +2476,11 @@ export default Buttons;
     100% {
         transform: rotate(360deg);
     }
-}`]},
-{title: {en: 'Custom useLocalStorage() hook', ua: 'Зроблений власноруч хук useLocalStorage()'}, body: {en: 'This useLocalStorage() hook is made using LocalStorage technology and its capabilities. This hook will come in handy when developing your applications.', ua: 'Цей хук useLocalStorage() зроблений за допомогою технології LocalStorage та її можливостей. Цей хук буде внагоді при розробці своїх застоснунків.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[`export function useLocalStorage(key: string) {
+}`]
+  },
+  {
+    title: { en: 'Custom useLocalStorage() hook', ua: 'Зроблений власноруч хук useLocalStorage()' }, body: { en: 'This useLocalStorage() hook is made using LocalStorage technology and its capabilities. This hook will come in handy when developing your applications.', ua: 'Цей хук useLocalStorage() зроблений за допомогою технології LocalStorage та її можливостей. Цей хук буде внагоді при розробці своїх застоснунків.' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      [`export function useLocalStorage(key: string) {
   function setItem(value: string) {
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
@@ -2408,7 +2508,7 @@ export default Buttons;
 
   return { setItem, getItem, removeItem };
 }`,
-`import { useState } from "react";
+        `import { useState } from "react";
 
 import { useLocalStorage } from "./useLocalStorage";
 
@@ -2428,9 +2528,11 @@ export default function Demo() {
       <button onClick={removeItem}>Remove</button>
     </>
   );
-}`]},
-{title: {en: 'Interfaces in TypeScript', ua: 'Interfaces (Інтерфейси) у TypeScript'}, body: {en: 'One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.', ua: `Одним із основних принципів TypeScript є те, що перевірка типу зосереджена на формі, яку мають значення. Це іноді називають «качиним типом» або «структурним підтипом». У TypeScript інтерфейси виконують роль імен цих типів і є потужним способом визначення контрактів у вашому коді, а також контрактів із кодом за межами вашого проекту.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/interfaces.html', ua: 'https://www.typescriptlang.org/docs/handbook/interfaces.html'}, type: 'typescript', data: [
-`/* Case 1. Announcement of interfaces. */
+}`]
+  },
+  {
+    title: { en: 'Interfaces in TypeScript', ua: 'Interfaces (Інтерфейси) у TypeScript' }, body: { en: 'One of TypeScript’s core principles is that type checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.', ua: `Одним із основних принципів TypeScript є те, що перевірка типу зосереджена на формі, яку мають значення. Це іноді називають «качиним типом» або «структурним підтипом». У TypeScript інтерфейси виконують роль імен цих типів і є потужним способом визначення контрактів у вашому коді, а також контрактів із кодом за межами вашого проекту.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/interfaces.html', ua: 'https://www.typescriptlang.org/docs/handbook/interfaces.html' }, type: 'typescript', data: [
+      `/* Case 1. Announcement of interfaces. */
 interface ISpaceship {
     id: number
     name: string
@@ -2465,7 +2567,7 @@ const spaceship3: ISpaceshipInfo = {
     side: 'empire',
     wasStolen: true
 }`,
-`/* Case 2. Inserting interfaces for typing arguments of function. */
+      `/* Case 2. Inserting interfaces for typing arguments of function. */
 function checkSpaceship(spaceship: ISpaceshipInfo): string {
     if (spaceship.side === 'rebels') {
         return "Rebel's spaceship: " + spaceship.name + ' does not get access to the seat.'
@@ -2487,7 +2589,7 @@ console.log(
 console.log(
     checkSpaceship(spaceship3)
 ) // Spaceship: Tie Fighter was stolen.`,
-`/* Case 3. Inserting interfaces to typing the result of a function's output. */
+      `/* Case 3. Inserting interfaces to typing the result of a function's output. */
 const newSpaceship: ISpaceship = {
     id: 4,
     name: 'Y-Wing'
@@ -2505,7 +2607,7 @@ function createSpaceshipInfo(spaceship: ISpaceship, side: 'empire' | 'rebels', w
 const spaceship4 = createSpaceshipInfo(newSpaceship, 'rebels', false)
 
 console.log(spaceship4) // { id: 4, name: 'Y-Wing', side: 'rebels', wasStolen: false }`,
-`/* Case 4. Inserting interfaces to typing a variable. */
+      `/* Case 4. Inserting interfaces to typing a variable. */
 const spaceshipList: ISpaceshipInfo[] = [
     spaceship1,
     spaceship2,
@@ -2549,7 +2651,7 @@ console.log(spaceshipList)
     }
 ] 
 */`,
-`/* Case 5. Inserting interfaces to typing a function. */
+      `/* Case 5. Inserting interfaces to typing a function. */
 interface ILogSpaceshipInfo {
     (spaceshipInfo: ISpaceshipInfo): void
 }
@@ -2611,7 +2713,7 @@ function checkSecretSpaceship(
 }
 
 checkSecretSpaceship(secretSpaceship1, 'Grand Inquisitor') // Spaceship: Tie Interceptor, with id: 1 has got access to boarding.`,
-`/* Case 6. Inserting interfaces to typing a function with generics. */
+      `/* Case 6. Inserting interfaces to typing a function with generics. */
 const message: string = 'Obi Wan you are my only hope.'
 const executeOrder: number = 66
 
@@ -2668,7 +2770,7 @@ console.log(
 )
 // Binary Code of Order: 1000011
 // 67`,
-`/* Case 7. Assignment an undefined key with a current value.*/
+      `/* Case 7. Assignment an undefined key with a current value.*/
 interface IBase {
     [key: string]: string
 }
@@ -2681,10 +2783,12 @@ const hothBase: IBase = {
 const undefinedBase: IBase = {
     name: 'Takaro'
 }`,
-]},
-{title: {en: 'Interfaces VS Type Alias in TypeScript', ua: 'Interfaces VS Type Alias у TypeScript'}, body: {en: 'Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable. For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.', ua: `Type Alias та Interface дуже схожі, і в багатьох випадках ви можете вільно вибирати між ними. Майже всі функції Interface доступні в Type Alias, ключовою відмінністю є те, що Type Alias не можна повторно відкрити для додавання нових властивостей проти Interface, який завжди розширюється. Здебільшого ви можете вибрати на основі особистих уподобань, і TypeScript підкаже вам, чи потрібно щось, щоб бути іншим типом оголошення. Якщо вам потрібна евристика, використовуйте Interface, доки вам не знадобиться використовувати функції Type Alias.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces'}, type: 'typescript', data: InterfaceVSTypeAlias},
-{title: {en: 'Property Modifiers (Optional Properties) in TypeScript', ua: 'Модифікатори властивостей (Додаткові властивості) у TypeScript'}, body: {en: 'Property modifiers are usually used when we have a clear form, but it has some optional fields. For example, the user can enter his name, but if he does not want to do this, then we will call him by his login, since the login is a mandatory input field for us.', ua: `Модифікатори властивостей зазвичай використовують, коли в нас є чітка форма, але у неї є декілька не обов'язкових полей. Наприклад користувач може ввести своє ім'я, але якщо він цього не хоче робити, то ми його будем називати за логіном, оскільки логін в нас обов'язкове поле для вводу.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties'}, type: 'typescript', data: 
-`interface IUser {
+    ]
+  },
+  { title: { en: 'Interfaces VS Type Alias in TypeScript', ua: 'Interfaces VS Type Alias у TypeScript' }, body: { en: 'Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable. For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.', ua: `Type Alias та Interface дуже схожі, і в багатьох випадках ви можете вільно вибирати між ними. Майже всі функції Interface доступні в Type Alias, ключовою відмінністю є те, що Type Alias не можна повторно відкрити для додавання нових властивостей проти Interface, який завжди розширюється. Здебільшого ви можете вибрати на основі особистих уподобань, і TypeScript підкаже вам, чи потрібно щось, щоб бути іншим типом оголошення. Якщо вам потрібна евристика, використовуйте Interface, доки вам не знадобиться використовувати функції Type Alias.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces' }, type: 'typescript', data: InterfaceVSTypeAlias },
+  {
+    title: { en: 'Property Modifiers (Optional Properties) in TypeScript', ua: 'Модифікатори властивостей (Додаткові властивості) у TypeScript' }, body: { en: 'Property modifiers are usually used when we have a clear form, but it has some optional fields. For example, the user can enter his name, but if he does not want to do this, then we will call him by his login, since the login is a mandatory input field for us.', ua: `Модифікатори властивостей зазвичай використовують, коли в нас є чітка форма, але у неї є декілька не обов'язкових полей. Наприклад користувач може ввести своє ім'я, але якщо він цього не хоче робити, то ми його будем називати за логіном, оскільки логін в нас обов'язкове поле для вводу.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#optional-properties' }, type: 'typescript', data:
+      `interface IUser {
     login: string,
     password: number,
     name?: string,
@@ -2715,8 +2819,9 @@ console.log(
 )
 // Xlaoru is student
 // Hello, Xlaoru! Nice to meet you! You are 16, but you already know React.js`},
-{title: {en: 'Non-null assertion operator (!) in TypeScript', ua: 'Ненулевий оператор утвердження (!) у TypeScript'}, body: {en: 'TypeScript also has a special syntax for removing null and undefined from a type without doing any explicit checking. Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined.', ua: `TypeScript також має спеціальний синтаксис для видалення null і undefined з типу без виконання будь-якої явної перевірки. Написання ! після будь-якого виразу фактично є твердженням типу, що значення не є null або undefined.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-'}, type: 'typescript', data: 
-`interface IRequest {
+  {
+    title: { en: 'Non-null assertion operator (!) in TypeScript', ua: 'Ненулевий оператор утвердження (!) у TypeScript' }, body: { en: 'TypeScript also has a special syntax for removing null and undefined from a type without doing any explicit checking. Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined.', ua: `TypeScript також має спеціальний синтаксис для видалення null і undefined з типу без виконання будь-якої явної перевірки. Написання ! після будь-якого виразу фактично є твердженням типу, що значення не є null або undefined.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-' }, type: 'typescript', data:
+      `interface IRequest {
     requestType: 'get' | 'post'
     requestText?: {
         title?: string,
@@ -2744,8 +2849,9 @@ function sendRequest(requestData: IRequest, db?: string): void {
 }
 
 `},
-{title: {en: 'readonly property Modifiers in TypeScript', ua: 'Модифікатори властивостей readonly (тільки для читання) у TypeScript'}, body: {en: 'Modifiers of readonly properties are created so that when writing code by other developers, specific important information cannot be changed. For example: we have a user login and this information cannot be overwritten under any circumstances, under understandable circumstances. And it is for this purpose that such modifiers of readonly capabilities were invented.', ua: `Модифікатори властивостей readonly (тільки для читання) створений для того, щоб при написані коду іншими розробниками конкретну важливу інформацію неможливо було змінити. Наприклад: в нас є логін користувача і цю інформацію неможно перезаписати ні в якому разі, за зрозумілі обставини. І саме для цього були вигадані такі модифікатори можливостей readonly.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#readonly-and-const', ua: 'https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#readonly-and-const'}, type: 'typescript', data: 
-`interface IUser {
+  {
+    title: { en: 'readonly property Modifiers in TypeScript', ua: 'Модифікатори властивостей readonly (тільки для читання) у TypeScript' }, body: { en: 'Modifiers of readonly properties are created so that when writing code by other developers, specific important information cannot be changed. For example: we have a user login and this information cannot be overwritten under any circumstances, under understandable circumstances. And it is for this purpose that such modifiers of readonly capabilities were invented.', ua: `Модифікатори властивостей readonly (тільки для читання) створений для того, щоб при написані коду іншими розробниками конкретну важливу інформацію неможливо було змінити. Наприклад: в нас є логін користувача і цю інформацію неможно перезаписати ні в якому разі, за зрозумілі обставини. І саме для цього були вигадані такі модифікатори можливостей readonly.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#readonly-and-const', ua: 'https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#readonly-and-const' }, type: 'typescript', data:
+      `interface IUser {
     readonly login: string // Unable to overwrite
     password: number
     name?: string // Not mandatory
@@ -2766,8 +2872,9 @@ const userSkills: readonly string[] = [
 ]
 
 // userSkills[2] = 'Vue.js' // Error! Index signature in type 'readonly string[]' only permits reading.`},
-{title: {en: 'Enums in TypeScript', ua: 'Enums (Перелік) у TypeScript'}, body: {en: 'Enums are one of the few TypeScript features that are not JavaScript type-level extensions. Enums allow the developer to define a set of named constants. Using lists can make it easier to document intent or create a set of different cases. TypeScript provides both numeric and string enumerations. If you substitute a const enum, then when compiling, TypeScript will not make a function from the enum, but will immediately place everything you need where you need it. But you should not abuse this, because it can cause many mistakes.', ua: `Enums є однією з небагатьох функцій TypeScript, яка не є розширенням рівня типу JavaScript. Enums дозволяють розробнику визначати набір іменованих констант. Використання переліків може спростити документування намірів або створити набір різних випадків. TypeScript надає як числові, так і рядкові переліки. Якщо підставити const enum, то при конпіляції TypeScript не буде робити із enum функцію, а зразу підставе все що треба куди треба. Але не треба зловживати цим, адже це може спричинити багато помилок.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/enums.html', ua: 'https://www.typescriptlang.org/docs/handbook/enums.html'}, type: 'typescript', data: 
-`/* After compilation in JavaScript, the code will turn into a function. */
+  {
+    title: { en: 'Enums in TypeScript', ua: 'Enums (Перелік) у TypeScript' }, body: { en: 'Enums are one of the few TypeScript features that are not JavaScript type-level extensions. Enums allow the developer to define a set of named constants. Using lists can make it easier to document intent or create a set of different cases. TypeScript provides both numeric and string enumerations. If you substitute a const enum, then when compiling, TypeScript will not make a function from the enum, but will immediately place everything you need where you need it. But you should not abuse this, because it can cause many mistakes.', ua: `Enums є однією з небагатьох функцій TypeScript, яка не є розширенням рівня типу JavaScript. Enums дозволяють розробнику визначати набір іменованих констант. Використання переліків може спростити документування намірів або створити набір різних випадків. TypeScript надає як числові, так і рядкові переліки. Якщо підставити const enum, то при конпіляції TypeScript не буде робити із enum функцію, а зразу підставе все що треба куди треба. Але не треба зловживати цим, адже це може спричинити багато помилок.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/enums.html', ua: 'https://www.typescriptlang.org/docs/handbook/enums.html' }, type: 'typescript', data:
+      `/* After compilation in JavaScript, the code will turn into a function. */
 enum ShapeType {
     CIRCLE, // ShapeType.CIRCLE = 0
     SQUARE, // ShapeType.SQUARE = 1
@@ -2822,8 +2929,9 @@ function logDrawShape(shape: Shape, shapeType: ShapeType): void {
 logDrawShape(circle, ShapeType.CIRCLE) // Drawing a CIRCLE with color #0000FF and size 10 in
 logDrawShape(square, ShapeType.SQUARE) // Drawing a SQUARE with color #00FF00 and size 5 cm
 logDrawShape(circle, ShapeType.SQUARE) // Error! Shape types do not match`},
-{title: {en: 'Type Unknown in TypeScript', ua: 'Тип Unknown (Невизначений) у TypeScript'}, body: {en: 'The unknown type represents any value. This is similar to the any type, but is safer because it’s not legal to do anything with an unknown value. This is useful when describing function types because you can describe functions that accept any value without having any values in your function body. Conversely, you can describe a function that returns a value of unknown type.', ua: `Тип Unknown представляє будь-яке значення. Це схоже на тип Any, але безпечніше, оскільки заборонено робити щось із Unknown значенням. Це корисно під час опису типів функцій, оскільки ви можете описати функції, які приймають будь-які значення, не маючи жодних значень у вашому тілі функції. І навпаки, ви можете описати функцію, яка повертає значення типу Unknown.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown'}, type: 'typescript', data: [
-`/* Case 1 */
+  {
+    title: { en: 'Type Unknown in TypeScript', ua: 'Тип Unknown (Невизначений) у TypeScript' }, body: { en: 'The unknown type represents any value. This is similar to the any type, but is safer because it’s not legal to do anything with an unknown value. This is useful when describing function types because you can describe functions that accept any value without having any values in your function body. Conversely, you can describe a function that returns a value of unknown type.', ua: `Тип Unknown представляє будь-яке значення. Це схоже на тип Any, але безпечніше, оскільки заборонено робити щось із Unknown значенням. Це корисно під час опису типів функцій, оскільки ви можете описати функції, які приймають будь-які значення, не маючи жодних значень у вашому тілі функції. І навпаки, ви можете описати функцію, яка повертає значення типу Unknown.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown' }, type: 'typescript', data: [
+      `/* Case 1 */
 const userData = '{"isBirthday": true, "ageData": 40, "userName": "John"}'
 
 function safeParse(response: string): unknown {
@@ -2844,7 +2952,7 @@ function transferData(data: unknown): void {
 
 transferData(parsedData)`,
 
-`/* Case 2 */
+      `/* Case 2 */
 try {
     if (true) {
         throw new Error('error')
@@ -2857,14 +2965,16 @@ try {
     }
 }`,
 
-`/* Case 3 */
+      `/* Case 3 */
 type T0 = any | unknown // type T0 = any
 type T1 = number | unknown // type T1 = unknown
 
 type T2 = any & unknown // type T0 = any
-type T3 = number & unknown // type T1 = number`]},
-{title: {en: 'Type Query in TypeScript', ua: 'Type Query (Запит Типів) у TypeScript'}, body: {en: 'The mechanism that allows you to get the type of a particular entity is called a type query. Most often, it is necessary when we clearly understand what type we need in this situation and it will not be repeated anywhere else. Implemented via the typeof + entity operator.', ua: `Механізм, який дозволяє отримати тип певної сутності, називається запит типу (type query). Найчастіше він необхідний, коли ми чітко розуміємо, який тип нам потрібен у цій ситуації і він ніде далі не повторюватиметься. Реалізується через оператор typeof + сутність.`}, link: {en: '#', ua: '#'}, type: 'typescript', data: 
-`const dataFromControl = {
+type T3 = number & unknown // type T1 = number`]
+  },
+  {
+    title: { en: 'Type Query in TypeScript', ua: 'Type Query (Запит Типів) у TypeScript' }, body: { en: 'The mechanism that allows you to get the type of a particular entity is called a type query. Most often, it is necessary when we clearly understand what type we need in this situation and it will not be repeated anywhere else. Implemented via the typeof + entity operator.', ua: `Механізм, який дозволяє отримати тип певної сутності, називається запит типу (type query). Найчастіше він необхідний, коли ми чітко розуміємо, який тип нам потрібен у цій ситуації і він ніде далі не повторюватиметься. Реалізується через оператор typeof + сутність.` }, link: { en: '#', ua: '#' }, type: 'typescript', data:
+      `const dataFromControl = {
     water: 200,
     el: 350
 }
@@ -2884,8 +2994,9 @@ console.log(
 
 const PI = 3.14
 let PIClone: typeof PI // PIClone: 3.14`},
-{title: {en: 'Type Inference in TypeScript', ua: 'Механізм виводу типів (Type Inference) у Typescript'}, body: {en: 'In TypeScript, there are several places where type inference is used to provide type information when there is no explicit type annotation. When a type inference is made from several expressions, the types of those expressions are used to calculate a “best common type”.', ua: `У TypeScript є кілька місць, де Inference (висновок) типу використовується для надання інформації про тип, коли немає явної анотації типу. Коли висновок типу робиться з кількох виразів, типи цих виразів використовуються для обчислення «найкращого загального типу».`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/type-inference.html#handbook-content', ua: 'https://www.typescriptlang.org/docs/handbook/type-inference.html#handbook-content'}, type: 'typescript', data: 
-`const salary: number = 500 // const salary: number
+  {
+    title: { en: 'Type Inference in TypeScript', ua: 'Механізм виводу типів (Type Inference) у Typescript' }, body: { en: 'In TypeScript, there are several places where type inference is used to provide type information when there is no explicit type annotation. When a type inference is made from several expressions, the types of those expressions are used to calculate a “best common type”.', ua: `У TypeScript є кілька місць, де Inference (висновок) типу використовується для надання інформації про тип, коли немає явної анотації типу. Коли висновок типу робиться з кількох виразів, типи цих виразів використовуються для обчислення «найкращого загального типу».` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/type-inference.html#handbook-content', ua: 'https://www.typescriptlang.org/docs/handbook/type-inference.html#handbook-content' }, type: 'typescript', data:
+      `const salary: number = 500 // const salary: number
 // const salary = 500 // const salary: 500
 
 let example // let example: any
@@ -2907,8 +3018,9 @@ let movement: boolean | string = false // let movement: string | boolean
 if (isOkay) {
     movement = 'moving'
 }`},
-{title: {en: 'Type Assertions using "as" keyword in TypeScript', ua: 'Type Assertions (Утвердження Типу) використовуючи ключове слово "as" у Typescript'}, body: {en: 'Typically, Type Assertions are used to specify Union type annotations in a function argument when we accept an Object or Literal type assertion for a variable. As well as specification of the Element in the DOM tree, namely what properties it will have.', ua: `Зазвичай Type Assertions (Утвердження Типу) використовують для конкретизації анотацій Union типу в аргументі функції, коли ми приймаємо об'єкт чи затвердження типу Literal для змінної. А також конкретезації Елементу в DOM дереві, а саме які властивості воно матиме.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions'}, type: 'typescript', data: [
-`/* Case 1. Using operator "as" when we want typing "let" variable declaration with result of non-typing function. */
+  {
+    title: { en: 'Type Assertions using "as" keyword in TypeScript', ua: 'Type Assertions (Утвердження Типу) використовуючи ключове слово "as" у Typescript' }, body: { en: 'Typically, Type Assertions are used to specify Union type annotations in a function argument when we accept an Object or Literal type assertion for a variable. As well as specification of the Element in the DOM tree, namely what properties it will have.', ua: `Зазвичай Type Assertions (Утвердження Типу) використовують для конкретизації анотацій Union типу в аргументі функції, коли ми приймаємо об'єкт чи затвердження типу Literal для змінної. А також конкретезації Елементу в DOM дереві, а саме які властивості воно матиме.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions', ua: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions' }, type: 'typescript', data: [
+      `/* Case 1. Using operator "as" when we want typing "let" variable declaration with result of non-typing function. */
 let message = 'Hello World' as string
 
 let path = './src/App' as './src/App'
@@ -2916,7 +3028,7 @@ let path = './src/App' as './src/App'
 let id: unknown = 25
 
 let userId = id as number`,
-`/* Case 2. Using "as const" to show, that you have Union type. */
+      `/* Case 2. Using "as const" to show, that you have Union type. */
 const routes = {
     home: '/',
     admin: '/admin',
@@ -2930,7 +3042,7 @@ goToRoute('junior-guide-map.com', routes.admin)
 const routeList = [
     '/main', '/aboutus', '/payment'
 ] as const`,
-`/* Case 3. Using "as VALUE" inside object. */
+      `/* Case 3. Using "as VALUE" inside object. */
 function fetchData(url: string, method: "GET" | "POST"): void {
     console.log({
         to: url,
@@ -2944,23 +3056,23 @@ const requestOptions = {
 }
 
 fetchData(requestOptions.url, requestOptions.method) // { to: 'https://web-app.com', method: 'GET' }`,
-`/* Case 4. Using "as VALUE" inside function arguments. */
+      `/* Case 4. Using "as VALUE" inside function arguments. */
 const requestOptions = {
     url: 'https://google.com',
     method: "GET"
 }
 
 fetchData(requestOptions.url, requestOptions.method as "GET") // { to: 'https://google.com', method: 'GET' }`,
-`/* Case 5. Using triangular brackets. */
+      `/* Case 5. Using triangular brackets. */
 const requestOptions = {
     url: 'https:///xlaoru.info',
     method: "POST"
 }
 
 fetchData(requestOptions.url, <'POST'>requestOptions.method) // { to: 'https:///xlaoru.info', method: 'POST' }`,
-`/* Case 6. Using operator "as" when we want typing declaration of HTML Element. */
+      `/* Case 6. Using operator "as" when we want typing declaration of HTML Element. */
 const input = document.querySelector('input') as HTMLElement`,
-`/* Case 7. Using operator "as" when we want typing "let" variable declaration with result of non-typing function. */
+      `/* Case 7. Using operator "as" when we want typing "let" variable declaration with result of non-typing function. */
 interface IStudent {
     name: string;
     grade: number;
@@ -2977,9 +3089,11 @@ let student1 = registerStudent({
     name: 'Alex',
     grade: 8
 }) as IStudent`
-]},
-{title: {en: 'Function overloads in TypeScript', ua: 'Перегрузки функції (Functiono verloads) у Typescript'}, body: {en: 'Some JavaScript functions can be called in a variety of argument counts and types. For example, you might write a function to produce a Date that takes either a timestamp (one argument) or a month/day/year specification (three arguments). In TypeScript, we can specify a function that can be called in different ways by writing overload signatures. To do this, write some number of function signatures (usually two or more), followed by the body of the function.', ua: `Деякі функції JavaScript можна викликати з різною кількістю аргументів і різними типами. Наприклад, ви можете написати функцію для отримання дати, яка приймає позначку часу (один аргумент) або специфікацію місяця/дня/ріку (три аргументи). У TypeScript ми можемо вказати функцію, яку можна викликати різними способами, написавши підписи перевантаження. Для цього напишіть певну кількість сигнатур функції (зазвичай дві або більше), а потім тіло функції.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads'}, type: 'typescript', data: 
-`interface ISquare {
+    ]
+  },
+  {
+    title: { en: 'Function overloads in TypeScript', ua: 'Перегрузки функції (Functiono verloads) у Typescript' }, body: { en: 'Some JavaScript functions can be called in a variety of argument counts and types. For example, you might write a function to produce a Date that takes either a timestamp (one argument) or a month/day/year specification (three arguments). In TypeScript, we can specify a function that can be called in different ways by writing overload signatures. To do this, write some number of function signatures (usually two or more), followed by the body of the function.', ua: `Деякі функції JavaScript можна викликати з різною кількістю аргументів і різними типами. Наприклад, ви можете написати функцію для отримання дати, яка приймає позначку часу (один аргумент) або специфікацію місяця/дня/ріку (три аргументи). У TypeScript ми можемо вказати функцію, яку можна викликати різними способами, написавши підписи перевантаження. Для цього напишіть певну кількість сигнатур функції (зазвичай дві або більше), а потім тіло функції.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads' }, type: 'typescript', data:
+      `interface ISquare {
     side: number
     area: number
 }
@@ -3012,9 +3126,10 @@ function calculateArea(length: number, width?: number): ISquare | IRect {
 
 calculateArea(1) // function calculateArea(side: number): ISquare (+1 overload)
 calculateArea(1, 5) // function calculateArea(length: number, width: number): IRect (+1 overload)`},
-{title: {en: 'Manipulation with DOM tree in TypeScript', ua: 'Робота з DOM деревом у Typescript'}, body: {en: 'Usually, working with the DOM tree in TypeScript is not used, because most of the work with TypeScript has additional tools. Like React.js or Angular.js, but knowing that TypeScript allows you to work with the DOM tree to do event handling is as good as it gets.', ua: `Зазвичай робота з DOM деревом у TypeScript не використовується, оскільки в більшості роботи з TypeScript є ще додаткові інструменти. Такі як React.js чи Angular.js, але знати, що TypeScript дозволяє працювати з DOM деревом для робити обробку подій, є максимально добре.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/dom-manipulation.html#handbook-content', ua: 'https://www.typescriptlang.org/docs/handbook/dom-manipulation.html#handbook-content'}, type: 'typescript', data: 
-[
-`<!DOCTYPE html>
+  {
+    title: { en: 'Manipulation with DOM tree in TypeScript', ua: 'Робота з DOM деревом у Typescript' }, body: { en: 'Usually, working with the DOM tree in TypeScript is not used, because most of the work with TypeScript has additional tools. Like React.js or Angular.js, but knowing that TypeScript allows you to work with the DOM tree to do event handling is as good as it gets.', ua: `Зазвичай робота з DOM деревом у TypeScript не використовується, оскільки в більшості роботи з TypeScript є ще додаткові інструменти. Такі як React.js чи Angular.js, але знати, що TypeScript дозволяє працювати з DOM деревом для робити обробку подій, є максимально добре.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/dom-manipulation.html#handbook-content', ua: 'https://www.typescriptlang.org/docs/handbook/dom-manipulation.html#handbook-content' }, type: 'typescript', data:
+      [
+        `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -3033,7 +3148,7 @@ calculateArea(1, 5) // function calculateArea(length: number, width: number): IR
     <script src="index.js"></script>
 </body>
 </html>`,
-`const box = document.querySelector('.box') as HTMLElement
+        `const box = document.querySelector('.box') as HTMLElement
 box.textContent = 'hello world!'
 
 const input = document.querySelector('input') as HTMLInputElement
@@ -3052,9 +3167,11 @@ const links = document.querySelectorAll('a') // links: NodeListOf<HTMLAnchorElem
 const elem = document.createElement('a') as HTMLAnchorElement
 link.addEventListener('click', (e) => { // e: MouseEvent
     e.preventDefault()
-})`]},
-{title: {en: 'Type Void inside TypeScript', ua: 'Тип Void всередені Typescript'}, body: {en: 'The void return type for functions can produce some unusual, but expected behavior. Contextual typing with a return type of void does not force functions to not return something. Another way to say this is a contextual function type with a void return type (type voidFunc = () => void), when implemented, can return any other value, but it will be ignored. Thus, examples in the post of the "type () => void" are valid.', ua: `Тип повернення void для функцій може викликати деяку незвичну, але очікувану поведінку. Контекстна типізація з типом повернення void не змушує функції нічого не повертати. Інший спосіб сказати, що це тип контекстної функції з типом повернення void (тип voidFunc = () => void), коли він реалізований, може повертати будь-яке інше значення, але воно буде проігноровано. Таким чином, приклади в дописі "type () => void" є дійсними.`}, link: {en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#return-type-void', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#return-type-void'}, type: 'typescript', data:
-`type voidFunc = () => void
+})`]
+  },
+  {
+    title: { en: 'Type Void inside TypeScript', ua: 'Тип Void всередені Typescript' }, body: { en: 'The void return type for functions can produce some unusual, but expected behavior. Contextual typing with a return type of void does not force functions to not return something. Another way to say this is a contextual function type with a void return type (type voidFunc = () => void), when implemented, can return any other value, but it will be ignored. Thus, examples in the post of the "type () => void" are valid.', ua: `Тип повернення void для функцій може викликати деяку незвичну, але очікувану поведінку. Контекстна типізація з типом повернення void не змушує функції нічого не повертати. Інший спосіб сказати, що це тип контекстної функції з типом повернення void (тип voidFunc = () => void), коли він реалізований, може повертати будь-яке інше значення, але воно буде проігноровано. Таким чином, приклади в дописі "type () => void" є дійсними.` }, link: { en: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#return-type-void', ua: 'https://www.typescriptlang.org/docs/handbook/2/functions.html#return-type-void' }, type: 'typescript', data:
+      `type voidFunc = () => void
 
 const returnString: voidFunc = () => {
     // ... some code...
@@ -3086,8 +3203,9 @@ const newArray = names.slice() // newArray: string[]
 names.forEach((name, index, array) => {
     array.push('Hey!')
 })`},
-{title: {en: 'Rest Operator', ua: 'Оператор Rest'}, body: {en: 'The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.', ua: `Синтаксис присвоєння деструктуризації — це вираз JavaScript, який дає змогу розпаковувати значення з масивів або властивості з об’єктів у окремі змінні.`}, link: {en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment'}, type: 'operator', data: 
-`const array = [1, 1, 2, 3, 5, 8]
+  {
+    title: { en: 'Rest Operator', ua: 'Оператор Rest' }, body: { en: 'The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.', ua: `Синтаксис присвоєння деструктуризації — це вираз JavaScript, який дає змогу розпаковувати значення з масивів або властивості з об’єктів у окремі змінні.` }, link: { en: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment', ua: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment' }, type: 'operator', data:
+      `const array = [1, 1, 2, 3, 5, 8]
 
 const user = {
     name: 'Alex',
@@ -3104,8 +3222,9 @@ const {name, ...otherData} = user
 
 console.log(name) // Alex
 console.log(otherData) // { age: 28, isStudent: false }`},
-{title: {en: 'An example of using enum in React.js', ua: 'Приклад використання enum у React.js'}, body: {en: 'It is in this example that enum is used to check whether the page for the user or the page for the administrator should be displayed.', ua: 'Саме у цьому прикладі enum використовується як перевірити, що саме треба виводити на екран: сторінку для користувача чи сторінку для адміністратора.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[`import MainView from "./MainView";
+  {
+    title: { en: 'An example of using enum in React.js', ua: 'Приклад використання enum у React.js' }, body: { en: 'It is in this example that enum is used to check whether the page for the user or the page for the administrator should be displayed.', ua: 'Саме у цьому прикладі enum використовується як перевірити, що саме треба виводити на екран: сторінку для користувача чи сторінку для адміністратора.' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      [`import MainView from "./MainView";
 
 export default function App() {
   return (
@@ -3114,7 +3233,7 @@ export default function App() {
     </div>
   );
 }`,
-`import AdminView from "./AdminView";
+        `import AdminView from "./AdminView";
 import UserView from "./UserView";
 
 enum RolesViews {
@@ -3131,9 +3250,11 @@ function MainView({ role }: { role: string }) {
   return <CurrentView />;
 }
 
-export default MainView;`]},
-{title: {en: 'An example of displaying a render in the form of a log in the console', ua: 'Приклад показу рендеру у вигляді логу у консоль'}, body: {en: `This example shows that when rendering, the log in the body of the function of the parent element will be displayed first, then the log in the body of the child element. Then the log in the child element's ref, then the log in the parent element. And at the end, log in useEffect() in the child element, and then log in useEffect() in the parent element.`, ua: `На цьому прикладі показано, що при рендері спочатку буде виводитись лог у тілі функції батьківського елементу, далі лог у тілі дочірнього елементу. Потім лог у ref'і дочірнього елементу, далі лог у батьківському елементі. А в кінці лог в useEffect() у дочірньому елементі, а потім лог в useEffect() у батьківському елементі.`}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[`import React from 'react'
+export default MainView;`]
+  },
+  {
+    title: { en: 'An example of displaying a render in the form of a log in the console', ua: 'Приклад показу рендеру у вигляді логу у консоль' }, body: { en: `This example shows that when rendering, the log in the body of the function of the parent element will be displayed first, then the log in the body of the child element. Then the log in the child element's ref, then the log in the parent element. And at the end, log in useEffect() in the child element, and then log in useEffect() in the parent element.`, ua: `На цьому прикладі показано, що при рендері спочатку буде виводитись лог у тілі функції батьківського елементу, далі лог у тілі дочірнього елементу. Потім лог у ref'і дочірнього елементу, далі лог у батьківському елементі. А в кінці лог в useEffect() у дочірньому елементі, а потім лог в useEffect() у батьківському елементі.` }, link: { en: '#', ua: '#' }, type: 'React', data:
+      [`import React from 'react'
 
 const T0: React.FC = ({children}) => {
   console.log(1)
@@ -3168,10 +3289,12 @@ const App: React.FC = () => {
 }
 
 export default App`,
-`Result:
-/* 1 - 3 - 6 - 5 - 4 - 3 */`]},
-{title: {en: 'Dependency Inversion ', ua: 'Інверсія залежностей'}, body: {en: 'The principle of dependency inversion is a principle of object-oriented programming, the essence of which is that classes should depend on abstractions, not on concrete details. It is used to minimize engagement in computer programs.', ua: `Принцип інверсії залежностей — принцип об'єктно-орієнтованого програмування, суть якого у тому, що класи мають залежати від абстракцій, а чи не від конкретних деталей. Використовується для мінімізації зачеплення у комп'ютерних програмах.`}, link: {en: '#', ua: '#'}, type: 'OOP', data: 
-`interface USBPort {
+        `Result:
+/* 1 - 3 - 6 - 5 - 4 - 3 */`]
+  },
+  {
+    title: { en: 'Dependency Inversion ', ua: 'Інверсія залежностей' }, body: { en: 'The principle of dependency inversion is a principle of object-oriented programming, the essence of which is that classes should depend on abstractions, not on concrete details. It is used to minimize engagement in computer programs.', ua: `Принцип інверсії залежностей — принцип об'єктно-орієнтованого програмування, суть якого у тому, що класи мають залежати від абстракцій, а чи не від конкретних деталей. Використовується для мінімізації зачеплення у комп'ютерних програмах.` }, link: { en: '#', ua: '#' }, type: 'OOP', data:
+      `interface USBPort {
     charge(battery: Battery): void
 }
   
@@ -3202,8 +3325,9 @@ export class Phone {
 }
 
 const phone = new Phone(new PowerBank())`},
-{title: {en: 'Strategy Pattern', ua: 'Паттерн Стратегії'}, body: {en: 'The Strategy pattern encapsulates alternative algorithms (or strategies) for a particular task. It allows a method to be swapped out at runtime by any other method (strategy) without the client realizing it. Essentially, Strategy is a group of algorithms that are interchangeable.', ua: 'Шаблон стратегії інкапсулює альтернативні алгоритми (або стратегії) для конкретного завдання. Це дозволяє замінити метод під час виконання будь-яким іншим методом (стратегією), не усвідомлюючи цього клієнтом. По суті, стратегія — це група взаємозамінних алгоритмів.'}, link: {en: '#', ua: '#'}, type: 'OOP', data: 
-`interface USBPort {
+  {
+    title: { en: 'Strategy Pattern', ua: 'Паттерн Стратегії' }, body: { en: 'The Strategy pattern encapsulates alternative algorithms (or strategies) for a particular task. It allows a method to be swapped out at runtime by any other method (strategy) without the client realizing it. Essentially, Strategy is a group of algorithms that are interchangeable.', ua: 'Шаблон стратегії інкапсулює альтернативні алгоритми (або стратегії) для конкретного завдання. Це дозволяє замінити метод під час виконання будь-яким іншим методом (стратегією), не усвідомлюючи цього клієнтом. По суті, стратегія — це група взаємозамінних алгоритмів.' }, link: { en: '#', ua: '#' }, type: 'OOP', data:
+      `interface USBPort {
     charge(battery: Battery): void
 }
   
@@ -3257,8 +3381,9 @@ phone.removeCharger()
 
 phone.setCharger(new MacBook())
 phone.removeCharger()`},
-{title: {en: 'An example of the competent use of useState() and the capabilities of React.js', ua: 'Приклад грамотного використовування useState() та можливостей React.js'}, body: {en: 'An easy way to label the result without using additional useState() states.', ua: 'Легкий спосіб позначити результат без використання додаткових useState() станів.'}, link: {en: '#', ua: '#'}, type: 'React', data: 
-`import { useState } from "react";
+  {
+    title: { en: 'An example of the competent use of useState() and the capabilities of React.js', ua: 'Приклад грамотного використовування useState() та можливостей React.js' }, body: { en: 'An easy way to label the result without using additional useState() states.', ua: 'Легкий спосіб позначити результат без використання додаткових useState() станів.' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      `import { useState } from "react";
 
 interface IUser {
   username: string;
@@ -3278,8 +3403,9 @@ function Demo() {
 
 export default Demo;
 `},
-{title: {en: 'An example of a good use of conditional statements when rendering a page', ua: 'Приклад гарного використання умовних операторів при рендері сторінки'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'React', data: 
-[`import Demo from './Demo'
+  {
+    title: { en: 'An example of a good use of conditional statements when rendering a page', ua: 'Приклад гарного використання умовних операторів при рендері сторінки' }, body: { en: '', ua: '' }, link: { en: '#', ua: '#' }, type: 'React', data:
+      [`import Demo from './Demo'
 
 export default function App() {
   return (
@@ -3288,7 +3414,7 @@ export default function App() {
     </div>
   );
 }`,
-`import Redirect from './Redirect'
+        `import Redirect from './Redirect'
 
 interface DemoProps {
   frineds: string[]
@@ -3314,9 +3440,11 @@ function Demo({friends, isSignedIn}: DemoProps) {
   )
 }
 
-export default Demo`]},
-{title: {en: 'An example of the correct naming of logical variables', ua: 'Приклад грамотного іменування логічних змінних'}, body: {en: '', ua: ''}, link: {en: '#', ua: '#'}, type: 'all', data: 
-`// 🚫 Bad practice
+export default Demo`]
+  },
+  {
+    title: { en: 'An example of the correct naming of logical variables', ua: 'Приклад грамотного іменування логічних змінних' }, body: { en: '', ua: '' }, link: { en: '#', ua: '#' }, type: 'all', data:
+      `// 🚫 Bad practice
 const admin = true
 const fail = false
 const activate = true
@@ -3325,8 +3453,9 @@ const activate = true
 const isAdmin = true
 const hasFailed = false
 const canActivate = true`},
-{title: {en: `A function that has a fully typed ability to extract nested keys from an object using generics and keyof`, ua: `Функція, що має повністю типізовану змогу на витягання вкладених ключів з об'єкту за допомогою generics і keyof`}, body: {en: `An example of a function that can retrieve the value of nested keys, while being fully protected from the point of view of Type Guard.`, ua: `Приклад функції, яка може отримувати значення вкладених ключів, будучи при цьому повністю захищеною з точки зору Type Guard.`}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data:
-`const menu = {
+  {
+    title: { en: `A function that has a fully typed ability to extract nested keys from an object using generics and keyof`, ua: `Функція, що має повністю типізовану змогу на витягання вкладених ключів з об'єкту за допомогою generics і keyof` }, body: { en: `An example of a function that can retrieve the value of nested keys, while being fully protected from the point of view of Type Guard.`, ua: `Приклад функції, яка може отримувати значення вкладених ключів, будучи при цьому повністю захищеною з точки зору Type Guard.` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'task'], data:
+      `const menu = {
     analytics: {
         business: "For Business",
         data: "Big Data"
@@ -3346,8 +3475,9 @@ function getMenu<TMenu, TKey1 extends keyof TMenu, TKey2 extends keyof TMenu[TKe
 
 console.log(getMenu(menu, "analytics", "data")) // "Big Data" 
 console.log(getMenu(menu, "design", "graphical")) // "Graphic"`},
-{title: {en: `Finding number without a pair in an array of numbers using the xor(^) operator`, ua: `Пошук числа без пари в масиві чисел за допомогою оператора xor(^)`}, body: {en: ``, ua: ``}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR`}, type: 'task', data:
-`function singleNumber(numArray: number[]): number {
+  {
+    title: { en: `Finding number without a pair in an array of numbers using the xor(^) operator`, ua: `Пошук числа без пари в масиві чисел за допомогою оператора xor(^)` }, body: { en: ``, ua: `` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR` }, type: 'task', data:
+      `function singleNumber(numArray: number[]): number {
     let xorResult: number = 0
 
     for (let i: number = 0; numArray.length > i; i++) {
@@ -3368,8 +3498,9 @@ console.log(
 console.log(
 singleNumber([7, 7, 8, 8, 8, 9, 9])
 ) // 8`},
-{title: {en: `Custom useDebounce() hook`, ua: `Зроблений власноруч хук useDebounce()`}, body: {en: `This useDebounce() hook is designed to control the frequency of receiving values from the input to save optimization moments in the application.`, ua: `Цей useDebounce() хук зроблений для того, щоб контролювати частоту отримання значень із інпуту для збереження оптимізаційних моментів в роботі додатку.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
-`import { useState, useEffect } from "react";
+  {
+    title: { en: `Custom useDebounce() hook`, ua: `Зроблений власноруч хук useDebounce()` }, body: { en: `This useDebounce() hook is designed to control the frequency of receiving values from the input to save optimization moments in the application.`, ua: `Цей useDebounce() хук зроблений для того, щоб контролювати частоту отримання значень із інпуту для збереження оптимізаційних моментів в роботі додатку.` }, link: { en: `#`, ua: `#` }, type: 'React', data: [
+      `import { useState, useEffect } from "react";
 
 export default function useDebounce<T>(value: T, delay: number = 250): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
@@ -3386,7 +3517,7 @@ export default function useDebounce<T>(value: T, delay: number = 250): T {
   return debouncedValue;
 }
 `,
-`import useDebounce from "./useDebounce";
+      `import useDebounce from "./useDebounce";
 import { useState } from "react";
 
 export default function App() {
@@ -3405,9 +3536,11 @@ export default function App() {
     </div>
   );
 }
-`]},
-{title: {en: `Renderless Pattern`, ua: `Паттерн без рендеру`}, body: {en: `Renderless Pattern is a React design pattern that separates the logic and state of a component from its display (rendering). This pattern is based on the idea of creating components that provide functionality and state, but no display logic. Such components usually pass functions or callbacks to child components for rendering.`, ua: `Renderless Pattern - це патерн проектування в React, який полягає у поділі логіки та стану компонента від його відображення (рендерингу). В основі цього патерну лежить ідея створення компонентів, що надають функціональність та стан, але не містять логіки відображення. Такі компоненти зазвичай передають функції або колбеки дочірнім компонентам рендерингу.`}, link: {en: `#`, ua: `#`}, type: 'React', data:
-`import React, { useState } from "react";
+`]
+  },
+  {
+    title: { en: `Renderless Pattern`, ua: `Паттерн без рендеру` }, body: { en: `Renderless Pattern is a React design pattern that separates the logic and state of a component from its display (rendering). This pattern is based on the idea of creating components that provide functionality and state, but no display logic. Such components usually pass functions or callbacks to child components for rendering.`, ua: `Renderless Pattern - це патерн проектування в React, який полягає у поділі логіки та стану компонента від його відображення (рендерингу). В основі цього патерну лежить ідея створення компонентів, що надають функціональність та стан, але не містять логіки відображення. Такі компоненти зазвичай передають функції або колбеки дочірнім компонентам рендерингу.` }, link: { en: `#`, ua: `#` }, type: 'React', data:
+      `import React, { useState } from "react";
 
 interface IMouseTrackerProps {
   children: React.ReactNode;
@@ -3451,8 +3584,9 @@ export default function App() {
   );
 }
 `},
-{title: {en: `Custom useArrayState() hook`, ua: `Зроблений власноруч хук useArrayState()`}, body: {en: `This useArrayState() hook is made to control and manipulate array elements through built-in manipulators.`, ua: `Цей useArrayState() хук зроблений для того, щоб контролювати та маніпулювати елементами масиву через вбудованні маніпулятори.`}, link: {en: `#`, ua: `#`}, type: 'React', data:[
-`import { useState } from "react";
+  {
+    title: { en: `Custom useArrayState() hook`, ua: `Зроблений власноруч хук useArrayState()` }, body: { en: `This useArrayState() hook is made to control and manipulate array elements through built-in manipulators.`, ua: `Цей useArrayState() хук зроблений для того, щоб контролювати та маніпулювати елементами масиву через вбудованні маніпулятори.` }, link: { en: `#`, ua: `#` }, type: 'React', data: [
+      `import { useState } from "react";
 
 type ArrayStateActions<T> = {
   add: (item: T) => void;
@@ -3472,7 +3606,7 @@ function useArrayState<T>(initialItems: T[]): [T[], ArrayStateActions<T>] {
 
 export default useArrayState;
 `,
-`import useArrayState from "./useArrayState";
+      `import useArrayState from "./useArrayState";
 
 interface ITodo {
   id: number;
@@ -3518,9 +3652,11 @@ export default function App() {
     </div>
   );
 }
-`]},
-{title: {en: `Custom useCountdown() hook`, ua: `Зроблений власноруч хук useCountdown()`}, body: {en: `This useCountdown() hook is made to allow the timer to be reused.`, ua: `Цей useCountdown() хук зроблений для того, щоб була можливість перевикористовувати таймер.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
-`import { useEffect, useState } from "react";
+`]
+  },
+  {
+    title: { en: `Custom useCountdown() hook`, ua: `Зроблений власноруч хук useCountdown()` }, body: { en: `This useCountdown() hook is made to allow the timer to be reused.`, ua: `Цей useCountdown() хук зроблений для того, щоб була можливість перевикористовувати таймер.` }, link: { en: `#`, ua: `#` }, type: 'React', data: [
+      `import { useEffect, useState } from "react";
 
 function useCountdown(length: number) {
   const [seconds, setSeconds] = useState(length);
@@ -3539,7 +3675,7 @@ function useCountdown(length: number) {
 
 export default useCountdown;
 `,
-`import useCountdown from "./useCountdown";
+      `import useCountdown from "./useCountdown";
 
 function App() {
   const seconds = useCountdown(60);
@@ -3547,9 +3683,11 @@ function App() {
 }
 
 export default App;
-`]},
-{title: {en: `ComponentProps and ComponentPropsWithRef props in React with TypeScript`, ua: `Пропси ComponentProps і ComponentPropsWithRef у React з TypeScript`}, body: {en: `ComponentProps and ComponentPropsWithRef are needed to nicely type components in TypeScript without using your own custom interfaces.`, ua: `ComponentProps і ComponentPropsWithRef потрібні для гарної типізації компонентів у TypeScript без використання своїх власноруч написаних інтерфейсів.`}, link: {en: `#`, ua: `#`}, type: 'React', data: 
-`import { ComponentProps, ComponentPropsWithRef } from "react";
+`]
+  },
+  {
+    title: { en: `ComponentProps and ComponentPropsWithRef props in React with TypeScript`, ua: `Пропси ComponentProps і ComponentPropsWithRef у React з TypeScript` }, body: { en: `ComponentProps and ComponentPropsWithRef are needed to nicely type components in TypeScript without using your own custom interfaces.`, ua: `ComponentProps і ComponentPropsWithRef потрібні для гарної типізації компонентів у TypeScript без використання своїх власноруч написаних інтерфейсів.` }, link: { en: `#`, ua: `#` }, type: 'React', data:
+      `import { ComponentProps, ComponentPropsWithRef } from "react";
 import React, { useRef } from "react";
 
 type ButtonProps = ComponentProps<"button">;
@@ -3589,8 +3727,9 @@ function App() {
 }
 
 export default App;`},
-{title: {en: `An example of the correct naming of functions`, ua: `Приклад правильного іменування функцій`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'all', data:
-`// 🚫 Bad practice
+  {
+    title: { en: `An example of the correct naming of functions`, ua: `Приклад правильного іменування функцій` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'all', data:
+      `// 🚫 Bad practice
 function find() {}
 function rating() {}
 function posts() {}
@@ -3600,8 +3739,9 @@ function findUser() {}
 function findUserById() {}
 function countRating() {}
 function fetchPosts() {}`},
-{title: {en: `Utility types in TypeScript`, ua: `Utility типи у TypeScript`}, body: {en: `In TypeScript, utility types are built-in type transformations that allow you to manipulate and transform types easily. These utility types help you manipulate and transform types in various ways, making it easier to work with complex data structures and ensuring type safety.`, ua: `У TypeScript службові типи — це вбудовані перетворення типів, які дозволяють легко маніпулювати типами та перетворювати їх. Ці типи утиліт допомагають маніпулювати типами та перетворювати їх різними способами, полегшуючи роботу зі складними структурами даних і забезпечуючи безпеку типів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/utility-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html`}, type: 'typescript', data: [
-`interface IUser {
+  {
+    title: { en: `Utility types in TypeScript`, ua: `Utility типи у TypeScript` }, body: { en: `In TypeScript, utility types are built-in type transformations that allow you to manipulate and transform types easily. These utility types help you manipulate and transform types in various ways, making it easier to work with complex data structures and ensuring type safety.`, ua: `У TypeScript службові типи — це вбудовані перетворення типів, які дозволяють легко маніпулювати типами та перетворювати їх. Ці типи утиліт допомагають маніпулювати типами та перетворювати їх різними способами, полегшуючи роботу зі складними структурами даних і забезпечуючи безпеку типів.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/utility-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html` }, type: 'typescript', data: [
+      `interface IUser {
     id: number;
     name: string;
     email: string
@@ -3627,7 +3767,7 @@ console.log(partialUser) // {name: 'Alice'}
 */
 
 `,
-`interface IConfig {
+      `interface IConfig {
     host?: string;
     port?: number
 }
@@ -3652,7 +3792,7 @@ console.log(
     The Required<IConfig> type ensures that config
     must have both host and properties.
 */`,
-`interface IPoint {
+      `interface IPoint {
     x: number;
     y: number
 }
@@ -3680,7 +3820,7 @@ console.log(
     cannot modify the properties of point after
     initialization.
 */`,
-`type Fruit = 'apple' | 'banana' | 'cherry'
+      `type Fruit = 'apple' | 'banana' | 'cherry'
 type FruitInfo = Record<Fruit, {color: string; taste: string}>
 
 const fruitInfo: FruitInfo = {
@@ -3722,7 +3862,7 @@ console.log(
     their properties.
 */
 `,
-`interface IPerson {
+      `interface IPerson {
   name: string;
   age: number;
   address: string
@@ -3752,7 +3892,7 @@ console.log(
   Pick<Type, Keys> constructs a type by picking
   only the specified keys from Type.
 */`,
-`interface IProduct {
+      `interface IProduct {
   id: string;
   name: string;
   price: number
@@ -3782,7 +3922,7 @@ console.log(
   Omit<Type, Keys> constructs a type by omiting
   the specified keys from Type.
 */`,
-`type Colors = 'red' | 'green' | 'blue'
+      `type Colors = 'red' | 'green' | 'blue'
 type NonRed = Exclude<Colors, 'red'>
 
 interface IColors {
@@ -3802,7 +3942,7 @@ const red: nonBlue = "red"
     by excluding types that are assignable to
     ExcludedUnion from Type.
 */`,
-`type Colors = 'red' | 'green' | 'blue'
+      `type Colors = 'red' | 'green' | 'blue'
 type Figures = "circle" | "cude" | "triangle"
 
 type RedAndGreen = Extract<Colors, 'red' | 'green'>
@@ -3816,9 +3956,11 @@ const blue: Blue = "blue"
     Extract<Type, Union> constructs a type by 
     selection types from Type that are assignable to
     Union.
-*/`]},
-{title: {en: `Pattern for creating a multilingual application using localStorage`, ua: `Паттерн для створення багатомовної програми за допомогою localStorage`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'React', data: [
-`import { useState } from "react";
+*/`]
+  },
+  {
+    title: { en: `Pattern for creating a multilingual application using localStorage`, ua: `Паттерн для створення багатомовної програми за допомогою localStorage` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'React', data: [
+      `import { useState } from "react";
 
 import LanguageHandler from "./LanguageHandler";
 import Demo from "./Demo";
@@ -3845,7 +3987,7 @@ function App() {
 }
 
 export default App;`,
-`import translation from "./translation";
+      `import translation from "./translation";
 import getText from "./getText";
 
 interface ILanguageHandlerProps {
@@ -3863,7 +4005,7 @@ export default function LanguageHandler({lang, setEnLang, setUaLang,}: ILanguage
     </div>
   )
 }`,
-`import translation from "./translation";
+      `import translation from "./translation";
 import getText from "./getText";
 type Props = {}
 
@@ -3872,7 +4014,7 @@ export default function Demo({}: Props) {
     <div>{getText(translation.menu)}</div>
   )
 }`,
-`const translation = {
+      `const translation = {
 	chooseLang: {
   	ua: "Оберіть мову",
     en: "Choose language"
@@ -3888,16 +4030,18 @@ export default function Demo({}: Props) {
 }
 
 export default translation`,
-`const getText = (text: any) => {
+      `const getText = (text: any) => {
     const lang = localStorage.getItem("lang");
     return text[lang || "en"];
 }
 
 export default getText
 `,
-]},
-{title: {en: `Possibilities of calling object options`, ua: `Можливості виклику опцій об'єкта`}, body: {en: `A variant of calling the internal options of an object using square brackets and the option name in quotes.`, ua: `Варіант виклику внутрішніх опцій об'єкта за допомогою квадратних дужок та назви опції в лапках.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics`, ua: `https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics`}, type: 'typescript',data: 
-`interface IPerson {
+    ]
+  },
+  {
+    title: { en: `Possibilities of calling object options`, ua: `Можливості виклику опцій об'єкта` }, body: { en: `A variant of calling the internal options of an object using square brackets and the option name in quotes.`, ua: `Варіант виклику внутрішніх опцій об'єкта за допомогою квадратних дужок та назви опції в лапках.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics`, ua: `https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics` }, type: 'typescript', data:
+      `interface IPerson {
     name: string;
     age: number;
     contact : {
@@ -3948,8 +4092,9 @@ console.log(
 console.log(
     person["contact"].socialNetworking["facebook"]
 ) // alex_official`},
-{title: {en: `Generics in Functions in TypeScript`, ua: `Generics (Узагальнення) у функціях у TypeScript`}, body: {en: `A major part of software engineering is building components that not only have well-defined and consistent APIs, but are also reusable. Components that are capable of working on the data of today as well as the data of tomorrow will give you the most flexible capabilities for building up large software systems. In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is generics, that is, being able to create a component that can work over a variety of types rather than a single one. This allows users to consume these components and use their own types.`, ua: `Основною частиною розробки програмного забезпечення є створення компонентів, які не тільки мають чітко визначені та узгоджені API, але й придатні для повторного використання. Компоненти, здатні працювати як з даними сьогодні, так і з даними завтрашнього дня, нададуть вам найбільш гнучкі можливості для створення великих програмних систем. У таких мовах, як C# і Java, одним із основних інструментів у наборі інструментів для створення повторно використовуваних компонентів є generics (узагальнення), тобто можливість створювати компонент, який може працювати над різними типами, а не з одним. Це дозволяє користувачам споживати ці компоненти та використовувати власні типи.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data: [
-`/* Case 1. An example of using a regular generic to type an argument and output data to a function. */
+  {
+    title: { en: `Generics in Functions in TypeScript`, ua: `Generics (Узагальнення) у функціях у TypeScript` }, body: { en: `A major part of software engineering is building components that not only have well-defined and consistent APIs, but are also reusable. Components that are capable of working on the data of today as well as the data of tomorrow will give you the most flexible capabilities for building up large software systems. In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is generics, that is, being able to create a component that can work over a variety of types rather than a single one. This allows users to consume these components and use their own types.`, ua: `Основною частиною розробки програмного забезпечення є створення компонентів, які не тільки мають чітко визначені та узгоджені API, але й придатні для повторного використання. Компоненти, здатні працювати як з даними сьогодні, так і з даними завтрашнього дня, нададуть вам найбільш гнучкі можливості для створення великих програмних систем. У таких мовах, як C# і Java, одним із основних інструментів у наборі інструментів для створення повторно використовуваних компонентів є generics (узагальнення), тобто можливість створювати компонент, який може працювати над різними типами, а не з одним. Це дозволяє користувачам споживати ці компоненти та використовувати власні типи.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html` }, type: 'typescript', data: [
+      `/* Case 1. An example of using a regular generic to type an argument and output data to a function. */
 function printUserInfo<T>(login: string, password: number, info: T): T {
     if (login.length !== 0 && password > 9999999) {
         console.log('User is registered!')
@@ -3965,7 +4110,7 @@ console.log(
 )
 // User is registered!
 // I'm from Ukraine.`,
-`/* Case 2. An example of using several generics to type arguments. */
+      `/* Case 2. An example of using several generics to type arguments. */
 function getUserCursor<X, Y>(x: X, y: Y): string {
     return "The user's cursor is located at coordinates: (" + x + "; " + y + ")"
 }
@@ -3977,7 +4122,7 @@ console.log(
 console.log(
     getUserCursor('-7', 10)
 ) // The user's cursor is located at coordinates: (-7; 10)`,
-`/* Case 3. An example of using several generics to type arguments as an array of one of the generics and a regular second generic and output the function data. */
+      `/* Case 3. An example of using several generics to type arguments as an array of one of the generics and a regular second generic and output the function data. */
 function getUsers<T, S>(userArray: T[], hasPartyStarted: S): [T[], S] {
     if (hasPartyStarted) console.log('Party has started!')
     
@@ -4003,7 +4148,7 @@ console.log(
 )
 // Not enough people for a party.
 // [['Alice', 'Anna', 'John'], false]`,
-`/* Case 4. An example of narrowing a data type for generics using Type Aliases. */
+      `/* Case 4. An example of narrowing a data type for generics using Type Aliases. */
 type NumberOrString = number | string
 function generateFigure<
     L extends NumberOrString, 
@@ -4031,9 +4176,11 @@ console.log(
 // [350, 350, 350]
 
 // console.log(generateFigure(350, true, false)) // Error! Argument of type 'boolean' is not assignable to parameter of type 'NumberOeString'.`,
-]},
-{title: {en: `Generics for Type Aliases in TypeScript`, ua: `Generics (Узагальнення) для Type Aliases у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`}, type: 'typescript', data:
-`type Type<T> = T
+    ]
+  },
+  {
+    title: { en: `Generics for Type Aliases in TypeScript`, ua: `Generics (Узагальнення) для Type Aliases у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `https://www.typescriptlang.org/docs/handbook/advanced-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/advanced-types.html` }, type: 'typescript', data:
+      `type Type<T> = T
 const num: Type<number> = 5
 
 type User<T> = {
@@ -4051,8 +4198,9 @@ type OrArray<Type> = Type | Type[]
 
 const data1: OrArray<number> = 42
 const data2: OrArray<string[]> = ['hello', 'world']`},
-{title: {en: `Generics for Interfaces in TypeScript`, ua: `Generics (Узагальнення) для Інтерфейсів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: 'typescript', data:
-`interface IParentsOfUser {
+  {
+    title: { en: `Generics for Interfaces in TypeScript`, ua: `Generics (Узагальнення) для Інтерфейсів у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html` }, type: 'typescript', data:
+      `interface IParentsOfUser {
   mother: string;
   father: string;
 }
@@ -4088,8 +4236,9 @@ console.log(user);
   }
 }
 */`},
-{title: {en: `Generics for classes in TypeScript`, ua: `Generics (Узагальнення) для класів у TypeScript`}, body: {en: `TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods. In the above example, we created a generic class named User with a type variable in the angle brackets <T, S> .`, ua: `TypeScript підтримує generic (загальні) класи. Параметр загального типу вказується в кутових дужках після імені класу. Загальний клас може мати загальні поля (змінні-члени) або методи. У наведеному вище прикладі ми створили загальний клас під назвою User зі змінною типу в кутових дужках <T, S>.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html`}, type: ['typescript', 'OOP'], data:
-`class User<T, S> /* global type T */ {
+  {
+    title: { en: `Generics for classes in TypeScript`, ua: `Generics (Узагальнення) для класів у TypeScript` }, body: { en: `TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods. In the above example, we created a generic class named User with a type variable in the angle brackets <T, S> .`, ua: `TypeScript підтримує generic (загальні) класи. Параметр загального типу вказується в кутових дужках після імені класу. Загальний клас може мати загальні поля (змінні-члени) або методи. У наведеному вище прикладі ми створили загальний клас під назвою User зі змінною типу в кутових дужках <T, S>.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/generics.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/generics.html` }, type: ['typescript', 'OOP'], data:
+      `class User<T, S> /* global type T */ {
   name: T;
   age: S;
 
@@ -4131,8 +4280,9 @@ const ageData = 32;
 const alex = new User<string, number>(nameData, ageData);
 
 const tom = new AdminUser("Tom", 24, ["pin messages", "ban users"], true);`},
-{title: {en: `Good Example of using generics, enum and interfaces for building your apps in TypeScript`, ua: `Гарний приклад використання generic, enum та interface для ваших застосунків у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data: [
-`Task:
+  {
+    title: { en: `Good Example of using generics, enum and interfaces for building your apps in TypeScript`, ua: `Гарний приклад використання generic, enum та interface для ваших застосунків у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'task'], data: [
+      `Task:
 /* 
     A data array with shapes contains objects, each of which must have a name property.
     Each object can still contain additional properties in a random form.
@@ -4146,7 +4296,7 @@ const tom = new AdminUser("Tom", 24, ["pin messages", "ban users"], true);`},
     { squares: 3, circles: 2, triangles: 2, others: 1 }. 
 */
 `,
-`enum FigureNames {
+      `enum FigureNames {
   RECT = "rect",
   CIRCLE = "circle",
   TRIANGLE = "triangle",
@@ -4231,9 +4381,11 @@ const data: CustomFigure[] = [
   }
 ];
 
-console.log(calculateAmountOfFigures(data)); // { squares: 3, circles: 2, triangles: 2, others: 1 }`]},
-{title: {en: `Builder Pattern`, ua: `Builder Pattern`}, body: {en: `Builder Pattern is a design pattern used to construct complex objects by separating the construction process from the actual representation. It allows you to create an object step by step and produce different types and representation of an object with the same construction code. This pattern is particularly useful when you have a class with many optional parameters or configurations.`, ua: `Builder Pattern — це шаблон проектування, який використовується для створення складних об’єктів шляхом відокремлення процесу будівництва від фактичного представлення. Це дозволяє створювати об’єкт крок за кроком і створювати різні типи та представлення об’єкта з однаковим кодом конструкції. Цей шаблон особливо корисний, коли у вас є клас із багатьма необов’язковими параметрами чи конфігураціями.`}, link: {en: `#`, ua: `#`}, type: 'OOP', data:[
-`class Person {
+console.log(calculateAmountOfFigures(data)); // { squares: 3, circles: 2, triangles: 2, others: 1 }`]
+  },
+  {
+    title: { en: `Builder Pattern`, ua: `Builder Pattern` }, body: { en: `Builder Pattern is a design pattern used to construct complex objects by separating the construction process from the actual representation. It allows you to create an object step by step and produce different types and representation of an object with the same construction code. This pattern is particularly useful when you have a class with many optional parameters or configurations.`, ua: `Builder Pattern — це шаблон проектування, який використовується для створення складних об’єктів шляхом відокремлення процесу будівництва від фактичного представлення. Це дозволяє створювати об’єкт крок за кроком і створювати різні типи та представлення об’єкта з однаковим кодом конструкції. Цей шаблон особливо корисний, коли у вас є клас із багатьма необов’язковими параметрами чи конфігураціями.` }, link: { en: `#`, ua: `#` }, type: 'OOP', data: [
+      `class Person {
     name?: string;
     age?: number;
     email?: string;
@@ -4241,7 +4393,7 @@ console.log(calculateAmountOfFigures(data)); // { squares: 3, circles: 2, triang
 
     constructor() {}
 }`,
-`class PersonBuilder {
+      `class PersonBuilder {
     private person: Person
 
     constructor() {
@@ -4272,7 +4424,7 @@ console.log(calculateAmountOfFigures(data)); // { squares: 3, circles: 2, triang
         return this.person
     }
 }`,
-`const person1 = new PersonBuilder()
+      `const person1 = new PersonBuilder()
     .withEmail("Alex")
     .withEmail('alex@example.com')
     .withAge(23)
@@ -4304,9 +4456,11 @@ Person {
     address: '123 Main St'
 }
 */`,
-]},
-{title: {en: `All about useRef()`, ua: `Все про useRef()`}, body: {en: `useRef is a React hook that allows you to refer to a value that is not needed for rendering. It is usually used to easily obtain the values of one or another value for the input. To use the DOM Api built-in React etc.`, ua: `useRef — це хук React, який дозволяє посилатися на значення, непотрібне для рендерингу. Зазвичай його використовують для легкого отримання значень того чи іншого значення для інпута. Для використання DOM Api всередені React тощо.`}, link: {en: `https://react.dev/reference/react/useRef`, ua: `https://react.dev/reference/react/useRef`}, type: 'React', data:
-`import { useEffect, useRef } from "react";
+    ]
+  },
+  {
+    title: { en: `All about useRef()`, ua: `Все про useRef()` }, body: { en: `useRef is a React hook that allows you to refer to a value that is not needed for rendering. It is usually used to easily obtain the values of one or another value for the input. To use the DOM Api built-in React etc.`, ua: `useRef — це хук React, який дозволяє посилатися на значення, непотрібне для рендерингу. Зазвичай його використовують для легкого отримання значень того чи іншого значення для інпута. Для використання DOM Api всередені React тощо.` }, link: { en: `https://react.dev/reference/react/useRef`, ua: `https://react.dev/reference/react/useRef` }, type: 'React', data:
+      `import { useEffect, useRef } from "react";
 
 export default function Demo() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -4327,8 +4481,9 @@ export default function Demo() {
   );
 }
 `},
-{title: {en: `Key attribute in React`, ua: `Атрибут Key у React`}, body: {en: `A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. Keys are used to give an identity to the elements in the lists.`, ua: `Key — це спеціальний рядковий атрибут, який потрібно включити під час створення списків елементів у React. Ключі використовуються в React, щоб визначити, які елементи в списку змінено, оновлено або видалено. Ключі використовуються для ідентифікації елементів у списках.`}, link: {en: `https://vm.tiktok.com/ZMjFY9CaJ/`, ua: `https://vm.tiktok.com/ZMjFY9CaJ/`}, type: 'React', data:
-`import { useState } from "react";
+  {
+    title: { en: `Key attribute in React`, ua: `Атрибут Key у React` }, body: { en: `A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. Keys are used to give an identity to the elements in the lists.`, ua: `Key — це спеціальний рядковий атрибут, який потрібно включити під час створення списків елементів у React. Ключі використовуються в React, щоб визначити, які елементи в списку змінено, оновлено або видалено. Ключі використовуються для ідентифікації елементів у списках.` }, link: { en: `https://vm.tiktok.com/ZMjFY9CaJ/`, ua: `https://vm.tiktok.com/ZMjFY9CaJ/` }, type: 'React', data:
+      `import { useState } from "react";
 
 export default function Demo() {
   const [count, setCount] = useState<number>(0);
@@ -4341,8 +4496,9 @@ export default function Demo() {
     </>
   );
 }`},
-{title: {en: `A complete search engine with filters. The values of which can be seen in the search field of the search engine`, ua: `Повний пошуковик із фільтрами. Значеннями з якого можно побачити в пошуковому полі пошуковику`}, body: {en: `The menu with search settings is made entirely without native React hooks. Only the react-router-dom library and its typed form @types/react-router-dom are used. Plus added debounce function for search optimization.`, ua: `Меню з налаштуваннями пошуку зроблене повністю без нативних хуків Реакту. Лише використовуються бібліотека react-router-dom та її типізована форма @types/react-router-dom. Плюс додана функція debounce для оптимізації пошуку.`}, link: {en: `https://youtu.be/oZZEI23Ri6E?si=X51p_FwwHjNgJRoe`, ua: `https://youtu.be/oZZEI23Ri6E?si=X51p_FwwHjNgJRoe`}, type: 'React', data: [
-`import { useSearchParams } from "react-router-dom";
+  {
+    title: { en: `A complete search engine with filters. The values of which can be seen in the search field of the search engine`, ua: `Повний пошуковик із фільтрами. Значеннями з якого можно побачити в пошуковому полі пошуковику` }, body: { en: `The menu with search settings is made entirely without native React hooks. Only the react-router-dom library and its typed form @types/react-router-dom are used. Plus added debounce function for search optimization.`, ua: `Меню з налаштуваннями пошуку зроблене повністю без нативних хуків Реакту. Лише використовуються бібліотека react-router-dom та її типізована форма @types/react-router-dom. Плюс додана функція debounce для оптимізації пошуку.` }, link: { en: `https://youtu.be/oZZEI23Ri6E?si=X51p_FwwHjNgJRoe`, ua: `https://youtu.be/oZZEI23Ri6E?si=X51p_FwwHjNgJRoe` }, type: 'React', data: [
+      `import { useSearchParams } from "react-router-dom";
 import useDebounce from "./useDebounce";
 
 const filters: string[] = ["all", "phone", "tablet", "laptop"];
@@ -4425,7 +4581,7 @@ export default function Demo({ content }: IDemoProps) {
     </>
   );
 }`,
-`import { useState, useEffect } from "react";
+      `import { useState, useEffect } from "react";
 
 export default function useDebounce<T>(value: T, delay: number = 250): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
@@ -4440,10 +4596,12 @@ export default function useDebounce<T>(value: T, delay: number = 250): T {
   }, [value, delay]);
 
   return debouncedValue;
-}`]},
-{title: {en: `Awesome Form on React + TypeScript`, ua: `Гарна Форма для вводу даних на Реакті + TypeScript`}, body: {en: `This Form is made on React and TypesScript, where there is normal validation at the level of types in the data field.`, ua: `Ця Форма зроблена на Реакті і TypesScript де є звичайна валідація на рівні типів у полі даних.`}, link: {en: `#`, ua: `#`}, type: ['React', 'markup'], data: [
-awesomeForm,
-`import { useState } from "react";
+}`]
+  },
+  {
+    title: { en: `Standart form on React + TypeScript`, ua: `Стандартна форма для вводу даних на Реакті + TypeScript` }, body: { en: `This Form is made on React and TypesScript, where there is normal validation at the level of types in the data field.`, ua: `Ця Форма зроблена на Реакті і TypesScript де є звичайна валідація на рівні типів у полі даних.` }, link: { en: `#`, ua: `#` }, type: ['React', 'markup'], data: [
+      awesomeForm,
+      `import { useState } from "react";
 
 interface IUser {
   email: string;
@@ -4499,7 +4657,7 @@ export default function Demo() {
     </div>
   );
 }`,
-`body {
+      `body {
   font-size: 15px;
 }
 
@@ -4556,9 +4714,11 @@ form .submit:hover {
   color: #121212;
   background-color: #fff;
 }`
-]},
-{title: {en: `keyof operator in TypeScript`, ua: `Оператор keyof у Typescript`}, body: {en: `The first time we use the keyof operator is when we need to find keys as Type Unions from an interface or Type Aliases and insert them into Type Aliases or a variable. The second case where we use the keyof operator is when we need to take specific keys from Type Generic for function arguments. The third case when we use the keyof operator is when we need to take the keys in the form of a Type Union from an object, but for this we must first use the typeof operator to convert from a regular ready-made object to an interface object.`, ua: `Перший випадок, коли ми використовуємо оператор keyof - це коли нам треба знайти ключі у вигляді Type Union із інтерфейсу чи Type Aliases та вставити їх до Type Aliases або змінної. Другий випадок, коли ми використовуємо оператор keyof - це коли нам треба взяти конкретні ключі із Type Generic для аргументів функції. Третій випадок, коли ми використовуємо оператор keyof - це коли нам треба взяти ключі у вигляді Type Union з об'єкту, але для цього нам треба спочатку використати оператор typeof для переведення зі звичайного готового об'єкта до об'єкта-інтрефейсу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/keyof-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/keyof-types.html`}, type: 'typescript', data: [
-`/* Case 1. Using "keyof" operator when we want to receive interface's or Type Aliases keys in Type Aliases or variable. */
+    ]
+  },
+  {
+    title: { en: `keyof operator in TypeScript`, ua: `Оператор keyof у Typescript` }, body: { en: `The first time we use the keyof operator is when we need to find keys as Type Unions from an interface or Type Aliases and insert them into Type Aliases or a variable. The second case where we use the keyof operator is when we need to take specific keys from Type Generic for function arguments. The third case when we use the keyof operator is when we need to take the keys in the form of a Type Union from an object, but for this we must first use the typeof operator to convert from a regular ready-made object to an interface object.`, ua: `Перший випадок, коли ми використовуємо оператор keyof - це коли нам треба знайти ключі у вигляді Type Union із інтерфейсу чи Type Aliases та вставити їх до Type Aliases або змінної. Другий випадок, коли ми використовуємо оператор keyof - це коли нам треба взяти конкретні ключі із Type Generic для аргументів функції. Третій випадок, коли ми використовуємо оператор keyof - це коли нам треба взяти ключі у вигляді Type Union з об'єкту, але для цього нам треба спочатку використати оператор typeof для переведення зі звичайного готового об'єкта до об'єкта-інтрефейсу.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/keyof-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/keyof-types.html` }, type: 'typescript', data: [
+      `/* Case 1. Using "keyof" operator when we want to receive interface's or Type Aliases keys in Type Aliases or variable. */
 interface ICompany {
     name: string;
     debts: number
@@ -4581,7 +4741,7 @@ type companyInfo = {
 type CompanyInfoKeys = keyof companyInfo // 'name' | 'isBigCompany'
 
 const amazon: CompanyInfoKeys = 'isBigCompany'`,
-`/* Case 2. Using "keyof" operator when we want to receive object's keys from Type Generic in function arguments. */
+      `/* Case 2. Using "keyof" operator when we want to receive object's keys from Type Generic in function arguments. */
 function printDebts <
     TCompany, 
     TName extends keyof TCompany, 
@@ -4613,14 +4773,16 @@ printDebts(
 printDebts(
     apple, 'name', 'chalks'
 ) // Company: apple; Debts: 3500000`,
-`/* Case 3. Using keyof operator when we want to receive keys from object to Type Aliases. */
+      `/* Case 3. Using keyof operator when we want to receive keys from object to Type Aliases. */
 type GoogleKeys = keyof typeof google // 'name' | 'open'
 const googleKeys: GoogleKeys = 'name'
 
 // type GoogleKeys = keyof google // Error! 'google' refers to a value, but is being used as a type here. Did you mean 'typeof google'?`
-]},
-{title: {en: `Indexed Access Types`, ua: `Індексовані типи доступу`}, body: {en: `Indexed Access Types is a mechanism used to find the type of keys in interfaces. Very similar to finding meaning in ordinary objects.`, ua: `Indexed Access Types - це механізм, що використовується для знаходження типу серез ключів у інтерфейсів. Дуже схожий із знаходженням значення у звичайних об'єктах.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html`}, type: 'typescript', data:
-`interface ICompany {
+    ]
+  },
+  {
+    title: { en: `Indexed Access Types`, ua: `Індексовані типи доступу` }, body: { en: `Indexed Access Types is a mechanism used to find the type of keys in interfaces. Very similar to finding meaning in ordinary objects.`, ua: `Indexed Access Types - це механізм, що використовується для знаходження типу серез ключів у інтерфейсів. Дуже схожий із знаходженням значення у звичайних об'єктах.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html` }, type: 'typescript', data:
+      `interface ICompany {
     name: string;
     debts: number;
     departments: IDepartment[];
@@ -4664,8 +4826,9 @@ const google: ICompany = {
         {name: 'Android', goods: 'IT soft'}
     ]
 }`},
-{title: {en: `Nullish coalescing operator (??)`, ua: `Оператор для перевірки на нульове значення`}, body: {en: `The Nullish coalescing (??) operator is an operator that checks values to see if they are false. If the values are zero (falsy), then the operator will output the previously specified alternative value.`, ua: `Оператор Nullish coalescing (??) - це оператор, що перевіряє значення на те, чи не нульові (falsy) вони є. Якщо значення нульові (falsy), то оператор виведе, попередньо зазначене, альтернативне значення.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`}, type: 'operator', data:
-`const nullValue = null;
+  {
+    title: { en: `Nullish coalescing operator (??)`, ua: `Оператор для перевірки на нульове значення` }, body: { en: `The Nullish coalescing (??) operator is an operator that checks values to see if they are false. If the values are zero (falsy), then the operator will output the previously specified alternative value.`, ua: `Оператор Nullish coalescing (??) - це оператор, що перевіряє значення на те, чи не нульові (falsy) вони є. Якщо значення нульові (falsy), то оператор виведе, попередньо зазначене, альтернативне значення.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing` }, type: 'operator', data:
+      `const nullValue = null;
 const emptyText = ""; // falsy
 const someNumber = 42;
 
@@ -4676,8 +4839,9 @@ const valC = someNumber ?? 0;
 console.log(valA); // "default for A"
 console.log(valB); // "" (as the empty string is not null or undefined)
 console.log(valC); // 42`},
-{title: {en: `Using enum for React Components narorwing`, ua: `Використання enum для звуження компонентів React`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data: [
-`import Demo from "./Demo";
+  {
+    title: { en: `Using enum for React Components narorwing`, ua: `Використання enum для звуження компонентів React` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'React'], data: [
+      `import Demo from "./Demo";
 
 export default function App() {
   return (
@@ -4686,7 +4850,7 @@ export default function App() {
     </div>
   );
 }`,
-`import PremiumView from "./PremiumView";
+      `import PremiumView from "./PremiumView";
 import ProView from "./ProView";
 import FreeView from "./FreeView";
 
@@ -4710,15 +4874,19 @@ export default function Demo({ user }: DemoProps) {
     </>
   );
 }`
-]},
-{title: {en: `Folder Structure in React`, ua: `Структура папок у Реакті`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'React', data: [
-fs_1,
-fs_2,
-fs_3,
-fs_4,
-]},
-{title: {en: `Function Curring in React`, ua: `Куріювання функцій у Реакті`}, body: {en: `By breaking down functions into smaller, curried versions, you can dynamically generate new functions, customize behavior, and compose complex logic effortlessly.`, ua: `Розбиваючи функції на менші версії карі, ви можете динамічно генерувати нові функції, налаштовувати поведінку та створювати складну логіку без зусиль.`}, link: {en: `https://vm.tiktok.com/ZMjYTyKP2/`, ua: `https://vm.tiktok.com/ZMjYTyKP2/`}, type: 'React', data:
-`import React, { useState } from "react";
+    ]
+  },
+  {
+    title: { en: `Folder Structure in React`, ua: `Структура папок у Реакті` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'React', data: [
+      fs_1,
+      fs_2,
+      fs_3,
+      fs_4,
+    ]
+  },
+  {
+    title: { en: `Function Curring in React`, ua: `Куріювання функцій у Реакті` }, body: { en: `By breaking down functions into smaller, curried versions, you can dynamically generate new functions, customize behavior, and compose complex logic effortlessly.`, ua: `Розбиваючи функції на менші версії карі, ви можете динамічно генерувати нові функції, налаштовувати поведінку та створювати складну логіку без зусиль.` }, link: { en: `https://vm.tiktok.com/ZMjYTyKP2/`, ua: `https://vm.tiktok.com/ZMjYTyKP2/` }, type: 'React', data:
+      `import React, { useState } from "react";
 
 export default function Demo() {
   const [formState, setFormState] = useState({
@@ -4752,8 +4920,9 @@ export default function Demo() {
     </>
   );
 }`},
-{title: {en: `Operator "satisfies" in TypeScript`, ua: `Оператор "satisfies" у TypeScript`}, body: {en: `The satisfies operator tells you whether a given type satisfies a particular condition – and it provides this information before running your code. Also, when you're using it, you can declare a new variable to verify if an expression's type matches another type. In this article, you will learn all about this useful TypeScript operator. I'll explain how things were before this operator was available, and why we need it. We'll also explore real-life scenarios where you can use satisfies and the benefits it offers.`, ua: `Оператор satisfies повідомляє вам, чи задовольняє даний тип певній умові, і він надає цю інформацію перед виконанням вашого коду. Крім того, коли ви використовуєте його, ви можете оголосити нову змінну, щоб перевірити, чи тип виразу відповідає іншому типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html`, ua: `https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html`}, type: 'typescript', data:
-`type MyError = {
+  {
+    title: { en: `Operator "satisfies" in TypeScript`, ua: `Оператор "satisfies" у TypeScript` }, body: { en: `The satisfies operator tells you whether a given type satisfies a particular condition – and it provides this information before running your code. Also, when you're using it, you can declare a new variable to verify if an expression's type matches another type. In this article, you will learn all about this useful TypeScript operator. I'll explain how things were before this operator was available, and why we need it. We'll also explore real-life scenarios where you can use satisfies and the benefits it offers.`, ua: `Оператор satisfies повідомляє вам, чи задовольняє даний тип певній умові, і він надає цю інформацію перед виконанням вашого коду. Крім того, коли ви використовуєте його, ви можете оголосити нову змінну, щоб перевірити, чи тип виразу відповідає іншому типу.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html`, ua: `https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html` }, type: 'typescript', data:
+      `type MyError = {
   code: string | number;
   message: string
 }
@@ -4766,8 +4935,9 @@ const error = {
 if (error.code === 400) {
   console.log("Bad Request Error!")
 }`},
-{title: {en: `var VS let VS const`, ua: `var VS let VS const`}, body: {en: `"let", "const", and "var" are all used to declare variables in JavaScript, but they differ in their behavior and scope. "var" declares a variable with function scope or global scope, meaning it can be accessed anywhere within the function or program respectively. var declarations are also hoisted to the top of the function or global scope. "let" declares a variable with block scope, meaning it can only be accessed within the block it was declared in (i.e. within curly braces {}). let declarations are not hoisted. "const" is similar to let in that it declares a block-scoped variable, but once it's assigned a value, it cannot be reassigned.`, ua: `Усі "let", "const" і "var" використовуються для оголошення змінних у JavaScript, але вони відрізняються своєю поведінкою та областю. "var" оголошує змінну з областю видимості функції або глобальною областю видимості, тобто до неї можна отримати доступ будь-де в межах функції або програми відповідно. Оголошення var також піднімаються на початок функції або глобальної області. "let" оголошує змінну з блочною областю, тобто до неї можна отримати доступ лише в межах блоку, у якому її було оголошено (тобто у фігурних дужках {}). нехай декларації не піднімаються. "const" схожий на let тим, що він оголошує блочну змінну, але після того, як їй присвоєно значення, воно не може бути перепризначено.`}, link: {en: `#`, ua: `#`}, type: 'all', data: [
-`// Scope
+  {
+    title: { en: `var VS let VS const`, ua: `var VS let VS const` }, body: { en: `"let", "const", and "var" are all used to declare variables in JavaScript, but they differ in their behavior and scope. "var" declares a variable with function scope or global scope, meaning it can be accessed anywhere within the function or program respectively. var declarations are also hoisted to the top of the function or global scope. "let" declares a variable with block scope, meaning it can only be accessed within the block it was declared in (i.e. within curly braces {}). let declarations are not hoisted. "const" is similar to let in that it declares a block-scoped variable, but once it's assigned a value, it cannot be reassigned.`, ua: `Усі "let", "const" і "var" використовуються для оголошення змінних у JavaScript, але вони відрізняються своєю поведінкою та областю. "var" оголошує змінну з областю видимості функції або глобальною областю видимості, тобто до неї можна отримати доступ будь-де в межах функції або програми відповідно. Оголошення var також піднімаються на початок функції або глобальної області. "let" оголошує змінну з блочною областю, тобто до неї можна отримати доступ лише в межах блоку, у якому її було оголошено (тобто у фігурних дужках {}). нехай декларації не піднімаються. "const" схожий на let тим, що він оголошує блочну змінну, але після того, як їй присвоєно значення, воно не може бути перепризначено.` }, link: { en: `#`, ua: `#` }, type: 'all', data: [
+      `// Scope
 if (true) {
     var T0 = 10
     let T1 = 20
@@ -4777,7 +4947,7 @@ if (true) {
 console.log(T0) // 10
 console.log(T1) // T1 is not defined
 console.log(T2) // T2 is not defined`,
-`// Hoisting
+      `// Hoisting
 console.log(T0) // undefined
 var T0 = 10
 
@@ -4788,7 +4958,7 @@ let T1 = 20
 console.log(T2)
 const T2 = 30
 // Error! Cannot access 'T2' before initialization`,
-`// Editable
+      `// Editable
 var T0 = 10
 let T1 = 20
 const T2 = 30
@@ -4801,11 +4971,15 @@ T1 = 2
 
 T2 = 3 
 // Error! Assignment to constant variable.`,
-]},
-{title: {en: `Top 8 API Architectural styles`, ua: `Топ 8 архітектурних стилів API`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data:
-apiArchitectural},
-{title: {en: `All about useTransition()`, ua: `Все про useTransition()`}, body: {en: `useTransition is a React Hook that lets you update the state without blocking the UI.`, ua: `useTransition — це хук React, який дозволяє оновлювати стан, не блокуючи інтерфейс користувача.`}, link: {en: `https://react.dev/reference/react/useTransition`, ua: `https://react.dev/reference/react/useTransition`}, type: 'React', data: [
-`import { useState } from "react";
+    ]
+  },
+  {
+    title: { en: `Top 8 API Architectural styles`, ua: `Топ 8 архітектурних стилів API` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'Node.js', data:
+      apiArchitectural
+  },
+  {
+    title: { en: `All about useTransition()`, ua: `Все про useTransition()` }, body: { en: `useTransition is a React Hook that lets you update the state without blocking the UI.`, ua: `useTransition — це хук React, який дозволяє оновлювати стан, не блокуючи інтерфейс користувача.` }, link: { en: `https://react.dev/reference/react/useTransition`, ua: `https://react.dev/reference/react/useTransition` }, type: 'React', data: [
+      `import { useState } from "react";
 
 import AboutTab from "./AboutTab";
 import ContactTab from "./ContactTab";
@@ -4849,7 +5023,7 @@ const Demo = () => {
 };
 
 export default Demo;`,
-`import { useTransition } from "react";
+      `import { useTransition } from "react";
 
 interface ITabButtonProps {
   onClick: () => void;
@@ -4878,12 +5052,12 @@ export default function TabButton({
     </button>
   );
 }`,
-`const AboutTab = () => {
+      `const AboutTab = () => {
   return <p>Welcome to my profile!</p>;
 };
 
 export default AboutTab;`,
-`import { memo } from "react";
+      `import { memo } from "react";
 
 const SlowPost = ({ index }: { index: number }) => {
   let startTime = performance.now();
@@ -4904,7 +5078,7 @@ const PostsTab = () => {
 };
 
 export default memo(PostsTab);`,
-`const ContactTab = () => {
+      `const ContactTab = () => {
   return (
     <>
       <p>You can find me online here:</p>
@@ -4917,9 +5091,11 @@ export default memo(PostsTab);`,
 };
 
 export default ContactTab;`,
-]},
-{title: {en: `All about useDeferredValue()`, ua: `Все про useDeferredValue()`}, body: {en: `useDeferredValue is a React Hook that lets you defer updating a part of the UI.`, ua: `useDeferredValue — це хук React, який дозволяє відкласти оновлення частини інтерфейсу користувача.`}, link: {en: `https://react.dev/reference/react/useDeferredValue`, ua: `https://react.dev/reference/react/useDeferredValue`}, type: 'React', data: [
-`import { useDeferredValue, useState } from "react";
+    ]
+  },
+  {
+    title: { en: `All about useDeferredValue()`, ua: `Все про useDeferredValue()` }, body: { en: `useDeferredValue is a React Hook that lets you defer updating a part of the UI.`, ua: `useDeferredValue — це хук React, який дозволяє відкласти оновлення частини інтерфейсу користувача.` }, link: { en: `https://react.dev/reference/react/useDeferredValue`, ua: `https://react.dev/reference/react/useDeferredValue` }, type: 'React', data: [
+      `import { useDeferredValue, useState } from "react";
 
 import SlowList from "./SlowList";
 
@@ -4941,7 +5117,7 @@ const Demo = () => {
 };
 
 export default Demo;`,
-`import { memo } from "react";
+      `import { memo } from "react";
 
 const SlowItem = ({ text }: { text: string }) => {
   let startTime = performance.now();
@@ -4961,9 +5137,11 @@ const SlowList = memo(({ text }: { text: string }) => {
 });
 
 export default SlowList;`
-]},
-{title: {en: `All about useImperativeHandle()`, ua: `Все про useImperativeHandle()`}, body: {en: `useImperativeHandle is a React Hook that lets you customize the handle exposed as a ref. Call useImperativeHandle at the top level of your component to customize the ref handle it exposes.`, ua: `useImperativeHandle — це хук React, який дозволяє налаштувати дескриптор, представлений як ref. Викличте useImperativeHandle на верхньому рівні вашого компонента, щоб налаштувати дескриптор ref, який він показує.`}, link: {en: `https://react.dev/reference/react/useImperativeHandle`, ua: `https://react.dev/reference/react/useImperativeHandle`}, type: 'React', data: [
-`import { useRef } from "react";
+    ]
+  },
+  {
+    title: { en: `All about useImperativeHandle()`, ua: `Все про useImperativeHandle()` }, body: { en: `useImperativeHandle is a React Hook that lets you customize the handle exposed as a ref. Call useImperativeHandle at the top level of your component to customize the ref handle it exposes.`, ua: `useImperativeHandle — це хук React, який дозволяє налаштувати дескриптор, представлений як ref. Викличте useImperativeHandle на верхньому рівні вашого компонента, щоб налаштувати дескриптор ref, який він показує.` }, link: { en: `https://react.dev/reference/react/useImperativeHandle`, ua: `https://react.dev/reference/react/useImperativeHandle` }, type: 'React', data: [
+      `import { useRef } from "react";
 
 import TextInput, { TextInputRef } from "./TextInput";
 import Counter from "./Counter";
@@ -4983,7 +5161,7 @@ function Demo() {
 }
 
 export default Demo;`,
-`import { forwardRef, Ref, useImperativeHandle, useState } from "react";
+      `import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 
 export type CounterRef = {
   checkSubscibed: (value: boolean) => void;
@@ -5024,7 +5202,7 @@ function Counter(props: CounterProps, ref: Ref<CounterRef>) {
 }
 
 export default forwardRef(Counter);`,
-`import { forwardRef, Ref, useImperativeHandle, useRef } from "react";
+      `import { forwardRef, Ref, useImperativeHandle, useRef } from "react";
 
 export interface TextInputRef {
   reset: () => void;
@@ -5048,9 +5226,11 @@ function TextInput(props: TextInputProps, ref: Ref<TextInputRef>) {
 }
 
 export default forwardRef(TextInput);`,
-]},
-{title: {en: `Condition Types and infer in TypeScript`, ua: `Типи умов і висновок у TypeScript`}, body: {en: `Types can be formulated using the ternary operator, where we ask: "Is this type inherited from (or from) what?" If yes, then there will be this type, if not, then there will be another.” Conditional types always require the use of a constraint, that is, the extends keyword. The type being checked must be limited to something that needs to be checked. In general, this is the state. We work with types. An error will occur if you use a literal. Concrete values must first be converted to a type using the typeof operator.`, ua: `Типи можна формулювати за допомогою тернарного оператора, де ми запитуємо: Цей тип успадкований від (або від) чого? Якщо так, то буде цей тип, якщо ні, буде інший». Умовні типи завжди потребують обмеження, тобто ключового слова extends. Тип, що перевіряється, повинен бути обмежений чимось, що потрібно перевірити. Загалом такий стан. Ми працюємо з типами. З використанням літералу виникне помилка. Конкретні значення спочатку необхідно перетворити на тип за допомогою оператора типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/conditional-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/conditional-types.html`}, type: 'typescript', data: [
-`/* Case 1. Condition types in Type Aliases. */
+    ]
+  },
+  {
+    title: { en: `Condition Types and infer in TypeScript`, ua: `Типи умов і висновок у TypeScript` }, body: { en: `Types can be formulated using the ternary operator, where we ask: "Is this type inherited from (or from) what?" If yes, then there will be this type, if not, then there will be another.” Conditional types always require the use of a constraint, that is, the extends keyword. The type being checked must be limited to something that needs to be checked. In general, this is the state. We work with types. An error will occur if you use a literal. Concrete values must first be converted to a type using the typeof operator.`, ua: `Типи можна формулювати за допомогою тернарного оператора, де ми запитуємо: Цей тип успадкований від (або від) чого? Якщо так, то буде цей тип, якщо ні, буде інший». Умовні типи завжди потребують обмеження, тобто ключового слова extends. Тип, що перевіряється, повинен бути обмежений чимось, що потрібно перевірити. Загалом такий стан. Ми працюємо з типами. З використанням літералу виникне помилка. Конкретні значення спочатку необхідно перетворити на тип за допомогою оператора типу.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/conditional-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/conditional-types.html` }, type: 'typescript', data: [
+      `/* Case 1. Condition types in Type Aliases. */
 type NotFoundError = "not found" extends string ? string : number; // notFoundError = string
 type BadRequestError = 400 extends string ? string : number; // BadRequestError = number
 
@@ -5083,7 +5263,7 @@ const user2: LogIn = {
   gender: 'female',
   weight: 50 // Correct!
 }`,
-`/* Case 2. Condition types in Interfaces with Generic Types. */
+      `/* Case 2. Condition types in Interfaces with Generic Types. */
 interface IUserName {
   name: string;
 }
@@ -5099,7 +5279,7 @@ type NameOrID<T extends string | number> = T extends string
 const userName: NameOrID<number> = {
   id: 42
 }; // userName: NameOrID`,
-`/* Case 3. Condition types in Interfaces with Union Types and Generic Types. */
+      `/* Case 3. Condition types in Interfaces with Union Types and Generic Types. */
 interface IUser<T extends "registered" | Date> {
   registered: T extends "registered" ? "registered" : Date;
 }
@@ -5127,7 +5307,7 @@ let response2: ApiResponse<string> = {
     message: 'Bad request.',
     timestamp: new Date()
 }`,
-`/* Case 4. Typing functions using Union Types with Generic Types. */
+      `/* Case 4. Typing functions using Union Types with Generic Types. */
 function createUserNameOrID<T extends string | number>(
   nameOrID: T
 ): T extends string ? IUserName : IUserID {
@@ -5145,7 +5325,7 @@ function createUserNameOrID<T extends string | number>(
 }
 
 console.log(createUserNameOrID<number>(42)); // { id: 42 }`,
-`/* Case 5. Condition types with nested conditions in Type Aliases with Generic Types. */
+      `/* Case 5. Condition types with nested conditions in Type Aliases with Generic Types. */
 type ErrorMessage<T extends 400 | 404 | string> = T extends 400
   ? 400
   : T extends 404
@@ -5153,19 +5333,21 @@ type ErrorMessage<T extends 400 | 404 | string> = T extends 400
     : "Something went wrong.";
 
 const error404: ErrorMessage<404> = 404; // error404: 404`,
-`/* Case 6. Keyword infer in Generic Types for type of array item. */
+      `/* Case 6. Keyword infer in Generic Types for type of array item. */
 type GetArrayItemType<T> = T extends Array<infer First> ? First : T;
 
 type PORT = GetArrayItemType<number>; // PORT = number
 type PORTS = GetArrayItemType<number[]>; // numArray = number`,
-`/* Case 7. Converting from a primitive type to an array from a primitive type. */
+      `/* Case 7. Converting from a primitive type to an array from a primitive type. */
 type ToArray<Type> = Type extends any ? Type[] : never;
 
 type StringArray = ToArray<string>; // StringArray = string[]
 type NumberOrStringArray = ToArray<number | string>; // NumberOrStringArray = number[] | string[]`,
-]},
-{title: {en: `Mapped Types with Type Aliases and Interfaces in TypeScript`, ua: `Mapped Types з Type Aliases і Interfaces у TypeScript`}, body: {en: `When you don’t want to repeat yourself, sometimes a type needs to be based on another type. Mapped types build on the syntax for index signatures, which are used to declare the types of properties which have not been declared ahead of time. A mapped type is a generic type which uses a union of PropertyKeys (frequently created via a keyof) to iterate through keys to create a type.`, ua: `Якщо ви не хочете повторюватися, інколи тип потрібно базувати на іншому типі. Відображені типи будуються на основі синтаксису для підписів індексів, які використовуються для оголошення типів властивостей, які не були оголошені заздалегідь. Відображений тип — це загальний тип, який використовує об’єднання PropertyKeys (часто створюється за допомогою keyof) для перебору ключів для створення типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`}, type: 'typescript', data: [
-`/* Example 1 of Mapped Types. */
+    ]
+  },
+  {
+    title: { en: `Mapped Types with Type Aliases and Interfaces in TypeScript`, ua: `Mapped Types з Type Aliases і Interfaces у TypeScript` }, body: { en: `When you don’t want to repeat yourself, sometimes a type needs to be based on another type. Mapped types build on the syntax for index signatures, which are used to declare the types of properties which have not been declared ahead of time. A mapped type is a generic type which uses a union of PropertyKeys (frequently created via a keyof) to iterate through keys to create a type.`, ua: `Якщо ви не хочете повторюватися, інколи тип потрібно базувати на іншому типі. Відображені типи будуються на основі синтаксису для підписів індексів, які використовуються для оголошення типів властивостей, які не були оголошені заздалегідь. Відображений тип — це загальний тип, який використовує об’єднання PropertyKeys (часто створюється за допомогою keyof) для перебору ключів для створення типу.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/mapped-types.html` }, type: 'typescript', data: [
+      `/* Example 1 of Mapped Types. */
 type ComparableType = {
   [arbitraryID in Plurality]: CustomDataType
 }
@@ -5174,7 +5356,7 @@ type ComparableType = {
 type ComparableType = {
   [arbitraryID in keyof ObjectPlurality]: CustomDataType
 }`,
-`/* Case 1. Pure Mapped Types using. */
+      `/* Case 1. Pure Mapped Types using. */
 type Currencies = {
 	usa: 'uds';
 	china: 'cny';
@@ -5197,31 +5379,31 @@ type CustomCurrencies = CreateCustomCurrencies<Currencies> // CustomCurrencies =
 		kz: string;
 	}
 */`,
-`/* Case 2. Mapped Types using Readonly variant. */
+      `/* Case 2. Mapped Types using Readonly variant. */
 type CreateCustomCurrencies<T> = {
     readonly [P in keyof T]: string
 }
 
 // type CreateCustomCurrencies<T> = { readonly [P in keyof T]: string; }`,
-`/* Case 3. Mapped Types using Optional + Readonly variant. */
+      `/* Case 3. Mapped Types using Optional + Readonly variant. */
 type CreateCustomCurrencies<T> = {
     readonly [P in keyof T]?: string
 }
 
 // type CreateCustomCurrencies<T> = { readonly [P in keyof T]?: string | undefined; }`,
-`/* Case 4. Mapped Types using Optional + Readonly variant using "+" operator. We use it when we want assumed all other properties. */
+      `/* Case 4. Mapped Types using Optional + Readonly variant using "+" operator. We use it when we want assumed all other properties. */
 type CreateCustomCurrencies<T> = {
     +readonly [P in keyof T]+?: string
 }
 
 // type CreateCustomCurrencies<T> = { +readonly [P in keyof T]+?: string | undefined; }`,
-`/* Case 5. Mapped Types using Optional + Readonly variant using "-" operator. We use it when we want romeve all other properties. */
+      `/* Case 5. Mapped Types using Optional + Readonly variant using "-" operator. We use it when we want romeve all other properties. */
 type CreateCustomCurrencies<T> = {
     -readonly [P in keyof T]-?: string
 }
 
 // type CreateCustomCurrencies<T> = { -readonly [P in keyof T]-?: string; }`,
-`/* Case 6. Mapped Types using Plurality with Union Types. */
+      `/* Case 6. Mapped Types using Plurality with Union Types. */
 type Keys = 'name' | 'age' | 'role'
 
 type User = {
@@ -5233,7 +5415,7 @@ const Alex: User = {
 	age: '24',
 	role: 'adimn'
 }`,
-`/* Case 6. Using Mapped Types with Interfaces. */
+      `/* Case 6. Using Mapped Types with Interfaces. */
 interface ICurrencies {
     usa: 'uds';
     china: 'cny';
@@ -5246,7 +5428,7 @@ type CreateCustomCurrencies<T> = {
 }
 
 type CustomCurrencies = CreateCustomCurrencies<ICurrencies>`,
-`/* Case 7. Prettifying nested types using Mapped Types. */
+      `/* Case 7. Prettifying nested types using Mapped Types. */
 interface IInfo {
     title: string;
     body: string
@@ -5269,23 +5451,25 @@ type Todo = Prettify<NestedTodo>
         hasCompleted: boolean;
     }
 */`
-]},
-{title: {en: `Template Literal Types in TypeScript`, ua: `Template Literal Types у TypeScript`}, body: {en: `Template Literal Types are required to recalculate valid Literal Types.`, ua: `Template Literal Types потрібні для того, щоб зробити перерахунок допустимих Literal Types.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html`}, type: 'typescript', data: [
-`/* Case 1. Using Template Literal Types with a simple Literal Types. */
+    ]
+  },
+  {
+    title: { en: `Template Literal Types in TypeScript`, ua: `Template Literal Types у TypeScript` }, body: { en: `Template Literal Types are required to recalculate valid Literal Types.`, ua: `Template Literal Types потрібні для того, щоб зробити перерахунок допустимих Literal Types.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html` }, type: 'typescript', data: [
+      `/* Case 1. Using Template Literal Types with a simple Literal Types. */
 type Greeting = 'Hello'
 type AlexGreeting = \`\${Greeting}, Alex!\` // type AlexGreeting = "Hello, Alex!"`,
-`/* Case 2. Using Template Literal Types with a Union Literal Types. */
+      `/* Case 2. Using Template Literal Types with a Union Literal Types. */
 type MyAnimation = 'fade' | 'swipe'
 type Direction = 'in' | 'out'
 
 type SlideAnimation = \`\${MyAnimation} \${Direction}\` // type SlideAnimation = "fade in" | "fade out" | "swipe in" | "swipe out"`,
-`/* Case 3. Using Template Literal Types with a Union Literal Types with string Generic Types. */
+      `/* Case 3. Using Template Literal Types with a Union Literal Types with string Generic Types. */
 type Port = 3000 | 3001
 type Logger = "Server works on"
 
 /* Uppercase, Lowercase, Capitalize */
 type PortLogger = \`\${Uppercase<Logger>}: \${Port}\` // type PortLogger = "SERVER WORKS ON: 3000" | "SERVER WORKS ON: 3001"`,
-`/* Case 4. Using Template Literal Types with Mapped Types. */
+      `/* Case 4. Using Template Literal Types with Mapped Types. */
 interface IAlex {
 	name: "Alex";
 	age: '24';
@@ -5301,9 +5485,11 @@ const user: IUser<IAlex> = {
 	userAge: '32',
 	userIsStudent: 'false'
 }`,
-]},
-{title: {en: `Factorial Formula`, ua: `Формула Факторіалу`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
-`function factorial(n: number): number {
+    ]
+  },
+  {
+    title: { en: `Factorial Formula`, ua: `Формула Факторіалу` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'task', data:
+      `function factorial(n: number): number {
   if (n === 0) return 1
   return n * factorial(n - 1)
 }
@@ -5319,8 +5505,9 @@ console.log(
 console.log(
   factorial(1)
 ) // 1`},
-{title: {en: `Poligram Checker`, ua: `Перевірка на Поліграму`}, body: {en: `A polygram is a word or phrase that is read the same way from left to right.`, ua: `Поліграма це слово або вислів, що чиатється однаково як і злів, так і зправо.`}, link: {en: `#`, ua: `#`}, type: 'task', data:
-`function isEquals(char1, char2) {
+  {
+    title: { en: `Poligram Checker`, ua: `Перевірка на Поліграму` }, body: { en: `A polygram is a word or phrase that is read the same way from left to right.`, ua: `Поліграма це слово або вислів, що чиатється однаково як і злів, так і зправо.` }, link: { en: `#`, ua: `#` }, type: 'task', data:
+      `function isEquals(char1, char2) {
   return char1.toLowerCase() === char2.toLowerCase()
 }
 
@@ -5364,8 +5551,59 @@ console.log(
 console.log(
   isPoligram("Madam, I'm Adam")
 ) // true`},
-{title: {en: `Collecting Object Values ​​in a Structure`, ua: `Збір значень об'єктів у структурі`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
-`const tree = {
+  {
+    title: { en: `Collecting Object Values ​​in a Structure`, ua: `Збір значень об'єктів у структурі` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'task', data: [
+      `const tree = {
+        value: 1,
+        children: [
+            {
+                value: 2,
+                children: [{ value: 3 }]
+            },
+            {
+                value: 4,
+                children: [
+                    { value: 5 },
+                    { value: 6 },
+                ]
+            }
+        ]
+    }
+
+    type TTree = typeof tree
+
+    interface IObject {
+        value?: number;
+        children?: IObject[]
+    }
+
+    function getTreeValues(tree: TTree): number[] {
+        let out: number[] = []
+
+        function deepener(
+            object: IObject
+        ) {
+            if ("value" in object) {
+                if (object.value) {
+                    out.push(object.value)
+                }
+            }
+
+            if ("children" in object) {
+                if (object.children) {
+                    for (const element of object.children) {
+                        deepener(element)
+                    }
+                }
+            }
+        }
+
+        deepener(tree)
+        return out
+    }
+
+    console.log(getTreeValues(tree));`,
+      `const tree = {
   value: 1,
   children: [
     {
@@ -5403,9 +5641,12 @@ function getTreeValues(tree) {
   return result
 }
 
-console.log(getTreeValues(tree)) // [1, 4, 6, 5, 2, 3]`},
-{title: {en: `Checking for odd parentheses in a string`, ua: `Перевірка на непарність дужок у строці`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data: 
-`function checkBrackets(string) {
+console.log(getTreeValues(tree)) // [1, 4, 6, 5, 2, 3]`
+    ]
+  },
+  {
+    title: { en: `Checking for odd parentheses in a string`, ua: `Перевірка на непарність дужок у строці` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'task', data:
+      `function checkBrackets(string) {
   let openedBracket = 0
   let closedBracket = 0
   
@@ -5436,8 +5677,9 @@ console.log(
 console.log(
   checkBrackets('{{((}][)})')  // true
 )`},
-{title: {en: `Search and filter only unique numbers`, ua: `Пошук та фільтрація тільки неповторюваних чисел`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
-`function findDuplcateNumbers(arr) {
+  {
+    title: { en: `Search and filter only unique numbers`, ua: `Пошук та фільтрація тільки неповторюваних чисел` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'task', data:
+      `function findDuplcateNumbers(arr) {
   let newArr = []
   let object = {}
 
@@ -5465,8 +5707,9 @@ console.log(
     [1, 1, 2, 3, 4, 4, 5]
   ) 
 ) // ["2", "3", "5"]`},
-{title: {en: `3 interesting tasks for typing objects using Utility Types and Mapped Types`, ua: `3 цікавих задачки для типізації об'єктів за допомогою Utility Types та Mapped Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data: [
-`// We need to type this large object
+  {
+    title: { en: `3 interesting tasks for typing objects using Utility Types and Mapped Types`, ua: `3 цікавих задачки для типізації об'єктів за допомогою Utility Types та Mapped Types` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'task'], data: [
+      `// We need to type this large object
 // The futureClasses property should depend on classes by type
 // The exClients and futureClients properties must also depend on currClients
 // OR all three depend on a common parent
@@ -5573,7 +5816,7 @@ const fitnessClubCenter: IFitnessClub = {
     }
   ]
 };`,
-`interface ISlider {
+      `interface ISlider {
   container?: string;
   numberOfSlides?: number;
   speed?: 300 | 500 | 700;
@@ -5631,7 +5874,7 @@ createCustomSlider(customSliderOptions);
         arrows: true
     }
 */`,
-`interface IForm {
+      `interface IForm {
   login: string;
   password: string;
 }
@@ -5650,9 +5893,11 @@ const validationData: FormValidation = {
   login: { isValid: false, errorMsg: "At least 3 characters" },
   password: { isValid: true }
 };`,
-]},
-{title: {en: `An example of using Partial Utility Type working with statement`, ua: `Приклад використовування Partial Utility Type для роботи зі стейтами`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`interface ITodo {
+    ]
+  },
+  {
+    title: { en: `An example of using Partial Utility Type working with statement`, ua: `Приклад використовування Partial Utility Type для роботи зі стейтами` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `interface ITodo {
   title: string;
   body: string
 }
@@ -5678,8 +5923,9 @@ const updatedTodo2 = updateTodo(initialTodo, {
 const updatedTodo3 = updateTodo(initialTodo, {
   title: 'Vacuum the floor.'
 })`},
-{title: {en: `Utility Types for functions in TypeScript`, ua: `Utility Types для функцій у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/utility-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html`}, type: 'typescript', data: [
-`/* Case 1. ReturnType Generic Type is used to find the type that a function should return. */
+  {
+    title: { en: `Utility Types for functions in TypeScript`, ua: `Utility Types для функцій у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `https://www.typescriptlang.org/docs/handbook/utility-types.html`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html` }, type: 'typescript', data: [
+      `/* Case 1. ReturnType Generic Type is used to find the type that a function should return. */
 function goToRoute(
     domain: string, route: string
 ): string {
@@ -5687,13 +5933,13 @@ function goToRoute(
 }
 
 type GoToRouteReturnType = ReturnType<typeof goToRoute> // type GoToRouteReturnType = string`,
-`/* Case 2. Parameters Generic Type is used to find the types of function arguments/parameters. Usually, this Generic Type returns a tuple, but if you explicitly specify that the type should be returned according to the index, then it will return the type according to the index. */
+      `/* Case 2. Parameters Generic Type is used to find the types of function arguments/parameters. Usually, this Generic Type returns a tuple, but if you explicitly specify that the type should be returned according to the index, then it will return the type according to the index. */
 type XMultipliers = Parameters<typeof discriminantFormula> // type XMultipliers = [a: number, b: number, c: number]
 type AMultiplier = Parameters<typeof discriminantFormula>[0] // type AMultiplier = number
 
 type T0 = Parameters<(n: number) => number> // type T0 = [n: number]
 type T1 = Parameters<<T>(arg: T) => T> // type T1 = [arg: unknown]`,
-`/* Case 3. ConstructorParameters Generic Type is used to find the types of arguments/parameters in a class constructor. */
+      `/* Case 3. ConstructorParameters Generic Type is used to find the types of arguments/parameters in a class constructor. */
 class Demo {
     constructor(
         a: number,
@@ -5703,9 +5949,11 @@ class Demo {
 
 type T2 = ConstructorParameters<typeof Demo> // type T2 = [a: number, b: string]
 type T3 = ConstructorParameters<typeof Demo>[1] // type T3 = string`
-]},
-{title: {en: `Working with server requests, Promise and JSON`, ua: `Робота з серверними запитами, Promise і JSON`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/microsoft/TypeScript/blob/main/src/lib/es2015.promise.d.ts`, ua: `https://github.com/microsoft/TypeScript/blob/main/src/lib/es2015.promise.d.ts`}, type: 'typescript', data: [
-`/* Case 1. Working with ready JSON structure. */
+    ]
+  },
+  {
+    title: { en: `Working with server requests, Promise and JSON`, ua: `Робота з серверними запитами, Promise і JSON` }, body: { en: ``, ua: `` }, link: { en: `https://github.com/microsoft/TypeScript/blob/main/src/lib/es2015.promise.d.ts`, ua: `https://github.com/microsoft/TypeScript/blob/main/src/lib/es2015.promise.d.ts` }, type: 'typescript', data: [
+      `/* Case 1. Working with ready JSON structure. */
 const user = '{"name": "Alex", "id": 1}'
 
 interface IUser {
@@ -5714,7 +5962,7 @@ interface IUser {
 }
 
 const parseUser: IUser = JSON.parse(user) // parseUser: any`,
-`/* Case 2. Using Fetch API for fetching async data. */
+      `/* Case 2. Using Fetch API for fetching async data. */
 interface ITodo {
     userId: number,
     id: number,
@@ -5737,7 +5985,7 @@ fetch('https://jsonplaceholder.typicode.com/todos')
         }
         console.log(todoList)
     })`,
-`/* Case 3. Using Promises for getting "async" data. */
+      `/* Case 3. Using Promises for getting "async" data. */
 const promise = new Promise<string>((resolve, reject) => {
     resolve('test')
 }) // promise: Promise<string>
@@ -5745,9 +5993,11 @@ const promise = new Promise<string>((resolve, reject) => {
 promise.then((value) => {
     console.log(value.toLowerCase())
 })`,
-]},
-{title: {en: `Utility Type Awaited and Promise in TypeScript`, ua: `Utility Type Awaited і Promise у TypeScript`}, body: {en: `Utility Type Awaited is required so that the type held by the Promise can be understood and recorded. It works recursively, so with nesting it should work well because of its recursion.`, ua: `Utility Type Awaited потрібен для того, щоб можна було зрозуміти та записати тип, що мається у Promise. Він працює рекурсивно, то із вкладеністю він має працювати добре через свою рекурсивність.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype`}, type: 'typescript', data: [
-`/* Case 1. Using Utility Type Awaited for getting type of Promise. */
+    ]
+  },
+  {
+    title: { en: `Utility Type Awaited and Promise in TypeScript`, ua: `Utility Type Awaited і Promise у TypeScript` }, body: { en: `Utility Type Awaited is required so that the type held by the Promise can be understood and recorded. It works recursively, so with nesting it should work well because of its recursion.`, ua: `Utility Type Awaited потрібен для того, щоб можна було зрозуміти та записати тип, що мається у Promise. Він працює рекурсивно, то із вкладеністю він має працювати добре через свою рекурсивність.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype`, ua: `https://www.typescriptlang.org/docs/handbook/utility-types.html#awaitedtype` }, type: 'typescript', data: [
+      `/* Case 1. Using Utility Type Awaited for getting type of Promise. */
 
 // Basic Promise Type
 type PromiseType = Awaited<Promise<number>> // type PromiseType = number
@@ -5758,7 +6008,7 @@ type PromiseTypeNested = Awaited<Promise<Promise<number>>> // type PromiseType =
 // Union Promise Type
 type PromiseUnionType = Awaited<boolean | Promise<number>> // type PromiseUnionType = boolean | number
 `,
-`/* Case 2. Using Utility Type Awaited for getting type of Promise from function. */
+      `/* Case 2. Using Utility Type Awaited for getting type of Promise from function. */
 interface ITodo {
     title: string;
     body: string;
@@ -5784,12 +6034,14 @@ async function fetchTodos(): Promise<ITodo[]> {
 
 const currentTodos = fetchTodos() // currentTodos: Promise<ITodo[]>
 type FetchTodosReturnType = Awaited<ReturnType<typeof fetchTodos>> // type FetchTodosReturnType = ITodo[]`,
-`/* Case 3. Legacy example of replacing Utility Type Awaited with infer. */
+      `/* Case 3. Legacy example of replacing Utility Type Awaited with infer. */
 type UnwrappedPromise<T> = T extends Promise<infer Return> ? Return : T
 type FetchDataReturnType = UnwrappedPromise<ReturnType<typeof fetchTodos>> // type FetchDataReturnType = ITodo[]`,
-]},
-{title: {en: `An Alternative Approach for Creating Literal Types`, ua: `Альтернативний підхід для створення Literal Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`// 🚫 Bad practice
+    ]
+  },
+  {
+    title: { en: `An Alternative Approach for Creating Literal Types`, ua: `Альтернативний підхід для створення Literal Types` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `// 🚫 Bad practice
 type ReviewMark = 1 | 2 | 3
 
 type Result = {
@@ -5807,8 +6059,9 @@ type ReviewMark =
     typeof reviewMarkMap [
         keyof typeof reviewMarkMap
     ]`},
-{title: {en: `A good way to refactor a large collection of ternary expressions in React`, ua: `Хороший спосіб рефакторингу великої колекції потрійних виразів у React`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'React', data:
-`import React from "react";
+  {
+    title: { en: `A good way to refactor a large collection of ternary expressions in React`, ua: `Хороший спосіб рефакторингу великої колекції потрійних виразів у React` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'React', data:
+      `import React from "react";
 
 import FreeView from "./FreeView";
 import ProView from "./ProView";
@@ -5831,8 +6084,9 @@ export default function Demo({ plan }: IDemoProps) {
   return <PlanView />;
 }
 `},
-{title: {en: `A cool way to shorten your code using the table method`, ua: `Класний спосіб скоротити код за допомогою табличного методу`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`type errorList = 400 | 401 | 404
+  {
+    title: { en: `A cool way to shorten your code using the table method`, ua: `Класний спосіб скоротити код за допомогою табличного методу` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `type errorList = 400 | 401 | 404
 
 function detectError(error: errorList): string {
     const errors = {
@@ -5847,8 +6101,9 @@ function detectError(error: errorList): string {
 console.log(
     detectError(400)
 ) // Bad Request`},
-{title: {en: `Working with base classes in TypeScript`, ua: `Робота з базовими класами у TypeScript`}, body: {en: `We declare class properties outside the constructor.`, ua: `Декларуємо властивості класа поза конструктора.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html`}, type: ['typescript', 'OOP'], data: [
-`/* Case 1. Working with tsconfig.json and his properties. We create properties without declaring a constructor using the non-null (!) operator or changing the strictPropertyInitialization parameter. */
+  {
+    title: { en: `Working with base classes in TypeScript`, ua: `Робота з базовими класами у TypeScript` }, body: { en: `We declare class properties outside the constructor.`, ua: `Декларуємо властивості класа поза конструктора.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html` }, type: ['typescript', 'OOP'], data: [
+      `/* Case 1. Working with tsconfig.json and his properties. We create properties without declaring a constructor using the non-null (!) operator or changing the strictPropertyInitialization parameter. */
 class Box {
   // width!: number; // Correct!
   width: number; // Correct after changing the strictPropertyInitialization field from true to false.
@@ -5862,7 +6117,7 @@ class Box {
 
 const firstBox = new Box(200); // const firstBox: Box
 console.log(firstBox); // Box { width: 200, height: 500 }`,
-`/* Case 2. Create a primitive class without a constructor. */
+      `/* Case 2. Create a primitive class without a constructor. */
 class User {
   name: string; // Correct after changing the strictPropertyInitialization field from true to false.
 }
@@ -5871,9 +6126,11 @@ const ilya = new User();
 ilya.name = "Ilya";
 
 console.log(ilya); // User { name: 'Ilya' }`
-]},
-{title: {en: `Generics, Constructor Overloading for classes in TypeScript`, ua: `Дженерики, Перенавантаження Конструкторів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: ['typescript', 'OOP'], data:
-`class Figure<TName extends string | symbol> {
+    ]
+  },
+  {
+    title: { en: `Generics, Constructor Overloading for classes in TypeScript`, ua: `Дженерики, Перенавантаження Конструкторів для класів у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors` }, type: ['typescript', 'OOP'], data:
+      `class Figure<TName extends string | symbol> {
   width: number;
   height: number;
   name: TName;
@@ -5894,8 +6151,9 @@ console.log(ilya); // User { name: 'Ilya' }`
 
 const rectangle = new Figure<string>(500, 100, "rect");
 console.log(rectangle); // Figure { width: 500, height: 100, name: 'rect' }`},
-{title: {en: `Methods, Accessors (getter, setter), Method Overloading for classes in TypeScript`, ua: `Methods, Accessors (getter, setter), Перегрузка Методів для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`}, type: ['typescript', 'OOP'], data:
-`class Package {
+  {
+    title: { en: `Methods, Accessors (getter, setter), Method Overloading for classes in TypeScript`, ua: `Methods, Accessors (getter, setter), Перегрузка Методів для класів у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#constructors` }, type: ['typescript', 'OOP'], data:
+      `class Package {
   width: number;
   height: number;
   volume: number | undefined;
@@ -5976,27 +6234,30 @@ console.log(package1.content = 'bicycle'); // bicycle
 console.log(package1.content); // Date: 13:31:26 GMT+0300 (Western European Standart Time), Content: bicycle
 
 console.log(package1._content) // Date: 13:31:26 GMT+0300 (Western European Standart Time), Content: bicycle`},
-{title: {en: `Immediately Invoked Function Expression (IIFE)`, ua: `Вираз функції, що негайно викликається (IIFE)`}, body: {en: `IIFE is a function that fires without being called. That is, immediately.`, ua: `IIFE - це функція, що спрацьовує без виклику. Тобто одразу.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#using_an_immediately_invoked_function_expression_iife`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#using_an_immediately_invoked_function_expression_iife`}, type: 'function', data: [
-`/* Case 1 */
+  {
+    title: { en: `Immediately Invoked Function Expression (IIFE)`, ua: `Вираз функції, що негайно викликається (IIFE)` }, body: { en: `IIFE is a function that fires without being called. That is, immediately.`, ua: `IIFE - це функція, що спрацьовує без виклику. Тобто одразу.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#using_an_immediately_invoked_function_expression_iife`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#using_an_immediately_invoked_function_expression_iife` }, type: 'function', data: [
+      `/* Case 1 */
 (function() {
     console.log("Logged!")
 })()
 
 // Logged!`,
-`/* Case 2 */
+      `/* Case 2 */
 !function() {
     console.log("Logged!")
 }()
 
 // Logged!`
-]},
-{title: {en: `void operator`, ua: `Оператор void`}, body: {en: `The void operator is an operator that helps replace the value or result in a variable or function with the value undefined.`, ua: `Оператор void - це оператор, що допомагає замінити значення або результат у змінній чи у функції на значення undefined.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/void`}, type: 'operator', data: [
-`/* Case 1. "void" operator in variables. */
+    ]
+  },
+  {
+    title: { en: `void operator`, ua: `Оператор void` }, body: { en: `The void operator is an operator that helps replace the value or result in a variable or function with the value undefined.`, ua: `Оператор void - це оператор, що допомагає замінити значення або результат у змінній чи у функції на значення undefined.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/void` }, type: 'operator', data: [
+      `/* Case 1. "void" operator in variables. */
 const error = void 400
 console.log(
     error
 ) // undefined`,
-`/* Case 2. "void" operator in function calls. */
+      `/* Case 2. "void" operator in function calls. */
 
 function Demo() {
     return [1, 1, 2, 3, 5]
@@ -6009,13 +6270,13 @@ console.log(
 console.log(
     void Demo()
 ) // undefined`,
-`/* Case 3. "void" operator in IIFE function declaration. */
+      `/* Case 3. "void" operator in IIFE function declaration. */
 void function () {
     console.log("Logged!")
 }()
 
 // Logged!`,
-`/* Case 4. "void" operator in expression. */
+      `/* Case 4. "void" operator in expression. */
 console.log(
     void 404 === "404"
 ) // false
@@ -6023,9 +6284,11 @@ console.log(
 console.log(
     void (404 === "404")
 ) // undefined`,
-]},
-{title: {en: `Call limit function`, ua: `Функція з лімітом викликів`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
-`function limitedCall(fn: Function, limit: number) {
+    ]
+  },
+  {
+    title: { en: `Call limit function`, ua: `Функція з лімітом викликів` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'task', data:
+      `function limitedCall(fn: Function, limit: number) {
   let count = 0
 
   return function<T>(...args: T[]) {
@@ -6044,8 +6307,9 @@ greetingLog('Alex') // Hello, Alex!
 greetingLog('Tom') // Hello, Tom!
 greetingLog('John') // Hello, John!
 greetingLog('Harry')`},
-{title: {en: `An interesting way to adhere to the DRY principle is with the keyof operator`, ua: `Цікавий спосіб притримуватися принципу DRY за допомогою оператора keyof`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`interface IFormValues {
+  {
+    title: { en: `An interesting way to adhere to the DRY principle is with the keyof operator`, ua: `Цікавий спосіб притримуватися принципу DRY за допомогою оператора keyof` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `interface IFormValues {
   name: string;
   email: string;
   password: string;
@@ -6070,8 +6334,9 @@ const inputs: Record <
       label: "Password"
   }
 }`},
-{title: {en: `Finding the sum of diagonals in a matrix`, ua: `Пошук суми діагоналей у матриці`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'task', data:
-`function diagonalSum(matrix: number[][]) {
+  {
+    title: { en: `Finding the sum of diagonals in a matrix`, ua: `Пошук суми діагоналей у матриці` }, body: { en: ``, ua: `` }, link: { en: ``, ua: `` }, type: 'task', data:
+      `function diagonalSum(matrix: number[][]) {
   let sum = 0;
   const n = matrix.length;
 
@@ -6097,8 +6362,9 @@ console.log(
       ]
   )
 ) // 25`},
-{title: {en: `Move all zeros to the end of the array`, ua: `Переміщуємо всі нулі в кінець масиву`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'task', data:
-`function moveZeroes(nums: number[]) {
+  {
+    title: { en: `Move all zeros to the end of the array`, ua: `Переміщуємо всі нулі в кінець масиву` }, body: { en: ``, ua: `` }, link: { en: ``, ua: `` }, type: 'task', data:
+      `function moveZeroes(nums: number[]) {
   let index = 0
 
   for (let i = 0; i < nums.length; i++) {
@@ -6119,15 +6385,17 @@ console.log(
       [1, 0, 2, 3, 0]
   )
 ) // [ 1, 2, 3, 0, 0 ]`},
-{title: {en: `The correct way to read files in Node.js`, ua: `Правильний шлях для читання файлів у Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data:
-`import fs from 'fs'
+  {
+    title: { en: `The correct way to read files in Node.js`, ua: `Правильний шлях для читання файлів у Node.js` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'Node.js', data:
+      `import fs from 'fs'
 
 const res = await fs
     .promises
     .readFile('./video.mp4')`
-},
-{title: {en: `Initial value and Index Signature for classes in TypeScript`, ua: `Початкове значення та Index Signature для класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#index-signatures`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#index-signatures`}, type: ['typescript', 'OOP'], data: [
-`/* Initial Value */
+  },
+  {
+    title: { en: `Initial value and Index Signature for classes in TypeScript`, ua: `Початкове значення та Index Signature для класів у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#index-signatures`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#index-signatures` }, type: ['typescript', 'OOP'], data: [
+      `/* Initial Value */
 class Rect {
   width: number;
   height: number | undefined = 500;
@@ -6139,7 +6407,7 @@ class Rect {
 
 const rect = new Rect(700);
 console.log(rect); // Rect { width: 700, height: 500 }`,
-`/* Index Signature */
+      `/* Index Signature */
 class Styles {
   [style: string]: string;
 }
@@ -6147,7 +6415,7 @@ class Styles {
 const style = new Styles();
 style.color = "red";
 // style.fontWeight = 500 // Error! Type 'number' is not assignable to type 'string'.`,
-`/* Index Signature with method (bad practise) */
+      `/* Index Signature with method (bad practise) */
 class Routes {
   [route: string]: string | ((route: string) => string);
 
@@ -6164,9 +6432,11 @@ const adminRoute = (shopRoute.adminRoute = "admin");
 
 console.log(shopRoute.goToRoute(adminRoute)); // https://shop.com/admin
 `,
-]},
-{title: {en: `Class extendings in TypeScript`, ua: `Розширення класів у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#extends-clauses`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#extends-clauses`}, type: ['typescript', 'OOP'], data:
-`class Box {
+    ]
+  },
+  {
+    title: { en: `Class extendings in TypeScript`, ua: `Розширення класів у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#extends-clauses`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#extends-clauses` }, type: ['typescript', 'OOP'], data:
+      `class Box {
   width: number;
   height: number = 500;
   _content: string | undefined
@@ -6219,9 +6489,10 @@ const gift = new PresentBox('Green Gift Wrap', 500)
 console.log(gift) // PresentBox { width: 500, height: 400, _content: undefined, wrap: 'Green Gift Wrap' }
 
 gift.content('Car', 'Gift') // Date: 12:46:49 GMT+0300 (Western European Standart Time), Content: Car, Text: Gift`},
-{title: {en: `Rest API Requests`, ua: `Запити Rest API`}, body: {en: `REST API is a set of rules for system interaction over HTTP using various HTTP methods, such as GET (data retrieval), POST (resource creation), PUT (resource update), PATCH (partial update), and DELETE (resource deletion).`, ua: `REST API - це набір правил для взаємодії систем через HTTP з використанням різних HTTP-методів, таких як GET (отримання даних), POST (створення ресурсу), PUT (оновлення ресурсу), PATCH (часткове оновлення) та DELETE (видалення ресурсу).`}, link: {en: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`, ua: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`}, type: ['request', 'function'], data: [
-restApiRequests,
-`/* GET Request */
+  {
+    title: { en: `Rest API Requests`, ua: `Запити Rest API` }, body: { en: `REST API is a set of rules for system interaction over HTTP using various HTTP methods, such as GET (data retrieval), POST (resource creation), PUT (resource update), PATCH (partial update), and DELETE (resource deletion).`, ua: `REST API - це набір правил для взаємодії систем через HTTP з використанням різних HTTP-методів, таких як GET (отримання даних), POST (створення ресурсу), PUT (оновлення ресурсу), PATCH (часткове оновлення) та DELETE (видалення ресурсу).` }, link: { en: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk`, ua: `https://developer.mozilla.org/en-US/docs/Glossary/REST?retiredLocale=uk` }, type: ['request', 'function'], data: [
+      restApiRequests,
+      `/* GET Request */
 async function getData(id) {
     try {
         const request = await fetch(\`http://example.com/api/users/\${id}\`);
@@ -6237,7 +6508,7 @@ async function getData(id) {
 }
 
 getData(1);`,
-`/* POST Request */
+      `/* POST Request */
 async function postData(data) {
     try {
         const request = await fetch(\`http://example.com/api/users\`, {
@@ -6260,7 +6531,7 @@ async function postData(data) {
 }
 
 postData({ key: 'value' });`,
-`/* PUT Request */
+      `/* PUT Request */
 async function putData(id, data) {
     try {
         const request = await fetch(\`http://example.com/api/users/\${id}\`, {
@@ -6283,7 +6554,7 @@ async function putData(id, data) {
 }
 
 putData(3, { key: 'value' });`,
-`/* PATCH Request */
+      `/* PATCH Request */
 async function patchRequest(id, data) {
     try {
         const request = await fetch(\`http://example.com/api/users/\${id}\`, {
@@ -6306,7 +6577,7 @@ async function patchRequest(id, data) {
 }
 
 patchRequest(5, { key: 'value' });`,
-`/* DELETE Request */
+      `/* DELETE Request */
 async function deleteRequest(id) {
     try {
         const request = await fetch(\`http://example.com/api/users/\${id}\`, {
@@ -6331,9 +6602,11 @@ async function deleteRequest(id) {
 }
 
 deleteRequest(4);`,
-]},
-{title: {en: `Processing REST Api requests on Node.js`, ua: `Обробка REST Api запитів на Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['Node.js', 'request'], data:
-`const http = require('http')
+    ]
+  },
+  {
+    title: { en: `Processing REST Api requests on Node.js`, ua: `Обробка REST Api запитів на Node.js` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['Node.js', 'request'], data:
+      `const http = require('http')
 const url = require('url')
 const { parse } = require('querystring')
 
@@ -6413,8 +6686,9 @@ http.createServer((request, response) => {
         })
     }
 }).listen(3002) // Server PORT`},
-{title: {en: `Replacing the nodemon library for a pure Node.js application`, ua: `Заміна бібліотеки nodemon для чистого Node.js додатку`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'Node.js', data:
-`{
+  {
+    title: { en: `Replacing the nodemon library for a pure Node.js application`, ua: `Заміна бібліотеки nodemon для чистого Node.js додатку` }, body: { en: ``, ua: `` }, link: { en: ``, ua: `` }, type: 'Node.js', data:
+      `{
   "name": "fake_api",
   "version": "1.0.0",
   "description": "",
@@ -6429,8 +6703,9 @@ http.createServer((request, response) => {
     "mysql": "^2.18.1"
   }
 }`},
-{title: {en: `Find contexts`, ua: `Знайдіть контексти`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['function', 'task'], data:
-`function x() {
+  {
+    title: { en: `Find contexts`, ua: `Знайдіть контексти` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['function', 'task'], data:
+      `function x() {
   return {
       a: {
           b: function() {
@@ -6452,8 +6727,9 @@ function b() {
 x().a.b() // 1 {b: f}
 x().b.c() // 2 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
 b() // 3 Window {window: Window, self: Window, document: document, name: '', location: Location, …}`},
-{title: {en: `Variables in CSS`, ua: `Змінні у CSS`}, body: {en: ``, ua: ``}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties`, ua: `https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties`}, type: 'markup', data:
-`:root {
+  {
+    title: { en: `Variables in CSS`, ua: `Змінні у CSS` }, body: { en: ``, ua: `` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties`, ua: `https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties` }, type: 'markup', data:
+      `:root {
   --main-black-text: #1e1e1e;
   --secondary-grey-bg: #bbbbbb; 
 }
@@ -6462,8 +6738,9 @@ b() // 3 Window {window: Window, self: Window, document: document, name: '', lo
   background-color: var(--secondary-grey-bg);
   color: var(--main-black-text);
 }`},
-{title: {en: `Interaction between Node.js and MySQL`, ua: `Взаємодія між Node.js та MySQL`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['Node.js', 'MySQL'], data:
-`const http = require('http')
+  {
+    title: { en: `Interaction between Node.js and MySQL`, ua: `Взаємодія між Node.js та MySQL` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['Node.js', 'MySQL'], data:
+      `const http = require('http')
 const url = require('url')
 
 const mysql = require('mysql') // npm i mysql
@@ -6513,8 +6790,9 @@ http.createServer((request, response) => {
         }
     }
 }).listen(3002)`},
-{title: {en: `Filter method on the type level`, ua: `Метод filter на рівні типізації`}, body: {en: `The filter method at the typing level is completely based on the working logic of the usual filter array method, but the role of this method differs in that this method filters the types that are in the given Type Alias. So it is Utility Type Exclude that helps to achieve the desired result.`, ua: `Метод filter на рівні типізації створений повність на основі логіки працювання звичайного метода масивів filter, але роль цього метода відрізнаяється тим, що цей метод фільтрує типи, що мається у даному Type Alias. Отже саме Utility Type Exclude допомагає добитися бажаного результата.`}, link: {en: ``, ua: ``}, type: ['typescript', 'task'], data:
-`const array = [1, 2, 3, '']
+  {
+    title: { en: `Filter method on the type level`, ua: `Метод filter на рівні типізації` }, body: { en: `The filter method at the typing level is completely based on the working logic of the usual filter array method, but the role of this method differs in that this method filters the types that are in the given Type Alias. So it is Utility Type Exclude that helps to achieve the desired result.`, ua: `Метод filter на рівні типізації створений повність на основі логіки працювання звичайного метода масивів filter, але роль цього метода відрізнаяється тим, що цей метод фільтрує типи, що мається у даному Type Alias. Отже саме Utility Type Exclude допомагає добитися бажаного результата.` }, link: { en: ``, ua: `` }, type: ['typescript', 'task'], data:
+      `const array = [1, 2, 3, '']
 
 type Arr = typeof array
 
@@ -6525,8 +6803,9 @@ type ExcludeFromArray<T extends any[], ToExlude> = Exclude<
 >[]
 
 type NumArr = ExcludeFromArray<Arr, string> // type NumArr = number[]`},
-{title: {en: `Object.freeze()`, ua: `Object.freeze()`}, body: {en: `The Object.freeze() static method freezes an object. Freezing an object prevents extensions and makes existing properties non-writable and non-configurable.`, ua: `Статичний метод Object.freeze() заморожує об’єкт. Заморожування об’єкта запобігає розширенню та робить існуючі властивості неможливими для перезапису та налаштування.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze`}, type: 'method', data:
-`const fiboArr = [1, 1, 2, 3, 5]
+  {
+    title: { en: `Object.freeze()`, ua: `Object.freeze()` }, body: { en: `The Object.freeze() static method freezes an object. Freezing an object prevents extensions and makes existing properties non-writable and non-configurable.`, ua: `Статичний метод Object.freeze() заморожує об’єкт. Заморожування об’єкта запобігає розширенню та робить існуючі властивості неможливими для перезапису та налаштування.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze` }, type: 'method', data:
+      `const fiboArr = [1, 1, 2, 3, 5]
 const colors = {
     black: '#1e1e1e',
     grey: '#bbbbbb',
@@ -6541,8 +6820,9 @@ Object.freeze(colors)
 
 console.log(fiboArr) // [ 1, 1, 2, 3, 5 ]
 console.log(colors) // { black: '#1e1e1e', grey: '#bbbbbb', red: '#d65241'`},
-{title: {en: `Object.values()`, ua: `Object.values()`}, body: {en: `The Object.values() static method returns an array of a given object's own enumerable string-keyed property values.`, ua: `Статичний метод Object.values() повертає масив власних перелічуваних значень властивості даного об’єкта з рядковим ключем.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/values`}, type: 'method', data:
-`const routes = ['/main', '/products', '/aboutus']
+  {
+    title: { en: `Object.values()`, ua: `Object.values()` }, body: { en: `The Object.values() static method returns an array of a given object's own enumerable string-keyed property values.`, ua: `Статичний метод Object.values() повертає масив власних перелічуваних значень властивості даного об’єкта з рядковим ключем.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/values` }, type: 'method', data:
+      `const routes = ['/main', '/products', '/aboutus']
 const errors = {
     badRequest: 400,
     notFound: 404,
@@ -6556,8 +6836,9 @@ console.log(
 console.log(
     Object.values(errors)
 ) // [ 400, 404, 500 ]`},
-{title: {en: `Object.entries()`, ua: `Object.entries()`}, body: {en: `The Object.entries() static method returns an array of a given object's own enumerable string-keyed property key-value pairs.`, ua: `Статичний метод Object.entries() повертає масив власних перелічуваних пар властивостей ключ-значення з рядковими ключами.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/entries`}, type: 'method', data:
-`const users = ['Jane', 'Jake', 'John']
+  {
+    title: { en: `Object.entries()`, ua: `Object.entries()` }, body: { en: `The Object.entries() static method returns an array of a given object's own enumerable string-keyed property key-value pairs.`, ua: `Статичний метод Object.entries() повертає масив власних перелічуваних пар властивостей ключ-значення з рядковими ключами.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/entries` }, type: 'method', data:
+      `const users = ['Jane', 'Jake', 'John']
 const person = {
   name: 'Alex',
   age: 26,
@@ -6571,8 +6852,9 @@ console.log(
 console.log(
   Object.entries(person)
 ) // [ [ 'name', 'Alex' ], [ 'age', 26 ], [ 'gender', 'male' ] ]`},
-{title: {en: `Object.assign()`, ua: `Object.assign()`}, body: {en: `The Object.assign() static method copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.`, ua: `Статичний метод Object.assign() копіює всі перелічувані власні властивості з одного або кількох вихідних об’єктів у цільовий об’єкт. Він повертає змінений цільовий об’єкт.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/assign`}, type: 'method', data:
-`const target = { a: 1, b: 2 }
+  {
+    title: { en: `Object.assign()`, ua: `Object.assign()` }, body: { en: `The Object.assign() static method copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.`, ua: `Статичний метод Object.assign() копіює всі перелічувані власні властивості з одного або кількох вихідних об’єктів у цільовий об’єкт. Він повертає змінений цільовий об’єкт.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/assign` }, type: 'method', data:
+      `const target = { a: 1, b: 2 }
 const source = { b: 4, c: 5 }
 
 const returnedTarget = Object.assign(target, source)
@@ -6584,8 +6866,9 @@ console.log(
 console.log(
     returnedTarget === target
 ) // true`},
-{title: {en: `Correct way to handle large amounts of memory when interacting with media data using the createReadStream() method`, ua: `Коректний спосіб обробки великого об'єму пам'яті при взаємодії із медіа даними за допомогою метода createReadStream()`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data:
-`import fs from 'fs'
+  {
+    title: { en: `Correct way to handle large amounts of memory when interacting with media data using the createReadStream() method`, ua: `Коректний спосіб обробки великого об'єму пам'яті при взаємодії із медіа даними за допомогою метода createReadStream()` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'Node.js', data:
+      `import fs from 'fs'
 
 const stream = fs.createReadStream(
     './6GB_video.mp4',
@@ -6597,8 +6880,9 @@ const stream = fs.createReadStream(
 for await (const data of stream) {
     // Use your data...
 }`},
-{title: {en: `instanceof operator`, ua: `Оператор instanceof`}, body: {en: `The instanceof operator tests to see if the prototype property of a constructor appears anywhere in the prototype chain of an object.`, ua: `Оператор instanceof перевіряє, чи з’являється властивість прототипу конструктора будь-де в ланцюжку прототипів об’єкта.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/instanceof`}, type: 'operator', data:
-`function Car(make, model, year) {
+  {
+    title: { en: `instanceof operator`, ua: `Оператор instanceof` }, body: { en: `The instanceof operator tests to see if the prototype property of a constructor appears anywhere in the prototype chain of an object.`, ua: `Оператор instanceof перевіряє, чи з’являється властивість прототипу конструктора будь-де в ланцюжку прототипів об’єкта.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/instanceof` }, type: 'operator', data:
+      `function Car(make, model, year) {
   this.make = make
   this.model = model
   this.year = year
@@ -6613,8 +6897,9 @@ console.log(
 console.log(
   auto instanceof Object
 ) // true`},
-{title: {en: `Scope in JavaScript`, ua: `Область Видимості у JavaScript`}, body: {en: `The scope is the current context of execution in which values and expressions are "visible" or can be referenced. If a variable or expression is not in the current scope, it will not be available for use. Scopes can also be layered in a hierarchy, so that child scopes have access to parent scopes, but not vice versa.`, ua: `Область — це поточний контекст виконання, у якому значення та вирази «видимі» або на які можна посилатися. Якщо змінна або вираз не входять до поточної області, вони будуть недоступні для використання. Області також можна роз’єднати в ієрархію, щоб дочірні області мали доступ до батьківських областей, але не навпаки.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Glossary/Scope`, ua: `https://developer.mozilla.org/en-US/docs/Glossary/Scope`}, type: 'all', data:
-`// global scope
+  {
+    title: { en: `Scope in JavaScript`, ua: `Область Видимості у JavaScript` }, body: { en: `The scope is the current context of execution in which values and expressions are "visible" or can be referenced. If a variable or expression is not in the current scope, it will not be available for use. Scopes can also be layered in a hierarchy, so that child scopes have access to parent scopes, but not vice versa.`, ua: `Область — це поточний контекст виконання, у якому значення та вирази «видимі» або на які можна посилатися. Якщо змінна або вираз не входять до поточної області, вони будуть недоступні для використання. Області також можна роз’єднати в ієрархію, щоб дочірні області мали доступ до батьківських областей, але не навпаки.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Glossary/Scope`, ua: `https://developer.mozilla.org/en-US/docs/Glossary/Scope` }, type: 'all', data:
+      `// global scope
 const currentDay = 14
 
 function foo() {
@@ -6634,8 +6919,9 @@ if (true) {
 console.log(currentDay) // 14
 // console.log(currentMonth) // Error! currentMonth is not defined
 // console.log(currentYear) // Error! currentYear is not defined`},
-{title: {en: `Typing event in React and TypeScript`, ua: `Типізуєм event для React TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
-`import { ChangeEvent } from "react";
+  {
+    title: { en: `Typing event in React and TypeScript`, ua: `Типізуєм event для React TypeScript` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'React'], data:
+      `import { ChangeEvent } from "react";
 
 export default function Demo() {
   /* Use your HTML Generic Type  */
@@ -6644,8 +6930,9 @@ export default function Demo() {
   }
   return <input onChange={handleChange} />;
 }`},
-{title: {en: `Optimizing Code with Map`, ua: `Оптимізація коду за допомогою Map`}, body: {en: ``, ua: ``}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`}, type: 'all', data:
-`function getDayNum(day) {
+  {
+    title: { en: `Optimizing Code with Map`, ua: `Оптимізація коду за допомогою Map` }, body: { en: ``, ua: `` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map` }, type: 'all', data:
+      `function getDayNum(day) {
   const dayMap = new Map([
       ['monday', 1],
       ['tuesday', 2],
@@ -6662,8 +6949,9 @@ export default function Demo() {
 console.log(
   getDayNum('thursday')
 ) // 4`},
-{title: {en: `Comparison of Map and Object`, ua: `Порівняння Map та Об'єкта`}, body: {en: `Use Map when you need to take a large amount of data with nested keys and values. If you just need to transfer data, then it is better to use a regular object.`, ua: `Використовуй Map, коли потрібно брати великий обсяг даних із вкладеними ключами та значеннями. Якщо потрібно просто передавати дані, краще використовувати звичайний об'єкт.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`}, type: 'all', data: [
-`/* Case 1. Map accepts anything as a key to its value, but object only accepts a string or symbol. */
+  {
+    title: { en: `Comparison of Map and Object`, ua: `Порівняння Map та Об'єкта` }, body: { en: `Use Map when you need to take a large amount of data with nested keys and values. If you just need to transfer data, then it is better to use a regular object.`, ua: `Використовуй Map, коли потрібно брати великий обсяг даних із вкладеними ключами та значеннями. Якщо потрібно просто передавати дані, краще використовувати звичайний об'єкт.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map`, ua: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map` }, type: 'all', data: [
+      `/* Case 1. Map accepts anything as a key to its value, but object only accepts a string or symbol. */
 
 // The key is a string or a symbol
 const sym = Symbol('s')
@@ -6678,7 +6966,7 @@ const arr = [1, 2]
 
 const map = new Map()
 map.set(arr, 2)`,
-`/* Case 2. Iteration. */
+      `/* Case 2. Iteration. */
 
 // Iterate over keys
 for (const elem in obj) {
@@ -6689,17 +6977,19 @@ for (const elem in obj) {
 for (const [key, value] of map) {
     // ...
 }`,
-`/* Case 3. Automatic length calculation in Map. */
+      `/* Case 3. Automatic length calculation in Map. */
 
 // Map size is always calculated
 map.size`,
-`/* Case 4. Convenient API for checking ownership of something in Map. */
+      `/* Case 4. Convenient API for checking ownership of something in Map. */
 
 map.has('1')
 map.has('2')`,
-]},
-{title: {en: `Cleanup function example`, ua: `Приклад самоочіщення функції`}, body: {en: `React’s useEffect cleanup function saves applications from unwanted behaviors like memory leaks by cleaning up effects. In doing so, we can optimize our application’s performance.`, ua: `Функція очищення useEffect від React рятує програми від небажаної поведінки, як-от витік пам’яті, очищаючи ефекти. Таким чином ми можемо оптимізувати продуктивність нашої програми.`}, link: {en: `https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/`, ua: `https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/`}, type: ['typescript', 'React'], data:
-`import { useState, useEffect } from "react";
+    ]
+  },
+  {
+    title: { en: `Cleanup function example`, ua: `Приклад самоочіщення функції` }, body: { en: `React’s useEffect cleanup function saves applications from unwanted behaviors like memory leaks by cleaning up effects. In doing so, we can optimize our application’s performance.`, ua: `Функція очищення useEffect від React рятує програми від небажаної поведінки, як-от витік пам’яті, очищаючи ефекти. Таким чином ми можемо оптимізувати продуктивність нашої програми.` }, link: { en: `https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/`, ua: `https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/` }, type: ['typescript', 'React'], data:
+      `import { useState, useEffect } from "react";
 
 function Child() {
   useEffect(() => {
@@ -6729,8 +7019,9 @@ function Demo() {
 }
 
 export default Demo;`},
-{title: {en: `Routing in Node.js`, ua: `Роутінг у Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['Node.js', 'request'], data:
-`const http = require('http')
+  {
+    title: { en: `Routing in Node.js`, ua: `Роутінг у Node.js` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['Node.js', 'request'], data:
+      `const http = require('http')
 const url = require('url')
 
 http.createServer(function(request, response) {
@@ -6791,8 +7082,9 @@ function paymentPage(response) {
 function page404(response) {
   response.end("404")
 }`},
-{title: {en: `Implementation in TypeScript`, ua: `Імплементація (реалізація) у TypeScript`}, body: {en: `You can use an implements clause to check that a class satisfies a particular interface. An error will be issued if a class fails to correctly implement it.`, ua: `Ви можете використовувати пропозицію implements, щоб перевірити, чи клас задовольняє певний інтерфейс. Помилка буде видана, якщо клас не вдасться його правильно реалізувати.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses`}, type: ['typescript', 'OOP'], data:
-`interface IUser {
+  {
+    title: { en: `Implementation in TypeScript`, ua: `Імплементація (реалізація) у TypeScript` }, body: { en: `You can use an implements clause to check that a class satisfies a particular interface. An error will be issued if a class fails to correctly implement it.`, ua: `Ви можете використовувати пропозицію implements, щоб перевірити, чи клас задовольняє певний інтерфейс. Помилка буде видана, якщо клас не вдасться його правильно реалізувати.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses` }, type: ['typescript', 'OOP'], data:
+      `interface IUser {
   login: string;
   password: string;
   token?: number
@@ -6814,8 +7106,9 @@ class UserForm implements IUser, IValidation {
   }
 }
 `},
-{title: {en: `An interesting problem to practice implementing interfaces for classes in TypeScript`, ua: `Цікаве завдання на тренування в імплементації інтерфейсів для класів в ТайпСкрипт`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP', 'task'], data:
-`enum TransferStatus {
+  {
+    title: { en: `An interesting problem to practice implementing interfaces for classes in TypeScript`, ua: `Цікаве завдання на тренування в імплементації інтерфейсів для класів в ТайпСкрипт` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'OOP', 'task'], data:
+      `enum TransferStatus {
   Pending = "pending",
   Rejected = "rejected",
   Completed = "completed",
@@ -6878,8 +7171,9 @@ class SingleFileTransfer implements ITransfer, TransferError {
   }
 }
 `},
-{title: {en: `Property visibility modifiers (public, private, protected) in TypeScript`, ua: `Модифікатори видимості властивостей (public, private, protected) у TypeScript`}, body: {en: `Property visibility modifiers are used to assert whether this or that value can be changed outside the class or in subclasses. For example, public allows a value or method to be modified or used anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method everywhere except subclasses. Property visibility modifiers are used to assert whether a particular value can be changed outside the class or in subclasses. For example, public allows the value to change anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method anywhere except subclasses.`, ua: `Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися чи використовуватися значенню чи методу будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися значенню будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`}, type: ['typescript', 'OOP'], data:
-`class Player {
+  {
+    title: { en: `Property visibility modifiers (public, private, protected) in TypeScript`, ua: `Модифікатори видимості властивостей (public, private, protected) у TypeScript` }, body: { en: `Property visibility modifiers are used to assert whether this or that value can be changed outside the class or in subclasses. For example, public allows a value or method to be modified or used anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method everywhere except subclasses. Property visibility modifiers are used to assert whether a particular value can be changed outside the class or in subclasses. For example, public allows the value to change anywhere, whether in subclasses or when a new class is created. private restricts the ability to be modified anywhere outside of the class where the value or method was created. But protected prohibits the use of a value or method anywhere except subclasses.`, ua: `Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися чи використовуватися значенню чи методу будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.Property visibility modifiers використовуються утвердження чи може те чи інше значення змінюватися поза класа чи у підкласах. Наприклад public дозволяє змінюватися значенню будь-де, чи то у підкласах чи при створені нового класу. private обмежую здатність для зміни будь-де окрім класу, де це значення чи метод були створені. А ось protected забороняє використовування значення чи метода усюди, окрім підкласів.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility` }, type: ['typescript', 'OOP'], data:
+      `class Player {
   /* Property visibility modifier: "public" are used when we do not care whether it will be changed outside the specific class. */
   public nickname: string
   public server: string;
@@ -6928,8 +7222,9 @@ class CommetitivePlayer extends Player {
 
 const commetitivePlayer = new CommetitivePlayer()
 // commetitivePlayer.filingAnApplication() // Error! Property 'filingAnApplication' is protected and only accessible within class 'CommetitivePlayer' and its subclasses.`},
-{title: {en: `Private field modifier "#"`, ua: `Модифікатор приватного поля "#"`}, body: {en: `Typing a private field with "#" is not purely a TypeScript feature. Since this is in ES2022, however, there is no difference with the functionality of declaring a private field, as in TypeScript, through the "private" keyword.`, ua: `Типізація приватного поля через "#" не є суто фішкою TypeScript. Оскільки це є у ES2022, проте відмінності з функціоналом об'яви приватного поля, як у TypeScript, через ключове слово "private" немає.`}, link: {en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes/Private_class_fields`}, type: ['typescript', 'OOP'], data:
-`class User {
+  {
+    title: { en: `Private field modifier "#"`, ua: `Модифікатор приватного поля "#"` }, body: { en: `Typing a private field with "#" is not purely a TypeScript feature. Since this is in ES2022, however, there is no difference with the functionality of declaring a private field, as in TypeScript, through the "private" keyword.`, ua: `Типізація приватного поля через "#" не є суто фішкою TypeScript. Оскільки це є у ES2022, проте відмінності з функціоналом об'яви приватного поля, як у TypeScript, через ключове слово "private" немає.` }, link: { en: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields`, ua: `https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes/Private_class_fields` }, type: ['typescript', 'OOP'], data:
+      `class User {
   // Private class features "#"
   #login: string;
   #password: number
@@ -6947,8 +7242,9 @@ const Alex = new User()
 
 Alex.name // Correct!
 Alex.age // Correct!`},
-{title: {en: `Property modifier "static" in TypeScript`, ua: `Модифікатор властивості "static" у TypeScript`}, body: {en: `Static initialization blocks are declared within a class. It contains statements to be evaluated during class initialization. This permits more flexible initialization logic than static properties, such as using try...catch or setting multiple fields from a single value. Initialization is performed in the context of the current class declaration, with access to private state, which allows the class to share information of its private properties with other classes or functions declared in the same scope.`, ua: `Блоки статичної ініціалізації оголошуються в межах класу. Він містить оператори, які потрібно оцінити під час ініціалізації класу. Це дозволяє більш гнучку логіку ініціалізації, ніж статичні властивості, такі як використання try...catch або встановлення кількох полів з одного значення. Ініціалізація виконується в контексті поточної декларації класу з доступом до приватного стану, що дозволяє класу ділитися інформацією про свої приватні властивості з іншими класами або функціями, оголошеними в тій же області.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members`}, type: ['typescript', 'OOP'], data: [
-`/* Case 1. Static variables and methods. */
+  {
+    title: { en: `Property modifier "static" in TypeScript`, ua: `Модифікатор властивості "static" у TypeScript` }, body: { en: `Static initialization blocks are declared within a class. It contains statements to be evaluated during class initialization. This permits more flexible initialization logic than static properties, such as using try...catch or setting multiple fields from a single value. Initialization is performed in the context of the current class declaration, with access to private state, which allows the class to share information of its private properties with other classes or functions declared in the same scope.`, ua: `Блоки статичної ініціалізації оголошуються в межах класу. Він містить оператори, які потрібно оцінити під час ініціалізації класу. Це дозволяє більш гнучку логіку ініціалізації, ніж статичні властивості, такі як використання try...catch або встановлення кількох полів з одного значення. Ініціалізація виконується в контексті поточної декларації класу з доступом до приватного стану, що дозволяє класу ділитися інформацією про свої приватні властивості з іншими класами або функціями, оголошеними в тій же області.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members` }, type: ['typescript', 'OOP'], data: [
+      `/* Case 1. Static variables and methods. */
 class Cat {
   static animal: string = "cat";
   private static animalName = "Michelle";
@@ -6963,7 +7259,7 @@ Cat.animal; // Correct!
 Cat.getAnimalName(); // Correct!
 
 console.log(Cat.getAnimalName()); // Michelle`,
-`/* Case 2. Static classes (non-reusable classes) without the ability to create new instances. */
+      `/* Case 2. Static classes (non-reusable classes) without the ability to create new instances. */
 class MusicAlbum {
   private static albumName: string;
   private constructor() {}
@@ -6972,7 +7268,7 @@ class MusicAlbum {
 // const queenAlbum = new MusicAlbum() // Error! Constructor of class 'MusicAlbum' is private and only accessible within the class declaration.
 
 // class QueenAlbum extends MusicAlbum {} // Error! Cannot extend a class 'MusicAlbum'. Class constructor is marked as private.`,
-`/* Case 3. Static classes (non-reusable classes), but with the ability to create subclasses. */
+      `/* Case 3. Static classes (non-reusable classes), but with the ability to create subclasses. */
 class XWing {
   static type: string;
   protected constructor() {}
@@ -6983,7 +7279,7 @@ class XWing {
 class AWing extends XWing {
   static type: string;
 }`,
-`/* Case 4. Static Block. */
+      `/* Case 4. Static Block. */
 class Ports {
   static defaultPort: number = 3000
   static portList: number[] = []
@@ -6997,9 +7293,11 @@ class Ports {
 }
 
 console.log(Ports.portList) // [ 3000, 3001, 3002 ]`,
-]},
-{title: {en: `"this" and context typing`, ua: `"this" і типізація контекста`}, body: {en: `When functionality becomes more complex, you can always lose context in classes. In TS there is an opportunity to clearly say what the context should be and not get such situations. The problem can be solved using bind or an arrow function. But you won't know about the error until you run the code. Therefore, in TS there is an option to immediately say what the context will be as the first argument in the function. And you will see an error at the development stage. Sometimes we return context from a method, that is, a reference to an instance of an object. In such cases, you should not strictly type the return value, as it may break the logic. Using the context, we can check which class the instance belongs to and write our own type protector.`, ua: `При ускладненні функціоналу можна втратити контекст у класах. У TS існує можливість чітко сказати, чим має бути контекст і не набувати таких ситуацій. Проблему можна вирішити за допомогою bind або стрілочної функції. Але до запуску коду ви не дізнаєтесь про помилку. Тому в TS є варіант відразу сказати, чим буде контекст прямо першим аргументом функції. І ви побачите помилку на етапі розробки. Іноді ми з методу повертаємо контекст, тобто посилання на екземпляр об'єкта. У таких випадках не варто жорстко типізувати значення, що повертається, так як воно може зламати логіку. За допомогою контексту ми можемо перевірити, до якого класу належить екземпляр та написати свій захисник типу.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`}, type: ['typescript', 'OOP'], data: [
-`/* Case 1. We use the "this" keyword to assert the context. */
+    ]
+  },
+  {
+    title: { en: `"this" and context typing`, ua: `"this" і типізація контекста` }, body: { en: `When functionality becomes more complex, you can always lose context in classes. In TS there is an opportunity to clearly say what the context should be and not get such situations. The problem can be solved using bind or an arrow function. But you won't know about the error until you run the code. Therefore, in TS there is an option to immediately say what the context will be as the first argument in the function. And you will see an error at the development stage. Sometimes we return context from a method, that is, a reference to an instance of an object. In such cases, you should not strictly type the return value, as it may break the logic. Using the context, we can check which class the instance belongs to and write our own type protector.`, ua: `При ускладненні функціоналу можна втратити контекст у класах. У TS існує можливість чітко сказати, чим має бути контекст і не набувати таких ситуацій. Проблему можна вирішити за допомогою bind або стрілочної функції. Але до запуску коду ви не дізнаєтесь про помилку. Тому в TS є варіант відразу сказати, чим буде контекст прямо першим аргументом функції. І ви побачите помилку на етапі розробки. Іноді ми з методу повертаємо контекст, тобто посилання на екземпляр об'єкта. У таких випадках не варто жорстко типізувати значення, що повертається, так як воно може зламати логіку. За допомогою контексту ми можемо перевірити, до якого класу належить екземпляр та написати свій захисник типу.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters` }, type: ['typescript', 'OOP'], data: [
+      `/* Case 1. We use the "this" keyword to assert the context. */
 class Soldier {
   #callsign: string;
 
@@ -7023,7 +7321,7 @@ const calling2 = soldier.callByCallsign.bind(soldier)
 calling2() // Correct!
 console.log(calling2()) // Soldier Khimik is on duty.
 `,
-`/* Case 2. We use the "bind" method to assert the context. */
+      `/* Case 2. We use the "bind" method to assert the context. */
 class Pilot {
   name: string;
   isRegistered: boolean;
@@ -7057,7 +7355,7 @@ const AlexRecheck = Alex.checkInfo.bind(Alex);
 console.log(AlexRecheck()); // Alex is registered.
 
 console.log(Alex.pilotInfo().name); // Alex`,
-`/* Case 3. Context inheritance in subclasses. */
+      `/* Case 3. Context inheritance in subclasses. */
 class MilitaryPilot extends Pilot {
   static callsign: string;
   planeType: string;
@@ -7080,7 +7378,7 @@ console.log(Tom.checkMilitaryInfo()); // { registration: 'Tom is registered.', p
 
 const John: Pilot | MilitaryPilot = new MilitaryPilot("John", true, "F-35");
 console.log(John.isMilitary()); // true`,
-`/* Case 4. We use the arrow function to assert the context. */
+      `/* Case 4. We use the arrow function to assert the context. */
 class Trooper {
   callsign: string;
 
@@ -7095,9 +7393,11 @@ class Trooper {
 
 const Datsik = new Trooper("Datsik");
 console.log(Datsik.logCallsign()); // Datsik is a trooper.`,
-]},
-{title: {en: `Abstract classes in TypeScript`, ua: `Абстрактні класи у TypeScript`}, body: {en: `Classes, methods, and fields in TypeScript may be abstract. An abstract method or abstract field is one that hasn’t had an implementation provided. These methods must exist inside an abstract class, which cannot be directly instantiated. The role of abstract classes is to serve as a base class for subclasses which do implement all the abstract members. When a class doesn’t have any abstract members, it is said to be concrete.`, ua: `Класи, методи та поля в TypeScript можуть бути абстрактними. Абстрактний метод або абстрактне поле — це те, яке не має реалізації. Ці методи повинні існувати всередині абстрактного класу, екземпляр якого неможливо створити безпосередньо. Роль абстрактних класів полягає в тому, щоб служити базовим класом для підкласів, які реалізують усі абстрактні члени. Якщо клас не має абстрактних членів, він називається конкретним.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#abstract-classes-and-members`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#abstract-classes-and-members`}, type: ['typescript', 'OOP'], data:
-`interface IEngine {
+    ]
+  },
+  {
+    title: { en: `Abstract classes in TypeScript`, ua: `Абстрактні класи у TypeScript` }, body: { en: `Classes, methods, and fields in TypeScript may be abstract. An abstract method or abstract field is one that hasn’t had an implementation provided. These methods must exist inside an abstract class, which cannot be directly instantiated. The role of abstract classes is to serve as a base class for subclasses which do implement all the abstract members. When a class doesn’t have any abstract members, it is said to be concrete.`, ua: `Класи, методи та поля в TypeScript можуть бути абстрактними. Абстрактний метод або абстрактне поле — це те, яке не має реалізації. Ці методи повинні існувати всередині абстрактного класу, екземпляр якого неможливо створити безпосередньо. Роль абстрактних класів полягає в тому, щоб служити базовим класом для підкласів, які реалізують усі абстрактні члени. Якщо клас не має абстрактних членів, він називається конкретним.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/2/classes.html#abstract-classes-and-members`, ua: `https://www.typescriptlang.org/docs/handbook/2/classes.html#abstract-classes-and-members` }, type: ['typescript', 'OOP'], data:
+      `interface IEngine {
   model: string;
   capacity: number;
   startEngine: (time: Date) => string;
@@ -7128,8 +7428,9 @@ const vehicle = new Vehicle();
 console.log(vehicle.startEngine(new Date("2023-11-01T12:33:53"))); // Engine started at Wed Nov 01 2023 12:33:53 GMT+0200...
 console.log(vehicle.stopEngine(new Date("2023-11-01T12:50:12"))); // Engine stoped at Wed Nov 01 2023 12:50:12 GMT+0200...
 `},
-{title: {en: `An interesting task for practicing classes, implementations and understanding queues and stacks`, ua: `Цікава задачка для практикування класів, імплемінтацій та розуміння черг та стеків`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP', 'task'], data: [
-`interface Queue<T> {
+  {
+    title: { en: `An interesting task for practicing classes, implementations and understanding queues and stacks`, ua: `Цікава задачка для практикування класів, імплемінтацій та розуміння черг та стеків` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'OOP', 'task'], data: [
+      `interface Queue<T> {
   enqueue(item: T): void; // enqueue
   dequeue(): T | undefined; // dequeue
   peek(): T | undefined | null; // see first element
@@ -7182,7 +7483,7 @@ class ArrayQueue<T> implements Queue<T> {
     return this.queue.length;
   }
 }`,
-`// A stack is another data structure. The easiest way to imagine it is as a stack of sheets on a table.
+      `// A stack is another data structure. The easiest way to imagine it is as a stack of sheets on a table.
 // The last one you put on top is the first one you take.
 // A little more detail can be found on Wikipedia or on other sites by searching “Stack data structure”
 // The Stack class contains other methods, so you don't need to implement anything
@@ -7250,7 +7551,7 @@ class Stack<T> {
     return this.stack[this.length() - 1];
   }
 }`,
-`// For tests
+      `// For tests
 const arrTest1 = new ArrayQueue<number>();
 arrTest1.enqueue(5);
 arrTest1.enqueue(10);
@@ -7277,9 +7578,11 @@ stackTest2.push("20");
 stackTest2.push("50");
 console.log(stackTest2.top()); // 50
 console.log(stackTest2.pop()); // 50
-console.log(stackTest2.length()); // 1`]},
-{title: {en: `Implementation with Generics in TypeScript`, ua: `Реалізація за допомогою Generics у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
-`interface IQueue<T> {
+console.log(stackTest2.length()); // 1`]
+  },
+  {
+    title: { en: `Implementation with Generics in TypeScript`, ua: `Реалізація за допомогою Generics у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'OOP'], data:
+      `interface IQueue<T> {
   enqueue(item: T): void;
   dequeue(): T | undefined;
 }
@@ -7304,8 +7607,9 @@ const queue = new Queue();
 
 queue.enqueue(1);
 console.log(queue.dequeue());`},
-{title: {en: `Synchronous queries in Node.js on MySQL`, ua: `Синхронні запити у Node.js на MySQL`}, body: {en: ``, ua: ``}, link: {en: `https://www.npmjs.com/package/mysql2`, ua: `https://www.npmjs.com/package/mysql2`}, type: ['Node.js', 'MySQL'], data:
-`const mysql = require('mysql2/promise') // npm i mysql2
+  {
+    title: { en: `Synchronous queries in Node.js on MySQL`, ua: `Синхронні запити у Node.js на MySQL` }, body: { en: ``, ua: `` }, link: { en: `https://www.npmjs.com/package/mysql2`, ua: `https://www.npmjs.com/package/mysql2` }, type: ['Node.js', 'MySQL'], data:
+      `const mysql = require('mysql2/promise') // npm i mysql2
 
 const db ={
     host: '127.0.0.1',
@@ -7343,8 +7647,9 @@ async function updateUser() {
 }
 
 updateUser()`},
-{title: {en: `Modules in Node.js`, ua: `Модулі у Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data: [
-`// ROOT index.js
+  {
+    title: { en: `Modules in Node.js`, ua: `Модулі у Node.js` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'Node.js', data: [
+      `// ROOT index.js
 
 /* Case 1. Module with object */
 const config = require('./config');
@@ -7364,23 +7669,23 @@ console.log(hash(5)) // efznp
 
 /* Case 5. Module from npm. */
 const mysql = require('mysql') // npm i mysql`,
-`// ./config
+      `// ./config
 module.exports = {
     protocol: 'https',
     port: 3001,
 }`,
-`// ./userArray
+      `// ./userArray
 module.exports = [
     'Alex',
     'Tom',
     'John',
     'Anna'
 ]`,
-`// ./connect
+      `// ./connect
 module.exports = function(url) {
     return \`\${url}/main\`
 }`,
-`// ./folder/index
+      `// ./folder/index
 const config = require('./config')
 
 module.exports = function(length) {
@@ -7393,11 +7698,13 @@ module.exports = function(length) {
 
     return out
 }`,
-`// ./folder/config
+      `// ./folder/config
 module.exports = [1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','p','q','r','s','t','u','v','x','y','z','w']`,
-]},
-{title: {en: `lazy loading in React`, ua: `lazy loading у React`}, body: {en: `lazy lets you defer loading component’s code until it is rendered for the first time.`, ua: `lazy дозволяє відкласти завантаження коду компонента, поки він не буде відображено вперше.`}, link: {en: `https://react.dev/reference/react/lazy`, ua: `https://react.dev/reference/react/lazy`}, type: 'React', data: [
-`import { useState, Suspense, lazy } from "react";
+    ]
+  },
+  {
+    title: { en: `lazy loading in React`, ua: `lazy loading у React` }, body: { en: `lazy lets you defer loading component’s code until it is rendered for the first time.`, ua: `lazy дозволяє відкласти завантаження коду компонента, поки він не буде відображено вперше.` }, link: { en: `https://react.dev/reference/react/lazy`, ua: `https://react.dev/reference/react/lazy` }, type: 'React', data: [
+      `import { useState, Suspense, lazy } from "react";
 
 const Demo = lazy(() => import("./Demo"));
 
@@ -7419,7 +7726,7 @@ export default function App() {
     </>
   );
 }`,
-`import { useState, useEffect } from "react";
+      `import { useState, useEffect } from "react";
 
 function Demo() {
   return (
@@ -7460,9 +7767,11 @@ function Demo() {
 }
 
 export default Demo;`,
-]},
-{title: {en: `Basic example of Decorators' work`, ua: `Базовий приклад Декораторів`}, body: {en: `Decorators are a declarative programming tool. They allow you to easily and elegantly add metadata to classes and class members. Based on this metadata, you can extend or change the behavior of classes and class members without changing the code base to which the decorator is applied.`, ua: `Декоратори – інструмент декларативного програмування. З їх допомогою можна легко та елегантно додати до класів та членів класу метадані. На основі цих метаданих можна розширювати або змінювати поведінки класів та членів класу, не змінюючи при цьому кодову базу, до якої застосовано декоратор.`}, link: {en: `#`, ua: `#`}, type: ['OOP'], data:
-`const myCar = {
+    ]
+  },
+  {
+    title: { en: `Basic example of Decorators' work`, ua: `Базовий приклад Декораторів` }, body: { en: `Decorators are a declarative programming tool. They allow you to easily and elegantly add metadata to classes and class members. Based on this metadata, you can extend or change the behavior of classes and class members without changing the code base to which the decorator is applied.`, ua: `Декоратори – інструмент декларативного програмування. З їх допомогою можна легко та елегантно додати до класів та членів класу метадані. На основі цих метаданих можна розширювати або змінювати поведінки класів та членів класу, не змінюючи при цьому кодову базу, до якої застосовано декоратор.` }, link: { en: `#`, ua: `#` }, type: ['OOP'], data:
+      `const myCar = {
   fuel: "50%",
   isOpen: true,
   freeSeats: 3,
@@ -7490,8 +7799,9 @@ addFuel(closeCar(myCar)).hasOpened();
   add fuel
   100%
 */`},
-{title: {en: `Decorators in TypeScript`, ua: `Декоратори у TypeScript`}, body: {en: `Decorators provide a way to add both annotations and a meta-programming syntax for class declarations and subclasses.`, ua: `Декоратори надають можливість додавати як анотації, так і синтаксис метапрограмування для оголошень класів і підкласів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/decorators.html#introduction`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#introduction`}, type: ['typescript', 'OOP'], data:
-`interface IUser {
+  {
+    title: { en: `Decorators in TypeScript`, ua: `Декоратори у TypeScript` }, body: { en: `Decorators provide a way to add both annotations and a meta-programming syntax for class declarations and subclasses.`, ua: `Декоратори надають можливість додавати як анотації, так і синтаксис метапрограмування для оголошень класів і підкласів.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/decorators.html#introduction`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#introduction` }, type: ['typescript', 'OOP'], data:
+      `interface IUser {
   name: string;
   id: number;
   bio: string;
@@ -7521,8 +7831,9 @@ function makeAdmin<T extends { new (...args: any[]): {} }>(
 const alex = new User();
 
 console.log(alex.returnRole()); // admin`},
-{title: {en: `Composition of Decorators and Decorator Factory in TypeScript`, ua: `Композиція Декораторів та Фабрика Декораторів у TypeScript`}, body: {en: `If we want to customize how a decorator is applied to a declaration, we can write a decorator factory. A Decorator Factory is simply a function that returns the expression that will be called by the decorator at runtime. If we want to set current nesting of decorators, we can use Composition of Decorators. A Composition of Decorators is order of Decorators initialization.`, ua: `Якщо ми хочемо налаштувати спосіб застосування декоратора до декларації, ми можемо написати фабрику декораторів. Фабрика декораторів — це просто функція, яка повертає вираз, викликаний декоратором під час виконання. Якщо ми хочемо встановити поточну вкладеність декораторів, ми можемо використати Композицію декораторів. Композиція декораторів — це порядок ініціалізації декораторів.`}, link: {en: `https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-factories`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-factories`}, type: ['typescript', 'OOP'], data:
-`interface IPost {
+  {
+    title: { en: `Composition of Decorators and Decorator Factory in TypeScript`, ua: `Композиція Декораторів та Фабрика Декораторів у TypeScript` }, body: { en: `If we want to customize how a decorator is applied to a declaration, we can write a decorator factory. A Decorator Factory is simply a function that returns the expression that will be called by the decorator at runtime. If we want to set current nesting of decorators, we can use Composition of Decorators. A Composition of Decorators is order of Decorators initialization.`, ua: `Якщо ми хочемо налаштувати спосіб застосування декоратора до декларації, ми можемо написати фабрику декораторів. Фабрика декораторів — це просто функція, яка повертає вираз, викликаний декоратором під час виконання. Якщо ми хочемо встановити поточну вкладеність декораторів, ми можемо використати Композицію декораторів. Композиція декораторів — це порядок ініціалізації декораторів.` }, link: { en: `https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-factories`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#decorator-factories` }, type: ['typescript', 'OOP'], data:
+      `interface IPost {
   id: number;
   title: string;
   description: string;
@@ -7571,8 +7882,9 @@ const cookingPost = new Post();
 
 console.log(cookingPost.rating); // high
 console.log(cookingPost.extra); // Check full receipt on my channel!`},
-{title: {en: `Decorators for class methods and working with "this" in TypeScript`, ua: `Декоратори для методів класу та робота з "this" у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators`}, type: ['typescript', 'OOP'], data:
-`interface IChore {
+  {
+    title: { en: `Decorators for class methods and working with "this" in TypeScript`, ua: `Декоратори для методів класу та робота з "this" у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators`, ua: `https://www.typescriptlang.org/docs/handbook/decorators.html#method-decorators` }, type: ['typescript', 'OOP'], data:
+      `interface IChore {
   id: number;
   title: string;
   isCompleted: boolean;
@@ -7628,8 +7940,9 @@ console.log(
 console.log(
   chore.setCompleted() // setCompleted started
 ); // true`},
-{title: {en: `Handling the problem of slow client Internet when requesting to the server`, ua: `Обробка проблеми повільного інтернету клієнта під час запиту на сервер`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React', 'request'], data:
-`import { useState, useRef } from "react";
+  {
+    title: { en: `Handling the problem of slow client Internet when requesting to the server`, ua: `Обробка проблеми повільного інтернету клієнта під час запиту на сервер` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'React', 'request'], data:
+      `import { useState, useRef } from "react";
 
 type Status = "idle" | "loading" | "delayed" | "success" | "canceled" | "error";
 
@@ -7691,8 +8004,9 @@ function Demo() {
 }
 
 export default Demo;`},
-{title: {en: `Property Decorators in TypeScript`, ua: `Декоратори властивостей у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
-`interface IMessage {
+  {
+    title: { en: `Property Decorators in TypeScript`, ua: `Декоратори властивостей у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'OOP'], data:
+      `interface IMessage {
   message: string;
 }
 
@@ -7718,8 +8032,9 @@ function validateMessage(limit: number) {
 
 const message = new Message();
 console.log(message); // Message { message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.' }`},
-{title: {en: `Accessors Decorators (get/set) in TypeScript`, ua: `Декоратори аксесорів (get/set) у TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
-`interface IBankAccount {
+  {
+    title: { en: `Accessors Decorators (get/set) in TypeScript`, ua: `Декоратори аксесорів (get/set) у TypeScript` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'OOP'], data:
+      `interface IBankAccount {
   _balance: number;
 }
 
@@ -7768,8 +8083,9 @@ alexBankAccount.balance = 300;
 alexBankAccount.balance = 500;
 // Somebody got their balance.
 console.log(alexBankAccount.balance); // 800`},
-{title: {en: `A complete example of using Decorators in TypeScript below version 5`, ua: `Повний приклад використання Декораторів у TypeScript нижче 5-ої версії`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
-`import "reflect-metadata"
+  {
+    title: { en: `A complete example of using Decorators in TypeScript below version 5`, ua: `Повний приклад використання Декораторів у TypeScript нижче 5-ої версії` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'OOP'], data:
+      `import "reflect-metadata"
 
 const limitMetadataKey = Symbol('limit')
 
@@ -7955,8 +8271,9 @@ console.log(car.weight)
 car.startTravel(4) // Started with 4 passengers
 
 // car.startTravel(6) // Error! Free seats limit is 4`},
-{title: {en: `Task: Implement the built-in ReturnType<T> generic without using it`, ua: `Завдання: реалізувати вбудований загальний ReturnType<T> без його використання`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`type MyReturnType<T extends Function> = 
+  {
+    title: { en: `Task: Implement the built-in ReturnType<T> generic without using it`, ua: `Завдання: реалізувати вбудований загальний ReturnType<T> без його використання` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `type MyReturnType<T extends Function> = 
   T extends (...args: any) => infer R
     ? R
     : never;
@@ -7967,28 +8284,35 @@ const fn = (v: boolean) => {
 };
 
 type FnType = MyReturnType<typeof fn>; // type FnType = 1 | 2`},
-{title: {en: `React's 6 Main Hooks Explained`, ua: `Пояснення 6 головних хуків у Реакті`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'React', data: 
-[react_hook_explain_1, react_hook_explain_2, react_hook_explain_3, react_hook_explain_4, react_hook_explain_5]},
-{title: {en: `MySQL cheet sheet`, ua: `Підсказник MySQL`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'MySQL', data:
-[sql_cheet_sheet_1, sql_cheet_sheet_2, sql_cheet_sheet_3, sql_cheet_sheet_4, sql_cheet_sheet_5, sql_cheet_sheet_6, sql_cheet_sheet_7]},
-{title: {en: `Bug fix in JSON.stringify`, ua: `Фікс багу у JSON.stringify`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'request', data:
-`JSON.stringify({ data: undefined, req: 1 }, (key, value) => {
+  {
+    title: { en: `React's 6 Main Hooks Explained`, ua: `Пояснення 6 головних хуків у Реакті` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'React', data:
+      [react_hook_explain_1, react_hook_explain_2, react_hook_explain_3, react_hook_explain_4, react_hook_explain_5]
+  },
+  {
+    title: { en: `MySQL cheet sheet`, ua: `Підсказник MySQL` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'MySQL', data:
+      [sql_cheet_sheet_1, sql_cheet_sheet_2, sql_cheet_sheet_3, sql_cheet_sheet_4, sql_cheet_sheet_5, sql_cheet_sheet_6, sql_cheet_sheet_7]
+  },
+  {
+    title: { en: `Bug fix in JSON.stringify`, ua: `Фікс багу у JSON.stringify` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'request', data:
+      `JSON.stringify({ data: undefined, req: 1 }, (key, value) => {
   if (value === undefined) {
     return undefined;
   }
   return value;
 });`},
-{title: {en: `Intersting task of definding array element type`, ua: `Цікава задачка на знаходження типу елемента массиву`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data:
-`const array = [1, 2, 3];
+  {
+    title: { en: `Intersting task of definding array element type`, ua: `Цікава задачка на знаходження типу елемента массиву` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'task'], data:
+      `const array = [1, 2, 3];
 const message = "Hello!";
 
 type ArrayElementType<T> = T extends (infer E)[] ? E : never;
 
 type ArrayElement = ArrayElementType<typeof array>; // type ArrayElement = number
 type NotArrayElement = ArrayElementType<typeof message>; // type NotArrayElement = never`},
-{title: {en: `Redux Life Cycle`, ua: `Життєвий Цикл Редаксу`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['React'], data: redux_life_cycle},
-{title: {en: `Correct way for class methods extendings`, ua: `Коректний спосіб наслідування методів класів`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'OOP', data:
-`class Animal {
+  { title: { en: `Redux Life Cycle`, ua: `Життєвий Цикл Редаксу` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['React'], data: redux_life_cycle },
+  {
+    title: { en: `Correct way for class methods extendings`, ua: `Коректний спосіб наслідування методів класів` }, body: { en: ``, ua: `` }, link: { en: ``, ua: `` }, type: 'OOP', data:
+      `class Animal {
   walk = () => {
     console.log("walk");
   };
@@ -8003,9 +8327,10 @@ class Cat extends Animal {
 }
 
 new Cat().silentWalk();`},
-{title: {en: `Decorator Evaluation`, ua: `Життєвий Цикл Декораторів`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['typescript', 'OOP'], data: decorator_evaluation},
-{title: {en: `An interesting task for using Decorators. In time, it needs an outdated version. Namely, versions lower than 5`, ua: `Цікава задачка на використовування Декораторів. На часі вона потребує застарілої версії. А саме версії, що нижче за 5`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'OOP'], data:
-`import "reflect-metadata"; // npm i reflect-metadata
+  { title: { en: `Decorator Evaluation`, ua: `Життєвий Цикл Декораторів` }, body: { en: ``, ua: `` }, link: { en: ``, ua: `` }, type: ['typescript', 'OOP'], data: decorator_evaluation },
+  {
+    title: { en: `An interesting task for using Decorators. In time, it needs an outdated version. Namely, versions lower than 5`, ua: `Цікава задачка на використовування Декораторів. На часі вона потребує застарілої версії. А саме версії, що нижче за 5` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'OOP'], data:
+      `import "reflect-metadata"; // npm i reflect-metadata
 
 interface ICuboid {
   width: number;
@@ -8159,8 +8484,9 @@ function validate(target: Object, propertyKey: string, value: any) {
     );
   }
 }`},
-{title: {en: `Custom useHttp() hook`, ua: `Зроблений власноруч хук useHttp()`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
-`import {useState, useCallback} from 'react'
+  {
+    title: { en: `Custom useHttp() hook`, ua: `Зроблений власноруч хук useHttp()` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'React'], data:
+      `import {useState, useCallback} from 'react'
 
 type LoadingStatusTypes = 'idle' | 'loading' | 'error'
 
@@ -8211,8 +8537,9 @@ export const useHttp = () => {
         request
     }
 }`},
-{title: {en: `TypeScript Nullable Type`, ua: `TypeScript Nullable Type`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`type UserForm = {
+  {
+    title: { en: `TypeScript Nullable Type`, ua: `TypeScript Nullable Type` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `type UserForm = {
   name: Nullable<string>;
   age: number;
   email: string
@@ -8225,8 +8552,9 @@ const user: UserForm = {
   age: 21,
   email: 'bob@example.com'
 }`},
-{title: {en: `Turning a string to an object using infer from TypeScript`, ua: `Робимо об'єкт зі строки використовуючи infer з TypeScript`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`type InferValueFromColor<Color extends string> = 
+  {
+    title: { en: `Turning a string to an object using infer from TypeScript`, ua: `Робимо об'єкт зі строки використовуючи infer з TypeScript` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `type InferValueFromColor<Color extends string> = 
   Color extends \`\${infer N}-\${infer C}-\${infer T}\`
     ? {
       namespace: N;
@@ -8244,8 +8572,9 @@ type Green = {
   tone: "300";
 }
 */`},
-{title: {en: `Clean Code way to write a functions`, ua: `Гарний спосіб написання правильної логіки у функціях`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: 'all', data:
-`function composeData() {
+  {
+    title: { en: `Clean Code way to write a functions`, ua: `Гарний спосіб написання правильної логіки у функціях` }, body: { en: ``, ua: `` }, link: { en: ``, ua: `` }, type: 'all', data:
+      `function composeData() {
   const { data } = myService.get()
 
   if (!data) return
@@ -8255,8 +8584,9 @@ type Green = {
     .filter(d => d < 10)
 }
 `},
-{title: {en: `React.ReactNode vs JSX.Element`, ua: `React.ReactNode vs JSX.Element`}, body: {en: `React.ReactNode: Anything a React component can render. JSX, string, null, undefined, number. JSX.Element: Just represents JSX.`, ua: `React.ReactNode: Все, що може відрендети React елемент. JSX, string, null, undefined, number. JSX.Element: Лише репрезентує JSX.`}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
-`import React, {JSX} from "react"
+  {
+    title: { en: `React.ReactNode vs JSX.Element`, ua: `React.ReactNode vs JSX.Element` }, body: { en: `React.ReactNode: Anything a React component can render. JSX, string, null, undefined, number. JSX.Element: Just represents JSX.`, ua: `React.ReactNode: Все, що може відрендети React елемент. JSX, string, null, undefined, number. JSX.Element: Лише репрезентує JSX.` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'React'], data:
+      `import React, {JSX} from "react"
 
 // Represents anything a React component can render.
 const ReactNodeExample: React.ReactNode[] = [
@@ -8273,8 +8603,9 @@ const JSXElementExample: JSX.Element[] = [
   // 123, // Error! Type 'number' is not assignable to type 'Element'.
   // null // Error! Type 'undefined' is not assignable to type 'Element'.
 ]`},
-{title: {en: `Keyword "using" for mocking something in tests`, ua: `Ключове слово "using" для моку чогось при тестувані`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:
-`const mockMessage = () => {
+  {
+    title: { en: `Keyword "using" for mocking something in tests`, ua: `Ключове слово "using" для моку чогось при тестувані` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'React'], data:
+      `const mockMessage = () => {
   const myMock = "message"
 
   return {
@@ -8289,8 +8620,9 @@ it("Should log to the console", () => {
   using mock = mockMessage()
   console.log(mock.value)
 })`},
-{title: {en: `Task with scope manipulation`, ua: `Задачка з маніпуляцією scope`}, body: {en: `Task: Create a function, that will increase a count above previous value. But we can't set any variable in global scope. Only in inc() function.`, ua: `Завдання: Створити функцію, що буде збільшувати значення лічильника спираючись на попередній рахунок. Проте ми не маємо використвовувати глобальний scope. Лише scope функції inc().`}, link: {en: `#`, ua: `#`}, type: 'task', data:
-`let inc = (function() {
+  {
+    title: { en: `Task with scope manipulation`, ua: `Задачка з маніпуляцією scope` }, body: { en: `Task: Create a function, that will increase a count above previous value. But we can't set any variable in global scope. Only in inc() function.`, ua: `Завдання: Створити функцію, що буде збільшувати значення лічильника спираючись на попередній рахунок. Проте ми не маємо використвовувати глобальний scope. Лише scope функції inc().` }, link: { en: `#`, ua: `#` }, type: 'task', data:
+      `let inc = (function() {
   let counter = 0
   return function() {
       counter + 1
@@ -8300,15 +8632,17 @@ it("Should log to the console", () => {
 inc() // 1
 inc() // 2
 `},
-{title: {en: `ParseInt function on type level`, ua: `Функція ParseInt на рівні типів`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data:
-`type ParseInt<T extends string> =
+  {
+    title: { en: `ParseInt function on type level`, ua: `Функція ParseInt на рівні типів` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'task'], data:
+      `type ParseInt<T extends string> =
 T extends \`\${infer Int extends number}\` ? Int : never
 
 type SomeNum = ParseInt<"123"> // type SomeNum = 123
 
 type SomeString = ParseInt<"abc"> // type SomeString = never`},
-{title: {en: `New SWITCH CASE syntax`, ua: `Новий синтаксис SWITCH CASE`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`class Demo {
+  {
+    title: { en: `New SWITCH CASE syntax`, ua: `Новий синтаксис SWITCH CASE` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `class Demo {
   prop: number = 3000
 }
 
@@ -8333,8 +8667,9 @@ unknownParser('Hello World!') // Type of prop is string
 unknownParser([2, 4, 5]) // Type of prop is array
 unknownParser(new Demo()) // Prop is instance of Demo class
 unknownParser(null) // Prop does not belong to any desired type`},
-{title: {en: `Write wrapper for promise cancellation`, ua: `Write wrapper для скасування promise`}, body: {en: `Once promise is "cancelled" all .then are bypassed and .catch is triggered with event.isCancelled === true. If promise is generated by fetch request, should cancel request itself`, ua: `Після «скасування обіцянки» всі .then обходяться, а .catch запускається з event.isCancelled === true. Якщо обіцянка генерується запитом на вибірку, слід скасувати сам запит`}, link: {en: `#`, ua: `#`}, type: ['task', 'request'], data:
-`function makeCancellable(handler) {
+  {
+    title: { en: `Write wrapper for promise cancellation`, ua: `Write wrapper для скасування promise` }, body: { en: `Once promise is "cancelled" all .then are bypassed and .catch is triggered with event.isCancelled === true. If promise is generated by fetch request, should cancel request itself`, ua: `Після «скасування обіцянки» всі .then обходяться, а .catch запускається з event.isCancelled === true. Якщо обіцянка генерується запитом на вибірку, слід скасувати сам запит` }, link: { en: `#`, ua: `#` }, type: ['task', 'request'], data:
+      `function makeCancellable(handler) {
   const start = (id, opts = null) => {
     return handler(id);
   };
@@ -8360,8 +8695,9 @@ function fetchUser(id, opts) {
 const { start, abort } = makeCancellable(fetchUser);
 start(1).then(console.log);
 abort();`},
-{title: {en: `Correct way to set built-in HTML attributes in React`, ua: `Правильний шлях для встановлення вбудованих HTML атрибутів у React`}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['typescript', 'React'], data:
-`import React from "react";
+  {
+    title: { en: `Correct way to set built-in HTML attributes in React`, ua: `Правильний шлях для встановлення вбудованих HTML атрибутів у React` }, body: { en: ``, ua: `` }, link: { en: ``, ua: `` }, type: ['typescript', 'React'], data:
+      `import React from "react";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -8375,8 +8711,9 @@ function Demo(props: CardProps) {
 }
 
 export default Demo;`},
-{title: {en: `Custom useWindowWidth() hook`, ua: `Зроблений власноруч хук useWindowWidth()`}, body: {en: `This hook helps to find the width of the user's screen in real-time using the useState() and useEffect() hooks. And also use the window object to receive data from the user.`, ua: `Цей хук допомагає шукати широту екрану користувача в реальному часі за допомогою хуків useState() та useEffect(). А також використовувати об'єкт window для отримання даних від користувача.`}, link: {en: `#`, ua: `#`}, type: 'React', data: [
-`import {useState, useEffect} from "react";
+  {
+    title: { en: `Custom useWindowWidth() hook`, ua: `Зроблений власноруч хук useWindowWidth()` }, body: { en: `This hook helps to find the width of the user's screen in real-time using the useState() and useEffect() hooks. And also use the window object to receive data from the user.`, ua: `Цей хук допомагає шукати широту екрану користувача в реальному часі за допомогою хуків useState() та useEffect(). А також використовувати об'єкт window для отримання даних від користувача.` }, link: { en: `#`, ua: `#` }, type: 'React', data: [
+      `import {useState, useEffect} from "react";
 
 const useWindowWidth = () => {
   const [
@@ -8400,7 +8737,7 @@ const useWindowWidth = () => {
 }
 
 export default useWindowWidth`,
-`import useWindowsWidth from "./useWindowWidth";
+      `import useWindowsWidth from "./useWindowWidth";
 
 function Demo() {
   const windowWidth = useWindowsWidth()
@@ -8412,9 +8749,11 @@ function Demo() {
 }
 
 export default Demo;`
-]},
-{title: {en: `Correct way to typing props using Generic Types`, ua: `Правильний шлях для типізації пропсів використовуючи Generic Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'React'], data:[
-`import { useState } from 'react';
+    ]
+  },
+  {
+    title: { en: `Correct way to typing props using Generic Types`, ua: `Правильний шлях для типізації пропсів використовуючи Generic Types` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'React'], data: [
+      `import { useState } from 'react';
 import List from './List'
 
 type User = {
@@ -8439,7 +8778,7 @@ function App() {
 }
 
 export default App;`,
-`type ListProps<T> = {
+      `type ListProps<T> = {
   data: T[];
   renderItem: (item: T) => JSX.Element
 }
@@ -8456,9 +8795,11 @@ function List<T>({
 }
 
 export default List;`
-]},
-{title: {en: `"react-virtualized" library`, ua: `Бібліотека "react-virtualized"`}, body: {en: `"react-virtualized" library helps to render data in real-time. It only renders the content that appears on the screen at the moment.`, ua: `Ця бібліотека допомагає відображати дані в реальному часі за домогою технології рендеру лише того контенту, що з'являється на екрані у даний момент.`}, link: {en: `https://www.npmjs.com/package/react-virtualized`, ua: `https://www.npmjs.com/package/react-virtualized`}, type: ['typescript', 'React'], data: [
-`import Demo from "./Demo";
+    ]
+  },
+  {
+    title: { en: `"react-virtualized" library`, ua: `Бібліотека "react-virtualized"` }, body: { en: `"react-virtualized" library helps to render data in real-time. It only renders the content that appears on the screen at the moment.`, ua: `Ця бібліотека допомагає відображати дані в реальному часі за домогою технології рендеру лише того контенту, що з'являється на екрані у даний момент.` }, link: { en: `https://www.npmjs.com/package/react-virtualized`, ua: `https://www.npmjs.com/package/react-virtualized` }, type: ['typescript', 'React'], data: [
+      `import Demo from "./Demo";
 
 import { IContentItem } from "./models/models"; 
 
@@ -8490,7 +8831,7 @@ function App() {
 
 export default App;
 `,
-`import { List } from "react-virtualized";
+      `import { List } from "react-virtualized";
 
 import { IDemoProps, IRowRendererProps } from "./models/models";
 
@@ -8519,9 +8860,11 @@ export default function Demo({ content }: IDemoProps) {
     </>
   )
 }`
-]},
-{title: {en: `Task on imitating SQL Select`, ua: `Задачка на імітацію функцію SQL Select`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['function', 'request', 'task'], data:
-`const data = [
+    ]
+  },
+  {
+    title: { en: `Task on imitating SQL Select`, ua: `Задачка на імітацію функцію SQL Select` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['function', 'request', 'task'], data:
+      `const data = [
   { id: 1, name: "John", surname: "Doe", age: 34 },
   { id: 2, name: "John", surname: "Doe", age: 35 },
   { id: 3, name: "John", surname: "Doe", age: 33 },
@@ -8577,8 +8920,9 @@ const idsDoe = query(
 )(data).map((u) => u.id);
 
 console.log(idsDoe);`},
-{title: {en: `String to JSON converter`, ua: `Конвертор строки до JSON`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'request'], data:
-`interface IWordItem {
+  {
+    title: { en: `String to JSON converter`, ua: `Конвертор строки до JSON` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'request'], data:
+      `interface IWordItem {
   foreignWord: string,
   nativeWord: string
 }
@@ -8617,8 +8961,9 @@ console.log(
       { foreignWord: 'impressed', nativeWord: 'вражений' }
   ]
 */`},
-{title: {en: `Object filter`, ua: `Фільтер об'єктів`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
-`const data = [
+  {
+    title: { en: `Object filter`, ua: `Фільтер об'єктів` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'task', data:
+      `const data = [
   { id: 1, name: "Alex", surname: "Hirsch", age: 28 },
   { id: 2, name: "John", surname: "Doe", age: 34 },
   { id: 3, name: "Ben", surname: "Stiller", age: 54 },
@@ -8664,8 +9009,9 @@ console.log(
     {age: 44}
   )
 ) // Array []`},
-{title: {en: `All about useMemo()`, ua: `Все про useMemo()`}, body: {en: `useMemo is a React Hook that lets you cache the result of a calculation between re-renders.`, ua: `useMemo - це хук React, який дозволяє кешувати результат розрахунку між повторними візуалізаціями.`}, link: {en: `https://react.dev/reference/react/useMemo`, ua: `https://react.dev/reference/react/useMemo`}, type: 'React', data:
-`import { useState, useMemo } from "react"
+  {
+    title: { en: `All about useMemo()`, ua: `Все про useMemo()` }, body: { en: `useMemo is a React Hook that lets you cache the result of a calculation between re-renders.`, ua: `useMemo - це хук React, який дозволяє кешувати результат розрахунку між повторними візуалізаціями.` }, link: { en: `https://react.dev/reference/react/useMemo`, ua: `https://react.dev/reference/react/useMemo` }, type: 'React', data:
+      `import { useState, useMemo } from "react"
 
 import { IDemoProps } from "./models/models"
 
@@ -8689,9 +9035,10 @@ export default function Demo({items}: IDemoProps) {
     </>
   )
 }`},
-{title: {en: `Full-Screen Slider`, ua: `Повноекранний слайдер`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'markup', data: [
-fullScreenSlider,
-`<section class="container">
+  {
+    title: { en: `Full-Screen Slider`, ua: `Повноекранний слайдер` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'markup', data: [
+      fullScreenSlider,
+      `<section class="container">
 <div class="slide red">Slide 1</div>
 <div class="slide green">Slide 2</div>
 <div class="slide blue">Slide 3</div>
@@ -8699,7 +9046,7 @@ fullScreenSlider,
 <div class="slide orange">Slide 5</div>
 </section>
 `,
-`* {
+      `* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8723,15 +9070,17 @@ fullScreenSlider,
   scroll-snap-align: center;
   scroll-snap-stop: always;
 }`
-]},
-{title: {en: `Responsible Autolayout Form`, ua: `Форма адаптивного макету`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'markup', data: [
-responsibleAutolayoutForm,
-`<form class="form">
+    ]
+  },
+  {
+    title: { en: `Responsible Autolayout Form`, ua: `Форма адаптивного макету` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'markup', data: [
+      responsibleAutolayoutForm,
+      `<form class="form">
 <input type="email" class="input">
 <input type="password" class="input">
 <button type="submit">Submit</button>
 </form>`,
-`body {
+      `body {
   font-size: 15px;
 }
 
@@ -8748,16 +9097,18 @@ responsibleAutolayoutForm,
 button {
   flex: 1 0 4rem;
 }`
-]},
-{title: {en: `Smooth Hide Animation`, ua: `Анімація згладжування`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'markup', data: [
-smoothHideAnimation,
-`<button class="handler">Show/Hide</button>
+    ]
+  },
+  {
+    title: { en: `Smooth Hide Animation`, ua: `Анімація згладжування` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'markup', data: [
+      smoothHideAnimation,
+      `<button class="handler">Show/Hide</button>
 <div class="collapse">
   <div class="text">
     JavaScript is a lightweight interpreted programming language with first-class functions.
   </div>
 </div>`,
-`.collapse {
+      `.collapse {
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
@@ -8775,15 +9126,17 @@ smoothHideAnimation,
 * {
   font-size: 25px;
 }`,
-`const button = document.querySelector(".handler")
+      `const button = document.querySelector(".handler")
 const collapse = document.querySelector("div.collapse")
 
 button.addEventListener("click", () => {
   collapse.classList.toggle("open")
 })`
-]},
-{title: {en: `Bubble Sort Algorithm`, ua: `Алгоритм Bubble Sort`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'task', data:
-`function bubbleSort(array) {
+    ]
+  },
+  {
+    title: { en: `Bubble Sort Algorithm`, ua: `Алгоритм Bubble Sort` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'task', data:
+      `function bubbleSort(array) {
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (array[j] > array[j + 1]) {
@@ -8803,8 +9156,9 @@ console.log(
     ]
   )
 ) // [1, 1, 2, 4, 6, 7]`},
-{title: {en: `Reseting components state with key prop`, ua: `Відновлення стану компонентів за допомогою ключа`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['React', 'typescript'], data: [
-`import { useEffect, useState } from 'react'
+  {
+    title: { en: `Reseting components state with key prop`, ua: `Відновлення стану компонентів за допомогою ключа` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['React', 'typescript'], data: [
+      `import { useEffect, useState } from 'react'
 
 export default function Page({}) {
     const [user, setUser] = useState("Tom")
@@ -8822,14 +9176,14 @@ export default function Page({}) {
         </div>
     )
 }`,
-`type UserProps = {
+      `type UserProps = {
   user: string
 }
 
 function Profile({ user }: UserProps) {
   return <UserProfile user={user} key={user} />
 }`,
-`function UserProfile({ user }: UserProps) {
+      `function UserProfile({ user }: UserProps) {
   const [commentInput, setCommentInput] = useState("")
 
   useEffect(() => {
@@ -8847,9 +9201,11 @@ function Profile({ user }: UserProps) {
       </div>
   )
 }`,
-]},
-{title: {en: `Filtering undefined in Union Types`, ua: `Фільтрація на undefined у Union Types`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: ['typescript', 'task'], data:
-`type ExternalLib =
+    ]
+  },
+  {
+    title: { en: `Filtering undefined in Union Types`, ua: `Фільтрація на undefined у Union Types` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: ['typescript', 'task'], data:
+      `type ExternalLib =
 string 
 | number
 | null
@@ -8865,8 +9221,9 @@ const wallet: Wallet = {
 // code: undefined, // Type 'undefined' is not assignable to type 'string | number | null'.
 code: null
 }`},
-{title: {en: `New type narrowing that observes types among nested closures`, ua: `Нове type narrowing, що спостерігає типи у вкладених замиканнях`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`const getDefaultName = () => "Basic Development"
+  {
+    title: { en: `New type narrowing that observes types among nested closures`, ua: `Нове type narrowing, що спостерігає типи у вкладених замиканнях` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `const getDefaultName = () => "Basic Development"
 
 function composeCertificateTitle(certificateName?: string) {
     if (!certificateName) {
@@ -8883,8 +9240,9 @@ function composeCertificateTitle(certificateName?: string) {
 const certificate = composeCertificateTitle("Markup")
 certificate('Independent')
 `},
-{title: {en: `NoInfer Utility Type`, ua: `Утилітарний тип NoInfer`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`function getAccessMatrix<
+  {
+    title: { en: `NoInfer Utility Type`, ua: `Утилітарний тип NoInfer` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `function getAccessMatrix<
   T extends string
 > (
   a: T[], 
@@ -8895,8 +9253,9 @@ certificate('Independent')
 
 getAccessMatrix(['admin', 'user'], "admin")
 // getAccessMatrix(['admin', 'user'], "customer") // Error! Argument of type '"customer"' is not assignable to parameter of type '"admin" | "user"'.`},
-{title: {en: `groupBy method for Object and Map`, ua: `Методо groupBy для Об'єктів та Map`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'typescript', data:
-`const users = [
+  {
+    title: { en: `groupBy method for Object and Map`, ua: `Методо groupBy для Об'єктів та Map` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'typescript', data:
+      `const users = [
   { name: "Tom", role: "Admin" },
   { name: "Alex", role: "User" },
   { name: "John", role: "User" },
@@ -8917,8 +9276,9 @@ console.log(resObj);
 const resMap = Map.groupBy(users, (user, index) => {
   return user.role;
 }); // Correct!`},
-{title: {en: `RTK. How to create your fully typed Redux-Slice`, ua: `RTK. Як створити повністю типований Redux-Slice`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course/tree/ff14fed2cc4d5b42214e782ecadeb68b61740a6b`, ua: `https://github.com/xlaoru/selfmade-rtk-course/tree/ff14fed2cc4d5b42214e782ecadeb68b61740a6b`}, type: ['React', 'typescript'], data: [
-`import { createSlice } from "@reduxjs/toolkit";
+  {
+    title: { en: `RTK. How to create your fully typed Redux-Slice`, ua: `RTK. Як створити повністю типований Redux-Slice` }, body: { en: ``, ua: `` }, link: { en: `https://github.com/xlaoru/selfmade-rtk-course/tree/ff14fed2cc4d5b42214e782ecadeb68b61740a6b`, ua: `https://github.com/xlaoru/selfmade-rtk-course/tree/ff14fed2cc4d5b42214e782ecadeb68b61740a6b` }, type: ['React', 'typescript'], data: [
+      `import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from ".";
 
 export interface ITodo {
@@ -8958,7 +9318,7 @@ export const { addTodo, toggleComplete, removeTodo } = TodoSlice.actions; // Exp
 export const selectTodos = (state: RootState) => state.todos.todos; // Exporting your state
 
 export default TodoSlice.reducer; // Exporting your reducer`,
-`import { configureStore } from "@reduxjs/toolkit";
+      `import { configureStore } from "@reduxjs/toolkit";
 
 import TodoReducer from "./TodoSlice";
 
@@ -8970,7 +9330,7 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;`,
-`/* How to use your data */
+      `/* How to use your data */
 import { useSelector } from "react-redux";
 
 import { selectTodos, ITodo } from "./store/TodoSlice";
@@ -8989,7 +9349,7 @@ const TodoList = () => {
 };
 
 export default TodoList;`,
-`/* How to use your reducers */
+      `/* How to use your reducers */
 import { useDispatch } from "react-redux";
 
 import { toggleComplete, removeTodo } from "./store/TodoSlice";
@@ -9014,9 +9374,11 @@ const TodoItem = ({ id, title, completed }: ITodoItemProps) => {
 };
 
 export default TodoItem;`,
-]},
-{title: {en: `RTK. How to create your fully typed Asynchronous Redux-Slice with data fetching`, ua: `RTK. Як створити повністю типований асинхронний Redux-Slice з отриманням даних`}, body: {en: ``, ua: ``}, link: {en: `https://github.com/xlaoru/selfmade-rtk-course/tree/c3bb7cd3a668e971a2884973a587627914ff90d7`, ua: `https://github.com/xlaoru/selfmade-rtk-course/tree/c3bb7cd3a668e971a2884973a587627914ff90d7`}, type: ['React', 'typescript'], data: [
-`import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+    ]
+  },
+  {
+    title: { en: `RTK. How to create your fully typed Asynchronous Redux-Slice with data fetching`, ua: `RTK. Як створити повністю типований асинхронний Redux-Slice з отриманням даних` }, body: { en: ``, ua: `` }, link: { en: `https://github.com/xlaoru/selfmade-rtk-course/tree/c3bb7cd3a668e971a2884973a587627914ff90d7`, ua: `https://github.com/xlaoru/selfmade-rtk-course/tree/c3bb7cd3a668e971a2884973a587627914ff90d7` }, type: ['React', 'typescript'], data: [
+      `import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from ".";
 
 export interface ITodo {
@@ -9092,7 +9454,7 @@ export const { addTodo, toggleComplete, removeTodo } = TodoSlice.actions; // Exp
 export const selectTodos = (state: RootState) => state.todos.todos; // Exporting your state
 
 export default TodoSlice.reducer; // Exporting your reducer`,
-`import { configureStore } from "@reduxjs/toolkit";
+      `import { configureStore } from "@reduxjs/toolkit";
 
 import TodoReducer from "./TodoSlice";
 
@@ -9104,7 +9466,7 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;`,
-`/* How to fetch your data */
+      `/* How to fetch your data */
 import { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -9133,7 +9495,7 @@ const TodoList = () => {
 };
 
 export default TodoList;`,
-`/* How to use your reducers */
+      `/* How to use your reducers */
 import { useDispatch } from "react-redux";
 
 import { toggleComplete, removeTodo } from "./store/TodoSlice";
@@ -9158,9 +9520,11 @@ const TodoItem = ({ id, title, completed }: ITodoItemProps) => {
 };
 
 export default TodoItem;`,
-]},
-{title: {en: `How to create LogIn functionality using Node.js`, ua: `Як створити функцію логіну за допомогою Node.js`}, body: {en: ``, ua: ``}, link: {en: `#`, ua: `#`}, type: 'Node.js', data: [
-`const http = require("http");
+    ]
+  },
+  {
+    title: { en: `How to create LogIn functionality using Node.js`, ua: `Як створити функцію логіну за допомогою Node.js` }, body: { en: ``, ua: `` }, link: { en: `#`, ua: `#` }, type: 'Node.js', data: [
+      `const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const url = require("url");
@@ -9311,7 +9675,7 @@ http
     }
   })
   .listen(3500);`,
-` /* Mini Data Base */
+      ` /* Mini Data Base */
 module.exports = {
   "9c05b0d586377d5c" : {
       "name" : "matador",
@@ -9322,10 +9686,12 @@ module.exports = {
       "pass" : "bcheats"
   }
 };`,
-]},
-{title: {en: ``, ua: ``}, body: {en: ``, ua: ``}, link: {en: ``, ua: ``}, type: ['markup', 'React'], data: [
-logInOrSignUpForm,
-`import { useRef, useState } from "react";
+    ]
+  },
+  {
+    title: { en: `Advanced form on React + TypeScript`, ua: `Просутунта форма для вводу даних на Реакті + TypeScript` }, body: { en: `This Form is made on React and TypesScript where there is an extended authorization option from phone number to email.`, ua: `Ця Форма зроблена на Реакті і TypesScript де є розширена можливість авторизації від номеру телефону до е-пошти.` }, link: { en: ``, ua: `` }, type: ['markup', 'React'], data: [
+      logInOrSignUpForm,
+      `import { useRef, useState } from "react";
 
 type Props = {};
 
@@ -9391,7 +9757,7 @@ export default function Form({}: Props) {
         </div>
     );
 }`,
-`button {
+      `button {
   cursor: pointer;
 }
 
@@ -9520,7 +9886,8 @@ form .terms {
 form .terms a {
   color: #797979;
 }`
-]},
+    ]
+  },
 ]
 
 // ! Performance testing
